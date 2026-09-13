@@ -16,14 +16,9 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-from pydantic import BaseModel
-
 from backend.models.extraction import (
-    ArmRecord,
-    EligibilityCriterionRecord,
     ExtractedField,
     Extraction,
-    GovernanceDateRecord,
     Provenance,
     ValueOrigin,
 )
@@ -44,9 +39,12 @@ from backend.models.review import (
 )
 from backend.pipeline.extract import load_extraction
 from backend.pipeline.identifiers.names import NameRegistry, criterion_name
-from backend.pipeline.review.validation import sheet_rows, validate_review
+from backend.pipeline.review.validation import validate_review
 from backend.pipeline.terminology.ct import CtResolver
-from backend.pipeline.workbook.layout import SHEETS, SheetKind, SheetSpec
+from backend.pipeline.workbook.cells import resolve_cell
+from backend.pipeline.workbook.formats import FORMAT_HINTS
+from backend.pipeline.workbook.layout import ELIGIBILITY, SHEETS, SheetKind, SheetSpec
+from backend.pipeline.workbook.sources import empty_record, ensure_rows, sheet_rows
 from backend.storage.fs import write_model
 
 REVIEWED_FILE = "reviewed.json"
@@ -54,13 +52,6 @@ AUDIT_FILE = "review_audit.jsonl"
 ARCHIVE_DIR = "review_archive"
 LOCAL_ACTOR = "local-user"  # single-user local app; no authentication (Phase 0 decision)
 
-_ROW_CLASSES: dict[str, type[BaseModel]] = {
-    "dates": GovernanceDateRecord,
-    "study_design_arms": ArmRecord,
-    "eligibility_criteria": EligibilityCriterionRecord,
-}
-_ROW_PREFIX = {"dates": "date", "study_design_arms": "arm", "eligibility_criteria": "crit"}
-_PLACEHOLDER_NAME = {"dates": "NEW_DATE", "study_design_arms": "New arm"}
 _locks: defaultdict[str, threading.Lock] = defaultdict(threading.Lock)
 
 
@@ -97,7 +88,9 @@ def layouts() -> list[SheetLayoutOut]:
             workbook_sheet=spec.workbook_sheet,
             title=spec.title,
             kind=spec.kind.value,
+            source=spec.source,
             first_row=spec.first_row,
+            leading_group=spec.leading_group,
             columns=[
                 ColumnOut(
                     letter=letter,
@@ -107,6 +100,16 @@ def layouts() -> list[SheetLayoutOut]:
                     multiline=c.multiline,
                     ct_klass=c.ct.klass if c.ct else None,
                     ct_attribute=c.ct.attribute if c.ct else None,
+                    multi=c.multi,
+                    other_allowed=c.other_allowed,
+                    format=c.format.value if c.format else None,
+                    format_hint=FORMAT_HINTS[c.format] if c.format else None,
+                    choices=list(c.choices),
+                    group=c.group,
+                    entity=c.entity,
+                    ref=list(c.ref),
+                    ref_literals=list(c.ref_literals),
+                    bc=c.bc,
                 )
                 for letter, c in zip(spec.letters(), spec.columns, strict=True)
             ],
@@ -147,16 +150,22 @@ class ReviewService:
             updated_at=now,
             sheets=extraction.sheets.model_copy(deep=True),
         )
-        for key in _ROW_CLASSES:
-            for row in sheet_rows(doc.sheets, SHEETS[key]):
-                row.row_id = self._next_row_id(doc, key)
+        for spec in SHEETS.values():
+            if spec.kind == SheetKind.TABLE:
+                for row in sheet_rows(doc.sheets, spec):
+                    row.row_id = self._next_row_id(doc, spec)
         return doc
 
     @staticmethod
-    def _next_row_id(doc: ReviewDocument, sheet: str) -> str:
-        row_id = f"{_ROW_PREFIX[sheet]}-{doc.next_row_seq}"
-        doc.next_row_seq += 1
-        return row_id
+    def _next_row_id(doc: ReviewDocument, spec: SheetSpec) -> str:
+        seq = doc.row_seqs.get(spec.row_prefix, doc.next_row_seq)
+        doc.row_seqs[spec.row_prefix] = seq + 1
+        return f"{spec.row_prefix}-{seq}"
+
+    def document(self) -> ReviewDocument | None:
+        """The review document if a review has been started, without creating one."""
+        with self._lock:
+            return self._load()
 
     def open(self) -> ReviewDocument:
         """The review document, created from the extraction on first open."""
@@ -172,7 +181,7 @@ class ReviewService:
         extraction = load_extraction(self.run_dir)
         return ReviewState(
             document=doc,
-            validation=validate_review(doc.sheets, self.confidence_threshold),
+            validation=validate_review(doc.sheets, self.confidence_threshold, self.resolver),
             stale=extraction is not None
             and extraction.generated_at != doc.base_extraction_generated_at,
             confidence_threshold=self.confidence_threshold,
@@ -230,7 +239,7 @@ class ReviewService:
     def confirm(self, base_revision: int) -> ReviewDocument:
         with self._lock:
             doc = self._require(base_revision)
-            validation = validate_review(doc.sheets, self.confidence_threshold)
+            validation = validate_review(doc.sheets, self.confidence_threshold, self.resolver)
             if validation.blocking:
                 raise ReviewBlockedError(validation)
             doc.revision += 1
@@ -285,23 +294,19 @@ class ReviewService:
     def _rows(self, doc: ReviewDocument, spec: SheetSpec, create: bool = False) -> list[Any]:
         if spec.kind == SheetKind.KEY_VALUE:
             raise ReviewOperationError(f"{spec.workbook_sheet} has no rows to add, delete or move")
-        if spec.source == "study.governance_dates":
-            if doc.sheets.study is None:
-                raise ReviewOperationError("there is no study record to hold dates")
-            return doc.sheets.study.governance_dates
-        rows = getattr(doc.sheets, spec.source)
+        if not create:
+            return sheet_rows(doc.sheets, spec)
+        rows = ensure_rows(doc.sheets, spec)
         if rows is None:
-            if not create:
-                raise ReviewOperationError(f"{spec.workbook_sheet} has no rows")
-            rows = []
-            setattr(doc.sheets, spec.source, rows)
-        return rows  # type: ignore[no-any-return]
+            raise ReviewOperationError(f"there is no record to hold {spec.title.lower()} rows")
+        return rows
 
     def _row(self, doc: ReviewDocument, spec: SheetSpec, row_id: str | None) -> tuple[Any, int]:
         if spec.kind == SheetKind.KEY_VALUE:
-            if doc.sheets.study is None:
-                raise ReviewOperationError("there is no study record")
-            return doc.sheets.study, 0
+            records = sheet_rows(doc.sheets, spec)
+            if not records:
+                raise ReviewOperationError(f"there is no {spec.title.lower()} record")
+            return records[0], 0
         rows = self._rows(doc, spec)
         for index, row in enumerate(rows):
             if row.row_id == row_id:
@@ -340,6 +345,12 @@ class ReviewService:
         if column.ct is None:
             if op.code is not None:
                 raise ReviewOperationError(f"{column.header} is not a terminology field")
+            if column.bc and value is not None:
+                terminology = resolve_cell(column, value, self.resolver)
+        elif op.code is not None and (column.multi or column.other_allowed):
+            raise ReviewOperationError(
+                f"{column.header} is resolved from its text; send the terms, not a code"
+            )
         elif op.code is not None:
             terminology = self.resolver.by_code(op.code, column.ct)
             if terminology is None:
@@ -348,7 +359,7 @@ class ReviewService:
                 )
             value = value or terminology.preferred_term
         elif value is not None:
-            terminology = self.resolver.resolve(value, column.ct)
+            terminology = resolve_cell(column, value, self.resolver)
         new_code = terminology.code if terminology else None
 
         if value == old.value and new_code == old_code:
@@ -415,35 +426,23 @@ class ReviewService:
         if op.after_row_id is not None:
             _, after = self._row(doc, spec, op.after_row_id)
             index = after + 1
-        record_class = _ROW_CLASSES[spec.key]
-        fields: dict[str, ExtractedField[str]] = {
-            name: ExtractedField() for name in record_class.model_fields if name != "row_id"
-        }
-        record = record_class(row_id=self._next_row_id(doc, spec.key), **fields)
-
-        # A placeholder name keeps the reference graph valid; reviewers rename as needed.
-        taken = {
-            existing.name.value.casefold()
-            for sheet_spec in SHEETS.values()
-            for existing in sheet_rows(doc.sheets, sheet_spec)
-            if existing.name.value
-        }
-        if spec.key == "eligibility_criteria":
-            n = 1
-            while criterion_name(None, n).casefold() in taken:
-                n += 1
-            placeholder = criterion_name(None, n)
-        else:
-            names = NameRegistry()
-            for name in taken:
-                names.claim(name)
-            placeholder = names.claim(_PLACEHOLDER_NAME[spec.key])
-        record.name = ExtractedField(  # type: ignore[attr-defined]
-            value=placeholder,
-            provenance=Provenance(
-                origin=ValueOrigin.DERIVED, confidence=1.0, verified=True, note="placeholder name"
-            ),
-        )
+        record: Any = empty_record(spec, row_id=self._next_row_id(doc, spec))
+        placeholder = self._placeholder(doc, spec)
+        if placeholder is not None:
+            field, name = placeholder
+            setattr(
+                record,
+                field,
+                ExtractedField(
+                    value=name,
+                    provenance=Provenance(
+                        origin=ValueOrigin.DERIVED,
+                        confidence=1.0,
+                        verified=True,
+                        note="placeholder name",
+                    ),
+                ),
+            )
         rows.insert(index, record)
         return self._entry(
             doc,
@@ -451,9 +450,39 @@ class ReviewService:
             sheet=spec.key,
             workbook_sheet=spec.workbook_sheet,
             cell=f"{spec.workbook_sheet}!{spec.row_number(index)}:{spec.row_number(index)}",
-            row_id=record.row_id,  # type: ignore[attr-defined]
-            new_value=placeholder,
+            row_id=record.row_id,
+            new_value=placeholder[1] if placeholder else None,
         )
+
+    @staticmethod
+    def _placeholder(doc: ReviewDocument, spec: SheetSpec) -> tuple[str, str] | None:
+        """A unique placeholder for a new row's name, keeping the reference graph valid.
+
+        Two-level sheets get none: a new row there continues the entry above until the reviewer
+        starts a new one.
+        """
+        column = next((c for c in spec.columns if c.entity and not c.group and c.field), None)
+        if column is None or column.field is None or column.entity is None:
+            return None
+        kind = column.entity
+        taken = {
+            getattr(existing, c.field).value
+            for sheet_spec in SHEETS.values()
+            for c in sheet_spec.columns
+            if c.entity == kind and c.field
+            for existing in sheet_rows(doc.sheets, sheet_spec)
+            if getattr(existing, c.field).value
+        }
+        if spec.key == ELIGIBILITY.key:
+            n = 1
+            while criterion_name(None, n) in taken:
+                n += 1
+            return column.field, criterion_name(None, n)
+        names = NameRegistry()
+        for name in taken:
+            names.claim(name)
+        singular = spec.title.lower().removesuffix("s")
+        return column.field, names.claim(f"New {singular}")
 
     def _delete_row(self, doc: ReviewDocument, spec: SheetSpec, op: DeleteRow) -> AuditEntry:
         rows = self._rows(doc, spec)

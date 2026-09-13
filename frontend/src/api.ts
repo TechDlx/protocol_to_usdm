@@ -8,10 +8,13 @@ import type {
   ReviewState,
   RunDetail,
   SectionMapping,
+  SheetLayout,
   SourceDocument,
   StudyCreate,
   StudySummary,
   TerminologyResolution,
+  UsdmResult,
+  WorkbookReport,
 } from "./types";
 
 export class ApiError extends Error {
@@ -41,7 +44,8 @@ function detailMessage(body: unknown, fallback: string): string {
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(path, init);
+  // API data changes underneath open pages (runs, reviews); never answer from the browser cache.
+  const res = await fetch(path, { cache: "no-store", ...init });
   const body: unknown = await res.json().catch(() => null);
   if (!res.ok) throw new ApiError(res.status, detailMessage(body, `${res.status} ${res.statusText}`));
   return body as T;
@@ -111,9 +115,37 @@ export const api = {
   sourceHighlightUrl: (slug: string, runId: string, page: number, quote: string | null) =>
     `${runUrl(slug, runId)}/source-highlight?page=${page}${quote ? `&quote=${encodeURIComponent(quote.slice(0, 1500))}` : ""}`,
 
+  generateWorkbook: (slug: string, runId: string, force: boolean) =>
+    request<WorkbookReport>(`${runUrl(slug, runId)}/workbook?force=${force}`, { method: "POST" }),
+
+  getWorkbookReport: (slug: string, runId: string) => request<WorkbookReport>(`${runUrl(slug, runId)}/workbook`),
+
+  workbookDownloadUrl: (slug: string, runId: string) => `${runUrl(slug, runId)}/workbook/download`,
+
+  // Stage C runs in the background; poll the run for its "usdm" stage.
+  generateUsdm: (slug: string, runId: string, force: boolean) =>
+    request<RunDetail>(`${runUrl(slug, runId)}/usdm?force=${force}`, { method: "POST" }),
+
+  getUsdm: (slug: string, runId: string) => request<UsdmResult>(`${runUrl(slug, runId)}/usdm`),
+
+  usdmDownloadUrl: (slug: string, runId: string) => `${runUrl(slug, runId)}/usdm/download`,
+
+  usdmReportDownloadUrl: (slug: string, runId: string) => `${runUrl(slug, runId)}/usdm/report/download`,
+
+  getLayouts: () => request<SheetLayout[]>("/api/workbook/layouts"),
+
   getCodelist: (klass: string, attribute: string, q: string) =>
     request<Codelist>(
       `/api/terminology/codelist?klass=${encodeURIComponent(klass)}&attribute=${encodeURIComponent(attribute)}&q=${encodeURIComponent(q)}`,
+    ),
+
+  getBiomedicalConcepts: (q: string) =>
+    request<Codelist>(`/api/terminology/biomedical-concepts?q=${encodeURIComponent(q)}`),
+
+  resolveBiomedicalConcept: (phrase: string) =>
+    request<TerminologyResolution | null>(
+      "/api/terminology/resolve-biomedical-concept",
+      postJson({ klass: "", attribute: "", phrase }),
     ),
 
   resolveTerm: (klass: string, attribute: string, phrase: string) =>

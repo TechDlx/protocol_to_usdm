@@ -2,14 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { api } from "../api";
-import type {
-  AgentRun,
-  Extraction,
-  ExtractedField,
-  ReferenceValidation,
-  RunDetail,
-  SheetRecord,
-} from "../types";
+import type { AgentRun, Extraction, ExtractedField, ReferenceValidation, RunDetail, SheetLayout } from "../types";
+import { cellRef, fieldOf, groupActive, sheetRows } from "./review/cells";
 
 interface ProvenanceEntry {
   sheet: string;
@@ -25,42 +19,6 @@ interface Props {
   run: RunDetail;
   onStarted: (run: RunDetail) => void;
 }
-
-type SheetKey = "study" | "study_design_arms" | "eligibility_criteria";
-
-const SHEETS: { key: SheetKey; label: string; columns: string[] }[] = [
-  {
-    key: "study",
-    label: "study",
-    columns: [
-      "name",
-      "label",
-      "acronym",
-      "sponsor_protocol_identifier",
-      "official_title",
-      "brief_title",
-      "public_title",
-      "scientific_title",
-      "study_version",
-      "protocol_version",
-      "protocol_status",
-      "rationale",
-      "description",
-    ],
-  },
-  {
-    key: "study_design_arms",
-    label: "studyDesignArms",
-    columns: ["name", "label", "description", "type", "data_origin_description", "data_origin_type"],
-  },
-  {
-    key: "eligibility_criteria",
-    label: "eligibility criteria",
-    columns: ["name", "category", "identifier", "label", "text"],
-  },
-];
-
-const DATE_COLUMNS = ["name", "category", "label", "type", "date", "geographic_scopes"];
 
 function isField(value: unknown): value is ExtractedField {
   return !!value && typeof value === "object" && "value" in value && "provenance" in value;
@@ -78,7 +36,8 @@ export default function ExtractionTab({ slug, runId, run, onStarted }: Props) {
   const [extraction, setExtraction] = useState<Extraction | null>(null);
   const [references, setReferences] = useState<ReferenceValidation | null>(null);
   const [review, setReview] = useState<Map<string, ProvenanceEntry>>(new Map());
-  const [sheet, setSheet] = useState<SheetKey>("study");
+  const [layouts, setLayouts] = useState<SheetLayout[]>([]);
+  const [sheet, setSheet] = useState<string>("study");
   const [selected, setSelected] = useState<{ label: string; field: ExtractedField; entry?: ProvenanceEntry } | null>(
     null,
   );
@@ -93,15 +52,19 @@ export default function ExtractionTab({ slug, runId, run, onStarted }: Props) {
     let cancelled = false;
     (async () => {
       try {
-        const [ex, refs, prov] = await Promise.all([
+        const [ex, refs, prov, lays] = await Promise.all([
           api.getExtraction(slug, runId),
           api.getReferenceValidation(slug, runId),
-          fetch(`/api/studies/${encodeURIComponent(slug)}/runs/${encodeURIComponent(runId)}/provenance`).then(
+          fetch(`/api/studies/${encodeURIComponent(slug)}/runs/${encodeURIComponent(runId)}/provenance`, {
+            cache: "no-store",
+          }).then(
             (r) => r.json() as Promise<ProvenanceEntry[]>,
           ),
+          api.getLayouts(),
         ]);
         if (cancelled) return;
         setExtraction(ex);
+        setLayouts(lays);
         setReferences(refs);
         setReview(new Map(prov.map((e) => [`${e.sheet}|${e.row ?? ""}|${e.field}`, e])));
       } catch (e) {
@@ -171,6 +134,13 @@ export default function ExtractionTab({ slug, runId, run, onStarted }: Props) {
               <span className="cell empty">empty</span>
             </span>
           </div>
+          {(extraction.link_notes ?? []).length > 0 && (
+            <ul className="alert warn small">
+              {extraction.link_notes!.map((n) => (
+                <li key={n}>{n}</li>
+              ))}
+            </ul>
+          )}
           {references && !references.valid && (
             <ul className="alert warn small">
               {references.issues.map((i) => (
@@ -180,9 +150,9 @@ export default function ExtractionTab({ slug, runId, run, onStarted }: Props) {
           )}
 
           <div className="tabs">
-            {SHEETS.map((s) => (
-              <button key={s.key} className={`tab${sheet === s.key ? " active" : ""}`} onClick={() => setSheet(s.key)}>
-                {s.label}
+            {layouts.map((l) => (
+              <button key={l.key} className={`tab${sheet === l.key ? " active" : ""}`} onClick={() => setSheet(l.key)}>
+                {l.title} <span className="mono muted small">{l.workbook_sheet}</span>
               </button>
             ))}
           </div>
@@ -190,7 +160,7 @@ export default function ExtractionTab({ slug, runId, run, onStarted }: Props) {
           <div className="split">
             <div className="split-main scroll-x">
               <SheetView
-                sheetKey={sheet}
+                layout={layouts.find((l) => l.key === sheet)}
                 extraction={extraction}
                 review={review}
                 onSelect={(label, field, entry) => setSelected({ label, field, entry })}
@@ -260,95 +230,81 @@ function AgentTable({ agents, totalCost }: { agents: AgentRun[]; totalCost: numb
 }
 
 function SheetView(props: {
-  sheetKey: SheetKey;
+  layout: SheetLayout | undefined;
   extraction: Extraction;
   review: Map<string, ProvenanceEntry>;
   onSelect: (label: string, field: ExtractedField, entry?: ProvenanceEntry) => void;
 }) {
-  const { sheetKey, extraction, review, onSelect } = props;
-  const spec = SHEETS.find((s) => s.key === sheetKey)!;
-  const data = extraction.sheets[sheetKey];
-  const agent = extraction.agents[sheetKey];
+  const { layout, extraction, review, onSelect } = props;
+  if (!layout) return <p className="muted">Loading sheets…</p>;
+  const rows = sheetRows(extraction.sheets, layout);
+  const agentKey = layout.source.split(".")[0]!;
+  const agent = extraction.agents[agentKey];
 
-  if (!data) {
+  if (rows.length === 0) {
     return (
       <p className="muted">
-        No data for this sheet{agent?.status === "failed" ? ` — the agent failed: ${agent.error}` : " yet"}.
+        No data for this sheet
+        {agent?.status === "failed" ? ` — the agent failed: ${agent.error}` : agent ? " (nothing found in the protocol)" : " yet"}.
       </p>
     );
   }
 
-  const cell = (record: SheetRecord, column: string, row: number | null, prefix = "") => {
-    const field = record[column];
-    if (!isField(field)) return <td key={column} />;
-    const entry = review.get(`${sheetKey}|${row ?? ""}|${prefix}${column}`);
-    const state = cellState(field, entry);
+  const cell = (record: Record<string, unknown>, field: string | null, header: string, row: number | null, index: number) => {
+    if (field === null) return <td key={header} className="cell empty" title="not extracted in this phase" />;
+    const value = fieldOf(record, field);
+    if (!isField(value)) return <td key={header} />;
+    const entry = review.get(`${layout.key}|${row ?? ""}|${field}`);
+    const state = cellState(value, entry);
+    const column = layout.columns.find((c) => c.field === field)!;
     return (
       <td
-        key={column}
+        key={header}
         className={`cell ${state}`}
         title={entry?.review_reasons.join("; ") || undefined}
-        onClick={() => onSelect(`${prefix}${column}`, field, entry)}
+        onClick={() => onSelect(cellRef(layout, column, index), value, entry)}
       >
-        <span className="clamp">{field.value ?? ""}</span>
+        <span className="clamp">{value.value ?? ""}</span>
       </td>
     );
   };
 
-  if (sheetKey === "study") {
-    const record = data as SheetRecord;
-    const dates = (record.governance_dates as SheetRecord[] | undefined) ?? [];
+  if (layout.kind === "key_value") {
+    const record = rows[0]!.record;
     return (
-      <>
-        <table className="grid cells-table">
-          <tbody>
-            {spec.columns.map((column) => (
-              <tr key={column}>
-                <th className="key">{column}</th>
-                {cell(record, column, null)}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <h3 className="gap">Governance dates</h3>
-        {dates.length === 0 ? (
-          <p className="muted small">None extracted.</p>
-        ) : (
-          <table className="grid cells-table">
-            <thead>
-              <tr>
-                {DATE_COLUMNS.map((c) => (
-                  <th key={c}>{c}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {dates.map((d, i) => (
-                <tr key={i}>{DATE_COLUMNS.map((c) => cell(d, c, null, `governance_dates[${i + 1}].`))}</tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-      </>
+      <table className="grid cells-table">
+        <tbody>
+          {layout.columns.map((c) => (
+            <tr key={c.header}>
+              <th className="key">{c.header}</th>
+              {cell(record, c.field, c.header, null, 0)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     );
   }
 
-  const rows = data as SheetRecord[];
   return (
     <table className="grid cells-table">
       <thead>
         <tr>
           <th>#</th>
-          {spec.columns.map((c) => (
-            <th key={c}>{c}</th>
+          {layout.columns.map((c) => (
+            <th key={c.header} className="key">
+              {c.header}
+            </th>
           ))}
         </tr>
       </thead>
       <tbody>
-        {rows.map((record, i) => (
-          <tr key={i}>
-            <td className="muted mono small">{i + 1}</td>
-            {spec.columns.map((c) => cell(record, c, i + 1))}
+        {rows.map(({ record }, i) => (
+          <tr
+            key={i}
+            className={layout.leading_group && i > 0 && groupActive(layout, record, layout.leading_group) ? "group-start" : undefined}
+          >
+            <td className="muted mono small">{layout.first_row + i}</td>
+            {layout.columns.map((c) => cell(record, c.field, c.header, i + 1, i))}
           </tr>
         ))}
       </tbody>

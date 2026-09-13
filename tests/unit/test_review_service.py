@@ -240,6 +240,12 @@ def _make_confirmable(service: ReviewService, revision: int) -> int:
             SetValue(sheet="study", field="description", value="A synthetic trial."),
             SetValue(sheet="study", field="label", value="SYN"),
             SetValue(sheet="study", field="study_version", value="1.0"),
+            SetValue(
+                sheet="organizations", row_id="org-1", field="identifier_scheme", value="DUNS"
+            ),
+            SetValue(sheet="organizations", row_id="org-1", field="identifier", value="123456789"),
+            SetValue(sheet="study_design", field="rationale", value="To test the review."),
+            SetValue(sheet="study_design", field="intervention_model", value="Parallel Study"),
         ],
     )
     return doc.revision
@@ -290,3 +296,23 @@ def test_audit_trail_is_append_only(service: ReviewService) -> None:
     service.apply(1, [SetValue(sheet="study", field="description", value="second")])
     second = (service.run_dir / AUDIT_FILE).read_text(encoding="utf-8")
     assert second.startswith(first) and len(second.splitlines()) == 2
+
+
+def test_reviewer_edits_to_biomedical_concepts_are_resolved(service: ReviewService) -> None:
+    doc = service.open()
+    row = doc.sheets.schedule.rows[0]  # type: ignore[union-attr]
+    service.apply(
+        0,
+        [
+            SetValue(
+                sheet="schedule",
+                row_id=row.row_id,
+                field="biomedical_concepts",
+                value="Heart Rate, Not A Concept",
+            )
+        ],
+    )
+    updated = service.open().sheets.schedule.rows[0].biomedical_concepts  # type: ignore[union-attr]
+    assert updated.terminology is not None and updated.terminology.status.value != "exact"
+    issues = [i for i in service.state().validation.issues if i.field == "biomedical_concepts"]
+    assert issues and all(i.severity.value == "warning" for i in issues)

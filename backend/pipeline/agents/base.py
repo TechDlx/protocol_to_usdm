@@ -7,6 +7,7 @@ terminology resolution, naming — is deterministic code in `to_records`.
 
 import json
 from abc import ABC, abstractmethod
+from pathlib import Path
 from typing import Any, ClassVar
 
 from pydantic import BaseModel
@@ -18,6 +19,8 @@ from backend.models.study import StudyMeta
 from backend.pipeline.agents.common import Cited
 from backend.pipeline.agents.context import AgentContext, build_context, provenance_for
 from backend.pipeline.terminology.ct import CtField, CtResolver
+from backend.pipeline.workbook.cells import resolve_cell
+from backend.pipeline.workbook.layout import ColumnSpec
 
 
 class SheetAgent(ABC):
@@ -39,6 +42,11 @@ class SheetAgent(ABC):
     extra_section_ids: ClassVar[tuple[str, ...]] = ()
     output_model: ClassVar[type[BaseModel]]
     max_tokens: ClassVar[int] = 32000
+    #: True for sheets many protocols simply do not have (amendments, estimands, abbreviations):
+    #: with no relevant section the agent finishes with an empty sheet instead of failing.
+    empty_when_missing: ClassVar[bool] = False
+    #: The empty records such an agent returns.
+    empty_records: ClassVar[Any] = None
 
     def context(self, document: ParsedDocument, mapping: SectionMapping) -> AgentContext:
         return build_context(
@@ -61,6 +69,10 @@ class SheetAgent(ABC):
         self, output: Any, context: AgentContext, resolver: CtResolver, study: StudyMeta
     ) -> tuple[Any, list[str]]:
         """Turn validated model output into intermediate-model records, plus warnings."""
+
+    def images(self, context: AgentContext, run_dir: Path) -> list[bytes]:
+        """Page images the model should see alongside the text (none by default)."""
+        return []
 
     def user_content(self, context: AgentContext, resolver: CtResolver) -> str:
         return (
@@ -93,6 +105,67 @@ class SheetAgent(ABC):
             provenance=provenance_for(cited, context),
             terminology=resolver.resolve(value, ct) if resolver and ct else None,
         )
+
+    @staticmethod
+    def cell(
+        cited: Cited | None, context: AgentContext, resolver: CtResolver, column: ColumnSpec
+    ) -> ExtractedField[str]:
+        """A cited value for a workbook column, resolved the way that column resolves terminology
+        (single term, comma-separated terms, or "Other=<reason>")."""
+        if cited is None or cited.value is None or not cited.value.strip():
+            return ExtractedField()
+        value = cited.value.strip()
+        return ExtractedField(
+            value=value,
+            provenance=provenance_for(cited, context),
+            terminology=resolve_cell(column, value, resolver),
+        )
+
+    @staticmethod
+    def joined(
+        items: list[Cited], context: AgentContext, resolver: CtResolver, column: ColumnSpec
+    ) -> ExtractedField[str]:
+        """Several cited terms as one comma-separated cell. The cell is only as trustworthy as its
+        weakest item: lowest confidence, verified only if every quote was found."""
+        present = [i for i in items if i.value and i.value.strip()]
+        if not present:
+            return ExtractedField()
+        provenances = [provenance_for(i, context) for i in present]
+        values = list(dict.fromkeys(i.value.strip().replace(",", " ") for i in present if i.value))
+        value = ", ".join(values)
+        first = provenances[0]
+        return ExtractedField(
+            value=value,
+            provenance=first.model_copy(
+                update={
+                    "confidence": min(p.confidence for p in provenances),
+                    "verified": all(p.verified for p in provenances),
+                    "raw_phrase": " | ".join(p.raw_phrase or "" for p in provenances),
+                    "note": "one quote per listed term" if len(present) > 1 else first.note,
+                }
+            ),
+            terminology=resolve_cell(column, value, resolver),
+        )
+
+    @staticmethod
+    def reformatted(
+        value: str | None, basis: ExtractedField[str], note: str
+    ) -> ExtractedField[str]:
+        """The basis value rewritten into the workbook's format (a number with its CDISC unit, Y/N),
+        keeping the basis's source and confidence."""
+        if value is None or basis.provenance is None:
+            return ExtractedField()
+        return ExtractedField(
+            value=value,
+            provenance=basis.provenance.model_copy(
+                update={"note": "; ".join(n for n in (basis.provenance.note, note) if n)}
+            ),
+        )
+
+    @staticmethod
+    def blank(fields: object) -> dict[str, Any]:
+        """Empty values for the named fields (the upper-level columns of a continuation row)."""
+        return {name: ExtractedField() for name in fields}  # type: ignore[attr-defined]
 
     @staticmethod
     def judged(value: str | None, basis: ExtractedField[str], note: str) -> ExtractedField[str]:

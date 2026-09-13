@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 
 import type { ReviewOperation, ReviewState, SheetLayout } from "../../types";
 import { cellKey } from "./useReview";
-import { cellRef, cellState, fieldOf, issuesByCell, sheetRows, STATE_LABEL } from "./cells";
+import { cellRef, cellState, fieldOf, groupActive, issuesByCell, sheetRows, STATE_LABEL } from "./cells";
 
 export interface Selection {
   sheet: SheetLayout["key"];
@@ -23,7 +23,7 @@ interface Props {
 export default function SheetGrid({ layout, state, pending, selection, onSelect, onEdit, onRun }: Props) {
   const [editing, setEditing] = useState<Selection | null>(null);
   const issues = issuesByCell(state);
-  const rows = sheetRows(state, layout.key);
+  const rows = sheetRows(state.document.sheets, layout);
 
   const isSelected = (rowId: string | null, field: string) =>
     selection?.sheet === layout.key && selection.rowId === rowId && selection.field === field;
@@ -57,7 +57,8 @@ export default function SheetGrid({ layout, state, pending, selection, onSelect,
         onClick={() => onSelect(here)}
         onDoubleClick={() => {
           onSelect(here);
-          if (!column.ct_klass) setEditing(here);
+          // Terminology, reference and fixed-choice cells are chosen in the side panel.
+          if (!column.ct_klass && column.ref.length === 0 && column.choices.length === 0) setEditing(here);
         }}
       >
         {cellIssues.length > 0 && !queued && <span className={`rv-marker ${blocking ? "blocking" : "warning"}`} aria-hidden />}
@@ -80,7 +81,7 @@ export default function SheetGrid({ layout, state, pending, selection, onSelect,
 
   if (layout.kind === "key_value") {
     const record = rows[0]?.record;
-    if (!record) return <p className="muted">No study record was extracted.</p>;
+    if (!record) return <p className="muted">Nothing was extracted for this sheet.</p>;
     return (
       <div className="rv-grid-wrap">
         <table className="rv-grid">
@@ -137,7 +138,12 @@ export default function SheetGrid({ layout, state, pending, selection, onSelect,
         </thead>
         <tbody>
           {rows.map(({ rowId, record }, index) => (
-            <tr key={rowId}>
+            <tr
+              key={rowId}
+              className={
+                layout.leading_group && index > 0 && groupActive(layout, record, layout.leading_group) ? "group-start" : undefined
+              }
+            >
               <td className="rv-rownum">{layout.first_row + index}</td>
               <td className="rv-actions">
                 <button title="Move up" disabled={index === 0} onClick={() => onRun([{ op: "move_row", sheet: layout.key, row_id: rowId!, to_index: index - 1 }])}>

@@ -28,7 +28,9 @@ class ReviewDocument(BaseModel):
     created_at: datetime
     updated_at: datetime
     confirmed_at: datetime | None = None
-    next_row_seq: int = 1
+    next_row_seq: int = 1  # reviews created before per-sheet numbering continue from here
+    #: Next row number per row-id prefix ("arm" -> 3). Ids are never reused, even after deletes.
+    row_seqs: dict[str, int] = Field(default_factory=dict)
     sheets: ExtractionSheets
 
 
@@ -100,6 +102,8 @@ class IssueKind(StrEnum):
     DUPLICATE_NAME = "duplicate_name"
     MISSING_NAME = "missing_name"
     DANGLING_REFERENCE = "dangling_reference"
+    INVALID_FORMAT = "invalid_format"
+    INVALID_STRUCTURE = "invalid_structure"
     LOW_CONFIDENCE = "low_confidence"
     UNVERIFIED_SOURCE = "unverified_source"
 
@@ -128,6 +132,16 @@ class ColumnOut(BaseModel):
     multiline: bool
     ct_klass: str | None
     ct_attribute: str | None
+    multi: bool = False
+    other_allowed: bool = False
+    format: str | None = None
+    format_hint: str | None = None
+    choices: list[str] = []
+    group: str | None = None
+    entity: str | None = None
+    ref: list[str] = []
+    ref_literals: list[str] = []
+    bc: bool = False
 
 
 class SheetLayoutOut(BaseModel):
@@ -135,7 +149,9 @@ class SheetLayoutOut(BaseModel):
     workbook_sheet: str
     title: str
     kind: str
+    source: str
     first_row: int
+    leading_group: str | None = None
     columns: list[ColumnOut]
 
 

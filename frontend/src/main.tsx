@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 
+import ResultsPage from "./pages/ResultsPage";
 import ReviewPage from "./pages/ReviewPage";
 import RunInspectorPage from "./pages/RunInspectorPage";
 import StudiesPage from "./pages/StudiesPage";
@@ -24,6 +25,7 @@ createRoot(root).render(
           <Route path="/" element={<StudiesPage />} />
           <Route path="/studies/:slug/runs/:runId" element={<RunInspectorPage />} />
           <Route path="/studies/:slug/runs/:runId/review" element={<ReviewPage />} />
+          <Route path="/studies/:slug/runs/:runId/results" element={<ResultsPage />} />
         </Routes>
       </main>
     </BrowserRouter>

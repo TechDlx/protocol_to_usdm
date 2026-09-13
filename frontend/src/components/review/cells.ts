@@ -1,20 +1,64 @@
-import type { ColumnLayout, ExtractedField, ReviewIssue, ReviewState, ReviewSheetKey, SheetLayout, SheetRecord } from "../../types";
+import type {
+  ColumnLayout,
+  ExtractedField,
+  ExtractionSheets,
+  ReviewIssue,
+  ReviewState,
+  SheetLayout,
+  SheetRecord,
+} from "../../types";
 
 export interface SheetRow {
-  rowId: string | null; // null for the study key/value sheet
+  rowId: string | null; // null for key/value sheets
   record: SheetRecord;
 }
 
-/** Records shown on a sheet, mirroring backend/pipeline/review/validation.py `sheet_rows`. */
-export function sheetRows(state: ReviewState, sheet: ReviewSheetKey): SheetRow[] {
-  const s = state.document.sheets;
-  if (sheet === "study") return s.study ? [{ rowId: null, record: s.study }] : [];
-  if (sheet === "dates") {
-    const dates = (s.study?.governance_dates as SheetRecord[] | undefined) ?? [];
-    return dates.map((record) => ({ rowId: String(record.row_id), record }));
+/** Records shown on a sheet, found by the layout's dotted source path (mirrors workbook/sources.py). */
+export function sheetRows(sheets: ExtractionSheets, layout: SheetLayout): SheetRow[] {
+  let obj: unknown = sheets;
+  for (const part of layout.source.split(".")) {
+    if (!obj || typeof obj !== "object") return [];
+    obj = (obj as Record<string, unknown>)[part];
   }
-  const rows = (s[sheet] as SheetRecord[] | null) ?? [];
-  return rows.map((record) => ({ rowId: String(record.row_id), record }));
+  if (obj === null || obj === undefined) return [];
+  if (layout.kind === "key_value") return [{ rowId: null, record: obj as SheetRecord }];
+  return (obj as SheetRecord[]).map((record) => ({ rowId: record.row_id ? String(record.row_id) : null, record }));
+}
+
+export function groupActive(layout: SheetLayout, record: SheetRecord, group: string): boolean {
+  return layout.columns.some((c) => c.group === group && c.field && !isEmpty(fieldOf(record, c.field)));
+}
+
+export function isEmpty(field: ExtractedField | undefined): boolean {
+  return !field || field.value === null || field.value === "";
+}
+
+/**
+ * Names of entities of the given kinds, in sheet order, for reference pickers. When `scope` is given
+ * (e.g. { timeline: "Main Timeline" }), only entities whose record has those field values are listed:
+ * a schedule row can only be scheduled at timepoints of its own timeline.
+ */
+export function entityNames(
+  sheets: ExtractionSheets,
+  layouts: SheetLayout[],
+  kinds: string[],
+  scope: Record<string, string | null> = {},
+): string[] {
+  const names = new Set<string>();
+  for (const layout of layouts) {
+    for (const column of layout.columns) {
+      if (!column.entity || !column.field || !kinds.includes(column.entity)) continue;
+      for (const { record } of sheetRows(sheets, layout)) {
+        if (column.group && !groupActive(layout, record, column.group)) continue;
+        const inScope = Object.entries(scope).every(
+          ([field, wanted]) => !layout.columns.some((c) => c.field === field) || fieldOf(record, field)?.value === wanted,
+        );
+        const value = fieldOf(record, column.field)?.value;
+        if (value && inScope) names.add(value);
+      }
+    }
+  }
+  return [...names];
 }
 
 export function fieldOf(record: SheetRecord, field: string): ExtractedField | undefined {
@@ -42,7 +86,7 @@ export function cellState(
   // Issues describe the last saved value, so an unsaved edit shows as edited until it is saved.
   if (pending) return "edited";
   if (issues.some((i) => i.kind === "missing_required")) return "empty-required";
-  if (issues.some((i) => i.kind === "terminology_not_exact")) return "term";
+  if (issues.some((i) => i.kind === "terminology_not_exact" && i.severity === "blocking")) return "term";
   if (field?.provenance?.origin === "human") return "edited";
   if (issues.some((i) => i.severity === "warning")) return "low";
   if (!field || field.value === null || field.value === "") return "empty";

@@ -166,6 +166,11 @@ export default function StudyCard({ study, onChanged }: Props) {
                 </Link>
                 <span className={`badge ${r.status}`}>{STATUS_LABEL[r.status]}</span>
                 {r.source_filename && <span className="muted small">{r.source_filename}</span>}
+                {(r.status === "completed" || r.status === "generating") && (
+                  <Link className="small" to={`/studies/${study.slug}/runs/${r.run_id}/results`}>
+                    Results
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

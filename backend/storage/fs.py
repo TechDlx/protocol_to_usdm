@@ -3,6 +3,7 @@
 import json
 import os
 import tempfile
+import time
 from pathlib import Path
 
 from pydantic import BaseModel
@@ -19,10 +20,28 @@ def atomic_write_text(path: Path, text: str) -> None:
             fh.write(text)
             fh.flush()
             os.fsync(fh.fileno())
-        os.replace(tmp, path)
+        _replace_with_retry(tmp, path)
     except BaseException:
         Path(tmp).unlink(missing_ok=True)
         raise
+
+
+# On Windows os.replace fails with WinError 5 while any other handle has the target open
+# (a concurrent unlocked reader such as a UI status poll, antivirus, the search indexer).
+# Those holds are brief, so retry with backoff before giving up (~2.5 s total).
+_REPLACE_DELAYS = (0.01, 0.02, 0.05, 0.1, 0.2, 0.3, 0.5, 0.5, 0.8)
+
+
+def _replace_with_retry(src: str, dst: Path) -> None:
+    for delay in _REPLACE_DELAYS:
+        try:
+            os.replace(src, dst)
+            return
+        except PermissionError:
+            if os.name != "nt":
+                raise
+            time.sleep(delay)
+    os.replace(src, dst)
 
 
 def write_model(path: Path, model: BaseModel) -> None:

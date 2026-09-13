@@ -112,4 +112,6 @@ def test_extraction_without_api_key_is_refused(app_and_client, parsed_run: str) 
 def test_agents_endpoint_lists_sheets(app_and_client) -> None:  # type: ignore[no-untyped-def]
     _, client = app_and_client
     sheets = {a["sheet"] for a in client.get("/api/agents").json()}
-    assert sheets == {"study", "study_design_arms", "eligibility_criteria"}
+    from backend.pipeline.agents.registry import AGENTS
+
+    assert sheets == set(AGENTS) and {"study", "estimands", "abbreviations"} <= sheets

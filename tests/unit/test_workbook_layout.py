@@ -60,23 +60,13 @@ def test_required_flags_follow_the_usdm4_model() -> None:
 
 
 def test_every_modelled_field_exists_on_its_record() -> None:
-    from backend.models.extraction import (
-        ArmRecord,
-        EligibilityCriterionRecord,
-        GovernanceDateRecord,
-        StudyRecord,
-    )
+    from backend.pipeline.workbook.sources import record_class
 
-    records = {
-        "study": StudyRecord,
-        "dates": GovernanceDateRecord,
-        "study_design_arms": ArmRecord,
-        "eligibility_criteria": EligibilityCriterionRecord,
-    }
     for key, spec in SHEETS.items():
+        fields = record_class(spec).model_fields
         for column in spec.columns:
             if column.field is not None:
-                assert column.field in records[key].model_fields, f"{key}.{column.field}"
+                assert column.field in fields, f"{key}.{column.field}"
 
 
 def test_terminology_columns_have_codelists() -> None:

@@ -58,7 +58,7 @@ export interface StageState {
 }
 
 export interface RunDetail extends RunState {
-  stages: Partial<Record<"ingest" | "segment" | "extract", StageState>>;
+  stages: Partial<Record<"ingest" | "segment" | "extract" | "workbook" | "usdm", StageState>>;
   agents: Record<string, AgentRun>;
 }
 
@@ -237,15 +237,15 @@ export interface AgentRun {
   warnings: string[];
 }
 
+/** ExtractionSheets: records keyed by agent sheet; layouts' dotted `source` paths find them. */
+export type ExtractionSheets = Record<string, unknown>;
+
 export interface Extraction {
   ct_version: string;
   generated_at: string;
   agents: Record<string, AgentRun>;
-  sheets: {
-    study: SheetRecord | null;
-    study_design_arms: SheetRecord[] | null;
-    eligibility_criteria: SheetRecord[] | null;
-  };
+  sheets: ExtractionSheets;
+  link_notes?: string[];
 }
 
 export interface ReferenceValidation {
@@ -256,7 +256,7 @@ export interface ReferenceValidation {
 
 // ----- review (backend/models/review.py) ------------------------------------------------------
 
-export type ReviewSheetKey = "study" | "dates" | "study_design_arms" | "eligibility_criteria";
+export type ReviewSheetKey = string;
 
 export interface ColumnLayout {
   letter: string;
@@ -266,6 +266,16 @@ export interface ColumnLayout {
   multiline: boolean;
   ct_klass: string | null;
   ct_attribute: string | null;
+  multi: boolean;
+  other_allowed: boolean;
+  format: string | null;
+  format_hint: string | null;
+  choices: string[];
+  group: string | null;
+  entity: string | null;
+  ref: string[];
+  ref_literals: string[];
+  bc: boolean;
 }
 
 export interface SheetLayout {
@@ -273,7 +283,9 @@ export interface SheetLayout {
   workbook_sheet: string;
   title: string;
   kind: "key_value" | "table";
+  source: string;
   first_row: number;
+  leading_group: string | null;
   columns: ColumnLayout[];
 }
 
@@ -283,6 +295,8 @@ export type IssueKind =
   | "duplicate_name"
   | "missing_name"
   | "dangling_reference"
+  | "invalid_format"
+  | "invalid_structure"
   | "low_confidence"
   | "unverified_source";
 
@@ -342,3 +356,90 @@ export interface Codelist {
   extensible: boolean;
   terms: TermCandidate[];
 }
+
+// ----- workbook (backend/pipeline/workbook/stage.py) ------------------------------------------
+
+export interface WorkbookReport {
+  generated_at: string;
+  file: string;
+  sha256: string;
+  size_bytes: number;
+  review_revision: number;
+  review_confirmed_at: string | null;
+  ct_version: string;
+  stale_extraction: boolean;
+  sheets: Record<string, number>;
+  warnings: string[];
+  reused: boolean;
+}
+
+// ----- USDM JSON and validation (backend/pipeline/usdm_gen/stage.py) ---------------------------
+
+export interface ImportIssue {
+  level: string;
+  message: string;
+  location: string;
+}
+
+/** expected: the pipeline or importer does not produce this yet. review: fix the reviewed values. */
+export type FindingKind = "expected" | "review";
+
+export interface RuleFinding {
+  rule_id: string;
+  status: string;
+  level: string;
+  message: string;
+  klass: string;
+  attribute: string;
+  path: string;
+  rule_text: string;
+  kind: FindingKind | null;
+  note: string | null;
+}
+
+export interface RulesSummary {
+  engine: string;
+  rules: number;
+  passed: number;
+  failed: number;
+  exceptions: number;
+  not_implemented: number;
+  findings: number;
+  expected_findings: number;
+}
+
+export interface CoreSummary {
+  ran: boolean;
+  reason: string | null;
+  rules_executed: number;
+  findings: number;
+  execution_errors: number;
+  results: { rule_id: string; description: string; message: string; count: number }[];
+}
+
+export interface UsdmReport {
+  generated_at: string;
+  file: string | null;
+  sha256: string | null;
+  size_bytes: number;
+  usdm_version: string;
+  system: string;
+  workbook_file: string;
+  workbook_sha256: string;
+  review_revision: number;
+  ct_version: string;
+  import_errors: ImportIssue[];
+  import_warnings: ImportIssue[];
+  rules: RulesSummary;
+  findings: RuleFinding[];
+  core: CoreSummary;
+  entities: Record<string, number>;
+  seconds: Record<string, number>;
+  reused: boolean;
+}
+
+export interface UsdmResult {
+  report: UsdmReport;
+  stale: string[];
+}
+

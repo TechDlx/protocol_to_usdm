@@ -9,9 +9,10 @@ backoff; `max_retries` raises its default of 2 so rate limits during concurrent 
 absorbed rather than failing an agent.
 """
 
+import base64
 import logging
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any, Protocol, TypeVar
 
 import anthropic
@@ -64,12 +65,32 @@ class LlmRequest:
     user_content: str
     max_tokens: int = 32000
     effort: str | None = None  # low | medium | high | xhigh | max; None = model default
+    #: PNG page images sent before the text (e.g. schedule-of-activities pages read by vision).
+    images: list[bytes] = field(default_factory=list)
 
 
 class StructuredLlm(Protocol):
     async def extract(
         self, request: LlmRequest, output_model: type[OutT]
     ) -> tuple[OutT, LlmUsage]: ...
+
+
+def _content(request: LlmRequest) -> str | list[dict[str, Any]]:
+    if not request.images:
+        return request.user_content
+    blocks: list[dict[str, Any]] = [
+        {
+            "type": "image",
+            "source": {
+                "type": "base64",
+                "media_type": "image/png",
+                "data": base64.standard_b64encode(image).decode("ascii"),
+            },
+        }
+        for image in request.images
+    ]
+    blocks.append({"type": "text", "text": request.user_content})
+    return blocks
 
 
 class AnthropicLlm:
@@ -81,7 +102,7 @@ class AnthropicLlm:
             "model": request.model,
             "max_tokens": request.max_tokens,
             "system": request.system,
-            "messages": [{"role": "user", "content": request.user_content}],
+            "messages": [{"role": "user", "content": _content(request)}],
             "output_format": output_model,
         }
         if request.effort:

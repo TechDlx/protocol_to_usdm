@@ -15,6 +15,7 @@ stored model output for free.
 """
 
 import asyncio
+import hashlib
 import json
 import logging
 from collections.abc import Callable
@@ -46,9 +47,13 @@ from backend.pipeline.agents.common import (
 )
 from backend.pipeline.agents.context import VERIFICATION_VERSION, input_hash
 from backend.pipeline.agents.registry import AGENTS
+from backend.pipeline.identifiers.concepts import assign_biomedical_concepts, derive_design
+from backend.pipeline.identifiers.linking import link_references
 from backend.pipeline.identifiers.references import validate_references
 from backend.pipeline.llm import LlmOutputError, LlmRequest, StructuredLlm
-from backend.pipeline.terminology.ct import CtResolver
+from backend.pipeline.terminology.ct import CtResolver, get_ct_resolver
+from backend.pipeline.workbook.layout import SHEETS, SheetKind
+from backend.pipeline.workbook.sources import sheet_rows
 from backend.storage.fs import write_json, write_model
 
 log = logging.getLogger(__name__)
@@ -105,11 +110,19 @@ async def _run_agent(
             f"fallback {', '.join(agent.fallback_m11_sections)}"
         )
     if not context.sections:
+        if agent.empty_when_missing:
+            run.status = AgentStatus.DONE
+            run.warnings.append("the protocol has no section for this sheet; it is left empty")
+            on_update(run)
+            result = AgentOutput(run=run, records=agent.empty_records)
+            write_model(out_path, result)
+            return result
         run.status, run.error = AgentStatus.FAILED, "no protocol sections relevant to this sheet"
         on_update(run)
         return AgentOutput(run=run)
 
     user_content = agent.user_content(context, resolver)
+    images = agent.images(context, run_dir)
     run.input_hash = input_hash(
         PROMPT_VERSION,
         agent.sheet,
@@ -120,6 +133,7 @@ async def _run_agent(
         SYSTEM_PROMPT,
         agent.schema_fingerprint(),
         user_content,
+        *(hashlib.sha256(image).hexdigest() for image in images),
     )
     run.postprocess_version = f"{agent.postprocess_version}+verify{VERIFICATION_VERSION}"
     context_warnings = list(run.warnings)
@@ -171,6 +185,7 @@ async def _run_agent(
                     user_content=user_content,
                     max_tokens=agent.max_tokens,
                     effort=config.extraction_effort,
+                    images=images,
                 ),
                 agent.output_model,
             )
@@ -203,57 +218,53 @@ async def _run_agent(
     return result
 
 
-def _flatten(
-    sheet: str, obj: BaseModel, row: int | None, prefix: str, threshold: float
+def _entries(
+    sheet: str, obj: BaseModel, row: int | None, threshold: float
 ) -> list[ProvenanceEntry]:
     entries: list[ProvenanceEntry] = []
     for name in type(obj).model_fields:
         value = getattr(obj, name)
-        path = f"{prefix}{name}"
-        if isinstance(value, ExtractedField):
-            if value.is_empty and value.provenance is None:
-                continue
-            p, t = value.provenance, value.terminology
-            reasons: list[str] = []
-            if p is not None and p.confidence < threshold:
-                reasons.append(f"confidence {p.confidence:.2f} below {threshold:.2f}")
-            if p is not None and not p.verified:
-                reasons.append("source not verified")
-            if t is not None and t.status != TerminologyStatus.EXACT:
-                reasons.append(f"terminology {t.status.value}")
-            entries.append(
-                ProvenanceEntry(
-                    sheet=sheet,
-                    row=row,
-                    field=path,
-                    value=None if value.value is None else str(value.value),
-                    origin=p.origin if p else ValueOrigin.DERIVED,
-                    source_section_id=p.source_section_id if p else None,
-                    source_page=p.source_page if p else None,
-                    raw_phrase=p.raw_phrase if p else None,
-                    confidence=p.confidence if p else 1.0,
-                    verified=p.verified if p else False,
-                    terminology_status=t.status if t else None,
-                    code=t.code if t else None,
-                    needs_review=bool(reasons),
-                    review_reasons=reasons,
-                )
+        if not isinstance(value, ExtractedField):
+            continue  # nested tables (such as governance dates) are sheets of their own
+        if value.is_empty and value.provenance is None:
+            continue
+        p, t = value.provenance, value.terminology
+        reasons: list[str] = []
+        if p is not None and p.confidence < threshold:
+            reasons.append(f"confidence {p.confidence:.2f} below {threshold:.2f}")
+        if p is not None and not p.verified:
+            reasons.append("source not verified")
+        if t is not None and t.status != TerminologyStatus.EXACT:
+            reasons.append(f"terminology {t.status.value}")
+        entries.append(
+            ProvenanceEntry(
+                sheet=sheet,
+                row=row,
+                field=name,
+                value=None if value.value is None else str(value.value),
+                origin=p.origin if p else ValueOrigin.DERIVED,
+                source_section_id=p.source_section_id if p else None,
+                source_page=p.source_page if p else None,
+                raw_phrase=p.raw_phrase if p else None,
+                confidence=p.confidence if p else 1.0,
+                verified=p.verified if p else False,
+                terminology_status=t.status if t else None,
+                code=t.code if t else None,
+                needs_review=bool(reasons),
+                review_reasons=reasons,
             )
-        elif isinstance(value, list):
-            for i, item in enumerate(value, start=1):
-                if isinstance(item, BaseModel):
-                    entries.extend(_flatten(sheet, item, row, f"{path}[{i}].", threshold))
+        )
     return entries
 
 
 def provenance_entries(sheets: ExtractionSheets, threshold: float) -> list[ProvenanceEntry]:
+    """Every value, keyed like the workbook layouts: sheet key, 1-based row (None for key/value
+    sheets) and record field."""
     entries: list[ProvenanceEntry] = []
-    if sheets.study is not None:
-        entries.extend(_flatten("study", sheets.study, None, "", threshold))
-    for i, arm in enumerate(sheets.study_design_arms or [], start=1):
-        entries.extend(_flatten("study_design_arms", arm, i, "", threshold))
-    for i, criterion in enumerate(sheets.eligibility_criteria or [], start=1):
-        entries.extend(_flatten("eligibility_criteria", criterion, i, "", threshold))
+    for spec in SHEETS.values():
+        for i, record in enumerate(sheet_rows(sheets, spec), start=1):
+            row = None if spec.kind == SheetKind.KEY_VALUE else i
+            entries.extend(_entries(spec.key, record, row, threshold))
     return entries
 
 
@@ -322,6 +333,9 @@ def assemble(
         if output.run.status in (AgentStatus.DONE, AgentStatus.SKIPPED):
             records[key] = output.records
     sheets = ExtractionSheets.model_validate(records)
+    link_notes = link_references(sheets)
+    link_notes += assign_biomedical_concepts(sheets, get_ct_resolver())
+    derive_design(sheets)
 
     extraction = Extraction(
         source_sha256=document.source.sha256,
@@ -329,6 +343,7 @@ def assemble(
         generated_at=_now(),
         agents=agents,
         sheets=sheets,
+        link_notes=link_notes,
     )
     write_model(run_dir / EXTRACTION_FILE, extraction)
     entries = provenance_entries(sheets, config.confidence_threshold)

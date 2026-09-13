@@ -171,3 +171,34 @@ def test_literal_unicode_escapes_in_model_output_are_decoded() -> None:
     }
     windows_path = f"C:{bs}users{bs}path"
     assert decode_literal_escapes(windows_path) == windows_path
+
+
+def test_quotes_copied_from_markdown_tables_verify() -> None:
+    table = Table(
+        id="tbl-p0012-1",
+        page=12,
+        bbox=(0, 0, 1, 1),
+        section_id="sec-4.2",
+        caption=None,
+        row_count=1,
+        col_count=2,
+        cells=[["AE", "Adverse Event"]],
+        markdown="| AE | Adverse Event |",
+        merged_cell_count=0,
+        empty_cell_ratio=0.0,
+        group_id="g",
+        soa_score=0,
+        is_soa_candidate=False,
+        needs_vision=False,
+    )
+    text = "\n".join(["[[PAGE 12]]", "Abbreviations", "[[TABLE tbl-p0012-1]]"])
+    section = _section("sec-4.2", text, 12, 12)
+    context = AgentContext(
+        sections=[section], rendered="", used_fallback=False, tables={table.id: table}
+    )
+    cited = Cited(
+        value="Adverse Event", quote="AE | Adverse Event", section_id=table.id, confidence=0.9
+    )
+    p = provenance_for(cited, context)
+    assert p.verified and p.source_page == 12 and p.source_section_id == "sec-4.2"
+    assert p.note is None  # citing the table is citing its section
