@@ -1,0 +1,393 @@
+file: /Users/daveih/Documents/github/usdm_data/source_data/protocols/CDISC_Pilot/CDISC_Pilot_Study.json
+version: 4-0
+is_valid: false
+rules_executed: 205
+rules_skipped: 2
+finding_count: 37
+execution_error_count: 0
+ct_packages_available: 206
+ct_packages_loaded:
+- sdtmct-2026-03-27
+- ddfct-2026-03-27
+findings:
+- rule_id: CORE-000996
+  description: A planned sex must either include a single entry of male or female
+    or both female and male as entries.
+  message: The planned sex includes more than a single entry of male and/or female
+    either by duplications or unexpected codes.
+  error_count: 1
+  errors:
+  - instance_id: StudyDesignPopulation_1
+    entity: StudyDesignPopulation
+    path: /study/versions/0/studyDesigns/0/population
+    name: POP1
+    details:
+      plannedSex: '[Code_201: Both (C49636)]'
+      check: true
+- rule_id: CORE-000427
+  description: Within a code system and corresponding version, a one-to-one relationship
+    between code and decode is expected.
+  message: There is not a one-to-one relationship between code and decode within a
+    codeSytem and corresponding codeSystemVersion
+  error_count: 3
+  errors:
+  - instance_id: Code_341
+    path: /study/versions/0/biomedicalConcepts/12/properties/2/code/standardCode
+    details:
+      parent_entity: AliasCode
+      codeSystemVersion: '2026-03-27'
+      decode: LBORRESU
+      parent_rel: standardCode
+      code: No Concept Code
+      parent_id: AliasCode_95
+      codeSystem: http://www.cdisc.org
+  - instance_id: Code_351
+    path: /study/versions/0/biomedicalConcepts/13/properties/2/code/standardCode
+    details:
+      parent_entity: AliasCode
+      codeSystemVersion: '2026-03-27'
+      decode: AEHLGT
+      parent_rel: standardCode
+      code: No Concept Code
+      parent_id: AliasCode_102
+      codeSystem: http://www.cdisc.org
+  - instance_id: Code_352
+    path: /study/versions/0/biomedicalConcepts/13/properties/3/code/standardCode
+    details:
+      parent_entity: AliasCode
+      codeSystemVersion: '2026-03-27'
+      decode: AEHLGTCD
+      parent_rel: standardCode
+      code: No Concept Code
+      parent_id: AliasCode_103
+      codeSystem: http://www.cdisc.org
+- rule_id: CORE-001077
+  description: If an interventional model indicates a cross-over, parallel or factorial
+    design then more than 1 intervention is expected.
+  message: The number of study interventions referenced for the interventional study
+    design is not consistent with intervention model specified for the study design
+    - the model indicates a cross-over, parallel or factorial design (model.code is
+    C82637, C82639, or C82638) and there are not references to multiple study interventions.
+  error_count: 1
+  errors:
+  - instance_id: InterventionalStudyDesign_1
+    entity: InterventionalStudyDesign
+    path: /study/versions/0/studyDesigns/0
+    name: Study Design 1
+    details:
+      studyType.code: C98388
+      studyType.decode: Interventional Study
+      model.code: C82639
+      model.decode: Parallel Study
+      '# Referenced Study Interventions': 1
+- rule_id: CORE-001065
+  description: Within a study design, if study type is Interventional then at least
+    one intervention is expected to be referenced from a procedure.
+  message: The study type is Interventional (code=C98388) but a study intervention
+    is not referenced from any procedure.
+  error_count: 1
+  errors:
+  - instance_id: InterventionalStudyDesign_1
+    entity: InterventionalStudyDesign
+    path: /study/versions/0/studyDesigns/0
+    name: Study Design 1
+    details:
+      studyType.code: C98388
+      studyType.decode: Interventional Study
+      '# Referenced Study Interventions': 0
+- rule_id: CORE-001069
+  description: Narrative content item text is expected to be HTML formatted.
+  message: The narrative content item text contains non-conformant XHTML.
+  error_count: 3
+  errors:
+  - instance_id: NarrativeContentItem_35
+    path: /study/versions/0/narrativeContentItems/34
+    name: NCI_35
+    details:
+      parent_entity: StudyVersion
+      $xhtml_errors:
+      - 'Invalid XHTML line 8 [ERROR]: Element ''ul'': This element is not expected.'
+      - 'Invalid XHTML line 26 [ERROR]: Element ''ul'': This element is not expected.'
+      - 'Invalid XHTML line 42 [ERROR]: Element ''ul'': This element is not expected.'
+      - 'Invalid XHTML line 83 [ERROR]: Element ''li'': This element is not expected.'
+      parent_rel: narrativeContentItems
+      parent_id: StudyVersion_1
+  - instance_id: NarrativeContentItem_36
+    path: /study/versions/0/narrativeContentItems/35
+    name: NCI_36
+    details:
+      parent_entity: StudyVersion
+      $xhtml_errors:
+      - 'Invalid XHTML line 28 [ERROR]: Element ''li'': This element is not expected.'
+      parent_rel: narrativeContentItems
+      parent_id: StudyVersion_1
+  - instance_id: NarrativeContentItem_38
+    path: /study/versions/0/narrativeContentItems/37
+    name: NCI_38
+    details:
+      parent_entity: StudyVersion
+      $xhtml_errors:
+      - 'Invalid XHTML line 7 [ERROR]: Element ''ul'': This element is not expected.
+        Expected is ( li ).'
+      parent_rel: narrativeContentItems
+      parent_id: StudyVersion_1
+- rule_id: CORE-000869
+  description: If duration will vary (attribute durationWillVary is True) then a reason
+    (attribute reasonDurationWillVary) must be given and vice versa.
+  message: The duration will vary (durationWillVary is not 'false' or reasonDurationWillVary
+    is populated), but it is not fully defined (durationWillVary is not 'true' or
+    reasonDurationWillVary is missing).
+  error_count: 2
+  errors:
+  - instance_id: Duration_1
+    path: /study/versions/0/studyInterventions/0/administrations/0/duration
+    details:
+      parent_entity: Administration
+      reasonDurationWillVary: Need reason
+      parent_rel: duration
+      text: null
+      parent_id: Administration_1
+      durationWillVary: false
+  - instance_id: Duration_2
+    path: /study/versions/0/studyInterventions/0/administrations/1/duration
+    details:
+      parent_entity: Administration
+      reasonDurationWillVary: Need reason
+      parent_rel: duration
+      text: null
+      parent_id: Administration_2
+      durationWillVary: false
+- rule_id: CORE-000969
+  description: If a dose is specified, then a corresponding administrable product
+    must also be specified either directly or embedded in the medical device and vice
+    versa.
+  message: The administration dose has been specified without an administrable product
+    (either as a direct administrable product or as an embedded product via the related
+    medical device) or vice versa.
+  error_count: 2
+  errors:
+  - instance_id: Administration_1
+    entity: Administration
+    path: /study/versions/0/studyInterventions/0/administrations/0
+    name: PATCH_50
+    details:
+      dose(value/range): 54 Milligram (C28253)
+      administrableProductId: null
+      medicalDeviceId: null
+      check: true
+  - instance_id: Administration_2
+    entity: Administration
+    path: /study/versions/0/studyInterventions/0/administrations/1
+    name: PATCH_75
+    details:
+      dose(value/range): 81 Milligram (C28253)
+      administrableProductId: null
+      medicalDeviceId: null
+      check: true
+- rule_id: CORE-001073
+  description: Referenced items in the narrative content item texts must be available
+    elsewhere in the data model.
+  message: The item referenced in the narrative content item text is not available
+    elsewhere in the model.
+  error_count: 1
+  errors:
+  - instance_id: NarrativeContentItem_77
+    entity: NarrativeContentItem
+    path: /study/versions/0/narrativeContentItems/76
+    name: NCI_77
+    details:
+      text: '<div xmlns="http://www.w3.org/1999/xhtml"><table><tr><th style="vertical-align:
+        top; text-align: left"><p>Sponsor Confidentiality Statement:</p></th><td style="vertical-align:
+        top; text-align: left"><p></p></td></tr><tr><th style="vertical-align: top;
+        text-align: left"><p>Full Title:</p></th><td style="vertical-align: top; text-align:
+        left"><p><usdm:ref attribute="text" id="StudyTitle_3" klass="StudyTitle"></usdm:ref></p></td></tr><tr><th
+        style="vertical-align: top; text-align: left"><p>Trial Acronym:</p></th><td
+        style="vertical-align: top; text-align: left"><p><usdm:ref attribute="text"
+        id="StudyTitle_1" klass="StudyTitle"></usdm:ref></p></td></tr><tr><th style="vertical-align:
+        top; text-align: left"><p>Protocol Identifier:</p></th><td style="vertical-align:
+        top; text-align: left"><p><usdm:ref attribute="text" id="StudyIdentifier_1"
+        klass="StudyIdentifier"></usdm:ref></p></td></tr><tr><th style="vertical-align:
+        top; text-align: left"><p>Original Protocol:</p></th><td style="vertical-align:
+        top; text-align: left"><p></p></td></tr><tr><th style="vertical-align: top;
+        text-align: left"><p>Version Number:</p></th><td style="vertical-align: top;
+        text-align: left"><p><usdm:ref attribute="versionIdentifier" id="StudyVersion_1"
+        klass="StudyVersion"></usdm:ref></p></td></tr><tr><th style="vertical-align:
+        top; text-align: left"><p>Version Date:</p></th><td style="vertical-align:
+        top; text-align: left"><p><usdm:ref attribute="dateValue" id="GovernanceDate_1"
+        klass="GovernanceDate"></usdm:ref></p></td></tr><tr><th style="vertical-align:
+        top; text-align: left"><p>Amendment Identifier:</p></th><td style="vertical-align:
+        top; text-align: left"><p><usdm:ref attribute="number" id="StudyAmendment_1"
+        klass="StudyAmendment"></usdm:ref></p></td></tr><tr><th style="vertical-align:
+        top; text-align: left"><p>Amendment Scope:</p></th><td style="vertical-align:
+        top; text-align: left"><p><usdm:ref attribute="decode" id="Code_27" klass="Code"></usdm:ref></p></td></tr><tr><th
+        style="vertical-align: top; text-align: left"><p>Compound Codes(s):</p></th><td
+        style="vertical-align: top; text-align: left"><p></p></td></tr><tr><th style="vertical-align:
+        top; text-align: left"><p>Compound Name(s):</p></th><td style="vertical-align:
+        top; text-align: left"><p></p></td></tr><tr><th style="vertical-align: top;
+        text-align: left"><p>Trial Phase:</p></th><td style="vertical-align: top;
+        text-align: left"><p><usdm:ref attribute="decode" id="Code_168" klass="Code"></usdm:ref></p></td></tr><tr><th
+        style="vertical-align: top; text-align: left"><p>Short Title:</p></th><td
+        style="vertical-align: top; text-align: left"><p><usdm:ref attribute="text"
+        id="StudyTitle_2" klass="StudyTitle"></usdm:ref></p></td></tr><tr><th style="vertical-align:
+        top; text-align: left"><p>Sponsor Name and Address:</p></th><td style="vertical-align:
+        top; text-align: left"><p><usdm:ref attribute="label" id="Organization_1"
+        klass="Organization"></usdm:ref>, <usdm:ref attribute="text" id="Address_1"
+        klass="Address"></usdm:ref></p></td></tr><tr><th style="vertical-align: top;
+        text-align: left"><p>Regulatory Agency Identifier Number(s):</p></th><td style="vertical-align:
+        top; text-align: left"><p><usdm:ref attribute="text" id="StudyIdentifier_2"
+        klass="StudyIdentifier"></usdm:ref></p></td></tr><tr><th style="vertical-align:
+        top; text-align: left"><p>Sponsor Approval Date:</p></th><td style="vertical-align:
+        top; text-align: left"><p><usdm:ref attribute="dateValue" id="GovernanceDate_2-D1"
+        klass="GovernanceDate"></usdm:ref></p></td></tr></table></div>'
+      Invalid Reference: <usdm:ref attribute="dateValue" id="GovernanceDate_2-D1"
+        klass="GovernanceDate"></usdm:ref>
+      Referenced Value: '!!NOT FOUND!!'
+- rule_id: CORE-001015
+  description: Within a study version, all id values must be unique.
+  message: The id value is not unique.
+  error_count: 14
+  errors:
+  - instance_id: AliasCode_24
+    entity: AliasCode
+    path: /study/versions/0/studyDesigns/0/population/plannedAge/minValue/unit
+  - instance_id: AliasCode_24
+    entity: AliasCode
+    path: /study/versions/0/studyDesigns/0/population/plannedAge/maxValue/unit
+  - instance_id: AliasCode_1
+    entity: AliasCode
+    path: /study/documentedBy/0/versions/0/dateValues/0/geographicScopes/0/code
+  - instance_id: AliasCode_1
+    entity: AliasCode
+    path: /study/documentedBy/1/versions/0/dateValues/0/geographicScopes/0/code
+  - instance_id: Code_200
+    entity: Code
+    path: /study/versions/0/studyDesigns/0/population/plannedAge/minValue/unit/standardCode
+  - instance_id: Code_200
+    entity: Code
+    path: /study/versions/0/studyDesigns/0/population/plannedAge/maxValue/unit/standardCode
+  - instance_id: Code_9
+    entity: Code
+    path: /study/documentedBy/0/versions/0/dateValues/0/type
+  - instance_id: Code_9
+    entity: Code
+    path: /study/documentedBy/1/versions/0/dateValues/0/type
+  - instance_id: Code_11
+    entity: Code
+    path: /study/documentedBy/0/versions/0/dateValues/0/geographicScopes/0/type
+  - instance_id: Code_11
+    entity: Code
+    path: /study/documentedBy/1/versions/0/dateValues/0/geographicScopes/0/type
+  - instance_id: Code_10
+    entity: Code
+    path: /study/documentedBy/0/versions/0/dateValues/0/geographicScopes/0/code/standardCode
+  - instance_id: Code_10
+    entity: Code
+    path: /study/documentedBy/1/versions/0/dateValues/0/geographicScopes/0/code/standardCode
+  - instance_id: GeographicScope_2
+    entity: GeographicScope
+    path: /study/documentedBy/0/versions/0/dateValues/0/geographicScopes/0
+  - instance_id: GeographicScope_2
+    entity: GeographicScope
+    path: /study/documentedBy/1/versions/0/dateValues/0/geographicScopes/0
+- rule_id: CORE-000871
+  description: Within a study design there is expected to be exactly one objective
+    with level 'Primary Objective'.
+  message: There is not exactly one objective with a level of 'Primary Objective'
+    within the study design.
+  error_count: 1
+  errors:
+  - instance_id: InterventionalStudyDesign_1
+    path: /study/versions/0/studyDesigns/0
+    name: Study Design 1
+    details:
+      parent_entity: StudyVersion
+      $num_primary_obj: 2
+      parent_rel: studyDesigns
+      $primary_objectives:
+      - To determine if there is a statistically significant relationship (overall
+        Type 1 erroralpha=0.05) between the change in both the ADAS-Cog (11) and CIBIC+
+        scores, and drug dose (0, 50 cm2 [54 mg], and 75 cm2 [81 mg]).
+      - To document the safety profile of the xanomeline TTS.
+      parent_id: StudyVersion_1
+- rule_id: CORE-001016
+  description: A planned duration is expected for the main timeline.
+  message: The planned duration is not specified for the main timeline.
+  error_count: 1
+  errors:
+  - instance_id: ScheduleTimeline_1
+    entity: ScheduleTimeline
+    path: /study/versions/0/studyDesigns/0/scheduleTimelines/0
+    name: Main Timeline
+    details:
+      mainTimeline: true
+      check: true
+- rule_id: CORE-001006
+  description: If a synonym is specified then it is not expected to be equal to the
+    label of the biomedical concept (case insensitive).
+  message: The synonym is equal to the label (case insensitive).
+  error_count: 6
+  errors:
+  - instance_id: BiomedicalConcept_3
+    entity: BiomedicalConcept
+    path: /study/versions/0/biomedicalConcepts/2
+    name: Temperature (3)
+    details:
+      label/synonym: Temperature
+      synonyms: '[Temperature, Body Temperature]'
+      check: true
+  - instance_id: BiomedicalConcept_4
+    entity: BiomedicalConcept
+    path: /study/versions/0/biomedicalConcepts/3
+    name: Weight (4)
+    details:
+      label/synonym: Weight
+      synonyms: '[WEIGHT, Body Weight]'
+      check: true
+  - instance_id: BiomedicalConcept_5
+    entity: BiomedicalConcept
+    path: /study/versions/0/biomedicalConcepts/4
+    name: Height (5)
+    details:
+      label/synonym: Height
+      synonyms: '[HEIGHT, Body Height]'
+      check: true
+  - instance_id: BiomedicalConcept_17
+    entity: BiomedicalConcept
+    path: /study/versions/0/biomedicalConcepts/16
+    name: Temperature (17)
+    details:
+      label/synonym: Temperature
+      synonyms: '[Temperature, Body Temperature]'
+      check: true
+  - instance_id: BiomedicalConcept_18
+    entity: BiomedicalConcept
+    path: /study/versions/0/biomedicalConcepts/17
+    name: Weight (18)
+    details:
+      label/synonym: Weight
+      synonyms: '[WEIGHT, Body Weight]'
+      check: true
+  - instance_id: BiomedicalConcept_19
+    entity: BiomedicalConcept
+    path: /study/versions/0/biomedicalConcepts/18
+    name: Height (19)
+    details:
+      label/synonym: Height
+      synonyms: '[HEIGHT, Body Height]'
+      check: true
+- rule_id: CORE-001071
+  description: A masking is expected to be defined for at least two study roles in
+    a study design with a double blind blinding schema.
+  message: The study design has a double blind blinding schema (code=C15228) but there
+    are not at least two applicable study roles that are masked.
+  error_count: 1
+  errors:
+  - instance_id: InterventionalStudyDesign_1
+    entity: InterventionalStudyDesign
+    path: /study/versions/0/studyDesigns/0
+    name: Study Design 1
+    details:
+      blindingSchema.code: C15228
+      blindingSchema.decode: Double Blind Study
+      '# Masked Roles': 1
+      Applicable Roles: Clinical Study Sponsor[StudyRole_1,Masked]

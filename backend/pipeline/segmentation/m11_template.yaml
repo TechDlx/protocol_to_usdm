@@ -1,0 +1,192 @@
+# ICH M11 protocol template: section numbering and titles.
+#
+# Source: ICH M11 Clinical electronic Structured Harmonised Protocol (CeSHarP) template, section
+# headings as published in the M11 technical specification v0.17.0 (June 2026).
+#
+# Corrections to the source (copy-paste numbering glitches in the spec pages):
+#   - "10.4.1 Primary Objective <#>" listed under section 3.1  -> 3.1.1
+#   - "10.5.1 {Secondary Objective <#>}" listed under section 3.2 -> 3.2.1
+#   - "10.5.1.1 Statistical Analysis Method" under 10.4.1         -> 10.4.1.1
+#   - "10.5.1.4/5 {Sensitivity/Supplementary Analysis}" under 10.4.1 -> 10.4.1.4 / 10.4.1.5
+#
+# Field meanings:
+#   optional:  title shown in {braces} in the template (include when applicable)
+#   repeating: title contains <#> (one instance per objective, etc.)
+#   aliases:   titles real, non-M11 protocols commonly use for this content. They are matching
+#              hints for segmentation, not part of the standard. Add to them as protocols are seen.
+template: ICH M11
+version: "spec v0.17.0 (2026-06)"
+sections:
+  - {number: "0", title: "Title Page", aliases: ["Title Page", "Cover Page", "Protocol Title Page", "Sponsor Signature", "Investigator Signature", "Protocol Approval", "Signature Page"]}
+
+  - {number: "1", title: "Protocol Summary", aliases: ["Protocol Summary", "Synopsis", "Protocol Synopsis", "Clinical Protocol Synopsis", "Study Summary"]}
+  - {number: "1.1", title: "Protocol Synopsis", aliases: ["Synopsis", "Protocol Synopsis", "Study Synopsis"]}
+  - {number: "1.1.1", title: "Primary and Secondary Objectives and Estimands"}
+  - {number: "1.1.2", title: "Overall Design", aliases: ["Study Design Summary", "Overall Study Design"]}
+  - {number: "1.2", title: "Trial Schema", aliases: ["Study Schema", "Study Design Schema", "Study Schematic", "Study Diagram", "Schema"]}
+  - {number: "1.3", title: "Schedule of Activities", aliases: ["Schedule of Activities", "Schedule of Assessments", "Schedule of Events", "Schedule of Study Procedures", "Time and Events Schedule", "Time and Events Table", "Study Flow Chart", "Study Flowchart", "Flow Chart", "Flowchart", "Visit Schedule", "Study Calendar", "Study Activities Table"]}
+
+  - {number: "2", title: "Introduction", aliases: ["Introduction", "Background", "Background and Rationale", "Background Information"]}
+  - {number: "2.1", title: "Purpose of Trial", aliases: ["Study Rationale", "Rationale", "Purpose of the Study", "Scientific Rationale", "Trial Rationale"]}
+  - {number: "2.2", title: "Assessment of Risks and Benefits", aliases: ["Benefit Risk Assessment", "Risk Benefit Assessment", "Benefits and Risks", "Potential Risks and Benefits"]}
+  - {number: "2.2.1", title: "Risk Summary and Mitigation Strategy", aliases: ["Risk Assessment", "Known Potential Risks", "Potential Risks"]}
+  - {number: "2.2.2", title: "Benefit Summary", aliases: ["Benefit Assessment", "Known Potential Benefits", "Potential Benefits"]}
+  - {number: "2.2.3", title: "Overall Risk-Benefit Assessment", aliases: ["Overall Benefit Risk Conclusion", "Overall Benefit:Risk Conclusion"]}
+
+  - {number: "3", title: "Trial Objectives and Associated Estimands", aliases: ["Objectives", "Study Objectives", "Objectives and Endpoints", "Study Objectives and Endpoints", "Objectives Endpoints and Estimands", "Trial Objectives", "Endpoints", "Study Endpoints"]}
+  - {number: "3.1", title: "Primary Objective(s) and Associated Estimand(s)", aliases: ["Primary Objective", "Primary Objectives", "Primary Endpoint", "Primary Endpoints"]}
+  - {number: "3.1.1", title: "Primary Objective <#>", repeating: true}
+  - {number: "3.2", title: "Secondary Objective(s) and Associated Estimand(s)", aliases: ["Secondary Objective", "Secondary Objectives", "Secondary Endpoints"]}
+  - {number: "3.2.1", title: "Secondary Objective <#>", optional: true, repeating: true}
+  - {number: "3.3", title: "Exploratory Objective(s)", aliases: ["Exploratory Objectives", "Exploratory Endpoints", "Tertiary Objectives"]}
+  - {number: "3.3.1", title: "Exploratory Objective <#>", optional: true, repeating: true}
+
+  - {number: "4", title: "Trial Design", aliases: ["Study Design", "Investigational Plan", "Overall Study Design", "Study Design and Plan"]}
+  - {number: "4.1", title: "Description of Trial Design", aliases: ["Summary of Study Design", "Overall Design", "Description of Study Design", "Study Design Overview"]}
+  - {number: "4.1.1", title: "Stakeholder Input into Design", aliases: ["Patient Input into Design"]}
+  - {number: "4.2", title: "Rationale for Trial Design", aliases: ["Scientific Rationale for Study Design", "Discussion of Design and Control", "Rationale for Study Design", "Study Design Rationale"]}
+  - {number: "4.2.1", title: "Rationale for Estimand(s)"}
+  - {number: "4.2.2", title: "Rationale for Intervention Model"}
+  - {number: "4.2.3", title: "Rationale for Control Type", aliases: ["Rationale for Comparator", "Choice of Control Group", "Rationale for Placebo"]}
+  - {number: "4.2.4", title: "Rationale for Trial Duration", aliases: ["Rationale for Study Duration"]}
+  - {number: "4.2.5", title: "Rationale for Adaptive or Novel Trial Design"}
+  - {number: "4.2.6", title: "Rationale for Interim Analysis"}
+  - {number: "4.2.7", title: "Rationale for Other Trial Design Aspects"}
+  - {number: "4.3", title: "Trial Stopping Rules", aliases: ["Study Stopping Rules", "Stopping Rules", "Sponsor Discontinuation Criteria", "Study Termination", "Premature Termination of the Study", "Criteria for Terminating the Study"]}
+  - {number: "4.4", title: "Start of Trial and End of Trial", aliases: ["Definition of End of Trial", "End of Study Definition", "End of Trial", "Definition of End of Study", "Study Duration", "End of Trial in a Member State"]}
+  - {number: "4.5", title: "Access to Trial Intervention After End of Trial", aliases: ["Post Trial Access", "Continued Access", "Study Extensions", "Treatment After the End of the Study", "Post Study Access to Therapy"]}
+
+  - {number: "5", title: "Trial Population", aliases: ["Study Population", "Patient Selection", "Selection of Study Population", "Subject Selection", "Selection of Patients", "Selection and Withdrawal of Subjects", "Eligibility Criteria", "Criteria for Enrollment"]}
+  - {number: "5.1", title: "Description of Trial Population and Rationale", aliases: ["Study Population Description", "Target Population", "Entry Procedures"]}
+  - {number: "5.2", title: "Inclusion Criteria", aliases: ["Inclusion Criteria", "Criteria for Inclusion"]}
+  - {number: "5.3", title: "Exclusion Criteria", aliases: ["Exclusion Criteria", "Criteria for Exclusion"]}
+  - {number: "5.4", title: "Contraception", aliases: ["Contraception", "Contraceptive Requirements", "Pregnancy and Contraception", "Birth Control"]}
+  - {number: "5.4.1", title: "Definitions Related to Childbearing Potential", aliases: ["Women of Childbearing Potential", "Definition of Childbearing Potential"]}
+  - {number: "5.4.2", title: "Contraception Requirements", aliases: ["Contraceptive Guidance", "Acceptable Methods of Contraception"]}
+  - {number: "5.5", title: "Lifestyle Restrictions", aliases: ["Lifestyle Considerations", "Lifestyle Guidelines", "Restrictions"]}
+  - {number: "5.5.1", title: "Meals and Dietary Restrictions", aliases: ["Dietary Restrictions", "Meals and Diet"]}
+  - {number: "5.5.2", title: "Caffeine, Alcohol, Tobacco, and Other Restrictions", aliases: ["Caffeine Alcohol and Tobacco"]}
+  - {number: "5.5.3", title: "Physical Activity Restrictions", aliases: ["Activity", "Physical Activity"]}
+  - {number: "5.5.4", title: "Other Activity Restrictions"}
+  - {number: "5.6", title: "Screen Failure and Rescreening", aliases: ["Screen Failures", "Rescreening", "Violation of Criteria for Enrollment", "Randomization Criteria"]}
+
+  - {number: "6", title: "Trial Intervention and Concomitant Therapy", aliases: ["Study Treatments", "Study Treatment", "Study Intervention", "Study Interventions", "Treatments", "Investigational Product", "Treatment of Subjects", "Study Interventions and Concomitant Therapy"]}
+  - {number: "6.1", title: "Description of Investigational Trial Intervention", aliases: ["Drug Supplies", "Formulation and Packaging", "Materials and Supplies", "Investigational Product Description", "Study Drug Description", "Study Interventions Administered"]}
+  - {number: "6.2", title: "Rationale for Investigational Trial Intervention Dose and Regimen", aliases: ["Dose Rationale", "Rationale for Dose Selection", "Justification for Dose", "Selection of Doses"]}
+  - {number: "6.3", title: "Investigational Trial Intervention Administration", aliases: ["Administration", "Dosage and Administration", "Study Drug Administration", "Drug Administration", "Administration Procedures"]}
+  - {number: "6.4", title: "Investigational Trial Intervention Dose Modification", aliases: ["Dose Modification", "Dose Modifications", "Dose Adjustments", "Dose Reduction", "Dose Interruptions", "Dose Delays"]}
+  - {number: "6.5", title: "Management of Investigational Trial Intervention Overdose", aliases: ["Overdose", "Treatment of Overdose", "Medication Errors and Overdose"]}
+  - {number: "6.6", title: "Preparation, Storage, Handling and Accountability of Investigational Trial Intervention", aliases: ["Preparation Handling Storage and Accountability", "Drug Storage and Accountability"]}
+  - {number: "6.6.1", title: "Preparation of Investigational Trial Intervention", aliases: ["Preparation and Dispensing", "Preparation", "Dispensing"]}
+  - {number: "6.6.2", title: "Storage and Handling of Investigational Trial Intervention", aliases: ["Storage", "Drug Storage", "Storage and Handling"]}
+  - {number: "6.6.3", title: "Accountability of Investigational Trial Intervention", aliases: ["Drug Accountability", "Accountability", "Study Drug Accountability"]}
+  - {number: "6.7", title: "Investigational Trial Intervention Assignment, Randomisation and Blinding", aliases: ["Measures to Minimize Bias Randomization and Blinding", "Randomization and Blinding"]}
+  - {number: "6.7.1", title: "Participant Assignment to Investigational Trial Intervention", aliases: ["Allocation to Treatment", "Treatment Assignment", "Patient Assignment", "Method of Assigning Subjects to Treatment Groups"]}
+  - {number: "6.7.2", title: "Randomisation", optional: true, aliases: ["Randomization", "Randomisation", "Randomization Procedures"]}
+  - {number: "6.7.3", title: "Measures to Maintain Blinding", optional: true, aliases: ["Blinding", "Masking", "Maintenance of Blinding"]}
+  - {number: "6.7.4", title: "Emergency Unblinding at the Site", optional: true, aliases: ["Breaking the Blind", "Unblinding", "Emergency Unblinding", "Code Breaking"]}
+  - {number: "6.8", title: "Investigational Trial Intervention Adherence", aliases: ["Compliance", "Treatment Compliance", "Study Drug Compliance", "Adherence"]}
+  - {number: "6.9", title: "Description of Noninvestigational Trial Intervention", aliases: ["Non Investigational Products", "Auxiliary Medicinal Products"]}
+  - {number: "6.9.1", title: "Background Trial Intervention", optional: true, aliases: ["Background Therapy"]}
+  - {number: "6.9.2", title: "Rescue Therapy", optional: true, aliases: ["Rescue Medication", "Rescue Medications"]}
+  - {number: "6.9.3", title: "Other Noninvestigational Trial Intervention", optional: true}
+  - {number: "6.10", title: "Concomitant Therapy", aliases: ["Concomitant Therapy", "Concomitant Medications", "Concomitant Medication", "Concomitant Treatments", "Prior and Concomitant Therapy"]}
+  - {number: "6.10.1", title: "Prohibited Concomitant Therapy", optional: true, aliases: ["Prohibited Medications", "Prohibited Concomitant Medications", "Disallowed Medications"]}
+  - {number: "6.10.2", title: "Permitted Concomitant Therapy", optional: true, aliases: ["Permitted Medications", "Allowed Medications", "Permitted Concomitant Medications"]}
+
+  - {number: "7", title: "Participant Discontinuation of Trial Intervention and Discontinuation or Withdrawal from Trial", aliases: ["Discontinuation", "Patient Disposition Criteria", "Discontinuation of Study Intervention and Participant Discontinuation Withdrawal", "Subject Withdrawal", "Withdrawal of Subjects", "Patient Withdrawal", "Removal of Patients from Therapy or Assessment"]}
+  - {number: "7.1", title: "Discontinuation of Trial Intervention for Individual Participants", aliases: ["Discontinuation of Study Treatment", "Discontinuation of Study Intervention", "Discontinuations", "Treatment Discontinuation"]}
+  - {number: "7.1.1", title: "Permanent Discontinuation of Trial Intervention", aliases: ["Permanent Discontinuation"]}
+  - {number: "7.1.2", title: "Temporary Discontinuation of Trial Intervention", aliases: ["Temporary Discontinuation", "Treatment Interruption"]}
+  - {number: "7.1.3", title: "Rechallenge", aliases: ["Rechallenge"]}
+  - {number: "7.2", title: "Participant Discontinuation or Withdrawal from the Trial", aliases: ["Withdrawal from the Study", "Participant Withdrawal", "Patient Withdrawal", "Withdrawal of Consent", "Retrieval of Discontinuations"]}
+  - {number: "7.3", title: "Management of Loss to Follow-Up", aliases: ["Lost to Follow Up", "Lost to Follow-Up"]}
+
+  - {number: "8", title: "Trial Assessments and Procedures", aliases: ["Study Assessments and Procedures", "Study Procedures", "Assessments", "Efficacy Pharmacokinetic and Safety Evaluations", "Study Assessments", "Assessment of Efficacy and Safety"]}
+  - {number: "8.1", title: "Trial Assessments and Procedures Considerations", aliases: ["General Considerations for Assessments", "Visit Procedures", "Appropriateness and Consistency of Measurements"]}
+  - {number: "8.2", title: "Screening/Baseline Assessments and Procedures", aliases: ["Screening", "Screening Procedures", "Baseline Assessments", "Screening Assessments"]}
+  - {number: "8.3", title: "Efficacy Assessments and Procedures", aliases: ["Efficacy Assessments", "Efficacy", "Efficacy Measures", "Tumor Assessments", "Efficacy Criteria"]}
+  - {number: "8.4", title: "Safety Assessments and Procedures", aliases: ["Safety Assessments", "Safety", "Safety Evaluations", "Safety Measures", "Safety Monitoring"]}
+  - {number: "8.4.1", title: "Physical Examination", optional: true, aliases: ["Physical Examinations", "Physical Exam"]}
+  - {number: "8.4.2", title: "Vital Signs", optional: true, aliases: ["Vital Signs"]}
+  - {number: "8.4.3", title: "Electrocardiograms", optional: true, aliases: ["Electrocardiogram", "ECG", "ECGs", "12-Lead ECG", "Electrocardiograms"]}
+  - {number: "8.4.4", title: "Clinical Laboratory Assessments", optional: true, aliases: ["Laboratory Assessments", "Clinical Laboratory Tests", "Laboratory Tests", "Safety Laboratory"]}
+  - {number: "8.4.5", title: "Pregnancy Testing", optional: true, aliases: ["Pregnancy Test", "Pregnancy Testing"]}
+  - {number: "8.4.6", title: "Suicidal Ideation and Behaviour Risk Monitoring", optional: true, aliases: ["Suicidal Ideation", "Suicidality Monitoring", "C-SSRS"]}
+  - {number: "8.5", title: "Pharmacokinetics", aliases: ["Pharmacokinetics", "Pharmacokinetic Assessments", "PK Assessments", "Pharmacokinetic Sampling"]}
+  - {number: "8.6", title: "Biomarkers", aliases: ["Biomarkers", "Biomarker Assessments", "Translational Research", "Exploratory Biomarkers"]}
+  - {number: "8.6.1", title: "Genetics, Genomics, Pharmacogenetics, and Pharmacogenomics", aliases: ["Genetics", "Pharmacogenomics", "Pharmacogenetics", "Genetic Testing"]}
+  - {number: "8.6.2", title: "Pharmacodynamic Biomarkers", aliases: ["Pharmacodynamics", "Pharmacodynamic Assessments"]}
+  - {number: "8.6.3", title: "Other Biomarkers", optional: true}
+  - {number: "8.7", title: "Immunogenicity Assessments", aliases: ["Immunogenicity", "Anti-Drug Antibodies"]}
+  - {number: "8.8", title: "Medical Resource Utilisation and Health Economics", aliases: ["Health Economics", "Medical Resource Utilization", "Patient Reported Outcomes", "Health Outcomes", "Quality of Life"]}
+
+  - {number: "9", title: "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations", aliases: ["Adverse Event Reporting", "Adverse Events", "Safety Reporting", "Adverse Event Reporting Requirements", "Adverse Events and Serious Adverse Events"]}
+  - {number: "9.1", title: "Definitions", aliases: ["Definitions"]}
+  - {number: "9.1.1", title: "Definitions of Adverse Events", aliases: ["Adverse Event Definition", "Definition of Adverse Event"]}
+  - {number: "9.1.2", title: "Definitions of Serious Adverse Events", aliases: ["Serious Adverse Event Definition", "Serious Adverse Events", "Definition of Serious Adverse Event"]}
+  - {number: "9.1.3", title: "Definitions of Product Complaints", aliases: ["Product Complaints"]}
+  - {number: "9.1.3.1", title: "Definitions of Medical Device Product Complaints", optional: true}
+  - {number: "9.2", title: "Timing and Procedures for Collection and Reporting", aliases: ["Reporting Period", "Reporting Requirements", "Recording Adverse Events"]}
+  - {number: "9.2.1", title: "Timing", aliases: ["Time Period for Collecting Adverse Event Information", "Reporting Period"]}
+  - {number: "9.2.2", title: "Collection Procedures", aliases: ["Method of Detecting Adverse Events", "Eliciting Adverse Event Information"]}
+  - {number: "9.2.3", title: "Reporting", aliases: ["Reporting Requirements", "Serious Adverse Event Reporting"]}
+  - {number: "9.2.3.1", title: "Regulatory Reporting Requirements", aliases: ["Regulatory Reporting", "Expedited Reporting"]}
+  - {number: "9.2.4", title: "Adverse Events of Special Interest", aliases: ["Adverse Events of Special Interest", "AESI"]}
+  - {number: "9.2.5", title: "Disease-Related Events or Outcomes Not Qualifying as AEs or SAEs", aliases: ["Disease Progression", "Disease Related Events"]}
+  - {number: "9.3", title: "Pregnancy and Postpartum Information", aliases: ["Pregnancy", "Exposure During Pregnancy", "Pregnancy Reporting"]}
+  - {number: "9.3.1", title: "Participants Who Become Pregnant During the Trial", optional: true}
+  - {number: "9.3.2", title: "Participants Whose Partners Become Pregnant During the Trial", optional: true}
+  - {number: "9.4", title: "Special Safety Situations", aliases: ["Medication Errors", "Occupational Exposure", "Exposure During Breastfeeding"]}
+
+  - {number: "10", title: "Statistical Considerations", aliases: ["Statistics", "Statistical Methods", "Data Analysis Methods", "Data Analysis and Statistical Methods", "Statistical Analysis", "Statistical Methods and Analysis"]}
+  - {number: "10.1", title: "General Considerations", aliases: ["General Considerations", "Statistical Hypotheses", "Estimands", "Statistical Analysis Plan"]}
+  - {number: "10.2", title: "Analysis Sets", aliases: ["Analysis Populations", "Populations for Analysis", "Analysis Sets", "Qualifications for Analysis"]}
+  - {number: "10.3", title: "Analyses of Demographics and Other Baseline Variables", aliases: ["Demographics and Patient Characteristics", "Baseline Characteristics", "Demographics and Baseline Characteristics"]}
+  - {number: "10.4", title: "Analyses Associated with the Primary Objective(s)", aliases: ["Primary Analysis", "Primary Endpoint Analysis", "Efficacy Analyses", "Analysis of Primary Endpoint"]}
+  - {number: "10.4.1", title: "Primary Objective <#>", repeating: true}
+  - {number: "10.4.1.1", title: "Statistical Analysis Method", aliases: ["Statistical Methodology", "Analysis Methods"]}
+  - {number: "10.4.1.2", title: "Handling of Data in Relation to Primary Estimand(s)"}
+  - {number: "10.4.1.3", title: "Handling of Missing Data in Relation to Primary Estimand(s)", aliases: ["Handling of Missing Data", "Missing Data"]}
+  - {number: "10.4.1.4", title: "Sensitivity Analysis", optional: true, aliases: ["Sensitivity Analyses"]}
+  - {number: "10.4.1.5", title: "Supplementary Analysis", optional: true, aliases: ["Supplementary Analyses"]}
+  - {number: "10.5", title: "Analyses Associated with the Secondary Objective(s)", aliases: ["Secondary Analyses", "Secondary Endpoint Analyses", "Analysis of Secondary Endpoints"]}
+  - {number: "10.5.1", title: "Secondary Objective <#>", optional: true, repeating: true}
+  - {number: "10.5.1.1", title: "Statistical Analysis Method", optional: true}
+  - {number: "10.5.1.2", title: "Handling of Data in Relation to Secondary Estimand(s)", optional: true}
+  - {number: "10.5.1.3", title: "Handling of Missing Data in Relation to Secondary Estimand(s)", optional: true}
+  - {number: "10.5.1.4", title: "Sensitivity Analysis", optional: true}
+  - {number: "10.5.1.5", title: "Supplementary Analysis", optional: true}
+  - {number: "10.6", title: "Analyses Associated with the Exploratory Objective(s)", aliases: ["Exploratory Analyses", "Exploratory Endpoint Analyses"]}
+  - {number: "10.7", title: "Safety Analyses", aliases: ["Safety Analyses", "Analysis of Safety"]}
+  - {number: "10.8", title: "Other Analyses", aliases: ["Subgroup Analyses", "Pharmacokinetic Analyses", "Pharmacokinetic/Pharmacodynamic Analyses", "Biomarker Analyses", "Patient Reported Outcome Analyses"]}
+  - {number: "10.9", title: "Interim Analyses", aliases: ["Interim Analysis", "Interim Analyses", "Interim Efficacy Analyses", "Interim Safety Analyses"]}
+  - {number: "10.10", title: "Multiplicity Adjustments", aliases: ["Multiplicity", "Multiple Comparisons", "Nominal P-value Adjustments", "Type I Error Control"]}
+  - {number: "10.11", title: "Sample Size Determination", aliases: ["Sample Size", "Sample Size Determination", "Sample Size Calculation", "Sample Size Justification", "Determination of Sample Size"]}
+
+  - {number: "11", title: "Trial Oversight and Other General Considerations", aliases: ["Informed Consent Ethical Review and Regulatory Considerations", "Ethics", "Regulatory Ethical and Study Oversight Considerations", "Administrative Considerations"]}
+  - {number: "11.1", title: "Regulatory and Ethical Considerations", aliases: ["Ethical Review", "Regulatory Considerations", "Ethical Conduct of the Study", "Institutional Review Board", "Independent Ethics Committee", "Regulatory and Ethical Considerations", "Reporting of Safety Issues and Serious Breaches of the Protocol"]}
+  - {number: "11.2", title: "Trial Oversight", aliases: ["Study Oversight", "Investigator Information", "Final Report Signature"]}
+  - {number: "11.2.1", title: "Investigator Responsibilities", aliases: ["Investigator Responsibilities", "Sponsor Qualified Medical Personnel"]}
+  - {number: "11.2.2", title: "Sponsor Responsibilities", aliases: ["Sponsor Responsibilities"]}
+  - {number: "11.3", title: "Informed Consent Process", aliases: ["Informed Consent", "Patient Information and Consent", "Informed Consent Process", "Subject Information and Consent"]}
+  - {number: "11.3.1", title: "Informed Consent for Rescreening", optional: true}
+  - {number: "11.3.2", title: "Informed Consent for Use of Remaining Samples in Exploratory Research", optional: true}
+  - {number: "11.4", title: "Committees", aliases: ["Committees Structure", "Data Monitoring Committee", "Independent Data Monitoring Committee", "Steering Committee"]}
+  - {number: "11.5", title: "Insurance and Indemnity", aliases: ["Insurance", "Indemnity", "Compensation"]}
+  - {number: "11.6", title: "Risk-Based Quality Management", aliases: ["Quality Assurance", "Quality Control", "Quality Control and Quality Assurance", "Monitoring", "Audits and Inspections", "Data Quality Assurance"]}
+  - {number: "11.7", title: "Data Governance", aliases: ["Data Handling and Record Keeping", "Data Management", "Case Report Forms", "Case Report Forms/Electronic Data Record", "Data Collection"]}
+  - {number: "11.8", title: "Data Protection", aliases: ["Confidentiality", "Data Privacy", "Patient Confidentiality"]}
+  - {number: "11.9", title: "Source Records", aliases: ["Source Documents", "Source Data", "Record Retention", "Retention of Records"]}
+  - {number: "11.10", title: "Protocol Deviations", aliases: ["Protocol Deviations", "Protocol Violations"]}
+  - {number: "11.11", title: "Early Site Closure", aliases: ["Site Closure", "Study and Site Closure", "Premature Termination of Site"]}
+  - {number: "11.12", title: "Data Dissemination", aliases: ["Publication of Study Results", "Publication Policy", "Communication of Results", "Publications by Investigators", "Dissemination of Results"]}
+
+  - {number: "12", title: "Appendix: Supporting Details", aliases: ["Appendices", "Appendix", "Attachments", "Supporting Documentation"]}
+  - {number: "12.1", title: "Clinical Laboratory Tests", aliases: ["Clinical Laboratory Tests", "Laboratory Tests", "Safety Laboratory Tests"]}
+  - {number: "12.2", title: "Country/Region-Specific Differences", aliases: ["Country Specific Requirements", "Country Specific Differences", "Regional Requirements"]}
+  - {number: "12.3", title: "Prior Protocol Amendment(s)", aliases: ["Protocol Amendment History", "Document History", "Summary of Changes", "Amendment Rationale", "Protocol Amendments", "Rationale for Changes in Amendment"]}
+  - {number: "12.X", title: "Additional Appendices", optional: true, repeating: true}
+
+  - {number: "13", title: "Appendix: Glossary of Terms and Abbreviations", aliases: ["List of Abbreviations", "Abbreviations", "Glossary", "Abbreviations and Definitions", "Definitions of Terms", "Glossary of Terms"]}
+  - {number: "14", title: "Appendix: References", aliases: ["References", "Bibliography", "Literature References"]}
