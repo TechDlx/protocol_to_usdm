@@ -16,6 +16,7 @@ from backend.models.segmentation import (
     M11TemplateSectionOut,
     SectionMapping,
     SectionOverrideRequest,
+    SectionStartRequest,
 )
 from backend.models.study import RunState, StageName
 from backend.pipeline.agents.registry import AGENTS
@@ -35,15 +36,24 @@ from backend.pipeline.ingest import (
     segment,
 )
 from backend.pipeline.jobs import ExtractionNotReadyError, JobRunner, RunAlreadyActiveError
+from backend.pipeline.segmentation.boundaries import (
+    BoundaryError,
+    clear_boundary,
+    finalise_document,
+    raw_document,
+    set_boundary,
+)
 from backend.pipeline.segmentation.m11 import load_template
 from backend.pipeline.segmentation.overrides import (
     OverrideError,
+    append_audit,
     audit_change,
     clear_override,
     set_override,
 )
+from backend.pipeline.terminology.ct import get_ct_resolver
 from backend.storage.errors import RunNotFoundError, SourceNotFoundError, StudyNotFoundError
-from backend.storage.fs import ensure_within
+from backend.storage.fs import ensure_within, write_model
 from backend.storage.studies import RUN_CONFIG_FILE
 
 router = APIRouter(prefix="/api/studies/{slug}/runs", tags=["runs"])
@@ -197,10 +207,10 @@ def _resegment(
     run_id: str,
     run_dir: Path,
     document: ParsedDocument,
-    action: str,
-    section_id: str,
+    audit: tuple[str, str] | None = None,
 ) -> SectionMapping:
-    """Re-map with the current overrides, audit the section's change, refresh the stage note."""
+    """Re-map with the current corrections, refresh the stage note, and for a mapping change
+    (action, section id) audit the section's old and new mapping."""
     before_path = run_dir / SECTION_MAPPING_FILE
     before = (
         SectionMapping.model_validate_json(before_path.read_text(encoding="utf-8"))
@@ -209,7 +219,8 @@ def _resegment(
     )
     config = RunConfig.model_validate_json((run_dir / RUN_CONFIG_FILE).read_text(encoding="utf-8"))
     mapping = segment(run_dir, document, config)
-    audit_change(run_dir, action, section_id, before, mapping)
+    if audit is not None:
+        audit_change(run_dir, audit[0], audit[1], before, mapping)
     flagged = sum(a.needs_review for a in mapping.assignments)
     overridden = sum(a.reviewer_override for a in mapping.assignments)
 
@@ -238,7 +249,7 @@ def override_section_mapping(
         raise HTTPException(status.HTTP_404_NOT_FOUND, detail="section not found") from None
     except OverrideError as exc:
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_CONTENT, detail=str(exc)) from None
-    return _resegment(store, slug, run_id, run_dir, document, "set", section_id)
+    return _resegment(store, slug, run_id, run_dir, document, ("set", section_id))
 
 
 @router.delete("/{run_id}/section-mapping/{section_id}", response_model=SectionMapping)
@@ -253,12 +264,83 @@ def clear_section_mapping(
         raise HTTPException(
             status.HTTP_404_NOT_FOUND, detail="this section has no reviewer mapping"
         ) from None
-    return _resegment(store, slug, run_id, run_dir, document, "clear", section_id)
+    return _resegment(store, slug, run_id, run_dir, document, ("clear", section_id))
+
+
+def _pages_of(document: ParsedDocument, section_id: str) -> dict[str, object]:
+    ids = [s.id for s in document.sections]
+    index = ids.index(section_id)
+    section = document.sections[index]
+    previous = document.sections[index - 1] if index else None
+    return {
+        "section": [section.page_start, section.page_end],
+        "previous_section": previous.id if previous else None,
+        "previous": [previous.page_start, previous.page_end] if previous else None,
+    }
+
+
+def _rebound(
+    store: Store,
+    slug: str,
+    run_id: str,
+    run_dir: Path,
+    current: ParsedDocument,
+    section_id: str,
+    change: str,
+) -> SectionMapping:
+    raw = raw_document(run_dir, current)
+    assert raw is not None
+    document = finalise_document(run_dir, raw)
+    write_model(run_dir / PARSED_DOCUMENT_FILE, document)
+    append_audit(
+        run_dir,
+        {
+            "action": change,
+            "section_id": section_id,
+            "doc_title": document.section(section_id).title,
+            "old": _pages_of(current, section_id),
+            "new": _pages_of(document, section_id),
+        },
+    )
+    return _resegment(store, slug, run_id, run_dir, document)
+
+
+@router.put("/{run_id}/sections/{section_id}/start-page", response_model=SectionMapping)
+def set_section_start_page(
+    slug: str, run_id: str, section_id: str, body: SectionStartRequest, store: Store, jobs: Jobs
+) -> SectionMapping:
+    """Move where a section starts: earlier pages go to the previous section in reading order,
+    the previous section's pages from the new start on come to this one. Kept across re-parsing."""
+    run_dir, current = _remap(store, jobs, slug, run_id)
+    raw = raw_document(run_dir, current)
+    assert raw is not None
+    try:
+        set_boundary(run_dir, raw, section_id, body.start_page)
+    except KeyError:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, detail="section not found") from None
+    except BoundaryError as exc:
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_CONTENT, detail=str(exc)) from None
+    return _rebound(store, slug, run_id, run_dir, current, section_id, "start_page")
+
+
+@router.delete("/{run_id}/sections/{section_id}/start-page", response_model=SectionMapping)
+def clear_section_start_page(
+    slug: str, run_id: str, section_id: str, store: Store, jobs: Jobs
+) -> SectionMapping:
+    """Return a section to the start page the parser found."""
+    run_dir, current = _remap(store, jobs, slug, run_id)
+    try:
+        clear_boundary(run_dir, section_id)
+    except KeyError:
+        raise HTTPException(
+            status.HTTP_404_NOT_FOUND, detail="this section's start page was not changed"
+        ) from None
+    return _rebound(store, slug, run_id, run_dir, current, section_id, "start_page_cleared")
 
 
 @router.get("/{run_id}/extraction/input-changes", response_model=list[AgentInputChange])
 def extraction_input_changes(slug: str, run_id: str, store: Store) -> list[AgentInputChange]:
-    """Agents whose protocol sections changed since extraction (after a mapping change)."""
+    """Agents whose input changed since extraction: a changed section mapping or moved pages."""
     run_dir = _run_dir(store, slug, run_id)
     extraction = load_extraction(run_dir)
     document = load_parsed_document(run_dir)
@@ -266,7 +348,8 @@ def extraction_input_changes(slug: str, run_id: str, store: Store) -> list[Agent
     if extraction is None or document is None or not mapping_path.is_file():
         return []
     mapping = SectionMapping.model_validate_json(mapping_path.read_text(encoding="utf-8"))
-    return changed_agent_inputs(extraction, document, mapping)
+    config = RunConfig.model_validate_json((run_dir / RUN_CONFIG_FILE).read_text(encoding="utf-8"))
+    return changed_agent_inputs(run_dir, extraction, document, mapping, config, get_ct_resolver())
 
 
 @router.get("/{run_id}/pages/{filename}")

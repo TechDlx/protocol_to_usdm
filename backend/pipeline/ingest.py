@@ -8,7 +8,9 @@ Outputs, all inside the run folder:
 Resumable: parsing is skipped when parsed_document.json already exists for the same source hash,
 backend, backend version and image DPI. Segmentation is cheap and deterministic, so it always
 re-runs; that keeps section_mapping.json in step with template or threshold changes. A reviewer's
-overrides (section_overrides.json) are applied on every run, so re-segmenting never loses them.
+corrections are applied on every run, so re-parsing or re-segmenting never loses them: section
+start pages (section_boundaries.json, applied to the parser's output, which is then kept as
+parsed_document.raw.json) and mapping overrides (section_overrides.json).
 
 Command line (useful for the evaluation harness and for eyeballing a protocol):
     uv run python -m backend.pipeline.ingest <protocol.pdf> <output-dir>
@@ -27,6 +29,7 @@ from backend.models.document import ParsedDocument, SourceInfo
 from backend.models.run_config import RunConfig
 from backend.models.segmentation import SectionMapping
 from backend.pipeline.extractors.registry import get_extractor
+from backend.pipeline.segmentation.boundaries import finalise_document, raw_document
 from backend.pipeline.segmentation.m11 import map_sections
 from backend.pipeline.segmentation.overrides import load_overrides
 from backend.storage.fs import write_model
@@ -88,14 +91,20 @@ def parse(
     if _reusable(existing, source, config, extractor.version):
         assert existing is not None
         log.info("parse skipped: output current", extra={"run_dir": str(run_dir)})
-        return existing, True
+        raw = raw_document(run_dir, existing)
+        assert raw is not None
+        document = finalise_document(run_dir, raw)
+        if document != existing:
+            write_model(run_dir / PARSED_DOCUMENT_FILE, document)
+        return document, True
 
     # Write the document last: its presence marks the stage complete, so a crash mid-way
     # (e.g. while rendering page images) simply re-runs next time.
     (run_dir / PARSED_DOCUMENT_FILE).unlink(missing_ok=True)
-    document = extractor.extract(
+    raw = extractor.extract(
         pdf_path, source, run_dir / PAGE_IMAGES_DIR, PAGE_IMAGES_DIR, config.page_image_dpi
     )
+    document = finalise_document(run_dir, raw)
     write_model(run_dir / PARSED_DOCUMENT_FILE, document)
     log.info(
         "parse complete",

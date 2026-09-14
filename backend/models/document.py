@@ -56,6 +56,8 @@ class Section(BaseModel):
     # content from each page; tables appear as [[TABLE id]].
     text: str
     table_ids: list[str] = Field(default_factory=list)
+    #: The start page the parser found, when a reviewer moved the start (section_boundaries.json).
+    parsed_page_start: int | None = None
 
 
 class Table(BaseModel):

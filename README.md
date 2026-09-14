@@ -172,6 +172,10 @@ a different file with the same name is kept alongside as `name (2).pdf`.
      automatic** undoes it. Manual mappings are kept when segmentation re-runs and recorded in
      `section_mapping_audit.jsonl`. After a change the panel names the extraction agents whose input
      changed, and the Extraction tab lists them until **Run extraction (resume)** updates them.
+     When a section starts on the wrong page (e.g. a synopsis detected on page 2 while pages 2–3
+     still belong to the title page), set **Starts on page** in the section's **Pages** box:
+     earlier pages move to the previous section, with their tables. **Revert to parsed start**
+     undoes it; corrections are kept when parsing re-runs.
      Rows with an amber bar are flagged for review. Click a row for its text, the next-best M11
      candidates and the source page image.
    - **M11 coverage:** which M11 sections were found, found with low confidence, or not found.

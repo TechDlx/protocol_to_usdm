@@ -174,6 +174,19 @@ export const api = {
       method: "DELETE",
     }),
 
+  /** Move where a section starts; pages shift between it and the previous section. */
+  setSectionStartPage: (slug: string, runId: string, sectionId: string, startPage: number) =>
+    request<SectionMapping>(`${runUrl(slug, runId)}/sections/${encodeURIComponent(sectionId)}/start-page`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ start_page: startPage }),
+    }),
+
+  clearSectionStartPage: (slug: string, runId: string, sectionId: string) =>
+    request<SectionMapping>(`${runUrl(slug, runId)}/sections/${encodeURIComponent(sectionId)}/start-page`, {
+      method: "DELETE",
+    }),
+
   getExtractionInputChanges: (slug: string, runId: string) =>
     request<AgentInputChange[]>(`${runUrl(slug, runId)}/extraction/input-changes`),
 

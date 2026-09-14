@@ -53,16 +53,23 @@ def _audit(
     before: SectionAssignment | None,
     after: SectionAssignment | None,
 ) -> None:
-    entry = {
-        "timestamp": datetime.now(UTC).isoformat(),
-        "action": action,
-        "section_id": section_id,
-        "doc_title": doc_title,
-        "old": _describe(before),
-        "new": _describe(after),
-    }
+    append_audit(
+        run_dir,
+        {
+            "action": action,
+            "section_id": section_id,
+            "doc_title": doc_title,
+            "old": _describe(before),
+            "new": _describe(after),
+        },
+    )
+
+
+def append_audit(run_dir: Path, entry: dict[str, object]) -> None:
+    """Append one timestamped entry to the run's section change log."""
+    record = {"timestamp": datetime.now(UTC).isoformat(), **entry}
     with (run_dir / AUDIT_FILE).open("a", encoding="utf-8") as fh:
-        fh.write(json.dumps(entry, ensure_ascii=False) + "\n")
+        fh.write(json.dumps(record, ensure_ascii=False) + "\n")
 
 
 def set_override(

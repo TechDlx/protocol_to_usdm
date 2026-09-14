@@ -661,3 +661,24 @@ money): `GET .../extraction/input-changes` compares the sections each agent woul
 those it read, the review panel names the affected agents after a change, and the Extraction tab
 lists them until extraction (resume) re-runs exactly those agents.
 
+## D34 — Reviewers can move where a section starts; the parser's output is kept alongside
+
+Heading detection can start a section on the wrong page (a heading-like line on a signature page
+makes pages 2-3 part of the synopsis). A reviewer sets the page a section starts on; whole pages
+before it move to the previous section in reading order, and the previous section's pages from
+that page on move into this one, tables included. Content moves by the `[[PAGE n]]` markers the
+parser writes into section text, so nothing is re-read from the PDF and no text is lost or
+duplicated. Pages are the unit: splitting within a page is not offered. The table of contents'
+pages and the first section's start are fixed.
+
+Corrections live in `section_boundaries.json`. While any exist, the parser's own output is kept as
+`parsed_document.raw.json` and `parsed_document.json` is that output with the corrections applied,
+so every later stage (mapping, extraction, source highlights) reads the corrected document, a
+correction can be changed or reverted, and re-parsing re-applies it; a correction whose section is
+gone, re-titled or out of range after a re-parse is reported in the document's warnings instead.
+Changes are logged in `section_mapping_audit.jsonl` with the page ranges before and after.
+
+Moving pages changes the text agents read without changing which sections they read, so the
+extraction input check (D33) now also compares each agent's input hash: the Extraction tab lists
+agents whose text changed, and extraction (resume) re-runs exactly those.
+

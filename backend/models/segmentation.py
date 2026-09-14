@@ -113,3 +113,24 @@ class AgentInputChange(BaseModel):
     sheet: str
     added: list[str]  # section ids it would now read
     removed: list[str]  # section ids it no longer reads
+    content_changed: bool = False  # same sections, different text (e.g. moved pages)
+
+
+class SectionBoundary(BaseModel):
+    """A reviewer's correction of where a section starts. Whole pages before `start_page` belong
+    to the previous section in reading order; pages of the previous section from `start_page`
+    on belong to this one."""
+
+    section_id: str
+    doc_title: str
+    start_page: int = Field(ge=1)
+    updated_at: datetime
+
+
+class SectionBoundaries(BaseModel):
+    schema_version: int = 1
+    boundaries: dict[str, SectionBoundary] = Field(default_factory=dict)
+
+
+class SectionStartRequest(BaseModel):
+    start_page: int = Field(ge=1)

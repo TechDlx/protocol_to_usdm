@@ -168,3 +168,66 @@ def test_reviewer_maps_a_section_and_extraction_sees_which_agents_changed(
         ("set", "5", "4.1"),
         ("clear", "4.1", "5"),
     ]
+
+
+def test_reviewer_moves_a_section_start_and_extraction_sees_the_changed_text(
+    app_and_client, parsed_run: str, tmp_path: Path
+) -> None:  # type: ignore[no-untyped-def]
+    _, client = app_and_client
+    run_dir = next((tmp_path / "studies").glob("*/runs/*"))
+    # Give section 1 some content on page 5, as if its text continued there.
+    path = run_dir / "parsed_document.json"
+    document = json.loads(path.read_text(encoding="utf-8"))
+    intro = next(s for s in document["sections"] if s["id"] == "sec-1")
+    intro["text"] += "\n[[PAGE 5]]\nThe introduction continues on page 5."
+    intro["page_end"] = 5
+    path.write_text(json.dumps(document), encoding="utf-8")
+
+    client.post(f"{parsed_run}/extract", json={})
+    _wait(client, parsed_run)
+    assert client.get(f"{parsed_run}/extraction/input-changes").json() == []
+
+    bad = client.put(f"{parsed_run}/sections/sec-1.1/start-page", json={"start_page": 9})
+    assert bad.status_code == 422 and "can start on pages 5-5" in bad.json()["detail"]
+    toc = client.put(
+        f"{parsed_run}/sections/fm-schedule-of-activities/start-page", json={"start_page": 3}
+    )
+    assert toc.status_code == 422
+
+    moved = client.put(f"{parsed_run}/sections/sec-1.1/start-page", json={"start_page": 5})
+    assert moved.status_code == 200, moved.text
+    sections = {s["id"]: s for s in client.get(f"{parsed_run}/document").json()["sections"]}
+    assert (sections["sec-1.1"]["page_start"], sections["sec-1.1"]["parsed_page_start"]) == (5, 4)
+    assert "continues on page 5" in sections["sec-1.1"]["text"]
+    assert "[[PAGE 5]]" not in sections["sec-1"]["text"]
+    assert (run_dir / "parsed_document.raw.json").is_file()
+
+    changes = {c["sheet"]: c for c in client.get(f"{parsed_run}/extraction/input-changes").json()}
+    assert changes["study"]["content_changed"] and not changes["study"]["added"]
+
+    # Re-running ingestion keeps the correction.
+    assert client.post(f"{parsed_run}/ingest").status_code == 202
+    _wait(client, parsed_run)
+    sections = {s["id"]: s for s in client.get(f"{parsed_run}/document").json()["sections"]}
+    assert sections["sec-1.1"]["page_start"] == 5
+
+    reverted = client.delete(f"{parsed_run}/sections/sec-1.1/start-page")
+    assert reverted.status_code == 200
+    sections = {s["id"]: s for s in client.get(f"{parsed_run}/document").json()["sections"]}
+    assert (
+        sections["sec-1.1"]["page_start"] == 4 and sections["sec-1.1"]["parsed_page_start"] is None
+    )
+    assert not (run_dir / "parsed_document.raw.json").exists()
+    assert client.get(f"{parsed_run}/extraction/input-changes").json() == []
+    assert client.delete(f"{parsed_run}/sections/sec-1.1/start-page").status_code == 404
+
+    audit = [
+        json.loads(line)
+        for line in (run_dir / "section_mapping_audit.jsonl")
+        .read_text(encoding="utf-8")
+        .splitlines()
+    ]
+    assert [(e["action"], e["old"]["section"], e["new"]["section"]) for e in audit] == [
+        ("start_page", [4, 4], [5, 5]),
+        ("start_page_cleared", [5, 5], [4, 4]),
+    ]

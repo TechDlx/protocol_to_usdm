@@ -283,3 +283,4 @@ tr.warning td { color: #8a5a00; }
 .mapping-option { display: block; width: 100%; text-align: left; background: none; border: 0; padding: 4px 6px; cursor: pointer; font: inherit; color: inherit; }
 .mapping-option:hover:not(:disabled) { background: #f0f5ff; }
 .mapping-option.current { background: #e6effc; font-weight: 600; }
+.page-input { width: 5em; padding: 2px 4px; border: 1px solid var(--border); border-radius: 4px; font: inherit; }

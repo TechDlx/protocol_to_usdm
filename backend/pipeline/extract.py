@@ -79,6 +79,28 @@ def _now() -> datetime:
     return datetime.now(UTC)
 
 
+def _input_hash(
+    agent: SheetAgent,
+    config: RunConfig,
+    resolver: CtResolver,
+    user_content: str,
+    images: list[bytes],
+) -> str:
+    """Everything the model sees for this agent; unchanged means no new model call."""
+    return input_hash(
+        PROMPT_VERSION,
+        agent.sheet,
+        agent.prompt_version,
+        config.extraction_model,
+        config.extraction_effort or "",
+        resolver.version,
+        SYSTEM_PROMPT,
+        agent.schema_fingerprint(),
+        user_content,
+        *(hashlib.sha256(image).hexdigest() for image in images),
+    )
+
+
 def _append_run_log(run_dir: Path, event: dict[str, Any]) -> None:
     with (run_dir / RUN_LOG_FILE).open("a", encoding="utf-8") as fh:
         fh.write(json.dumps({"ts": _now().isoformat(), **event}, default=str) + "\n")
@@ -123,18 +145,7 @@ async def _run_agent(
 
     user_content = agent.user_content(context, resolver)
     images = agent.images(context, run_dir)
-    run.input_hash = input_hash(
-        PROMPT_VERSION,
-        agent.sheet,
-        agent.prompt_version,
-        config.extraction_model,
-        config.extraction_effort or "",
-        resolver.version,
-        SYSTEM_PROMPT,
-        agent.schema_fingerprint(),
-        user_content,
-        *(hashlib.sha256(image).hexdigest() for image in images),
-    )
+    run.input_hash = _input_hash(agent, config, resolver, user_content, images)
     run.postprocess_version = f"{agent.postprocess_version}+verify{VERIFICATION_VERSION}"
     context_warnings = list(run.warnings)
 
@@ -360,18 +371,39 @@ def load_extraction(run_dir: Path) -> Extraction | None:
 
 
 def changed_agent_inputs(
-    extraction: Extraction, document: ParsedDocument, mapping: SectionMapping
+    run_dir: Path,
+    extraction: Extraction,
+    document: ParsedDocument,
+    mapping: SectionMapping,
+    config: RunConfig,
+    resolver: CtResolver,
 ) -> list[AgentInputChange]:
-    """Agents that would now read different protocol sections than in the extraction, e.g. after
-    a reviewer changed the section mapping. Running extraction (resume) re-runs exactly these."""
+    """Agents whose input differs from what they last read: other protocol sections (a changed
+    section mapping) or other text in the same sections (moved section pages). Running extraction
+    (resume) re-runs exactly these."""
     changes = []
     for sheet, agent in AGENTS.items():
         previous = extraction.agents.get(sheet)
         if previous is None:
             continue
-        now = agent.context(document, mapping).section_ids
+        context = agent.context(document, mapping)
+        now = context.section_ids
         added = [s for s in now if s not in previous.section_ids]
         removed = [s for s in previous.section_ids if s not in now]
-        if added or removed:
-            changes.append(AgentInputChange(sheet=sheet, added=added, removed=removed))
+        content_changed = False
+        if not added and not removed and context.sections and previous.input_hash:
+            current = _input_hash(
+                agent,
+                config,
+                resolver,
+                agent.user_content(context, resolver),
+                agent.images(context, run_dir),
+            )
+            content_changed = current != previous.input_hash
+        if added or removed or content_changed:
+            changes.append(
+                AgentInputChange(
+                    sheet=sheet, added=added, removed=removed, content_changed=content_changed
+                )
+            )
     return changes

@@ -182,6 +182,7 @@ export default function RunInspectorPage() {
               onSelect={setSelected}
               locked={run?.status === "running" || run?.status === "generating"}
               onMappingChanged={setMapping}
+              onDocumentChanged={loadArtefacts}
             />
           )}
           {tab === "coverage" && (
@@ -274,6 +275,7 @@ function SectionsTab(props: {
   onSelect: (id: string) => void;
   locked: boolean;
   onMappingChanged: (mapping: SectionMapping) => void;
+  onDocumentChanged: () => Promise<void>;
 }) {
   const { doc, mapping, selected, onSelect } = props;
   const [reviewOnly, setReviewOnly] = useState(false);
@@ -352,6 +354,7 @@ function SectionDetail(props: {
   assignment: SectionAssignment | null;
   locked: boolean;
   onMappingChanged: (mapping: SectionMapping) => void;
+  onDocumentChanged: () => Promise<void>;
 }) {
   const { slug, runId, doc, section, assignment: a } = props;
   const [full, setFull] = useState(false);
@@ -369,6 +372,16 @@ function SectionDetail(props: {
         {section.kind.replace("_", " ")} · pages {section.page_start}–{section.page_end} · heading from{" "}
         {section.heading_source.replace(/_/g, " ")} · <span className="mono">{section.id}</span>
       </div>
+
+      <PagesPanel
+        key={`pages-${section.id}`}
+        slug={slug}
+        runId={runId}
+        doc={doc}
+        section={section}
+        locked={props.locked}
+        onDocumentChanged={props.onDocumentChanged}
+      />
 
       {a && (
         <MappingPanel
@@ -405,6 +418,118 @@ function SectionDetail(props: {
           <img className="page-img" src={api.pageImageUrl(slug, runId, pageInfo.image_path)} alt={`Page ${page}`} />
         </div>
       )}
+    </div>
+  );
+}
+
+// ----- section pages -------------------------------------------------------------------------
+
+function PagesPanel(props: {
+  slug: string;
+  runId: string;
+  doc: ParsedDocument;
+  section: Section;
+  locked: boolean;
+  onDocumentChanged: () => Promise<void>;
+}) {
+  const { slug, runId, doc, section, locked } = props;
+  const index = doc.sections.findIndex((s) => s.id === section.id);
+  const previous = index > 0 ? (doc.sections[index - 1] ?? null) : null;
+  const [start, setStart] = useState(String(section.page_start));
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [saved, setSaved] = useState<string | null>(null);
+  useEffect(() => setStart(String(section.page_start)), [section.page_start]);
+
+  const movable = previous !== null && section.kind !== "toc" && previous.kind !== "toc";
+  const wanted = Number(start);
+  const valid = Number.isInteger(wanted) && wanted >= 1;
+  let preview = "";
+  if (previous && movable && valid && wanted > section.page_start) {
+    preview = `Pages ${section.page_start}–${wanted - 1} of this section will move to "${previous.title}".`;
+  } else if (previous && movable && valid && wanted < section.page_start) {
+    preview = `Pages ${wanted}–${section.page_start - 1} of "${previous.title}" will move into this section.`;
+  }
+
+  async function change(request: () => Promise<unknown>, message: string) {
+    setBusy(true);
+    setError(null);
+    try {
+      await request();
+      await props.onDocumentChanged();
+      const changes = await api.getExtractionInputChanges(slug, runId).catch(() => []);
+      setSaved(
+        changes.length
+          ? `${message} Agents whose input changed: ${changes.map((c) => c.sheet).join(", ")}; run extraction (resume) on the Extraction tab to update them.`
+          : `${message} No extraction agent's input changed (or extraction has not run).`,
+      );
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <div className="card-section">
+      <h3>Pages</h3>
+      <div>
+        {section.page_start === section.page_end ? `Page ${section.page_start}` : `Pages ${section.page_start}–${section.page_end}`}
+        {section.parsed_page_start != null && (
+          <span className="chip found small"> start moved by reviewer (parsed: page {section.parsed_page_start})</span>
+        )}
+      </div>
+      {movable ? (
+        <>
+          <div className="row-inline small">
+            <label>
+              Starts on page{" "}
+              <input
+                className="page-input"
+                type="number"
+                min={1}
+                max={doc.pages.length}
+                value={start}
+                disabled={locked || busy}
+                onChange={(e) => setStart(e.target.value)}
+              />
+            </label>
+            <button
+              className="btn small"
+              disabled={locked || busy || !valid || wanted === section.page_start}
+              onClick={() =>
+                void change(
+                  () => api.setSectionStartPage(slug, runId, section.id, wanted),
+                  `"${section.title}" now starts on page ${wanted}.`,
+                )
+              }
+            >
+              Apply
+            </button>
+            {section.parsed_page_start != null && (
+              <button
+                className="btn small"
+                disabled={locked || busy}
+                onClick={() =>
+                  void change(
+                    () => api.clearSectionStartPage(slug, runId, section.id),
+                    `Back to the parsed start, page ${section.parsed_page_start}.`,
+                  )
+                }
+              >
+                Revert to parsed start
+              </button>
+            )}
+          </div>
+          {preview && <div className="small muted">{preview}</div>}
+        </>
+      ) : (
+        <div className="small muted">
+          {previous === null ? "The first section's start is fixed." : "The table of contents' pages are fixed by the parser."}
+        </div>
+      )}
+      {error && <div className="alert error small">{error}</div>}
+      {saved && !error && <div className="alert ok small">{saved}</div>}
     </div>
   );
 }

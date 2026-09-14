@@ -118,13 +118,14 @@ export default function ExtractionTab({ slug, runId, run, onStarted }: Props) {
       {error && <div className="alert error">{error}</div>}
       {inputChanges.length > 0 && !running && (
         <div className="alert warn small">
-          The section mapping changed since extraction. Run extraction (resume) to update these agents; the others are
-          reused:{" "}
+          Protocol sections changed since extraction (section mapping or section pages). Run extraction (resume) to
+          update these agents; the others are reused:{" "}
           {inputChanges
             .map((c) => {
               const parts = [
                 c.added.length ? `${c.added.length} section(s) added` : "",
                 c.removed.length ? `${c.removed.length} removed` : "",
+                c.content_changed ? "text changed" : "",
               ].filter(Boolean);
               return `${c.sheet} (${parts.join(", ")})`;
             })

@@ -89,6 +89,8 @@ export interface Section {
   heading_source: "text" | "outline" | "text_and_outline" | "synthetic";
   text: string;
   table_ids: string[];
+  /** The start page the parser found, when a reviewer moved the start. */
+  parsed_page_start?: number | null;
 }
 
 export interface Table {
@@ -189,6 +191,7 @@ export interface AgentInputChange {
   sheet: string;
   added: string[];
   removed: string[];
+  content_changed: boolean;
 }
 
 // ----- extraction (backend/models/extraction.py) ----------------------------------------------
