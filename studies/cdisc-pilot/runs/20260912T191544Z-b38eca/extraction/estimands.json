@@ -1,0 +1,39 @@
+{
+  "run": {
+    "sheet": "estimands",
+    "status": "done",
+    "started_at": "2026-09-13T21:27:55.433534Z",
+    "finished_at": "2026-09-13T21:27:57.862606Z",
+    "input_hash": "09a72d0227accca4fdddfe58c58125ccce08caa393e8cca20da8317406fe7825",
+    "postprocess_version": "1+verify4",
+    "reprocessed": false,
+    "section_ids": [
+      "sec-2",
+      "sec-2.1",
+      "sec-2.2",
+      "sec-4.1",
+      "sec-4.3",
+      "sec-4.3.1",
+      "sec-4.3.2",
+      "sec-4.3.3",
+      "sec-4.3.4"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 7576,
+      "output_tokens": 10,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 2.42,
+      "cost_usd": 0.015252,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": []
+  },
+  "records": [],
+  "model_output": {
+    "estimands": []
+  }
+}

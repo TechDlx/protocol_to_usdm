@@ -1,0 +1,1845 @@
+{
+  "run": {
+    "sheet": "assessments",
+    "status": "done",
+    "started_at": "2026-09-13T21:28:04.975067Z",
+    "finished_at": "2026-09-13T21:31:14.448887Z",
+    "input_hash": "6c9bd67b706237ab2236f3a460b9c38efef539ee7dd254a6d29c32bccd3b8d8b",
+    "postprocess_version": "1+verify4",
+    "reprocessed": false,
+    "section_ids": [
+      "sec-3.9",
+      "sec-3.9.1",
+      "sec-3.9.1.1",
+      "sec-3.9.1.2",
+      "sec-3.9.2",
+      "sec-3.9.3",
+      "sec-3.9.3.1",
+      "sec-3.9.3.3",
+      "sec-3.9.3.4",
+      "sec-3.9.3.4.1",
+      "sec-3.9.3.4.2",
+      "sec-3.9.4",
+      "sec-3.9.5"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 10280,
+      "output_tokens": 16862,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 189.44,
+      "cost_usd": 0.18918,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": []
+  },
+  "records": [
+    {
+      "assessment": {
+        "value": "Efficacy Measures",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.9.1.1",
+          "source_page": 27,
+          "raw_phrase": "The following measures will be performed in the course of the study.",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "ADAS-Cog (11)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.1.1",
+            "source_page": 28,
+            "raw_phrase": "The ADAS-Cog (11) is a standard 11-item instrument used to assess word recall, naming objects, commands",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "ADAS-Cog (14)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.1.1",
+            "source_page": 28,
+            "raw_phrase": "The 14 item instrument will be referred to as the ADAS-Cog (14).",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "CIBIC+",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.1.1",
+            "source_page": 28,
+            "raw_phrase": "Video-referenced Clinician’s Interview-Based Impression of Change (CIBIC+)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "NPI-X",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.1.1",
+            "source_page": 28,
+            "raw_phrase": "Revised Neuropsychiatric Inventory (NPI-X)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "DAD",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.1.1",
+            "source_page": 28,
+            "raw_phrase": "Disability Assessment for Dementia (DAD)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "Vital Signs",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.9.3.1",
+          "source_page": 30,
+          "raw_phrase": "vital signs (including supine/standing pulse and blood pressure readings)",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "supine/standing pulse",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.1",
+            "source_page": 30,
+            "raw_phrase": "supine/standing pulse",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "blood pressure readings",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.1",
+            "source_page": 30,
+            "raw_phrase": "blood pressure readings",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "diastolic blood pressure",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.4.1",
+            "source_page": 34,
+            "raw_phrase": "Diastolic blood pressure will be measured as the point of disappearance of the Korotkoff",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "heart rate",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.4.1",
+            "source_page": 35,
+            "raw_phrase": "Heart rate will be measured by auscultation.",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "Hematology",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.9.3.3",
+          "source_page": 32,
+          "raw_phrase": "Hematology:",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "Hemoglobin",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Hemoglobin",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Hematocrit",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Hematocrit",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Erythrocyte count (RBC)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Erythrocyte count (RBC)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Mean cell volume (MCV)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Mean cell volume (MCV)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Mean cell hemoglobin (MCH)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Mean cell hemoglobin (MCH)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Mean cell hemoglobin concentration (MCHC)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Mean cell hemoglobin concentration (MCHC)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Leukocytes (WBC)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Leukocytes (WBC)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Neutrophils, segmented",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Neutrophils, segmented",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Neutrophils, juvenile (bands)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Neutrophils, juvenile (bands)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Lymphocytes",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Lymphocytes",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Monocytes",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Monocytes",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Eosinophils",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Eosinophils",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Basophils",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Basophils",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Platelet",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Platelet",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Cell morphology",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Cell morphology",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "Clinical Chemistry",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.9.3.3",
+          "source_page": 32,
+          "raw_phrase": "Clinical Chemistry -",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "Sodium",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Sodium",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Potassium",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Potassium",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Bicarbonate",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Bicarbonate",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Chloride",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Chloride",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Total bilirubin",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Total bilirubin",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Alkaline phosphatase (ALP)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Alkaline phosphatase (ALP)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Gamma-glutamyl transferase (GGT)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Gamma-glutamyl transferase (GGT)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Alanine transaminase (ALT/SGPT)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Alanine transaminase (ALT/SGPT)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Aspartate transaminase (AST/SGOT)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Aspartate transaminase (AST/SGOT)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Blood urea nitrogen (BUN)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Blood urea nitrogen (BUN)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Serum creatinine",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Serum creatinine",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Uric acid",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Uric acid",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Phosphorus",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Phosphorus",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Calcium",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Calcium",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Glucose, nonfasting",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Glucose, nonfasting",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Total protein",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Total protein",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Albumin",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Albumin",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Cholesterol",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Cholesterol",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Creatine kinase (CK)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Creatine kinase (CK)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "Urinalysis",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.9.3.3",
+          "source_page": 32,
+          "raw_phrase": "Urinalysis:",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "Color",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Color",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Specific gravity",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Specific gravity",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "pH",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "pH",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Protein",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Protein",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Glucose",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Glucose",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Ketones",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Ketones",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Bilirubin",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Bilirubin",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Urobilinogen",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Urobilinogen",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Blood",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Blood",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Nitrite",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Nitrite",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Microscopic examination of sediment",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Microscopic examination of sediment",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "Thyroid Function Test",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.9.3.3",
+          "source_page": 32,
+          "raw_phrase": "Thyroid Function Test (Visit 1 only):",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "Free thyroid index",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Free thyroid index",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "T3 Uptake",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "T 3 Uptake",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "T4",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "T 4",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Thyroid-stimulating hormone (TSH)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Thyroid-stimulating hormone (TSH)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "Other Tests",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.9.3.3",
+          "source_page": 32,
+          "raw_phrase": "Other Tests (Visit 1 only):",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "Folate",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Folate",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Vitamin B12",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Vitamin B 12",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Syphilis screening",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Syphilis screening",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Hemoglobin A1C (IDDM patients only)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.3.3",
+            "source_page": 32,
+            "raw_phrase": "Hemoglobin A 1C (IDDM patients only)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "12-lead ECG",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.9.3.4.2",
+          "source_page": 35,
+          "raw_phrase": "All patients will be screened by obtaining a 12-lead ECG",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "left bundle branch block",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.4",
+            "source_page": 36,
+            "raw_phrase": "reveals left bundle branch block",
+            "confidence": 0.8,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "bradycardia",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.4",
+            "source_page": 36,
+            "raw_phrase": "bradycardia ≤ 50 beats per minute",
+            "confidence": 0.8,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "sinus pauses",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.4",
+            "source_page": 36,
+            "raw_phrase": "sinus pauses >2 seconds",
+            "confidence": 0.8,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "second degree heart block",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.4",
+            "source_page": 36,
+            "raw_phrase": "second degree heart block",
+            "confidence": 0.8,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "third degree heart block",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.4",
+            "source_page": 36,
+            "raw_phrase": "third degree heart block",
+            "confidence": 0.8,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Wolff-Parkinson-White syndrome",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.4",
+            "source_page": 36,
+            "raw_phrase": "Wolff-Parkinson-White syndrome",
+            "confidence": 0.8,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "sustained supraventricular tachyarrhythmia",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.4",
+            "source_page": 36,
+            "raw_phrase": "sustained supraventricular tachyarrhythmia",
+            "confidence": 0.8,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "ventricular tachycardia",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.4",
+            "source_page": 36,
+            "raw_phrase": "ventricular tachycardia at a rate of ≥ 120 beats per minute lasting ≥ 10 seconds",
+            "confidence": 0.8,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "24-hour Ambulatory ECG",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.9.3.4.2",
+          "source_page": 35,
+          "raw_phrase": "All patients will undergo a 24-hour Ambulatory ECG at Visit 2",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "sustained ventricular tachycardia",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.4",
+            "source_page": 36,
+            "raw_phrase": "sustained ventricular tachycardia with rate > 120 beats per minute",
+            "confidence": 0.8,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "third degree heart block",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.4",
+            "source_page": 36,
+            "raw_phrase": "third degree heart block, or sinus pauses of > 6.0 seconds",
+            "confidence": 0.8,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "sinus pauses (>6.0 seconds)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.4",
+            "source_page": 36,
+            "raw_phrase": "sinus pauses of > 6.0 seconds",
+            "confidence": 0.8,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "sinus pauses (>3.0 seconds)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.4",
+            "source_page": 36,
+            "raw_phrase": "sinus pauses of > 3.0 seconds",
+            "confidence": 0.8,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "second degree heart block",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.4",
+            "source_page": 36,
+            "raw_phrase": "second degree heart block",
+            "confidence": 0.75,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "Pharmacokinetic Blood Sampling",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.9.2",
+          "source_page": 29,
+          "raw_phrase": "Blood samples (7 mL) for the determination of xanomeline concentrations in plasma will be collected",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "xanomeline concentrations in plasma",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3.9.2",
+            "source_page": 29,
+            "raw_phrase": "xanomeline concentrations in plasma",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    }
+  ],
+  "model_output": {
+    "assessments": [
+      {
+        "name": {
+          "value": "Efficacy Measures",
+          "quote": "The following measures will be performed in the course of the study.",
+          "section_id": "sec-3.9.1.1",
+          "confidence": 0.85
+        },
+        "measurements": [
+          {
+            "value": "ADAS-Cog (11)",
+            "quote": "The ADAS-Cog (11) is a standard 11-item instrument used to assess word recall, naming objects, commands",
+            "section_id": "sec-3.9.1.1",
+            "confidence": 0.9
+          },
+          {
+            "value": "ADAS-Cog (14)",
+            "quote": "The 14 item instrument will be referred to as the ADAS-Cog (14).",
+            "section_id": "sec-3.9.1.1",
+            "confidence": 0.9
+          },
+          {
+            "value": "CIBIC+",
+            "quote": "Video-referenced Clinician\\u2019s Interview-Based Impression of Change (CIBIC+)",
+            "section_id": "sec-3.9.1.1",
+            "confidence": 0.9
+          },
+          {
+            "value": "NPI-X",
+            "quote": "Revised Neuropsychiatric Inventory (NPI-X)",
+            "section_id": "sec-3.9.1.1",
+            "confidence": 0.9
+          },
+          {
+            "value": "DAD",
+            "quote": "Disability Assessment for Dementia (DAD)",
+            "section_id": "sec-3.9.1.1",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Vital Signs",
+          "quote": "vital signs (including supine/standing pulse and blood pressure readings)",
+          "section_id": "sec-3.9.3.1",
+          "confidence": 0.85
+        },
+        "measurements": [
+          {
+            "value": "supine/standing pulse",
+            "quote": "supine/standing pulse",
+            "section_id": "sec-3.9.3.1",
+            "confidence": 0.85
+          },
+          {
+            "value": "blood pressure readings",
+            "quote": "blood pressure readings",
+            "section_id": "sec-3.9.3.1",
+            "confidence": 0.85
+          },
+          {
+            "value": "diastolic blood pressure",
+            "quote": "Diastolic blood pressure will be measured as the point of disappearance of the Korotkoff",
+            "section_id": "sec-3.9.3.4.1",
+            "confidence": 0.9
+          },
+          {
+            "value": "heart rate",
+            "quote": "Heart rate will be measured by auscultation.",
+            "section_id": "sec-3.9.3.4.1",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Hematology",
+          "quote": "Hematology:",
+          "section_id": "sec-3.9.3.3",
+          "confidence": 0.85
+        },
+        "measurements": [
+          {
+            "value": "Hemoglobin",
+            "quote": "Hemoglobin",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Hematocrit",
+            "quote": "Hematocrit",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Erythrocyte count (RBC)",
+            "quote": "Erythrocyte count (RBC)",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Mean cell volume (MCV)",
+            "quote": "Mean cell volume (MCV)",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Mean cell hemoglobin (MCH)",
+            "quote": "Mean cell hemoglobin (MCH)",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Mean cell hemoglobin concentration (MCHC)",
+            "quote": "Mean cell hemoglobin concentration (MCHC)",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Leukocytes (WBC)",
+            "quote": "Leukocytes (WBC)",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Neutrophils, segmented",
+            "quote": "Neutrophils, segmented",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Neutrophils, juvenile (bands)",
+            "quote": "Neutrophils, juvenile (bands)",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Lymphocytes",
+            "quote": "Lymphocytes",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Monocytes",
+            "quote": "Monocytes",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Eosinophils",
+            "quote": "Eosinophils",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Basophils",
+            "quote": "Basophils",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Platelet",
+            "quote": "Platelet",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Cell morphology",
+            "quote": "Cell morphology",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Clinical Chemistry",
+          "quote": "Clinical Chemistry -",
+          "section_id": "sec-3.9.3.3",
+          "confidence": 0.85
+        },
+        "measurements": [
+          {
+            "value": "Sodium",
+            "quote": "Sodium",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Potassium",
+            "quote": "Potassium",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Bicarbonate",
+            "quote": "Bicarbonate",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Chloride",
+            "quote": "Chloride",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Total bilirubin",
+            "quote": "Total bilirubin",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Alkaline phosphatase (ALP)",
+            "quote": "Alkaline phosphatase (ALP)",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Gamma-glutamyl transferase (GGT)",
+            "quote": "Gamma-glutamyl transferase (GGT)",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Alanine transaminase (ALT/SGPT)",
+            "quote": "Alanine transaminase (ALT/SGPT)",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Aspartate transaminase (AST/SGOT)",
+            "quote": "Aspartate transaminase (AST/SGOT)",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Blood urea nitrogen (BUN)",
+            "quote": "Blood urea nitrogen (BUN)",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Serum creatinine",
+            "quote": "Serum creatinine",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Uric acid",
+            "quote": "Uric acid",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Phosphorus",
+            "quote": "Phosphorus",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Calcium",
+            "quote": "Calcium",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Glucose, nonfasting",
+            "quote": "Glucose, nonfasting",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Total protein",
+            "quote": "Total protein",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Albumin",
+            "quote": "Albumin",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Cholesterol",
+            "quote": "Cholesterol",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Creatine kinase (CK)",
+            "quote": "Creatine kinase (CK)",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Urinalysis",
+          "quote": "Urinalysis:",
+          "section_id": "sec-3.9.3.3",
+          "confidence": 0.85
+        },
+        "measurements": [
+          {
+            "value": "Color",
+            "quote": "Color",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Specific gravity",
+            "quote": "Specific gravity",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "pH",
+            "quote": "pH",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Protein",
+            "quote": "Protein",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Glucose",
+            "quote": "Glucose",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Ketones",
+            "quote": "Ketones",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Bilirubin",
+            "quote": "Bilirubin",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Urobilinogen",
+            "quote": "Urobilinogen",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Blood",
+            "quote": "Blood",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Nitrite",
+            "quote": "Nitrite",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Microscopic examination of sediment",
+            "quote": "Microscopic examination of sediment",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Thyroid Function Test",
+          "quote": "Thyroid Function Test (Visit 1 only):",
+          "section_id": "sec-3.9.3.3",
+          "confidence": 0.85
+        },
+        "measurements": [
+          {
+            "value": "Free thyroid index",
+            "quote": "Free thyroid index",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "T3 Uptake",
+            "quote": "T 3 Uptake",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "T4",
+            "quote": "T 4",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Thyroid-stimulating hormone (TSH)",
+            "quote": "Thyroid-stimulating hormone (TSH)",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Other Tests",
+          "quote": "Other Tests (Visit 1 only):",
+          "section_id": "sec-3.9.3.3",
+          "confidence": 0.85
+        },
+        "measurements": [
+          {
+            "value": "Folate",
+            "quote": "Folate",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Vitamin B12",
+            "quote": "Vitamin B 12",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Syphilis screening",
+            "quote": "Syphilis screening",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Hemoglobin A1C (IDDM patients only)",
+            "quote": "Hemoglobin A 1C (IDDM patients only)",
+            "section_id": "sec-3.9.3.3",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "12-lead ECG",
+          "quote": "All patients will be screened by obtaining a 12-lead ECG",
+          "section_id": "sec-3.9.3.4.2",
+          "confidence": 0.85
+        },
+        "measurements": [
+          {
+            "value": "left bundle branch block",
+            "quote": "reveals left bundle branch block",
+            "section_id": "sec-3.9.4",
+            "confidence": 0.8
+          },
+          {
+            "value": "bradycardia",
+            "quote": "bradycardia \\u2264 50 beats per minute",
+            "section_id": "sec-3.9.4",
+            "confidence": 0.8
+          },
+          {
+            "value": "sinus pauses",
+            "quote": "sinus pauses >2 seconds",
+            "section_id": "sec-3.9.4",
+            "confidence": 0.8
+          },
+          {
+            "value": "second degree heart block",
+            "quote": "second degree heart block",
+            "section_id": "sec-3.9.4",
+            "confidence": 0.8
+          },
+          {
+            "value": "third degree heart block",
+            "quote": "third degree heart block",
+            "section_id": "sec-3.9.4",
+            "confidence": 0.8
+          },
+          {
+            "value": "Wolff-Parkinson-White syndrome",
+            "quote": "Wolff-Parkinson-White syndrome",
+            "section_id": "sec-3.9.4",
+            "confidence": 0.8
+          },
+          {
+            "value": "sustained supraventricular tachyarrhythmia",
+            "quote": "sustained supraventricular tachyarrhythmia",
+            "section_id": "sec-3.9.4",
+            "confidence": 0.8
+          },
+          {
+            "value": "ventricular tachycardia",
+            "quote": "ventricular tachycardia at a rate of \\u2265 120 beats per minute lasting \\u2265 10 seconds",
+            "section_id": "sec-3.9.4",
+            "confidence": 0.8
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "24-hour Ambulatory ECG",
+          "quote": "All patients will undergo a 24-hour Ambulatory ECG at Visit 2",
+          "section_id": "sec-3.9.3.4.2",
+          "confidence": 0.85
+        },
+        "measurements": [
+          {
+            "value": "sustained ventricular tachycardia",
+            "quote": "sustained ventricular tachycardia with rate > 120 beats per minute",
+            "section_id": "sec-3.9.4",
+            "confidence": 0.8
+          },
+          {
+            "value": "third degree heart block",
+            "quote": "third degree heart block, or sinus pauses of > 6.0 seconds",
+            "section_id": "sec-3.9.4",
+            "confidence": 0.8
+          },
+          {
+            "value": "sinus pauses (>6.0 seconds)",
+            "quote": "sinus pauses of > 6.0 seconds",
+            "section_id": "sec-3.9.4",
+            "confidence": 0.8
+          },
+          {
+            "value": "sinus pauses (>3.0 seconds)",
+            "quote": "sinus pauses of > 3.0 seconds",
+            "section_id": "sec-3.9.4",
+            "confidence": 0.8
+          },
+          {
+            "value": "second degree heart block",
+            "quote": "second degree heart block",
+            "section_id": "sec-3.9.4",
+            "confidence": 0.75
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Pharmacokinetic Blood Sampling",
+          "quote": "Blood samples (7 mL) for the determination of xanomeline concentrations in plasma will be collected",
+          "section_id": "sec-3.9.2",
+          "confidence": 0.85
+        },
+        "measurements": [
+          {
+            "value": "xanomeline concentrations in plasma",
+            "quote": "xanomeline concentrations in plasma",
+            "section_id": "sec-3.9.2",
+            "confidence": 0.9
+          }
+        ]
+      }
+    ]
+  }
+}

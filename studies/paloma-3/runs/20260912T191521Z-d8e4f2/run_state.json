@@ -1,0 +1,505 @@
+{
+  "run_id": "20260912T191521Z-d8e4f2",
+  "status": "completed",
+  "source_filename": "Pfizer A5481023 PALOMA-3 (NCT01942135).pdf",
+  "created_at": "2026-09-12T19:15:21.320198Z",
+  "updated_at": "2026-09-13T23:39:06.217548Z",
+  "stages": {
+    "ingest": {
+      "status": "skipped",
+      "started_at": "2026-09-13T02:21:25.910026Z",
+      "finished_at": "2026-09-13T02:21:25.940015Z",
+      "error": null,
+      "detail": "125 pages, 148 sections, 23 tables"
+    },
+    "segment": {
+      "status": "done",
+      "started_at": "2026-09-13T02:21:25.948657Z",
+      "finished_at": "2026-09-13T02:21:28.027229Z",
+      "error": null,
+      "detail": "17 of 148 sections flagged for review"
+    },
+    "extract": {
+      "status": "done",
+      "started_at": "2026-09-13T22:46:01.013990Z",
+      "finished_at": "2026-09-13T22:46:27.741099Z",
+      "error": null,
+      "detail": "14 skipped, $0.00 this run"
+    },
+    "workbook": {
+      "status": "done",
+      "started_at": "2026-09-13T22:59:30.220800Z",
+      "finished_at": "2026-09-13T22:59:30.411739Z",
+      "error": null,
+      "detail": "20 sheets, review revision 18"
+    },
+    "usdm": {
+      "status": "done",
+      "started_at": "2026-09-13T23:38:23.442225Z",
+      "finished_at": "2026-09-13T23:39:06.217548Z",
+      "error": null,
+      "detail": "0 import error(s), 17 of 213 rules failed, 30 finding(s) (20 expected), CORE not run"
+    }
+  },
+  "agents": {
+    "study": {
+      "sheet": "study",
+      "status": "skipped",
+      "started_at": "2026-09-13T21:38:18.313391Z",
+      "finished_at": "2026-09-13T21:39:20.366831Z",
+      "input_hash": "b41f23222096e3822c30b633ec9ebf942efdcbc72ab5e63ff2f257157b076986",
+      "postprocess_version": "1+verify4",
+      "reprocessed": false,
+      "section_ids": [
+        "title-page",
+        "fm-document-history",
+        "fm-protocol-summary",
+        "sec-1",
+        "sec-1.1",
+        "sec-1.2",
+        "sec-1.2.1",
+        "sec-1.2.1.2",
+        "sec-1.2.1.3",
+        "sec-1.2.1.6",
+        "sec-1.2.1.7",
+        "sec-1.2.1.8",
+        "sec-1.2.2",
+        "sec-1.2.3",
+        "sec-1.2.4",
+        "sec-1.2.4.1",
+        "sec-1.2.4.2",
+        "sec-1.2.4.3"
+      ],
+      "usage": {
+        "model": "claude-sonnet-5",
+        "input_tokens": 30226,
+        "output_tokens": 3152,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "latency_seconds": 62.04,
+        "cost_usd": 0.091972,
+        "stop_reason": "end_turn",
+        "request_id": null
+      },
+      "error": null,
+      "warnings": []
+    },
+    "study_design_arms": {
+      "sheet": "study_design_arms",
+      "status": "skipped",
+      "started_at": "2026-09-13T21:38:18.387410Z",
+      "finished_at": "2026-09-13T21:38:26.698371Z",
+      "input_hash": "c04cc1e5923adae8a13bfe7aaf001a300519be7c3aed25254b89df8d12bb659b",
+      "postprocess_version": "1+verify4",
+      "reprocessed": false,
+      "section_ids": [
+        "fm-protocol-summary",
+        "sec-3",
+        "sec-5",
+        "sec-5.1",
+        "sec-5.2",
+        "sec-5.3",
+        "sec-5.3.1",
+        "sec-5.3.1.1",
+        "sec-5.3.1.2",
+        "sec-5.6"
+      ],
+      "usage": {
+        "model": "claude-sonnet-5",
+        "input_tokens": 13671,
+        "output_tokens": 1061,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "latency_seconds": 8.29,
+        "cost_usd": 0.037952,
+        "stop_reason": "end_turn",
+        "request_id": null
+      },
+      "error": null,
+      "warnings": []
+    },
+    "eligibility_criteria": {
+      "sheet": "eligibility_criteria",
+      "status": "skipped",
+      "started_at": "2026-09-13T21:38:26.714006Z",
+      "finished_at": "2026-09-13T21:39:45.024828Z",
+      "input_hash": "16914e0bf1f5d6842bd77b46dc175990ee65f5c0ece1acdd3fed3c460774def8",
+      "postprocess_version": "1+verify4",
+      "reprocessed": false,
+      "section_ids": [
+        "sec-4",
+        "sec-4.1",
+        "sec-4.2"
+      ],
+      "usage": {
+        "model": "claude-sonnet-5",
+        "input_tokens": 5663,
+        "output_tokens": 11724,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "latency_seconds": 78.25,
+        "cost_usd": 0.128566,
+        "stop_reason": "end_turn",
+        "request_id": null
+      },
+      "error": null,
+      "warnings": []
+    },
+    "identifiers": {
+      "sheet": "identifiers",
+      "status": "skipped",
+      "started_at": "2026-09-13T21:38:18.329460Z",
+      "finished_at": "2026-09-13T21:38:42.176609Z",
+      "input_hash": "107893c813018f4a7df1c28460a8f1f319df4b1bf3a9a5dc82bf99a15685b3ac",
+      "postprocess_version": "1+verify4",
+      "reprocessed": false,
+      "section_ids": [
+        "title-page",
+        "fm-protocol-summary"
+      ],
+      "usage": {
+        "model": "claude-sonnet-5",
+        "input_tokens": 9925,
+        "output_tokens": 2445,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "latency_seconds": 23.82,
+        "cost_usd": 0.0443,
+        "stop_reason": "end_turn",
+        "request_id": null
+      },
+      "error": null,
+      "warnings": []
+    },
+    "study_design": {
+      "sheet": "study_design",
+      "status": "skipped",
+      "started_at": "2026-09-13T21:38:18.368439Z",
+      "finished_at": "2026-09-13T21:38:40.867353Z",
+      "input_hash": "329b53f0178da31ca9e6741817b2ce10a460b7400c31f125c7a70963cca33e26",
+      "postprocess_version": "1+verify4",
+      "reprocessed": false,
+      "section_ids": [
+        "title-page",
+        "fm-protocol-summary",
+        "sec-3",
+        "sec-5",
+        "sec-5.1",
+        "sec-5.2",
+        "sec-5.6"
+      ],
+      "usage": {
+        "model": "claude-sonnet-5",
+        "input_tokens": 14548,
+        "output_tokens": 2812,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "latency_seconds": 22.46,
+        "cost_usd": 0.057216,
+        "stop_reason": "end_turn",
+        "request_id": null
+      },
+      "error": null,
+      "warnings": []
+    },
+    "populations": {
+      "sheet": "populations",
+      "status": "skipped",
+      "started_at": "2026-09-13T21:38:18.410711Z",
+      "finished_at": "2026-09-13T21:38:29.025464Z",
+      "input_hash": "c825c5594b142a0d41cf911198a67c9c17a12120c659f55bb2a0cef76a7b75b5",
+      "postprocess_version": "1+verify4",
+      "reprocessed": false,
+      "section_ids": [
+        "fm-protocol-summary",
+        "sec-4",
+        "sec-4.1"
+      ],
+      "usage": {
+        "model": "claude-sonnet-5",
+        "input_tokens": 10879,
+        "output_tokens": 1131,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "latency_seconds": 10.59,
+        "cost_usd": 0.033068,
+        "stop_reason": "end_turn",
+        "request_id": null
+      },
+      "error": null,
+      "warnings": [
+        "POP1: only a minimum age (18) is stated; a planned age needs both ends, so it is left empty"
+      ]
+    },
+    "objectives_endpoints": {
+      "sheet": "objectives_endpoints",
+      "status": "skipped",
+      "started_at": "2026-09-13T21:38:29.037670Z",
+      "finished_at": "2026-09-13T21:40:13.393553Z",
+      "input_hash": "e146db020301b827a9bd72b9fa288d0a84490410f05e00e5c20f86c58a6be0c4",
+      "postprocess_version": "1+verify4",
+      "reprocessed": false,
+      "section_ids": [
+        "sec-2",
+        "sec-2.1",
+        "sec-2.2",
+        "sec-9.3",
+        "sec-9.3.1",
+        "sec-9.3.2"
+      ],
+      "usage": {
+        "model": "claude-sonnet-5",
+        "input_tokens": 7171,
+        "output_tokens": 13784,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "latency_seconds": 104.33,
+        "cost_usd": 0.152182,
+        "stop_reason": "end_turn",
+        "request_id": null
+      },
+      "error": null,
+      "warnings": []
+    },
+    "estimands": {
+      "sheet": "estimands",
+      "status": "skipped",
+      "started_at": "2026-09-13T21:38:40.876258Z",
+      "finished_at": "2026-09-13T21:38:42.604191Z",
+      "input_hash": "d548bf9b8fb609f5868fc8ea3055388fe48a581569ddc7f1d671025d3370748e",
+      "postprocess_version": "1+verify4",
+      "reprocessed": false,
+      "section_ids": [
+        "sec-2",
+        "sec-2.1",
+        "sec-2.2",
+        "sec-9.3",
+        "sec-9.3.1",
+        "sec-9.3.2"
+      ],
+      "usage": {
+        "model": "claude-sonnet-5",
+        "input_tokens": 6650,
+        "output_tokens": 10,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "latency_seconds": 1.72,
+        "cost_usd": 0.0134,
+        "stop_reason": "end_turn",
+        "request_id": null
+      },
+      "error": null,
+      "warnings": []
+    },
+    "interventions": {
+      "sheet": "interventions",
+      "status": "skipped",
+      "started_at": "2026-09-13T21:38:42.185165Z",
+      "finished_at": "2026-09-13T21:39:15.777340Z",
+      "input_hash": "35099159add1c3108188ffe76b8e56221c128519c83644081814cf901bce2a84",
+      "postprocess_version": "1+verify4",
+      "reprocessed": false,
+      "section_ids": [
+        "sec-1.2.1.5",
+        "sec-5",
+        "sec-5.3",
+        "sec-5.3.1",
+        "sec-5.3.1.1",
+        "sec-5.3.1.2",
+        "sec-5.3.3",
+        "sec-5.3.3.1",
+        "sec-5.3.3.2",
+        "sec-5.6"
+      ],
+      "usage": {
+        "model": "claude-sonnet-5",
+        "input_tokens": 9474,
+        "output_tokens": 4224,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "latency_seconds": 33.56,
+        "cost_usd": 0.061188,
+        "stop_reason": "end_turn",
+        "request_id": null
+      },
+      "error": null,
+      "warnings": []
+    },
+    "indications": {
+      "sheet": "indications",
+      "status": "skipped",
+      "started_at": "2026-09-13T21:38:42.613674Z",
+      "finished_at": "2026-09-13T21:38:46.401925Z",
+      "input_hash": "9fc6179353974655c4bf46c1dcd919cf8a26e1d9e20bd108227157b9ff12a384",
+      "postprocess_version": "1+verify4",
+      "reprocessed": false,
+      "section_ids": [
+        "title-page",
+        "fm-protocol-summary",
+        "sec-1",
+        "sec-1.1",
+        "sec-1.2",
+        "sec-1.2.1",
+        "sec-1.2.1.2",
+        "sec-1.2.1.3",
+        "sec-1.2.1.6",
+        "sec-1.2.1.7",
+        "sec-1.2.1.8",
+        "sec-1.2.2",
+        "sec-4"
+      ],
+      "usage": {
+        "model": "claude-sonnet-5",
+        "input_tokens": 19882,
+        "output_tokens": 349,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "latency_seconds": 3.78,
+        "cost_usd": 0.043254,
+        "stop_reason": "end_turn",
+        "request_id": null
+      },
+      "error": null,
+      "warnings": []
+    },
+    "amendments": {
+      "sheet": "amendments",
+      "status": "skipped",
+      "started_at": "2026-09-13T21:38:46.417744Z",
+      "finished_at": "2026-09-13T21:39:23.435979Z",
+      "input_hash": "4f196249bdd15aa4e13bd2d7371c5ac396dd70aa774ba5944a97cc8c2fbb3dac",
+      "postprocess_version": "1+verify4",
+      "reprocessed": false,
+      "section_ids": [
+        "fm-document-history",
+        "sec-1.2.4",
+        "sec-1.2.4.1",
+        "sec-1.2.4.2",
+        "sec-1.2.4.3"
+      ],
+      "usage": {
+        "model": "claude-sonnet-5",
+        "input_tokens": 8892,
+        "output_tokens": 4334,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "latency_seconds": 36.99,
+        "cost_usd": 0.061124,
+        "stop_reason": "end_turn",
+        "request_id": null
+      },
+      "error": null,
+      "warnings": []
+    },
+    "abbreviations": {
+      "sheet": "abbreviations",
+      "status": "skipped",
+      "started_at": "2026-09-13T21:39:15.779343Z",
+      "finished_at": "2026-09-13T21:41:07.221580Z",
+      "input_hash": "984ed1b0a32d739734c14457358e0835b8971eb4a7e817fcfd139a3570b4b0be",
+      "postprocess_version": "1+verify4",
+      "reprocessed": false,
+      "section_ids": [
+        "app-appendix-1-list-of-abbreviations"
+      ],
+      "usage": {
+        "model": "claude-sonnet-5",
+        "input_tokens": 4035,
+        "output_tokens": 10380,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "latency_seconds": 111.3,
+        "cost_usd": 0.11187,
+        "stop_reason": "end_turn",
+        "request_id": null
+      },
+      "error": null,
+      "warnings": []
+    },
+    "schedule": {
+      "sheet": "schedule",
+      "status": "skipped",
+      "started_at": "2026-09-13T21:39:20.391356Z",
+      "finished_at": "2026-09-13T21:41:33.537258Z",
+      "input_hash": "393bd19dc6c4a5ceb1acd0b32a05b61498ee422a0fa2808c2b2ac6c264d42a16",
+      "postprocess_version": "2+verify4",
+      "reprocessed": true,
+      "section_ids": [
+        "fm-schedule-of-activities",
+        "fm-tumor-assessment-requirements-flowchart"
+      ],
+      "usage": {
+        "model": "claude-sonnet-5",
+        "input_tokens": 28737,
+        "output_tokens": 17042,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "latency_seconds": 133.05,
+        "cost_usd": 0.227894,
+        "stop_reason": "end_turn",
+        "request_id": null
+      },
+      "error": null,
+      "warnings": [
+        "Screening: no planned time stated, so no timing",
+        "Cycles ≥3 Day 1: no planned time stated, so no timing",
+        "End of Treatment/Withdrawal: no planned time stated, so no timing",
+        "Post-Treatment Follow-Up: no planned time stated, so no timing",
+        "Tumor Assessment Requirements Flowchart: expected one anchor visit, found 0; no timings built"
+      ]
+    },
+    "assessments": {
+      "sheet": "assessments",
+      "status": "skipped",
+      "started_at": "2026-09-13T21:39:23.451880Z",
+      "finished_at": "2026-09-13T21:40:52.130002Z",
+      "input_hash": "7f069d69a70b14afe8487b9d2bdd5dacdc11a23de3c115899a1e570a9b365db0",
+      "postprocess_version": "1+verify4",
+      "reprocessed": false,
+      "section_ids": [
+        "sec-6",
+        "sec-6.1",
+        "sec-6.3",
+        "sec-6.4",
+        "sec-6.5",
+        "sec-6.5.1",
+        "sec-7",
+        "sec-7.1",
+        "sec-7.2",
+        "sec-7.2.1",
+        "sec-7.2.2",
+        "sec-7.2.2.1",
+        "sec-7.2.2.2",
+        "sec-7.2.2.3",
+        "sec-7.2.2.4",
+        "sec-7.2.2.5",
+        "sec-7.2.3",
+        "sec-7.2.4",
+        "sec-7.3",
+        "sec-7.3.1",
+        "sec-7.3.2",
+        "sec-7.3.3",
+        "sec-7.4",
+        "sec-7.5",
+        "sec-7.5.1",
+        "sec-7.5.2",
+        "sec-7.5.3",
+        "sec-7.6",
+        "sec-7.6.1"
+      ],
+      "usage": {
+        "model": "claude-sonnet-5",
+        "input_tokens": 14241,
+        "output_tokens": 12234,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "latency_seconds": 88.65,
+        "cost_usd": 0.150822,
+        "stop_reason": "end_turn",
+        "request_id": null
+      },
+      "error": null,
+      "warnings": []
+    }
+  }
+}

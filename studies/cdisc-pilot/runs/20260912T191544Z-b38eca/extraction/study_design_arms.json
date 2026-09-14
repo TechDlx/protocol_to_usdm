@@ -1,0 +1,454 @@
+{
+  "run": {
+    "sheet": "study_design_arms",
+    "status": "skipped",
+    "started_at": "2026-09-13T02:22:57.866128Z",
+    "finished_at": "2026-09-13T02:23:07.127422Z",
+    "input_hash": "42acade8109bbe11d7dd17b5fe73aa22a42335b33429d61c1ef4088ef8a09484",
+    "postprocess_version": "1+verify4",
+    "reprocessed": true,
+    "section_ids": [
+      "sec-3",
+      "sec-3.1",
+      "sec-3.5",
+      "sec-3.6.1",
+      "sec-3.7"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 5072,
+      "output_tokens": 1294,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 9.24,
+      "cost_usd": 0.023084,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": []
+  },
+  "records": [
+    {
+      "row_id": null,
+      "name": {
+        "value": "Placebo",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the arm label",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Placebo",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.1",
+          "source_page": 8,
+          "raw_phrase": "a placebo arm",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": "Patients randomized to placebo TTS",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.1",
+          "source_page": 8,
+          "raw_phrase": "The treatment arms will include a placebo arm",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "type": {
+        "value": "Placebo Control Arm",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.1",
+          "source_page": 8,
+          "raw_phrase": "a placebo arm",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C174222",
+          "codelist_name": "Study Arm Type Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C174268",
+          "submission_value": "Placebo Comparator Arm",
+          "preferred_term": "Placebo Control Arm",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "data_origin_description": {
+        "value": "Data collected from randomized participants in this trial",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.1",
+          "source_page": 8,
+          "raw_phrase": "patients will be randomized to 1 of 3 treatment arms",
+          "confidence": 0.7,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "data_origin_type": {
+        "value": "Data Generated Within Study",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.1",
+          "source_page": 8,
+          "raw_phrase": "patients will be randomized to 1 of 3 treatment arms",
+          "confidence": 0.7,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188727",
+          "codelist_name": "Study Arm Data Origin Type Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C188866",
+          "submission_value": "Data Generated Within Study",
+          "preferred_term": "Data Generated Within Study",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "Low-dose xanomeline (50 cm2 TTS 54 mg)",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the arm label",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Low-dose xanomeline (50 cm2 TTS, 54 mg)",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.1",
+          "source_page": 8,
+          "raw_phrase": "a low-dose xanomeline arm (50 cm 2 TTS Formulation E, 54 mg xanomeline)",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": "Patients randomized to low-dose xanomeline TTS (50 cm2 Formulation E, 54 mg)",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.1",
+          "source_page": 8,
+          "raw_phrase": "a low-dose xanomeline arm (50 cm 2 TTS Formulation E, 54 mg xanomeline)",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "type": {
+        "value": "Investigational Arm",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.1",
+          "source_page": 8,
+          "raw_phrase": "a low-dose xanomeline arm (50 cm 2 TTS Formulation E, 54 mg xanomeline)",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C174222",
+          "codelist_name": "Study Arm Type Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C174266",
+          "submission_value": "Experimental Arm",
+          "preferred_term": "Investigational Arm",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "data_origin_description": {
+        "value": "Data collected from randomized participants in this trial",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.1",
+          "source_page": 8,
+          "raw_phrase": "patients will be randomized to 1 of 3 treatment arms",
+          "confidence": 0.7,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "data_origin_type": {
+        "value": "Data Generated Within Study",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.1",
+          "source_page": 8,
+          "raw_phrase": "patients will be randomized to 1 of 3 treatment arms",
+          "confidence": 0.7,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188727",
+          "codelist_name": "Study Arm Data Origin Type Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C188866",
+          "submission_value": "Data Generated Within Study",
+          "preferred_term": "Data Generated Within Study",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "High-dose xanomeline (75 cm2 TTS 81 mg)",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the arm label",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "High-dose xanomeline (75 cm2 TTS, 81 mg)",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.1",
+          "source_page": 8,
+          "raw_phrase": "a high-dose xanomeline arm (75 cm 2 TTS Formulation E, 81 mg xanomeline)",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": "Patients randomized to high-dose xanomeline TTS (75 cm2 Formulation E, 81 mg), starting at 50 cm2",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.1",
+          "source_page": 8,
+          "raw_phrase": "a high-dose xanomeline arm (75 cm 2 TTS Formulation E, 81 mg xanomeline). All patients receiving xanomeline will be started at 50 cm 2 TTS Formulation E",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "type": {
+        "value": "Investigational Arm",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.1",
+          "source_page": 8,
+          "raw_phrase": "a high-dose xanomeline arm (75 cm 2 TTS Formulation E, 81 mg xanomeline)",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C174222",
+          "codelist_name": "Study Arm Type Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C174266",
+          "submission_value": "Experimental Arm",
+          "preferred_term": "Investigational Arm",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "data_origin_description": {
+        "value": "Data collected from randomized participants in this trial",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.1",
+          "source_page": 8,
+          "raw_phrase": "patients will be randomized to 1 of 3 treatment arms",
+          "confidence": 0.7,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "data_origin_type": {
+        "value": "Data Generated Within Study",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.1",
+          "source_page": 8,
+          "raw_phrase": "patients will be randomized to 1 of 3 treatment arms",
+          "confidence": 0.7,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188727",
+          "codelist_name": "Study Arm Data Origin Type Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C188866",
+          "submission_value": "Data Generated Within Study",
+          "preferred_term": "Data Generated Within Study",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    }
+  ],
+  "model_output": {
+    "arms": [
+      {
+        "label": {
+          "value": "Placebo",
+          "quote": "a placebo arm",
+          "section_id": "sec-3.1",
+          "confidence": 0.85
+        },
+        "description": {
+          "value": "Patients randomized to placebo TTS",
+          "quote": "The treatment arms will include a placebo arm",
+          "section_id": "sec-3.1",
+          "confidence": 0.8
+        },
+        "type": {
+          "value": "Placebo Control Arm",
+          "quote": "a placebo arm",
+          "section_id": "sec-3.1",
+          "confidence": 0.85
+        },
+        "data_origin_type": {
+          "value": "Data Generated Within Study",
+          "quote": "patients will be randomized to 1 of 3 treatment arms",
+          "section_id": "sec-3.1",
+          "confidence": 0.7
+        },
+        "data_origin_description": {
+          "value": "Data collected from randomized participants in this trial",
+          "quote": "patients will be randomized to 1 of 3 treatment arms",
+          "section_id": "sec-3.1",
+          "confidence": 0.7
+        }
+      },
+      {
+        "label": {
+          "value": "Low-dose xanomeline (50 cm2 TTS, 54 mg)",
+          "quote": "a low-dose xanomeline arm (50 cm 2 TTS Formulation E, 54 mg xanomeline)",
+          "section_id": "sec-3.1",
+          "confidence": 0.85
+        },
+        "description": {
+          "value": "Patients randomized to low-dose xanomeline TTS (50 cm2 Formulation E, 54 mg)",
+          "quote": "a low-dose xanomeline arm (50 cm 2 TTS Formulation E, 54 mg xanomeline)",
+          "section_id": "sec-3.1",
+          "confidence": 0.8
+        },
+        "type": {
+          "value": "Investigational Arm",
+          "quote": "a low-dose xanomeline arm (50 cm 2 TTS Formulation E, 54 mg xanomeline)",
+          "section_id": "sec-3.1",
+          "confidence": 0.8
+        },
+        "data_origin_type": {
+          "value": "Data Generated Within Study",
+          "quote": "patients will be randomized to 1 of 3 treatment arms",
+          "section_id": "sec-3.1",
+          "confidence": 0.7
+        },
+        "data_origin_description": {
+          "value": "Data collected from randomized participants in this trial",
+          "quote": "patients will be randomized to 1 of 3 treatment arms",
+          "section_id": "sec-3.1",
+          "confidence": 0.7
+        }
+      },
+      {
+        "label": {
+          "value": "High-dose xanomeline (75 cm2 TTS, 81 mg)",
+          "quote": "a high-dose xanomeline arm (75 cm 2 TTS Formulation E, 81 mg xanomeline)",
+          "section_id": "sec-3.1",
+          "confidence": 0.85
+        },
+        "description": {
+          "value": "Patients randomized to high-dose xanomeline TTS (75 cm2 Formulation E, 81 mg), starting at 50 cm2",
+          "quote": "a high-dose xanomeline arm (75 cm 2 TTS Formulation E, 81 mg xanomeline). All patients receiving xanomeline will be started at 50 cm 2 TTS Formulation E",
+          "section_id": "sec-3.1",
+          "confidence": 0.8
+        },
+        "type": {
+          "value": "Investigational Arm",
+          "quote": "a high-dose xanomeline arm (75 cm 2 TTS Formulation E, 81 mg xanomeline)",
+          "section_id": "sec-3.1",
+          "confidence": 0.8
+        },
+        "data_origin_type": {
+          "value": "Data Generated Within Study",
+          "quote": "patients will be randomized to 1 of 3 treatment arms",
+          "section_id": "sec-3.1",
+          "confidence": 0.7
+        },
+        "data_origin_description": {
+          "value": "Data collected from randomized participants in this trial",
+          "quote": "patients will be randomized to 1 of 3 treatment arms",
+          "section_id": "sec-3.1",
+          "confidence": 0.7
+        }
+      }
+    ]
+  }
+}

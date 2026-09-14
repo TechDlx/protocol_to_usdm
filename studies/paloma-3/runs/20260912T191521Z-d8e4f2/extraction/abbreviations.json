@@ -1,0 +1,4353 @@
+{
+  "run": {
+    "sheet": "abbreviations",
+    "status": "done",
+    "started_at": "2026-09-13T21:39:15.779343Z",
+    "finished_at": "2026-09-13T21:41:07.221580Z",
+    "input_hash": "984ed1b0a32d739734c14457358e0835b8971eb4a7e817fcfd139a3570b4b0be",
+    "postprocess_version": "1+verify4",
+    "reprocessed": false,
+    "section_ids": [
+      "app-appendix-1-list-of-abbreviations"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 4035,
+      "output_tokens": 10380,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 111.3,
+      "cost_usd": 0.11187,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": []
+  },
+  "records": [
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "AE",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "AE | Adverse Event",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Adverse Event",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "AE | Adverse Event",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "ALT",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "ALT | Alanine Aminotransferases",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Alanine Aminotransferases",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "ALT | Alanine Aminotransferases",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "AI",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "AI | Aromatase Inhibitor",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Aromatase Inhibitor",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "AI | Aromatase Inhibitor",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "ANC",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "ANC | Absolute Neutrophil Count",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Absolute Neutrophil Count",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "ANC | Absolute Neutrophil Count",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "AREDS",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "AREDS | Age-Related Eye Disease Study",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Age-Related Eye Disease Study",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "AREDS | Age-Related Eye Disease Study",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "ASCO",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "ASCO | American Society of Clinical Oncology",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "American Society of Clinical Oncology",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "ASCO | American Society of Clinical Oncology",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "AST",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "AST | Aspartate Aminotransferases",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Aspartate Aminotransferases",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "AST | Aspartate Aminotransferases",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "AUC",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "AUC | Area under the concentration curve",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Area under the concentration curve",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "AUC | Area under the concentration curve",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "BICR",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "BICR | Blinded Independent Central Review",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Blinded Independent Central Review",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "BICR | Blinded Independent Central Review",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "BUN",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "BUN | Blood Urea Nitrogen",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Blood Urea Nitrogen",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "BUN | Blood Urea Nitrogen",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "CBR",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CBR | Clinical Benefit Response",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Clinical Benefit Response",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CBR | Clinical Benefit Response",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "CCND1",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CCND1 | Cyclin D1",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Cyclin D1",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CCND1 | Cyclin D1",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "CDK",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CDK | Cyclin-Dependent Kinase",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Cyclin-Dependent Kinase",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CDK | Cyclin-Dependent Kinase",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "CI",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CI | Confidence Interval",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Confidence Interval",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CI | Confidence Interval",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "CISH",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CISH | Chromogenic In Situ Hybridization",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Chromogenic In Situ Hybridization",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CISH | Chromogenic In Situ Hybridization",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "Cmax",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "Cmax | Maximum Plasma Concentration",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Maximum Plasma Concentration",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "Cmax | Maximum Plasma Concentration",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "CNS",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CNS | Central Nervous System",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Central Nervous System",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CNS | Central Nervous System",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "CR",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CR | Complete Response",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Complete Response",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CR | Complete Response",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "CRF",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CRF | Case Report Form",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Case Report Form",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CRF | Case Report Form",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "CSA",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CSA | Clinical Study Agreement",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Clinical Study Agreement",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CSA | Clinical Study Agreement",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "CSF",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CSF | Colony-Stimulating Factors",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Colony-Stimulating Factors",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CSF | Colony-Stimulating Factors",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "CT",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CT | Computed Tomography",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Computed Tomography",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CT | Computed Tomography",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "CTA",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CTA | Clinical Trial Application",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Clinical Trial Application",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CTA | Clinical Trial Application",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "CTC",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CTC | Common Terminology Criteria",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Common Terminology Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CTC | Common Terminology Criteria",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "CTCAE",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CTCAE | Common Terminology Criteria for Adverse Events",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Common Terminology Criteria for Adverse Events",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CTCAE | Common Terminology Criteria for Adverse Events",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "CYP",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CYP | Cytochrome P-450",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Cytochrome P-450",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "CYP | Cytochrome P-450",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "DD",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "DD | Differential discordance",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Differential discordance",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "DD | Differential discordance",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "DICOM",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "DICOM | Digital Imaging and Communications in Medicine",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Digital Imaging and Communications in Medicine",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "DICOM | Digital Imaging and Communications in Medicine",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "DISH",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "DISH | Dual in situ hybridization",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Dual in situ hybridization",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "DISH | Dual in situ hybridization",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "DLT",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "DLT | Dose Limiting Toxicity",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Dose Limiting Toxicity",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "DLT | Dose Limiting Toxicity",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "DNA",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "DNA | Deoxyribonucleic Acid",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Deoxyribonucleic Acid",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "DNA | Deoxyribonucleic Acid",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "DR",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "DR | Duration of Response",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Duration of Response",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "DR | Duration of Response",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "ECG",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "ECG | Electrocardiogram",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Electrocardiogram",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "ECG | Electrocardiogram",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "ECOG",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "ECOG | Eastern Cooperative Oncology Group",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Eastern Cooperative Oncology Group",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "ECOG | Eastern Cooperative Oncology Group",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "E-DMC",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "E-DMC | External Data Monitoring Committee",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "External Data Monitoring Committee",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "E-DMC | External Data Monitoring Committee",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "EDR",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "EDR | Early discrepancy rate",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Early discrepancy rate",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "EDR | Early discrepancy rate",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "EDTA",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "EDTA | Ethylenediaminetetraacetic acid",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Ethylenediaminetetraacetic acid",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "EDTA | Ethylenediaminetetraacetic acid",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "EIU",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "EIU | Exposure In Utero",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Exposure In Utero",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "EIU | Exposure In Utero",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "EORTC-QLQ-C30",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "EORTC-QLQ-C30 | European Organization for Research and Treatment of Cancer Quality of Life Questionnaire",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "European Organization for Research and Treatment of Cancer Quality of Life Questionnaire",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "EORTC-QLQ-C30 | European Organization for Research and Treatment of Cancer Quality of Life Questionnaire",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "EORTC-QLQ-BR23",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "EORTC-QLQ-BR23 | European Organisation for Research and Treatment of Cancer breast cancer module",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "European Organisation for Research and Treatment of Cancer breast cancer module",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 111,
+          "raw_phrase": "EORTC-QLQ-BR23 | European Organisation for Research and Treatment of Cancer breast cancer module",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "EQ-5D",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "EQ-5D | Dimension Health State EuroQoL Score",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Dimension Health State EuroQoL Score",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "EQ-5D | Dimension Health State EuroQoL Score",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "ER",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "ER | Estrogen Receptor",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Estrogen Receptor",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "ER | Estrogen Receptor",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "FDA",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "FDA | US Food and Drug Administration",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "US Food and Drug Administration",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "FDA | US Food and Drug Administration",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "FDAAA",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "FDAAA | US Food and Drug Administration Administration Amendments",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "US Food and Drug Administration Administration Amendments",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "FDAAA | US Food and Drug Administration Administration Amendments",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "FFPE",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "FFPE | Formalin Fixed Paraffin Embedded",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Formalin Fixed Paraffin Embedded",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "FFPE | Formalin Fixed Paraffin Embedded",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "FISH",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "FISH | Fluorescent In Situ hybridization",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Fluorescent In Situ hybridization",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "FISH | Fluorescent In Situ hybridization",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "FSH",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "FSH | Follicle stimulating hormone",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Follicle stimulating hormone",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "FSH | Follicle stimulating hormone",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "GCP",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "GCP | Good Clinical Practice",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Good Clinical Practice",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "GCP | Good Clinical Practice",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "G-CSF",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "G-CSF | Granulocyte Colony Stimulating Factor",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Granulocyte Colony Stimulating Factor",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "G-CSF | Granulocyte Colony Stimulating Factor",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "GM-CSF",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "GM-CSF | Granulocyte Macrophage Colony Stimulating Factor",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Granulocyte Macrophage Colony Stimulating Factor",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "GM-CSF | Granulocyte Macrophage Colony Stimulating Factor",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "HDPE",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "HDPE | High Density Polyethylene",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "High Density Polyethylene",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "HDPE | High Density Polyethylene",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "HER",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "HER | Human Epidermal Growth Factor Receptor",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Human Epidermal Growth Factor Receptor",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "HER | Human Epidermal Growth Factor Receptor",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "hERG",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "hERG | Human Ether-à-Go-Go",
+          "confidence": 0.9,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Human Ether-à-Go-Go",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "hERG | Human Ether-à-Go-Go",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "HR",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "HR | Hazard Ratio",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Hazard Ratio",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "HR | Hazard Ratio",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "IB",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "IB | Investigator’s Brochure",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Investigator’s Brochure",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "IB | Investigator’s Brochure",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "IC50",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "IC50 | Concentration of 50% Inhibition",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Concentration of 50% Inhibition",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "IC50 | Concentration of 50% Inhibition",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "ICH",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "ICH | International Conference on Harmonisation of Technical Requirements for Registration of Pharmaceuticals for Human Use",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "International Conference on Harmonisation of Technical Requirements for Registration of Pharmaceuticals for Human Use",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "ICH | International Conference on Harmonisation of Technical Requirements for Registration of Pharmaceuticals for Human Use",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "ID",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "ID | Identification",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Identification",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "ID | Identification",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "IEC",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "IEC | Independent Ethics Committee",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Independent Ethics Committee",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "IEC | Independent Ethics Committee",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "IOP",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "IOP | Intraocular Pressure",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Intraocular Pressure",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "IOP | Intraocular Pressure",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "INR",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "INR | International Normalized Ratio",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "International Normalized Ratio",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "INR | International Normalized Ratio",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "IRB",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "IRB | Institutional Review Board",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Institutional Review Board",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "IRB | Institutional Review Board",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "IRT",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "IRT | Interactive Randomization Technology",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Interactive Randomization Technology",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "IRT | Interactive Randomization Technology",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "ITT",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "ITT | Intent-to-treat",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Intent-to-treat",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "ITT | Intent-to-treat",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "LDR",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "LDR | Late discrepancy rate",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Late discrepancy rate",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "LDR | Late discrepancy rate",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "LFT",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "LFT | Liver Function Test",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Liver Function Test",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "LFT | Liver Function Test",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "LHRH",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "LHRH | Luteinizing Hormone-Releasing Hormone",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Luteinizing Hormone-Releasing Hormone",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "LHRH | Luteinizing Hormone-Releasing Hormone",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "LPD",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "LPD | Local Product Document",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Local Product Document",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "LPD | Local Product Document",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "MedDRA",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "MedDRA | Medical Dictionary for Regulatory Activities",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Medical Dictionary for Regulatory Activities",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "MedDRA | Medical Dictionary for Regulatory Activities",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "MRI",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "MRI | Magnetic Resonance Imaging",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Magnetic Resonance Imaging",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "MRI | Magnetic Resonance Imaging",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "NCI",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "NCI | National Cancer Institute",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "National Cancer Institute",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "NCI | National Cancer Institute",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "ORR",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "ORR | Objective Response Rate",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Objective Response Rate",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "ORR | Objective Response Rate",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "OS",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "OS | Overall Survival",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Overall Survival",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "OS | Overall Survival",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "PD",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "PD | Progressive Disease",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Progressive Disease",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "PD | Progressive Disease",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "PET",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "PET | Positron Emission Tomography",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Positron Emission Tomography",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "PET | Positron Emission Tomography",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "PFS",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "PFS | Progression Free Survival",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Progression Free Survival",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "PFS | Progression Free Survival",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "PK",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "PK | Pharmacokinetic",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Pharmacokinetic",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "PK | Pharmacokinetic",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "PR",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "PR | Partial Response or Progesterone Receptor (depending on context)",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Partial Response or Progesterone Receptor (depending on context)",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "PR | Partial Response or Progesterone Receptor (depending on context)",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "PR interval (in context of ECG)",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "PR interval (in context of ECG) | The PR interval is measured from the beginning of the P wave to the beginning of the QRS complex.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "The PR interval is measured from the beginning of the P wave to the beginning of the QRS complex.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "PR interval (in context of ECG) | The PR interval is measured from the beginning of the P wave to the beginning of the QRS complex.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "PRO",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "PRO | Patient Reported Outcome",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Patient Reported Outcome",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "PRO | Patient Reported Outcome",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "PSC",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "PSC | Posterior Subcapsular Cataract",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Posterior Subcapsular Cataract",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 112,
+          "raw_phrase": "PSC | Posterior Subcapsular Cataract",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "PT",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "PT | Prothrombin Time",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Prothrombin Time",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "PT | Prothrombin Time",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "RR interval (in the context of ECG)",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "RR interval (in the context of ECG) | The PR interval is measured from the peak of one QRS complex to the peak of the next QRS complex.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "The PR interval is measured from the peak of one QRS complex to the peak of the next QRS complex.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "RR interval (in the context of ECG) | The PR interval is measured from the peak of one QRS complex to the peak of the next QRS complex.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "QD",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "QD | Quaque Die (once daily)",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Quaque Die (once daily)",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "QD | Quaque Die (once daily)",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "QOL",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "QOL | Quality of Life",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Quality of Life",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "QOL | Quality of Life",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "QRS",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "QRS | Name for the combination of three of the graphical deflections seen on a typical electrocardiogram",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Name for the combination of three of the graphical deflections seen on a typical electrocardiogram",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "QRS | Name for the combination of three of the graphical deflections seen on a typical electrocardiogram",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "QT",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "QT | Time between the start of the Q wave and the end of the T wave in the heart's electrical cycle",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Time between the start of the Q wave and the end of the T wave in the heart's electrical cycle",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "QT | Time between the start of the Q wave and the end of the T wave in the heart's electrical cycle",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "QTc",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "QTc | QT interval corrected for heart rate",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "QT interval corrected for heart rate",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "QTc | QT interval corrected for heart rate",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "QTcB",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "QTcB | QT interval corrected for heart rate using Bazett's fomula",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "QT interval corrected for heart rate using Bazett's fomula",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "QTcB | QT interval corrected for heart rate using Bazett's fomula",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "QTcF",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "QTcF | QT interval corrected for heart rate using Fridericia's fomula",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "QT interval corrected for heart rate using Fridericia's fomula",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "QTcF | QT interval corrected for heart rate using Fridericia's fomula",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "RANKL",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "RANKL | Receptor Activator of Nuclear Factor Kappa B Ligand",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Receptor Activator of Nuclear Factor Kappa B Ligand",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "RANKL | Receptor Activator of Nuclear Factor Kappa B Ligand",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "RB/Rb",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "RB/Rb | Retinoblastoma",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Retinoblastoma",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "RB/Rb | Retinoblastoma",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "RECIST",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "RECIST | Response Evaluation Criteria in Solid Tumors",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Response Evaluation Criteria in Solid Tumors",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "RECIST | Response Evaluation Criteria in Solid Tumors",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "RNA",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "RNA | Ribonucleic Acid",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Ribonucleic Acid",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "RNA | Ribonucleic Acid",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "RP2D",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "RP2D | Recommended Phase 2 Dose",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Recommended Phase 2 Dose",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "RP2D | Recommended Phase 2 Dose",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "RR",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "RR | The interval between an R wave and the next R wave",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "The interval between an R wave and the next R wave",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "RR | The interval between an R wave and the next R wave",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "Rac",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "Rac | Accumulation Ratio",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Accumulation Ratio",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "Rac | Accumulation Ratio",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "SAE",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "SAE | Serious Adverse Event",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Serious Adverse Event",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "SAE | Serious Adverse Event",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "SAP",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "SAP | Statistical Analysis Plan",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Statistical Analysis Plan",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "SAP | Statistical Analysis Plan",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "SD",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "SD | Stable Disease",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Stable Disease",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "SD | Stable Disease",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "SPC",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "SPC | Summary of Product Characteristic",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Summary of Product Characteristic",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "SPC | Summary of Product Characteristic",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "t1⁄4",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": null,
+          "raw_phrase": "t1⁄4 | Terminal Elimination Half-life",
+          "confidence": 0.3,
+          "verified": false,
+          "note": "quote not found in the protocol text; the value may not be supported; printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Terminal Elimination Half-life",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": null,
+          "raw_phrase": "t1⁄4 | Terminal Elimination Half-life",
+          "confidence": 0.3,
+          "verified": false,
+          "note": "quote not found in the protocol text; the value may not be supported",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "Tmax",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "Tmax | Time for Cmax",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Time for Cmax",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "Tmax | Time for Cmax",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "TTD",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "TTD | Time to deterioration",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Time to deterioration",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "TTD | Time to deterioration",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "ULN",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "ULN | Upper Limit of Normal",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Upper Limit of Normal",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "ULN | Upper Limit of Normal",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "USPI",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "USPI | United States Package Insert",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "United States Package Insert",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "USPI | United States Package Insert",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "Vz/F",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "Vz/F | Apparent Volume of Distribution",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "Apparent Volume of Distribution",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "Vz/F | Apparent Volume of Distribution",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "abbreviated_text": {
+        "value": "WBC",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "WBC | White Blood Cells",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "printed beside the expansion",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "expanded_text": {
+        "value": "White Blood Cells",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "app-appendix-1-list-of-abbreviations",
+          "source_page": 113,
+          "raw_phrase": "WBC | White Blood Cells",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    }
+  ],
+  "model_output": {
+    "abbreviations": [
+      {
+        "abbreviation": "AE",
+        "expansion": {
+          "value": "Adverse Event",
+          "quote": "AE | Adverse Event",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "ALT",
+        "expansion": {
+          "value": "Alanine Aminotransferases",
+          "quote": "ALT | Alanine Aminotransferases",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "AI",
+        "expansion": {
+          "value": "Aromatase Inhibitor",
+          "quote": "AI | Aromatase Inhibitor",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "ANC",
+        "expansion": {
+          "value": "Absolute Neutrophil Count",
+          "quote": "ANC | Absolute Neutrophil Count",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "AREDS",
+        "expansion": {
+          "value": "Age-Related Eye Disease Study",
+          "quote": "AREDS | Age-Related Eye Disease Study",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "ASCO",
+        "expansion": {
+          "value": "American Society of Clinical Oncology",
+          "quote": "ASCO | American Society of Clinical Oncology",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "AST",
+        "expansion": {
+          "value": "Aspartate Aminotransferases",
+          "quote": "AST | Aspartate Aminotransferases",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "AUC",
+        "expansion": {
+          "value": "Area under the concentration curve",
+          "quote": "AUC | Area under the concentration curve",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "BICR",
+        "expansion": {
+          "value": "Blinded Independent Central Review",
+          "quote": "BICR | Blinded Independent Central Review",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "BUN",
+        "expansion": {
+          "value": "Blood Urea Nitrogen",
+          "quote": "BUN | Blood Urea Nitrogen",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "CBR",
+        "expansion": {
+          "value": "Clinical Benefit Response",
+          "quote": "CBR | Clinical Benefit Response",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "CCND1",
+        "expansion": {
+          "value": "Cyclin D1",
+          "quote": "CCND1 | Cyclin D1",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "CDK",
+        "expansion": {
+          "value": "Cyclin-Dependent Kinase",
+          "quote": "CDK | Cyclin-Dependent Kinase",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "CI",
+        "expansion": {
+          "value": "Confidence Interval",
+          "quote": "CI | Confidence Interval",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "CISH",
+        "expansion": {
+          "value": "Chromogenic In Situ Hybridization",
+          "quote": "CISH | Chromogenic In Situ Hybridization",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "Cmax",
+        "expansion": {
+          "value": "Maximum Plasma Concentration",
+          "quote": "Cmax | Maximum Plasma Concentration",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "CNS",
+        "expansion": {
+          "value": "Central Nervous System",
+          "quote": "CNS | Central Nervous System",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "CR",
+        "expansion": {
+          "value": "Complete Response",
+          "quote": "CR | Complete Response",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "CRF",
+        "expansion": {
+          "value": "Case Report Form",
+          "quote": "CRF | Case Report Form",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "CSA",
+        "expansion": {
+          "value": "Clinical Study Agreement",
+          "quote": "CSA | Clinical Study Agreement",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "CSF",
+        "expansion": {
+          "value": "Colony-Stimulating Factors",
+          "quote": "CSF | Colony-Stimulating Factors",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "CT",
+        "expansion": {
+          "value": "Computed Tomography",
+          "quote": "CT | Computed Tomography",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "CTA",
+        "expansion": {
+          "value": "Clinical Trial Application",
+          "quote": "CTA | Clinical Trial Application",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "CTC",
+        "expansion": {
+          "value": "Common Terminology Criteria",
+          "quote": "CTC | Common Terminology Criteria",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "CTCAE",
+        "expansion": {
+          "value": "Common Terminology Criteria for Adverse Events",
+          "quote": "CTCAE | Common Terminology Criteria for Adverse Events",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "CYP",
+        "expansion": {
+          "value": "Cytochrome P-450",
+          "quote": "CYP | Cytochrome P-450",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "DD",
+        "expansion": {
+          "value": "Differential discordance",
+          "quote": "DD | Differential discordance",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "DICOM",
+        "expansion": {
+          "value": "Digital Imaging and Communications in Medicine",
+          "quote": "DICOM | Digital Imaging and Communications in Medicine",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "DISH",
+        "expansion": {
+          "value": "Dual in situ hybridization",
+          "quote": "DISH | Dual in situ hybridization",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "DLT",
+        "expansion": {
+          "value": "Dose Limiting Toxicity",
+          "quote": "DLT | Dose Limiting Toxicity",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "DNA",
+        "expansion": {
+          "value": "Deoxyribonucleic Acid",
+          "quote": "DNA | Deoxyribonucleic Acid",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "DR",
+        "expansion": {
+          "value": "Duration of Response",
+          "quote": "DR | Duration of Response",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "ECG",
+        "expansion": {
+          "value": "Electrocardiogram",
+          "quote": "ECG | Electrocardiogram",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "ECOG",
+        "expansion": {
+          "value": "Eastern Cooperative Oncology Group",
+          "quote": "ECOG | Eastern Cooperative Oncology Group",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "E-DMC",
+        "expansion": {
+          "value": "External Data Monitoring Committee",
+          "quote": "E-DMC | External Data Monitoring Committee",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "EDR",
+        "expansion": {
+          "value": "Early discrepancy rate",
+          "quote": "EDR | Early discrepancy rate",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "EDTA",
+        "expansion": {
+          "value": "Ethylenediaminetetraacetic acid",
+          "quote": "EDTA | Ethylenediaminetetraacetic acid",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "EIU",
+        "expansion": {
+          "value": "Exposure In Utero",
+          "quote": "EIU | Exposure In Utero",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "EORTC-QLQ-C30",
+        "expansion": {
+          "value": "European Organization for Research and Treatment of Cancer Quality of Life Questionnaire",
+          "quote": "EORTC-QLQ-C30 | European Organization for Research and Treatment of Cancer Quality of Life Questionnaire",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "EORTC-QLQ-BR23",
+        "expansion": {
+          "value": "European Organisation for Research and Treatment of Cancer breast cancer module",
+          "quote": "EORTC-QLQ-BR23 | European Organisation for Research and Treatment of Cancer breast cancer module",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "EQ-5D",
+        "expansion": {
+          "value": "Dimension Health State EuroQoL Score",
+          "quote": "EQ-5D | Dimension Health State EuroQoL Score",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "ER",
+        "expansion": {
+          "value": "Estrogen Receptor",
+          "quote": "ER | Estrogen Receptor",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "FDA",
+        "expansion": {
+          "value": "US Food and Drug Administration",
+          "quote": "FDA | US Food and Drug Administration",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "FDAAA",
+        "expansion": {
+          "value": "US Food and Drug Administration Administration Amendments",
+          "quote": "FDAAA | US Food and Drug Administration Administration Amendments",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "FFPE",
+        "expansion": {
+          "value": "Formalin Fixed Paraffin Embedded",
+          "quote": "FFPE | Formalin Fixed Paraffin Embedded",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "FISH",
+        "expansion": {
+          "value": "Fluorescent In Situ hybridization",
+          "quote": "FISH | Fluorescent In Situ hybridization",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "FSH",
+        "expansion": {
+          "value": "Follicle stimulating hormone",
+          "quote": "FSH | Follicle stimulating hormone",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "GCP",
+        "expansion": {
+          "value": "Good Clinical Practice",
+          "quote": "GCP | Good Clinical Practice",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "G-CSF",
+        "expansion": {
+          "value": "Granulocyte Colony Stimulating Factor",
+          "quote": "G-CSF | Granulocyte Colony Stimulating Factor",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "GM-CSF",
+        "expansion": {
+          "value": "Granulocyte Macrophage Colony Stimulating Factor",
+          "quote": "GM-CSF | Granulocyte Macrophage Colony Stimulating Factor",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "HDPE",
+        "expansion": {
+          "value": "High Density Polyethylene",
+          "quote": "HDPE | High Density Polyethylene",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "HER",
+        "expansion": {
+          "value": "Human Epidermal Growth Factor Receptor",
+          "quote": "HER | Human Epidermal Growth Factor Receptor",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "hERG",
+        "expansion": {
+          "value": "Human Ether-\\u00e0-Go-Go",
+          "quote": "hERG | Human Ether-\\u00e0-Go-Go",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.9
+        }
+      },
+      {
+        "abbreviation": "HR",
+        "expansion": {
+          "value": "Hazard Ratio",
+          "quote": "HR | Hazard Ratio",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "IB",
+        "expansion": {
+          "value": "Investigator\\u2019s Brochure",
+          "quote": "IB | Investigator\\u2019s Brochure",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "IC50",
+        "expansion": {
+          "value": "Concentration of 50% Inhibition",
+          "quote": "IC50 | Concentration of 50% Inhibition",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "ICH",
+        "expansion": {
+          "value": "International Conference on Harmonisation of Technical Requirements for Registration of Pharmaceuticals for Human Use",
+          "quote": "ICH | International Conference on Harmonisation of Technical Requirements for Registration of Pharmaceuticals for Human Use",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "ID",
+        "expansion": {
+          "value": "Identification",
+          "quote": "ID | Identification",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "IEC",
+        "expansion": {
+          "value": "Independent Ethics Committee",
+          "quote": "IEC | Independent Ethics Committee",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "IOP",
+        "expansion": {
+          "value": "Intraocular Pressure",
+          "quote": "IOP | Intraocular Pressure",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "INR",
+        "expansion": {
+          "value": "International Normalized Ratio",
+          "quote": "INR | International Normalized Ratio",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "IRB",
+        "expansion": {
+          "value": "Institutional Review Board",
+          "quote": "IRB | Institutional Review Board",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "IRT",
+        "expansion": {
+          "value": "Interactive Randomization Technology",
+          "quote": "IRT | Interactive Randomization Technology",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "ITT",
+        "expansion": {
+          "value": "Intent-to-treat",
+          "quote": "ITT | Intent-to-treat",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "LDR",
+        "expansion": {
+          "value": "Late discrepancy rate",
+          "quote": "LDR | Late discrepancy rate",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "LFT",
+        "expansion": {
+          "value": "Liver Function Test",
+          "quote": "LFT | Liver Function Test",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "LHRH",
+        "expansion": {
+          "value": "Luteinizing Hormone-Releasing Hormone",
+          "quote": "LHRH | Luteinizing Hormone-Releasing Hormone",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "LPD",
+        "expansion": {
+          "value": "Local Product Document",
+          "quote": "LPD | Local Product Document",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "MedDRA",
+        "expansion": {
+          "value": "Medical Dictionary for Regulatory Activities",
+          "quote": "MedDRA | Medical Dictionary for Regulatory Activities",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "MRI",
+        "expansion": {
+          "value": "Magnetic Resonance Imaging",
+          "quote": "MRI | Magnetic Resonance Imaging",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "NCI",
+        "expansion": {
+          "value": "National Cancer Institute",
+          "quote": "NCI | National Cancer Institute",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "ORR",
+        "expansion": {
+          "value": "Objective Response Rate",
+          "quote": "ORR | Objective Response Rate",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "OS",
+        "expansion": {
+          "value": "Overall Survival",
+          "quote": "OS | Overall Survival",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "PD",
+        "expansion": {
+          "value": "Progressive Disease",
+          "quote": "PD | Progressive Disease",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "PET",
+        "expansion": {
+          "value": "Positron Emission Tomography",
+          "quote": "PET | Positron Emission Tomography",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "PFS",
+        "expansion": {
+          "value": "Progression Free Survival",
+          "quote": "PFS | Progression Free Survival",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "PK",
+        "expansion": {
+          "value": "Pharmacokinetic",
+          "quote": "PK | Pharmacokinetic",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "PR",
+        "expansion": {
+          "value": "Partial Response or Progesterone Receptor (depending on context)",
+          "quote": "PR | Partial Response or Progesterone Receptor (depending on context)",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "PR interval (in context of ECG)",
+        "expansion": {
+          "value": "The PR interval is measured from the beginning of the P wave to the beginning of the QRS complex.",
+          "quote": "PR interval (in context of ECG) | The PR interval is measured from the beginning of the P wave to the beginning of the QRS complex.",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "PRO",
+        "expansion": {
+          "value": "Patient Reported Outcome",
+          "quote": "PRO | Patient Reported Outcome",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "PSC",
+        "expansion": {
+          "value": "Posterior Subcapsular Cataract",
+          "quote": "PSC | Posterior Subcapsular Cataract",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "PT",
+        "expansion": {
+          "value": "Prothrombin Time",
+          "quote": "PT | Prothrombin Time",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "RR interval (in the context of ECG)",
+        "expansion": {
+          "value": "The PR interval is measured from the peak of one QRS complex to the peak of the next QRS complex.",
+          "quote": "RR interval (in the context of ECG) | The PR interval is measured from the peak of one QRS complex to the peak of the next QRS complex.",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "QD",
+        "expansion": {
+          "value": "Quaque Die (once daily)",
+          "quote": "QD | Quaque Die (once daily)",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "QOL",
+        "expansion": {
+          "value": "Quality of Life",
+          "quote": "QOL | Quality of Life",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "QRS",
+        "expansion": {
+          "value": "Name for the combination of three of the graphical deflections seen on a typical electrocardiogram",
+          "quote": "QRS | Name for the combination of three of the graphical deflections seen on a typical electrocardiogram",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "QT",
+        "expansion": {
+          "value": "Time between the start of the Q wave and the end of the T wave in the heart's electrical cycle",
+          "quote": "QT | Time between the start of the Q wave and the end of the T wave in the heart's electrical cycle",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "QTc",
+        "expansion": {
+          "value": "QT interval corrected for heart rate",
+          "quote": "QTc | QT interval corrected for heart rate",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "QTcB",
+        "expansion": {
+          "value": "QT interval corrected for heart rate using Bazett's fomula",
+          "quote": "QTcB | QT interval corrected for heart rate using Bazett's fomula",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "QTcF",
+        "expansion": {
+          "value": "QT interval corrected for heart rate using Fridericia's fomula",
+          "quote": "QTcF | QT interval corrected for heart rate using Fridericia's fomula",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "RANKL",
+        "expansion": {
+          "value": "Receptor Activator of Nuclear Factor Kappa B Ligand",
+          "quote": "RANKL | Receptor Activator of Nuclear Factor Kappa B Ligand",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "RB/Rb",
+        "expansion": {
+          "value": "Retinoblastoma",
+          "quote": "RB/Rb | Retinoblastoma",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "RECIST",
+        "expansion": {
+          "value": "Response Evaluation Criteria in Solid Tumors",
+          "quote": "RECIST | Response Evaluation Criteria in Solid Tumors",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "RNA",
+        "expansion": {
+          "value": "Ribonucleic Acid",
+          "quote": "RNA | Ribonucleic Acid",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "RP2D",
+        "expansion": {
+          "value": "Recommended Phase 2 Dose",
+          "quote": "RP2D | Recommended Phase 2 Dose",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "RR",
+        "expansion": {
+          "value": "The interval between an R wave and the next R wave",
+          "quote": "RR | The interval between an R wave and the next R wave",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "Rac",
+        "expansion": {
+          "value": "Accumulation Ratio",
+          "quote": "Rac | Accumulation Ratio",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "SAE",
+        "expansion": {
+          "value": "Serious Adverse Event",
+          "quote": "SAE | Serious Adverse Event",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "SAP",
+        "expansion": {
+          "value": "Statistical Analysis Plan",
+          "quote": "SAP | Statistical Analysis Plan",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "SD",
+        "expansion": {
+          "value": "Stable Disease",
+          "quote": "SD | Stable Disease",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "SPC",
+        "expansion": {
+          "value": "Summary of Product Characteristic",
+          "quote": "SPC | Summary of Product Characteristic",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "t1\\u20444",
+        "expansion": {
+          "value": "Terminal Elimination Half-life",
+          "quote": "t1\\u20444 | Terminal Elimination Half-life",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.8
+        }
+      },
+      {
+        "abbreviation": "Tmax",
+        "expansion": {
+          "value": "Time for Cmax",
+          "quote": "Tmax | Time for Cmax",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "TTD",
+        "expansion": {
+          "value": "Time to deterioration",
+          "quote": "TTD | Time to deterioration",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "ULN",
+        "expansion": {
+          "value": "Upper Limit of Normal",
+          "quote": "ULN | Upper Limit of Normal",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "USPI",
+        "expansion": {
+          "value": "United States Package Insert",
+          "quote": "USPI | United States Package Insert",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "Vz/F",
+        "expansion": {
+          "value": "Apparent Volume of Distribution",
+          "quote": "Vz/F | Apparent Volume of Distribution",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      },
+      {
+        "abbreviation": "WBC",
+        "expansion": {
+          "value": "White Blood Cells",
+          "quote": "WBC | White Blood Cells",
+          "section_id": "app-appendix-1-list-of-abbreviations",
+          "confidence": 0.95
+        }
+      }
+    ]
+  }
+}

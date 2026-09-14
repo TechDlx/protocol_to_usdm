@@ -1,0 +1,3261 @@
+{
+  "run": {
+    "sheet": "eligibility_criteria",
+    "status": "skipped",
+    "started_at": "2026-09-13T02:22:57.888984Z",
+    "finished_at": "2026-09-13T02:26:32.645004Z",
+    "input_hash": "4b71877db4467d705d6f9f42057620efc74d33a4ebf9ed10a99035217a378207",
+    "postprocess_version": "1+verify4",
+    "reprocessed": true,
+    "section_ids": [
+      "sec-3.4",
+      "sec-3.4.2",
+      "sec-3.4.2.1",
+      "sec-3.4.2.2",
+      "sec-3.4.3"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 11871,
+      "output_tokens": 19024,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 207.96,
+      "cost_usd": 0.213982,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": []
+  },
+  "records": [
+    {
+      "row_id": null,
+      "name": {
+        "value": "IN01",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Inclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "Patients may be included in the study only if they meet all the following criteria:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25532",
+          "submission_value": "INCLUSION",
+          "preferred_term": "Inclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "1",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "Males and postmenopausal females at least 50 years of age.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Age and sex criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "Males and postmenopausal females at least 50 years of age.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "Males and postmenopausal females at least 50 years of age.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "IN02",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Inclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "Patients may be included in the study only if they meet all the following criteria:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25532",
+          "submission_value": "INCLUSION",
+          "preferred_term": "Inclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "2",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "Diagnosis of probable AD as defined by National Institute of Neurological and Communicative Disorders and Stroke",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Probable AD diagnosis (NINCDS/ADRDA)",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "Diagnosis of probable AD as defined by National Institute of\nNeurological and Communicative Disorders and Stroke (NINCDS)\nand the Alzheimer’s Disease and Related Disorders Association\n(ADRDA) guidelines (Attachment LZZT.7).",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "Diagnosis of probable AD as defined by National Institute of Neurological and Communicative Disorders and Stroke",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "IN03",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Inclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "Patients may be included in the study only if they meet all the following criteria:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25532",
+          "submission_value": "INCLUSION",
+          "preferred_term": "Inclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "3",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "MMSE score of 10 to 23.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "MMSE score 10 to 23",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "MMSE score of 10 to 23.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "MMSE score of 10 to 23.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "IN04",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Inclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "Patients may be included in the study only if they meet all the following criteria:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25532",
+          "submission_value": "INCLUSION",
+          "preferred_term": "Inclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "4",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "Hachinski Ischemic Scale score of ≤ 4 (Attachment LZZT.8).",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Hachinski Ischemic Scale ≤ 4",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "Hachinski Ischemic Scale score of ≤ 4 (Attachment LZZT.8).",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "Hachinski Ischemic Scale score of ≤ 4 (Attachment LZZT.8).",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "IN05",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Inclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "Patients may be included in the study only if they meet all the following criteria:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25532",
+          "submission_value": "INCLUSION",
+          "preferred_term": "Inclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "5",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "CNS imaging (CT scan or MRI of brain) compatible with AD within past 1 year.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "CNS imaging compatible with AD",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "CNS imaging (CT scan or MRI of brain) compatible with AD within\npast 1 year.\nThe following findings are incompatible with AD:\na) Large vessel strokes\n1) Any definite area of encephalomalacia consistent with ischemic\nnecrosis in any cerebral artery territory.\n2) Large, confluent areas of encephalomalacia in parieto-occipital\nor frontal regions consistent with watershed infarcts.\nThe above are exclusionary. Exceptions are made for small areas of\ncortical asymmetry which may represent a small cortical stroke or a\nfocal area of atrophy provided there is no abnormal signal intensity\nin the immediately underlying parenchyma. Only one such\nquestionable area allowed per scan, and size is restricted to ≤ 1cm in\nfrontal/parietal/temporal cortices and ≤ 2 cm in occipital cortex.\nb) Small vessel ischemia\n1) Lacunar infarct is defined as an area of abnormal intensity seen\non CT scan or on both T1 and T2 weighted MRI images in the\nbasal ganglia, thalamus or deep white matter which is ≤ 1 cm in\nmaximal diameter. A maximum of one lacune is allowed per\nscan.\n2) Leukoariosis or leukoencephalopathy is regarded as an\nabnormality seen on T2 but not T1 weighted MRIs, or on CT.\nThis is accepted if mild or moderate in extent, meaning\ninvolvement of less than 25% of cortical white matter.\nc) Miscellaneous\n1) Benign small extra-axial tumors (ie, meningiomas) are accepted\nif they do not contact or indent the brain parenchyma.\n2) Small extra-axial arachnoid cysts are accepted if they do not\nindent or deform the brain parenchyma.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "CNS imaging (CT scan or MRI of brain) compatible with AD within past 1 year.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "IN06",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Inclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "Patients may be included in the study only if they meet all the following criteria:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25532",
+          "submission_value": "INCLUSION",
+          "preferred_term": "Inclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "6",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 12,
+          "raw_phrase": "Investigator has obtained informed consent signed by the patient",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Informed consent obtained",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 12,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "Investigator has obtained informed consent signed by the patient\n(and/or legal representative) and by the caregiver.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 12,
+          "raw_phrase": "Investigator has obtained informed consent signed by the patient",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "IN07",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Inclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "Patients may be included in the study only if they meet all the following criteria:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25532",
+          "submission_value": "INCLUSION",
+          "preferred_term": "Inclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "7",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 12,
+          "raw_phrase": "Geographic proximity to investigator’s site that allows adequate follow-up.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Geographic proximity to site",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 12,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "Geographic proximity to investigator’s site that allows adequate\nfollow-up.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 12,
+          "raw_phrase": "Geographic proximity to investigator’s site that allows adequate follow-up.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "IN08",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Inclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "Patients may be included in the study only if they meet all the following criteria:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25532",
+          "submission_value": "INCLUSION",
+          "preferred_term": "Inclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "8",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 12,
+          "raw_phrase": "A reliable caregiver who is in frequent or daily contact with the patient",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Reliable caregiver requirement",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 12,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "A reliable caregiver who is in frequent or daily contact with the patient\nand who will accompany the patient to the office and/or be available\nby telephone at designated times, will monitor administration of\nprescribed medications, and will be responsible for the overall care of\nthe patient at home. The caregiver and the patient must be able to\ncommunicate in English and willing to comply with 26 weeks of\ntransdermal therapy.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 12,
+          "raw_phrase": "A reliable caregiver who is in frequent or daily contact with the patient",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX01",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "9",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Persons who have previously completed or withdrawn from this study",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Prior study participation with xanomeline",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "Persons who have previously completed or withdrawn from this study\nor any other study investigating xanomeline TTS or the oral\nformulation of xanomeline.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Persons who have previously completed or withdrawn from this study",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX02",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "10",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Use of any investigational agent or approved Alzheimer’s therapeutic medication within 30 days prior to enrollment",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Recent investigational or AD therapeutic use",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "Use of any investigational agent or approved Alzheimer’s therapeutic\nmedication within 30 days prior to enrollment into the study.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Use of any investigational agent or approved Alzheimer’s therapeutic medication within 30 days prior to enrollment",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX03",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "11",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Serious illness which required hospitalization within 3 months of screening.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Recent serious illness requiring hospitalization",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "Serious illness which required hospitalization within 3 months of\nscreening.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Serious illness which required hospitalization within 3 months of screening.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX04",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "12",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Diagnosis of serious neurological conditions, including",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Serious neurological conditions",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "Diagnosis of serious neurological conditions, including\na) Stroke or vascular dementia documented by clinical history and/or\nradiographic findings interpretable by the investigator as indicative of\nthese disorders\nb) Seizure disorder other than simple childhood febrile seizures\nc) Severe head trauma resulting in protracted loss of consciousness\nwithin the last 5 years, or multiple episodes of head trauma\nd) Parkinson’s disease\ne) Multiple sclerosis\nf) Amyotrophic lateral sclerosis\ng) Myasthenia gravis.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Diagnosis of serious neurological conditions, including",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX05",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "13",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Episode of depression meeting DSM-IV criteria within 3 months of screening.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Recent depressive episode (DSM-IV)",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "Episode of depression meeting DSM-IV criteria within 3 months of\nscreening.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Episode of depression meeting DSM-IV criteria within 3 months of screening.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX06",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "14",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "A history within the last 5 years of the following:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "History of psychiatric/substance disorders",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "A history within the last 5 years of the following:\na) Schizophrenia\nb) Bipolar Disease\nc) Ethanol or psychoactive drug abuse or dependence.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "A history within the last 5 years of the following:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX07",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "15",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "A history of syncope within the last 5 years.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "History of syncope",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "A history of syncope within the last 5 years.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "A history of syncope within the last 5 years.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX08",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "16b",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Evidence from ECG recording at screening of any of the following conditions :",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "ECG abnormalities at screening",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "Evidence from ECG recording at screening of any of the following\nconditions :\na) Left bundle branch block\nb) Bradycardia ≤ 50 beats per minute\nc) Sinus pauses >2 seconds\nd) Second or third degree heart block unless treated with a pacemaker\ne) Wolff-Parkinson-White syndrome\nf) Sustained supraventricular tachyarrhythmia including SVT ≥ 10 sec,\natrial fibrillation, atrial flutter.\ng) Ventricular tachycardia at a rate of ≥ 120 beats per minute lasting\n≥ 10 seconds.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Evidence from ECG recording at screening of any of the following conditions :",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX09",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "17",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 14,
+          "raw_phrase": "A history within the last 5 years of a serious cardiovascular disorder, including",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "History of serious cardiovascular disorder",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 14,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "A history within the last 5 years of a serious cardiovascular disorder,\nincluding\na) Clinically significant arrhythmia\nb) Symptomatic sick sinus syndrome not treated with a pacemaker\nc) Congestive heart failure refractory to treatment\nd) Angina except angina controlled with PRN nitroglycerin\ne) Resting heart rate <50 or >100 beats per minute, on physical exam\nf) Uncontrolled hypertension.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 14,
+          "raw_phrase": "A history within the last 5 years of a serious cardiovascular disorder, including",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX10",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "18",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 14,
+          "raw_phrase": "A history within the last 5 years of a serious gastrointestinal disorder, including",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "History of serious gastrointestinal disorder",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 14,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "A history within the last 5 years of a serious gastrointestinal disorder,\nincluding\na) Chronic peptic/duodenal/gastric/esophageal ulcer that are untreated\nor refractory to treatment\nb) Symptomatic diverticular disease\nc) Inflammatory bowel disease\nd) Pancreatitis\ne) Hepatitis\nf) Cirrhosis of the liver.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 14,
+          "raw_phrase": "A history within the last 5 years of a serious gastrointestinal disorder, including",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX11",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "19",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 14,
+          "raw_phrase": "A history within the last 5 years of a serious endocrine disorder, including",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "History of serious endocrine disorder",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 14,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "A history within the last 5 years of a serious endocrine disorder,\nincluding\na) Uncontrolled Insulin Dependent Diabetes Mellitus (IDDM)\nb) Diabetic ketoacidosis\nc) Untreated hyperthyroidism\nd) Untreated hypothyroidism\ne) Other untreated endocrinological disorder",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 14,
+          "raw_phrase": "A history within the last 5 years of a serious endocrine disorder, including",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX12",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "20",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 14,
+          "raw_phrase": "A history within the last 5 years of a serious respiratory disorder, including",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "History of serious respiratory disorder",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 14,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "A history within the last 5 years of a serious respiratory disorder,\nincluding\na) Asthma with bronchospasm refractory to treatment\nb) Decompensated chronic obstructive pulmonary disease.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 14,
+          "raw_phrase": "A history within the last 5 years of a serious respiratory disorder, including",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX13",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "21",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": "A history within the last 5 years of a serious genitourinary disorder, including",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "History of serious genitourinary disorder",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "A history within the last 5 years of a serious genitourinary disorder,\nincluding\na) Renal failure\nb) Uncontrolled urinary retention.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": "A history within the last 5 years of a serious genitourinary disorder, including",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX14",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "22",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": "A history within the last 5 years of a serious rheumatologic disorder, including",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "History of serious rheumatologic disorder",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "A history within the last 5 years of a serious rheumatologic disorder,\nincluding\na) Lupus\nb) Temporal arteritis\nc) Severe rheumatoid arthritis.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": "A history within the last 5 years of a serious rheumatologic disorder, including",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX15",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "23",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": "A known history of human immunodeficiency virus (HIV) within the last 5 years.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "History of HIV",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "A known history of human immunodeficiency virus (HIV) within the\nlast 5 years.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": "A known history of human immunodeficiency virus (HIV) within the last 5 years.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX16",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "24",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": "A history within the last 5 years of a serious infectious disease including",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "History of serious infectious disease",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "A history within the last 5 years of a serious infectious disease\nincluding\na) Neurosyphilis\nb) Meningitis\nc) Encephalitis.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": "A history within the last 5 years of a serious infectious disease including",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX17",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "25",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": "A history within the last 5 years of a primary or recurrent malignant disease",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "History of malignant disease",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "A history within the last 5 years of a primary or recurrent malignant\ndisease with the exception of resected cutaneous squamous cell\ncarcinoma in situ, basal cell carcinoma, cervical carcinoma in situ, or\nin situ prostate cancer with a normal PSA postresection.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": "A history within the last 5 years of a primary or recurrent malignant disease",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX18",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "26",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": "Visual, hearing, or communication disabilities impairing the ability to participate in the study",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Sensory or communication disabilities",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "Visual, hearing, or communication disabilities impairing the ability to\nparticipate in the study; (for example, inability to speak or understand\nEnglish, illiteracy).",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": "Visual, hearing, or communication disabilities impairing the ability to participate in the study",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX19",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "27b",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": "Laboratory test values exceeding the Lilly Reference Range III for the patient’s age",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Abnormal laboratory values (Reference Range III)",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "Laboratory test values exceeding the Lilly Reference Range III for the\npatient’s age in any of the following analytes: ↑ creatinine, ↑ total\nbilirubin, ↑ SGOT, ↑ SGPT, ↑ alkaline phosphatase, ↑ GGT,\n↑↓ hemoglobin, ↑↓ white blood cell count, ↑↓ platelet count,\n↑↓ serum sodium, potassium, or calcium.\nIf values exceed these laboratory reference ranges, clinical\nsignificance will be judged by the monitoring physicians. If the\nmonitoring physician determines that the deviation from the reference\nrange is not clinically significant, the patient may be included in the\nstudy. This decision will be documented.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": "Laboratory test values exceeding the Lilly Reference Range III for the patient’s age",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX20",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "28b",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": "Central laboratory test values below reference range for folate, and Vitamin B 12",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Abnormal folate, B12, thyroid labs",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "Central laboratory test values below reference range for folate, and\nVitamin B 12 , and outside reference range for thyroid function tests.\na) Folate reference range 2.0 to 25.0 ng/mL. Patients will be allowed\nto enroll if their folate levels are above the upper end of the range if\npatients are taking vitamin supplements.\nb) Vitamin B 12 reference range 130 to 900 pg/mL. Patients will be\nallowed to enroll if their B 12 levels are above the upper reference\nrange if patients are taking oral vitamin supplements.\nc) Thyroid functions\ni) Thyroid Uptake reference range 25 to 38%. Patients will be\nallowed to enroll with results of 23 to 51% provided the\nremainder of the thyroid profile is normal and there are no\nclinical signs or symptoms of thyroid abnormality.\nii) TSH reference range 0.32 to 5.0. Patients will be allowed to enroll\nwith results of 0.03 to 6.2 if patients are taking stable doses of\nexogenous thyroid supplements, with normal free thyroid index,\nand show no clinical signs or symptoms of thyroid abnormality.\niii) Total T4 reference range 4.5 to 12.5. Patients will be allowed to\nenroll with results of 4.1 to 13.4 if patients are taking stable\ndoses of exogenous thyroid hormone, with normal free thyroid\nindex, and show no clinical signs or symptoms of thyroid\nabnormality.\niv) Free Thyroid Index reference range 1.1 to 4.6.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 15,
+          "raw_phrase": "Central laboratory test values below reference range for folate, and Vitamin B 12",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX21",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "29b",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 16,
+          "raw_phrase": "Positive syphilis screening. As determined by positive RPR followed up by confirmatory FTA-Abs.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Positive syphilis screening",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 16,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "Positive syphilis screening.\nPositive syphilis screening. As determined by positive RPR followed\nup by confirmatory FTA-Abs. Confirmed patients are excluded unless\nthere is a documented medical history of an alternative disease (for\nexample, yaws) which caused the lab abnormality.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 16,
+          "raw_phrase": "Positive syphilis screening. As determined by positive RPR followed up by confirmatory FTA-Abs.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX22",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "30b",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 16,
+          "raw_phrase": "Patients will be excluded if levels are >9.5%",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Elevated glycosylated hemoglobin (A1C)",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 16,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "Glycosylated hemoglobin (A1C). Required only on patients with\nknown diabetes mellitus or random blood sugar >200 on screening\nlabs. Patients will be excluded if levels are >9.5%",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 16,
+          "raw_phrase": "Patients will be excluded if levels are >9.5%",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "EX23",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the category and position",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "category": {
+        "value": "Exclusion Criteria",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 13,
+          "raw_phrase": "Patients will be excluded from the study for any of the following reasons:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66797",
+          "codelist_name": "Category of Inclusion/Exclusion",
+          "ct_version": "2026-03-27",
+          "code": "C25370",
+          "submission_value": "EXCLUSION",
+          "preferred_term": "Exclusion Criteria",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "identifier": {
+        "value": "31b",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 16,
+          "raw_phrase": "Treatment with the following medications within the specified washout periods prior to enrollment and during the study",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Prohibited concomitant medications/washout periods",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 16,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model from the criterion text",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "text": {
+        "value": "Treatment with the following medications within the specified\nwashout periods prior to enrollment and during the study:\na) Anticonvulsants including but not limited to\nDepakote ® (valproic acid) 2 weeks\nDilantin ® (phenytoin) 2 weeks\nFelbatol ® (felbamate) 1 month\nKlonopin ® (clonazepam) 2 weeks\nLamictal ® (lamotrigine) 2 weeks\nMysoline ® (primidone) 1 month\nNeurontin ® (gabapentin) 2 weeks\nPhenobarbitol 1 month\nTegretol ® (carbamazepine) 2 weeks\nb) Alpha receptor blockers including but not limited to\nAldomet ® (methyldopa) 2 weeks\nCardura ® (doxazosin) 2 weeks\nCatapres ® (clonidine) 2 weeks\nHytrin ® (terazosin) 2 weeks\nMinipress ® (prazosin) 2 weeks\nTenex ® (guanfacine) 2 weeks\nWytensin ® (guanabenz) 2 weeks\nThe use of low doses (2 mg daily) of either Hytrin ® or\nCardura ® for relief of urinary retention for patients\nwith prostatic hypertrophy will be considered on a\ncase-by-case basis provided blood pressure is stable\nand the medication has not had demonstrable effect\non dementia symptoms in the opinion of the treating\nphysician. Contact CRO medical monitor.\nc) Calcium channel blockers that are CNS active including but not\nlimited to\nCalan ® , Isoptin ® , Verelan ® (verapamil) 2 weeks\nCardizem ® (diltiazem) 2 weeks\nNimotop ® (nimodipine) 2 weeks\nAdalat ® , Procardia XL ® (nifedipine) 2 weeks\nCardene ® (nicardipine), Norvasc ® , (amlodipine), and DynaCirc ®\n(isradipine) will be allowed during the study. If a patient is\ntaking an excluded calcium channel blocker and is changed\nto an equivalent dose of an allowed calcium channel blocker,\nenrollment may proceed in as little as 24 hours though 1 week\nis preferred when possible.\nd) Beta blockers including but not limited to\nBetapace ® (sotalol) 2 weeks\nInderal ® (propranolol) 2 weeks\nLopressor ® , Toprol XL ® (metoprolol) 2 weeks\nCorgard ® (nadolol) 2 weeks\nSectral ® (acebutolol) 2 weeks\nTenormin ® (atenolol) 2 weeks\nVisken ® (pindolol) 2 weeks\nBeta blocker eye drops for glaucoma will be considered on\na case-by-case basis. Call medical monitor.\ne) Beta sympathomimetics (unless inhaled) including but not limited to\nAlupent ® tablets (metaproterenol) 2 weeks\nBrethine ® tablets (terbutaline) 2 weeks\nDopamine 2 weeks\nProventil Repetabs ® , Ventolin ® tablets\n(albuterol tablets) 2 weeks\nf) Parasympathomimetics (cholinergics) (unless opthalmic) including\nbut not limited to\nAntilirium ® (physostigmine) 1 month\nAricept ® (donepezil) 1 month\nCognex ® (tacrine) 1 month\nMestinon ® (pyridostigmine) 1 week\nReglan ® (metoclopramide) 2 weeks\nUrecholine ® , Duvoid (bethanechol) 2 weeks\nCholinergic eye drops for treatment of glaucoma will be\nallowed during the study on a case-by-case basis. Please\ncontact the CRO medical monitor.\ng) Muscle relaxants-centrally active including but not limited to\nEquanil ® (meprobamate) 2 weeks\nFlexeril ® (cyclobenzaprine) 2 weeks\nLioresal ® (baclofen) 2 weeks\nNorflex ® (orphenadrine) 2 weeks\nParafon Forte ® (chlorzoxazone) 2 weeks\nRobaxin ® (methocarbamol) 2 weeks\nSkelaxin ® (metaxalone) 2 weeks\nSoma ® (carisoprodol) 2 weeks\nh) Monamine oxidase inhibitors (MAOI) including but not limited to\nEldepryl ® (selegiline) 1 month\nNardil ® (phenelzine) 1 month\nParnate ® (tranylcypromine) 1 month\ni) Parasympatholytics including but not limited to\nAntivert ® , Bonine ® , Dramamine II ®\n(meclizine) 3 days\nArtane ® (trihexyphenidyl) 2 weeks\nBellergal-S ® (alkaloids of belladonna\nand ergotamine) 2 weeks\nBentyl ® (dicyclomine) 3 days\nCogentin ® (benztropine) 2 weeks\nCystospaz ® , Levsin ® , Levsinex ®\n(hyoscyamine) 2 weeks\nDitropan ® (oxybutynin) 2 weeks\nDonnatal ® , Hyosophen ® (atropine, scopolamine,\nhyoscyamine and phenobarbitol) 1 month\nDramamine ® (dimenhydrinate) 3 days\nLomotil ® , Lonox ® (atropine, diphenoxylate) 2 weeks\nPro-Banthine ® (propantheline) 2 weeks\nRobinul ® (glycopyrrolate) 3 days\nTigan ® (trimethobenzamide) 3 days\nTransderm-Scop ® (scopolamine) 2 weeks\nUrispas ® (flavoxate) 2 weeks\nj) Antidepressants including but not limited to\nAnafranil ® (clomipramine) 1 month\nAsendin ® (amoxapine) 1 month\nDesyrel ® (trazodone) 1 month\nEffexor ® (venlafaxine) 1 month\nElavil ® (amitriptyline) 1 month\nLudiomil ® (maprotiline) 1 month\nNorpramin ® (desipramine) 1 month\nPamelor ® , Aventyl ® (nortriptyline) 1 month\nPaxil ® (paroxetine) 1 month\nProzac ® (fluoxetine) 1 month\nRemeron ® (mirtazapine) 1 month\nSerzone ® (nefazodone) 1 month\nSinequan ® (doxepin) 1 month\nTofranil ® (imipramine) 1 month\nVivactil ® (protriptyline) 1 month\nWellbutrin ® (bupropion) 1 month\nZoloft ® (sertraline) 1 month\nk) Systemic corticosteroids including but not limited to\nCortisone 2 weeks\nDecadron ® (dexamethasone) 2 weeks\nDepo-Medrol ® (methylprednisolone) 1 month\nPrednisone 2 weeks\nl) Xanthine derivatives including but not limited to\nAminophylline 2 weeks\nFioricet ® , Esgic ® , Phrenilin Forte ® (caffeine,\nbutalbital) 3 days\nTheo-Dur ® (theophylline) 2 weeks\nWigraine ® , Cafergot ® (caffeine, ergotamine) 3 days\nm) Histamine (H 2 ) antagonists including but not limited to\nAxid ® (nizatidine) 1 week\nPepcid ® (famotidine) 1 week\nTagamet ® (cimetidine) 1 week\nZantac ® (ranitidine) 1 week\nIf an H 2 antagonist is needed by the patient, Axid ® will be\nallowed on a case-by-case basis. Please consult CRO\nmedical monitor.\nn) Narcotic Analgesics including but not limited to\nDarvocet-N 100 ® , (propoxyphene) 1 week\nDemerol ® (meperidine) 1 week\nDilaudid ® (hydromorphone) 1 week\nDuragesic ® (fentanyl) 1 week\nMS Contin ® , Roxanol ® , Oramorph ®\n(morphine) 1 week\nPercocet ® , Roxicet ® (oxycodone with\nacetaminophen) 3 days\nPercodan ® , Roxiprin 1 week\nStadol ® (butorphanol) 1 week\nTalacen ® (pentazocine) 1 week\nTylenol #2 ® , #3 ® , #4 ® (codeine and acetaminophen) 3 days\nTylox ® , Roxilox ® (oxycodone) 3 days\nVicodin ® , Lorcet ® (hydrocodone) 1 week\nPercocet (oxycodone with acetaminophen) and Tylenol ®\nwith codeine #2, #3, #4 (acetaminophen + codeine) ARE\nallowed in the month prior to enrollment, but are not permitted\nin the 3 days prior to enrollment.\no) Neuroleptics (antipsychotics) including but not limited to\nClozaril ® (clozapine) 2 weeks\nHaldol ® (haloperidol) 2 weeks\nLoxitane ® (loxapine) 2 weeks\nMellaril ® (thioridazine) 2 weeks\nMoban ® (molindone) 2 weeks\nNavane ® (thiothixene) 2 weeks\nOrap ® (pimozide) 2 weeks\nProlixin ® (fluphenazine) 1 month\nRisperdal ® (risperidone) 2 weeks\nStelazine ® (trifluoperazine) 2 weeks\nThorazine ® (chlorpromazine) 2 weeks\nTrilafon ® (perphenazine) 2 weeks\nSerentil ® (mesoridazine) 2 weeks\nThe use of neuroleptics on a daily basis must be discontinued\n2 to 4 weeks prior to enrollment. The use of neuroleptics on\nan as-needed basis is allowable during the screening period, but\nthe last dose must be at least 7 days prior to enrollment.\np) Antianxiety agents including but not limited to\nAtarax ® (hydroxyzine) 2 weeks\nBuSpar ® (buspirone) 2 weeks\nLibrium ® (chlordiazepoxide) 2 weeks\nSerax ® (oxazepam) 2 weeks\nTranxene ® (clorazepate) 2 weeks\nValium ® (diazepam) 2 weeks\nVistaril ® (hydroxyzine pamoate) 2 weeks\nXanax ® (alprazolam) 2 weeks\nAtivan ® (lorazepam) should be discontinued on a daily basis 2 weeks\nprior to enrollment. It may be used on an as-needed basis during\nthe screening period, but is not permitted in the 24 hours prior to\nenrollment.\nq) Hypnotics/Sedatives including but not limited to\nAmbien ® (zolpidem) 3 days\nDalmane ® (flurazepam) 3 days\nDoral ® (quazepam) 3 days\nHalcion ® (triazolam) 3 days\nNembutal ® 2 weeks\nProSom ® (estazolam) 3 days\nRestoril ® (temazepam) 3 days\nSeconal ® 2 weeks\nChloral Hydrate is allowed on an as-needed basis during\nscreening, but is not permitted in the 24 hours prior to\nenrollment.\nr) Histamine (H 1 ) antagonists including but not limited to\nActifed ® , Actifed Plus ® (triprolidine) 3 days\nBenadryl ® , Unisom ® , Tylenol P.M. ®\n(diphenhydramine) 3 days\nCompazine ® (prochlorperazine) 3 days\nContac ® , Coricidin D ® , Sinutab ® , Novahistine ® ,\nAlka Seltzer Plus ® , Naldecon ® , Sudafed Plus ® ,\nTylenol Cold ® , Tylenol Cold and Flu ®\n(chlorpheniramine) 3 days\nDimetapp ® (brompheniramine) 3 days\nDrixoral ® (dexbrompheniramine) 3 days\nHismanal ® (astemizole) 1 week\nPhenergan ® (promethazine) 3 days\nSeldane ® (terfenadine) 1 week\nTavist ® (clemastine fumarate) 3 days\nZyrtec ® (cetrizine) 1 week\nAllegra ® (fexofenadine hydrochloride) or Claritin ® (loratadine)\nmay be taken on as-needed basis during screening but must be\ndiscontinued within 24 hours of enrollment.\ns) Stimulants including but not limited to\nCylert ® (pemoline) 1 month\nRitalin ® (methylphenidate) 1 month\nt) Antiarrhythmics including but not limited to the following\nAdenocard ® (adenosine)\nCordarone ® (amiodarone)\nEthmozine ® (moricizine)\nMexitil ® (mexiletine)\nNorpace ® (disopyramide)\nProcan ® (procainamide)\nQuinaglute ® (quinidine)\nRythmol ® (propafenone)\nTambocor ® (flecainide)\nTonocard ® (tocainide)\nRequirement of these drugs for control of cardiac arrhythmia\nindicates that the patient should be excluded from the study. If\ndiscontinuation of an antiarrhythmic is considered, please discuss\ncase with CRO medical monitor.\nu) Miscellaneous drugs including but not limited to\nCoenzyme Q 2 weeks\nEskalith ® , Lithobid ® (lithium) 2 weeks\nGinkgo biloba 1 week\nLecithin 1 week\nLupron 2 weeks\nTamoxifen 1 month\nv) Estrogen supplements are permitted during the study, but dosage\nmust be stable for at least 3 months prior to enrollment.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.2",
+          "source_page": 16,
+          "raw_phrase": "Treatment with the following medications within the specified washout periods prior to enrollment and during the study",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    }
+  ],
+  "model_output": {
+    "criteria": [
+      {
+        "category": {
+          "value": "Inclusion Criteria",
+          "quote": "Patients may be included in the study only if they meet all the following criteria:",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.95
+        },
+        "identifier": "1",
+        "label": "Age and sex criteria",
+        "text": {
+          "value": "Males and postmenopausal females at least 50 years of age.",
+          "quote": "Males and postmenopausal females at least 50 years of age.",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Inclusion Criteria",
+          "quote": "Patients may be included in the study only if they meet all the following criteria:",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.95
+        },
+        "identifier": "2",
+        "label": "Probable AD diagnosis (NINCDS/ADRDA)",
+        "text": {
+          "value": "Diagnosis of probable AD as defined by National Institute of\nNeurological and Communicative Disorders and Stroke (NINCDS)\nand the Alzheimer\\u2019s Disease and Related Disorders Association\n(ADRDA) guidelines (Attachment LZZT.7).",
+          "quote": "Diagnosis of probable AD as defined by National Institute of Neurological and Communicative Disorders and Stroke",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Inclusion Criteria",
+          "quote": "Patients may be included in the study only if they meet all the following criteria:",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.95
+        },
+        "identifier": "3",
+        "label": "MMSE score 10 to 23",
+        "text": {
+          "value": "MMSE score of 10 to 23.",
+          "quote": "MMSE score of 10 to 23.",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Inclusion Criteria",
+          "quote": "Patients may be included in the study only if they meet all the following criteria:",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.95
+        },
+        "identifier": "4",
+        "label": "Hachinski Ischemic Scale \\u2264 4",
+        "text": {
+          "value": "Hachinski Ischemic Scale score of \\u2264 4 (Attachment LZZT.8).",
+          "quote": "Hachinski Ischemic Scale score of \\u2264 4 (Attachment LZZT.8).",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Inclusion Criteria",
+          "quote": "Patients may be included in the study only if they meet all the following criteria:",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.95
+        },
+        "identifier": "5",
+        "label": "CNS imaging compatible with AD",
+        "text": {
+          "value": "CNS imaging (CT scan or MRI of brain) compatible with AD within\npast 1 year.\nThe following findings are incompatible with AD:\na) Large vessel strokes\n1) Any definite area of encephalomalacia consistent with ischemic\nnecrosis in any cerebral artery territory.\n2) Large, confluent areas of encephalomalacia in parieto-occipital\nor frontal regions consistent with watershed infarcts.\nThe above are exclusionary. Exceptions are made for small areas of\ncortical asymmetry which may represent a small cortical stroke or a\nfocal area of atrophy provided there is no abnormal signal intensity\nin the immediately underlying parenchyma. Only one such\nquestionable area allowed per scan, and size is restricted to \\u2264 1cm in\nfrontal/parietal/temporal cortices and \\u2264 2 cm in occipital cortex.\nb) Small vessel ischemia\n1) Lacunar infarct is defined as an area of abnormal intensity seen\non CT scan or on both T1 and T2 weighted MRI images in the\nbasal ganglia, thalamus or deep white matter which is \\u2264 1 cm in\nmaximal diameter. A maximum of one lacune is allowed per\nscan.\n2) Leukoariosis or leukoencephalopathy is regarded as an\nabnormality seen on T2 but not T1 weighted MRIs, or on CT.\nThis is accepted if mild or moderate in extent, meaning\ninvolvement of less than 25% of cortical white matter.\nc) Miscellaneous\n1) Benign small extra-axial tumors (ie, meningiomas) are accepted\nif they do not contact or indent the brain parenchyma.\n2) Small extra-axial arachnoid cysts are accepted if they do not\nindent or deform the brain parenchyma.",
+          "quote": "CNS imaging (CT scan or MRI of brain) compatible with AD within past 1 year.",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.9
+        }
+      },
+      {
+        "category": {
+          "value": "Inclusion Criteria",
+          "quote": "Patients may be included in the study only if they meet all the following criteria:",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.95
+        },
+        "identifier": "6",
+        "label": "Informed consent obtained",
+        "text": {
+          "value": "Investigator has obtained informed consent signed by the patient\n(and/or legal representative) and by the caregiver.",
+          "quote": "Investigator has obtained informed consent signed by the patient",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Inclusion Criteria",
+          "quote": "Patients may be included in the study only if they meet all the following criteria:",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.95
+        },
+        "identifier": "7",
+        "label": "Geographic proximity to site",
+        "text": {
+          "value": "Geographic proximity to investigator\\u2019s site that allows adequate\nfollow-up.",
+          "quote": "Geographic proximity to investigator\\u2019s site that allows adequate follow-up.",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Inclusion Criteria",
+          "quote": "Patients may be included in the study only if they meet all the following criteria:",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.95
+        },
+        "identifier": "8",
+        "label": "Reliable caregiver requirement",
+        "text": {
+          "value": "A reliable caregiver who is in frequent or daily contact with the patient\nand who will accompany the patient to the office and/or be available\nby telephone at designated times, will monitor administration of\nprescribed medications, and will be responsible for the overall care of\nthe patient at home. The caregiver and the patient must be able to\ncommunicate in English and willing to comply with 26 weeks of\ntransdermal therapy.",
+          "quote": "A reliable caregiver who is in frequent or daily contact with the patient",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "9",
+        "label": "Prior study participation with xanomeline",
+        "text": {
+          "value": "Persons who have previously completed or withdrawn from this study\nor any other study investigating xanomeline TTS or the oral\nformulation of xanomeline.",
+          "quote": "Persons who have previously completed or withdrawn from this study",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "10",
+        "label": "Recent investigational or AD therapeutic use",
+        "text": {
+          "value": "Use of any investigational agent or approved Alzheimer\\u2019s therapeutic\nmedication within 30 days prior to enrollment into the study.",
+          "quote": "Use of any investigational agent or approved Alzheimer\\u2019s therapeutic medication within 30 days prior to enrollment",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "11",
+        "label": "Recent serious illness requiring hospitalization",
+        "text": {
+          "value": "Serious illness which required hospitalization within 3 months of\nscreening.",
+          "quote": "Serious illness which required hospitalization within 3 months of screening.",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "12",
+        "label": "Serious neurological conditions",
+        "text": {
+          "value": "Diagnosis of serious neurological conditions, including\na) Stroke or vascular dementia documented by clinical history and/or\nradiographic findings interpretable by the investigator as indicative of\nthese disorders\nb) Seizure disorder other than simple childhood febrile seizures\nc) Severe head trauma resulting in protracted loss of consciousness\nwithin the last 5 years, or multiple episodes of head trauma\nd) Parkinson\\u2019s disease\ne) Multiple sclerosis\nf) Amyotrophic lateral sclerosis\ng) Myasthenia gravis.",
+          "quote": "Diagnosis of serious neurological conditions, including",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "13",
+        "label": "Recent depressive episode (DSM-IV)",
+        "text": {
+          "value": "Episode of depression meeting DSM-IV criteria within 3 months of\nscreening.",
+          "quote": "Episode of depression meeting DSM-IV criteria within 3 months of screening.",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "14",
+        "label": "History of psychiatric/substance disorders",
+        "text": {
+          "value": "A history within the last 5 years of the following:\na) Schizophrenia\nb) Bipolar Disease\nc) Ethanol or psychoactive drug abuse or dependence.",
+          "quote": "A history within the last 5 years of the following:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "15",
+        "label": "History of syncope",
+        "text": {
+          "value": "A history of syncope within the last 5 years.",
+          "quote": "A history of syncope within the last 5 years.",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "16b",
+        "label": "ECG abnormalities at screening",
+        "text": {
+          "value": "Evidence from ECG recording at screening of any of the following\nconditions :\na) Left bundle branch block\nb) Bradycardia \\u2264 50 beats per minute\nc) Sinus pauses >2 seconds\nd) Second or third degree heart block unless treated with a pacemaker\ne) Wolff-Parkinson-White syndrome\nf) Sustained supraventricular tachyarrhythmia including SVT \\u2265 10 sec,\natrial fibrillation, atrial flutter.\ng) Ventricular tachycardia at a rate of \\u2265 120 beats per minute lasting\n\\u2265 10 seconds.",
+          "quote": "Evidence from ECG recording at screening of any of the following conditions :",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "17",
+        "label": "History of serious cardiovascular disorder",
+        "text": {
+          "value": "A history within the last 5 years of a serious cardiovascular disorder,\nincluding\na) Clinically significant arrhythmia\nb) Symptomatic sick sinus syndrome not treated with a pacemaker\nc) Congestive heart failure refractory to treatment\nd) Angina except angina controlled with PRN nitroglycerin\ne) Resting heart rate <50 or >100 beats per minute, on physical exam\nf) Uncontrolled hypertension.",
+          "quote": "A history within the last 5 years of a serious cardiovascular disorder, including",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "18",
+        "label": "History of serious gastrointestinal disorder",
+        "text": {
+          "value": "A history within the last 5 years of a serious gastrointestinal disorder,\nincluding\na) Chronic peptic/duodenal/gastric/esophageal ulcer that are untreated\nor refractory to treatment\nb) Symptomatic diverticular disease\nc) Inflammatory bowel disease\nd) Pancreatitis\ne) Hepatitis\nf) Cirrhosis of the liver.",
+          "quote": "A history within the last 5 years of a serious gastrointestinal disorder, including",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "19",
+        "label": "History of serious endocrine disorder",
+        "text": {
+          "value": "A history within the last 5 years of a serious endocrine disorder,\nincluding\na) Uncontrolled Insulin Dependent Diabetes Mellitus (IDDM)\nb) Diabetic ketoacidosis\nc) Untreated hyperthyroidism\nd) Untreated hypothyroidism\ne) Other untreated endocrinological disorder",
+          "quote": "A history within the last 5 years of a serious endocrine disorder, including",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "20",
+        "label": "History of serious respiratory disorder",
+        "text": {
+          "value": "A history within the last 5 years of a serious respiratory disorder,\nincluding\na) Asthma with bronchospasm refractory to treatment\nb) Decompensated chronic obstructive pulmonary disease.",
+          "quote": "A history within the last 5 years of a serious respiratory disorder, including",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "21",
+        "label": "History of serious genitourinary disorder",
+        "text": {
+          "value": "A history within the last 5 years of a serious genitourinary disorder,\nincluding\na) Renal failure\nb) Uncontrolled urinary retention.",
+          "quote": "A history within the last 5 years of a serious genitourinary disorder, including",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "22",
+        "label": "History of serious rheumatologic disorder",
+        "text": {
+          "value": "A history within the last 5 years of a serious rheumatologic disorder,\nincluding\na) Lupus\nb) Temporal arteritis\nc) Severe rheumatoid arthritis.",
+          "quote": "A history within the last 5 years of a serious rheumatologic disorder, including",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "23",
+        "label": "History of HIV",
+        "text": {
+          "value": "A known history of human immunodeficiency virus (HIV) within the\nlast 5 years.",
+          "quote": "A known history of human immunodeficiency virus (HIV) within the last 5 years.",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "24",
+        "label": "History of serious infectious disease",
+        "text": {
+          "value": "A history within the last 5 years of a serious infectious disease\nincluding\na) Neurosyphilis\nb) Meningitis\nc) Encephalitis.",
+          "quote": "A history within the last 5 years of a serious infectious disease including",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "25",
+        "label": "History of malignant disease",
+        "text": {
+          "value": "A history within the last 5 years of a primary or recurrent malignant\ndisease with the exception of resected cutaneous squamous cell\ncarcinoma in situ, basal cell carcinoma, cervical carcinoma in situ, or\nin situ prostate cancer with a normal PSA postresection.",
+          "quote": "A history within the last 5 years of a primary or recurrent malignant disease",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "26",
+        "label": "Sensory or communication disabilities",
+        "text": {
+          "value": "Visual, hearing, or communication disabilities impairing the ability to\nparticipate in the study; (for example, inability to speak or understand\nEnglish, illiteracy).",
+          "quote": "Visual, hearing, or communication disabilities impairing the ability to participate in the study",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "27b",
+        "label": "Abnormal laboratory values (Reference Range III)",
+        "text": {
+          "value": "Laboratory test values exceeding the Lilly Reference Range III for the\npatient\\u2019s age in any of the following analytes: \\u2191 creatinine, \\u2191 total\nbilirubin, \\u2191 SGOT, \\u2191 SGPT, \\u2191 alkaline phosphatase, \\u2191 GGT,\n\\u2191\\u2193 hemoglobin, \\u2191\\u2193 white blood cell count, \\u2191\\u2193 platelet count,\n\\u2191\\u2193 serum sodium, potassium, or calcium.\nIf values exceed these laboratory reference ranges, clinical\nsignificance will be judged by the monitoring physicians. If the\nmonitoring physician determines that the deviation from the reference\nrange is not clinically significant, the patient may be included in the\nstudy. This decision will be documented.",
+          "quote": "Laboratory test values exceeding the Lilly Reference Range III for the patient\\u2019s age",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "28b",
+        "label": "Abnormal folate, B12, thyroid labs",
+        "text": {
+          "value": "Central laboratory test values below reference range for folate, and\nVitamin B 12 , and outside reference range for thyroid function tests.\na) Folate reference range 2.0 to 25.0 ng/mL. Patients will be allowed\nto enroll if their folate levels are above the upper end of the range if\npatients are taking vitamin supplements.\nb) Vitamin B 12 reference range 130 to 900 pg/mL. Patients will be\nallowed to enroll if their B 12 levels are above the upper reference\nrange if patients are taking oral vitamin supplements.\nc) Thyroid functions\ni) Thyroid Uptake reference range 25 to 38%. Patients will be\nallowed to enroll with results of 23 to 51% provided the\nremainder of the thyroid profile is normal and there are no\nclinical signs or symptoms of thyroid abnormality.\nii) TSH reference range 0.32 to 5.0. Patients will be allowed to enroll\nwith results of 0.03 to 6.2 if patients are taking stable doses of\nexogenous thyroid supplements, with normal free thyroid index,\nand show no clinical signs or symptoms of thyroid abnormality.\niii) Total T4 reference range 4.5 to 12.5. Patients will be allowed to\nenroll with results of 4.1 to 13.4 if patients are taking stable\ndoses of exogenous thyroid hormone, with normal free thyroid\nindex, and show no clinical signs or symptoms of thyroid\nabnormality.\niv) Free Thyroid Index reference range 1.1 to 4.6.",
+          "quote": "Central laboratory test values below reference range for folate, and Vitamin B 12",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "29b",
+        "label": "Positive syphilis screening",
+        "text": {
+          "value": "Positive syphilis screening.\nPositive syphilis screening. As determined by positive RPR followed\nup by confirmatory FTA-Abs. Confirmed patients are excluded unless\nthere is a documented medical history of an alternative disease (for\nexample, yaws) which caused the lab abnormality.",
+          "quote": "Positive syphilis screening. As determined by positive RPR followed up by confirmatory FTA-Abs.",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "30b",
+        "label": "Elevated glycosylated hemoglobin (A1C)",
+        "text": {
+          "value": "Glycosylated hemoglobin (A1C). Required only on patients with\nknown diabetes mellitus or random blood sugar >200 on screening\nlabs. Patients will be excluded if levels are >9.5%",
+          "quote": "Patients will be excluded if levels are >9.5%",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        }
+      },
+      {
+        "category": {
+          "value": "Exclusion Criteria",
+          "quote": "Patients will be excluded from the study for any of the following reasons:",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.95
+        },
+        "identifier": "31b",
+        "label": "Prohibited concomitant medications/washout periods",
+        "text": {
+          "value": "Treatment with the following medications within the specified\nwashout periods prior to enrollment and during the study:\na) Anticonvulsants including but not limited to\nDepakote \\u00ae (valproic acid) 2 weeks\nDilantin \\u00ae (phenytoin) 2 weeks\nFelbatol \\u00ae (felbamate) 1 month\nKlonopin \\u00ae (clonazepam) 2 weeks\nLamictal \\u00ae (lamotrigine) 2 weeks\nMysoline \\u00ae (primidone) 1 month\nNeurontin \\u00ae (gabapentin) 2 weeks\nPhenobarbitol 1 month\nTegretol \\u00ae (carbamazepine) 2 weeks\nb) Alpha receptor blockers including but not limited to\nAldomet \\u00ae (methyldopa) 2 weeks\nCardura \\u00ae (doxazosin) 2 weeks\nCatapres \\u00ae (clonidine) 2 weeks\nHytrin \\u00ae (terazosin) 2 weeks\nMinipress \\u00ae (prazosin) 2 weeks\nTenex \\u00ae (guanfacine) 2 weeks\nWytensin \\u00ae (guanabenz) 2 weeks\nThe use of low doses (2 mg daily) of either Hytrin \\u00ae or\nCardura \\u00ae for relief of urinary retention for patients\nwith prostatic hypertrophy will be considered on a\ncase-by-case basis provided blood pressure is stable\nand the medication has not had demonstrable effect\non dementia symptoms in the opinion of the treating\nphysician. Contact CRO medical monitor.\nc) Calcium channel blockers that are CNS active including but not\nlimited to\nCalan \\u00ae , Isoptin \\u00ae , Verelan \\u00ae (verapamil) 2 weeks\nCardizem \\u00ae (diltiazem) 2 weeks\nNimotop \\u00ae (nimodipine) 2 weeks\nAdalat \\u00ae , Procardia XL \\u00ae (nifedipine) 2 weeks\nCardene \\u00ae (nicardipine), Norvasc \\u00ae , (amlodipine), and DynaCirc \\u00ae\n(isradipine) will be allowed during the study. If a patient is\ntaking an excluded calcium channel blocker and is changed\nto an equivalent dose of an allowed calcium channel blocker,\nenrollment may proceed in as little as 24 hours though 1 week\nis preferred when possible.\nd) Beta blockers including but not limited to\nBetapace \\u00ae (sotalol) 2 weeks\nInderal \\u00ae (propranolol) 2 weeks\nLopressor \\u00ae , Toprol XL \\u00ae (metoprolol) 2 weeks\nCorgard \\u00ae (nadolol) 2 weeks\nSectral \\u00ae (acebutolol) 2 weeks\nTenormin \\u00ae (atenolol) 2 weeks\nVisken \\u00ae (pindolol) 2 weeks\nBeta blocker eye drops for glaucoma will be considered on\na case-by-case basis. Call medical monitor.\ne) Beta sympathomimetics (unless inhaled) including but not limited to\nAlupent \\u00ae tablets (metaproterenol) 2 weeks\nBrethine \\u00ae tablets (terbutaline) 2 weeks\nDopamine 2 weeks\nProventil Repetabs \\u00ae , Ventolin \\u00ae tablets\n(albuterol tablets) 2 weeks\nf) Parasympathomimetics (cholinergics) (unless opthalmic) including\nbut not limited to\nAntilirium \\u00ae (physostigmine) 1 month\nAricept \\u00ae (donepezil) 1 month\nCognex \\u00ae (tacrine) 1 month\nMestinon \\u00ae (pyridostigmine) 1 week\nReglan \\u00ae (metoclopramide) 2 weeks\nUrecholine \\u00ae , Duvoid (bethanechol) 2 weeks\nCholinergic eye drops for treatment of glaucoma will be\nallowed during the study on a case-by-case basis. Please\ncontact the CRO medical monitor.\ng) Muscle relaxants-centrally active including but not limited to\nEquanil \\u00ae (meprobamate) 2 weeks\nFlexeril \\u00ae (cyclobenzaprine) 2 weeks\nLioresal \\u00ae (baclofen) 2 weeks\nNorflex \\u00ae (orphenadrine) 2 weeks\nParafon Forte \\u00ae (chlorzoxazone) 2 weeks\nRobaxin \\u00ae (methocarbamol) 2 weeks\nSkelaxin \\u00ae (metaxalone) 2 weeks\nSoma \\u00ae (carisoprodol) 2 weeks\nh) Monamine oxidase inhibitors (MAOI) including but not limited to\nEldepryl \\u00ae (selegiline) 1 month\nNardil \\u00ae (phenelzine) 1 month\nParnate \\u00ae (tranylcypromine) 1 month\ni) Parasympatholytics including but not limited to\nAntivert \\u00ae , Bonine \\u00ae , Dramamine II \\u00ae\n(meclizine) 3 days\nArtane \\u00ae (trihexyphenidyl) 2 weeks\nBellergal-S \\u00ae (alkaloids of belladonna\nand ergotamine) 2 weeks\nBentyl \\u00ae (dicyclomine) 3 days\nCogentin \\u00ae (benztropine) 2 weeks\nCystospaz \\u00ae , Levsin \\u00ae , Levsinex \\u00ae\n(hyoscyamine) 2 weeks\nDitropan \\u00ae (oxybutynin) 2 weeks\nDonnatal \\u00ae , Hyosophen \\u00ae (atropine, scopolamine,\nhyoscyamine and phenobarbitol) 1 month\nDramamine \\u00ae (dimenhydrinate) 3 days\nLomotil \\u00ae , Lonox \\u00ae (atropine, diphenoxylate) 2 weeks\nPro-Banthine \\u00ae (propantheline) 2 weeks\nRobinul \\u00ae (glycopyrrolate) 3 days\nTigan \\u00ae (trimethobenzamide) 3 days\nTransderm-Scop \\u00ae (scopolamine) 2 weeks\nUrispas \\u00ae (flavoxate) 2 weeks\nj) Antidepressants including but not limited to\nAnafranil \\u00ae (clomipramine) 1 month\nAsendin \\u00ae (amoxapine) 1 month\nDesyrel \\u00ae (trazodone) 1 month\nEffexor \\u00ae (venlafaxine) 1 month\nElavil \\u00ae (amitriptyline) 1 month\nLudiomil \\u00ae (maprotiline) 1 month\nNorpramin \\u00ae (desipramine) 1 month\nPamelor \\u00ae , Aventyl \\u00ae (nortriptyline) 1 month\nPaxil \\u00ae (paroxetine) 1 month\nProzac \\u00ae (fluoxetine) 1 month\nRemeron \\u00ae (mirtazapine) 1 month\nSerzone \\u00ae (nefazodone) 1 month\nSinequan \\u00ae (doxepin) 1 month\nTofranil \\u00ae (imipramine) 1 month\nVivactil \\u00ae (protriptyline) 1 month\nWellbutrin \\u00ae (bupropion) 1 month\nZoloft \\u00ae (sertraline) 1 month\nk) Systemic corticosteroids including but not limited to\nCortisone 2 weeks\nDecadron \\u00ae (dexamethasone) 2 weeks\nDepo-Medrol \\u00ae (methylprednisolone) 1 month\nPrednisone 2 weeks\nl) Xanthine derivatives including but not limited to\nAminophylline 2 weeks\nFioricet \\u00ae , Esgic \\u00ae , Phrenilin Forte \\u00ae (caffeine,\nbutalbital) 3 days\nTheo-Dur \\u00ae (theophylline) 2 weeks\nWigraine \\u00ae , Cafergot \\u00ae (caffeine, ergotamine) 3 days\nm) Histamine (H 2 ) antagonists including but not limited to\nAxid \\u00ae (nizatidine) 1 week\nPepcid \\u00ae (famotidine) 1 week\nTagamet \\u00ae (cimetidine) 1 week\nZantac \\u00ae (ranitidine) 1 week\nIf an H 2 antagonist is needed by the patient, Axid \\u00ae will be\nallowed on a case-by-case basis. Please consult CRO\nmedical monitor.\nn) Narcotic Analgesics including but not limited to\nDarvocet-N 100 \\u00ae , (propoxyphene) 1 week\nDemerol \\u00ae (meperidine) 1 week\nDilaudid \\u00ae (hydromorphone) 1 week\nDuragesic \\u00ae (fentanyl) 1 week\nMS Contin \\u00ae , Roxanol \\u00ae , Oramorph \\u00ae\n(morphine) 1 week\nPercocet \\u00ae , Roxicet \\u00ae (oxycodone with\nacetaminophen) 3 days\nPercodan \\u00ae , Roxiprin 1 week\nStadol \\u00ae (butorphanol) 1 week\nTalacen \\u00ae (pentazocine) 1 week\nTylenol #2 \\u00ae , #3 \\u00ae , #4 \\u00ae (codeine and acetaminophen) 3 days\nTylox \\u00ae , Roxilox \\u00ae (oxycodone) 3 days\nVicodin \\u00ae , Lorcet \\u00ae (hydrocodone) 1 week\nPercocet (oxycodone with acetaminophen) and Tylenol \\u00ae\nwith codeine #2, #3, #4 (acetaminophen + codeine) ARE\nallowed in the month prior to enrollment, but are not permitted\nin the 3 days prior to enrollment.\no) Neuroleptics (antipsychotics) including but not limited to\nClozaril \\u00ae (clozapine) 2 weeks\nHaldol \\u00ae (haloperidol) 2 weeks\nLoxitane \\u00ae (loxapine) 2 weeks\nMellaril \\u00ae (thioridazine) 2 weeks\nMoban \\u00ae (molindone) 2 weeks\nNavane \\u00ae (thiothixene) 2 weeks\nOrap \\u00ae (pimozide) 2 weeks\nProlixin \\u00ae (fluphenazine) 1 month\nRisperdal \\u00ae (risperidone) 2 weeks\nStelazine \\u00ae (trifluoperazine) 2 weeks\nThorazine \\u00ae (chlorpromazine) 2 weeks\nTrilafon \\u00ae (perphenazine) 2 weeks\nSerentil \\u00ae (mesoridazine) 2 weeks\nThe use of neuroleptics on a daily basis must be discontinued\n2 to 4 weeks prior to enrollment. The use of neuroleptics on\nan as-needed basis is allowable during the screening period, but\nthe last dose must be at least 7 days prior to enrollment.\np) Antianxiety agents including but not limited to\nAtarax \\u00ae (hydroxyzine) 2 weeks\nBuSpar \\u00ae (buspirone) 2 weeks\nLibrium \\u00ae (chlordiazepoxide) 2 weeks\nSerax \\u00ae (oxazepam) 2 weeks\nTranxene \\u00ae (clorazepate) 2 weeks\nValium \\u00ae (diazepam) 2 weeks\nVistaril \\u00ae (hydroxyzine pamoate) 2 weeks\nXanax \\u00ae (alprazolam) 2 weeks\nAtivan \\u00ae (lorazepam) should be discontinued on a daily basis 2 weeks\nprior to enrollment. It may be used on an as-needed basis during\nthe screening period, but is not permitted in the 24 hours prior to\nenrollment.\nq) Hypnotics/Sedatives including but not limited to\nAmbien \\u00ae (zolpidem) 3 days\nDalmane \\u00ae (flurazepam) 3 days\nDoral \\u00ae (quazepam) 3 days\nHalcion \\u00ae (triazolam) 3 days\nNembutal \\u00ae 2 weeks\nProSom \\u00ae (estazolam) 3 days\nRestoril \\u00ae (temazepam) 3 days\nSeconal \\u00ae 2 weeks\nChloral Hydrate is allowed on an as-needed basis during\nscreening, but is not permitted in the 24 hours prior to\nenrollment.\nr) Histamine (H 1 ) antagonists including but not limited to\nActifed \\u00ae , Actifed Plus \\u00ae (triprolidine) 3 days\nBenadryl \\u00ae , Unisom \\u00ae , Tylenol P.M. \\u00ae\n(diphenhydramine) 3 days\nCompazine \\u00ae (prochlorperazine) 3 days\nContac \\u00ae , Coricidin D \\u00ae , Sinutab \\u00ae , Novahistine \\u00ae ,\nAlka Seltzer Plus \\u00ae , Naldecon \\u00ae , Sudafed Plus \\u00ae ,\nTylenol Cold \\u00ae , Tylenol Cold and Flu \\u00ae\n(chlorpheniramine) 3 days\nDimetapp \\u00ae (brompheniramine) 3 days\nDrixoral \\u00ae (dexbrompheniramine) 3 days\nHismanal \\u00ae (astemizole) 1 week\nPhenergan \\u00ae (promethazine) 3 days\nSeldane \\u00ae (terfenadine) 1 week\nTavist \\u00ae (clemastine fumarate) 3 days\nZyrtec \\u00ae (cetrizine) 1 week\nAllegra \\u00ae (fexofenadine hydrochloride) or Claritin \\u00ae (loratadine)\nmay be taken on as-needed basis during screening but must be\ndiscontinued within 24 hours of enrollment.\ns) Stimulants including but not limited to\nCylert \\u00ae (pemoline) 1 month\nRitalin \\u00ae (methylphenidate) 1 month\nt) Antiarrhythmics including but not limited to the following\nAdenocard \\u00ae (adenosine)\nCordarone \\u00ae (amiodarone)\nEthmozine \\u00ae (moricizine)\nMexitil \\u00ae (mexiletine)\nNorpace \\u00ae (disopyramide)\nProcan \\u00ae (procainamide)\nQuinaglute \\u00ae (quinidine)\nRythmol \\u00ae (propafenone)\nTambocor \\u00ae (flecainide)\nTonocard \\u00ae (tocainide)\nRequirement of these drugs for control of cardiac arrhythmia\nindicates that the patient should be excluded from the study. If\ndiscontinuation of an antiarrhythmic is considered, please discuss\ncase with CRO medical monitor.\nu) Miscellaneous drugs including but not limited to\nCoenzyme Q 2 weeks\nEskalith \\u00ae , Lithobid \\u00ae (lithium) 2 weeks\nGinkgo biloba 1 week\nLecithin 1 week\nLupron 2 weeks\nTamoxifen 1 month\nv) Estrogen supplements are permitted during the study, but dosage\nmust be stable for at least 3 months prior to enrollment.",
+          "quote": "Treatment with the following medications within the specified washout periods prior to enrollment and during the study",
+          "section_id": "sec-3.4.2.2",
+          "confidence": 0.9
+        }
+      }
+    ]
+  }
+}

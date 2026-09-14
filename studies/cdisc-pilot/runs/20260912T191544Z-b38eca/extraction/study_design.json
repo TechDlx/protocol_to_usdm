@@ -1,0 +1,304 @@
+{
+  "run": {
+    "sheet": "study_design",
+    "status": "done",
+    "started_at": "2026-09-13T21:27:55.070249Z",
+    "finished_at": "2026-09-13T21:28:20.125385Z",
+    "input_hash": "73f6cfc4e51113962d0d10b125e546d5ab0bd6ce3eaca314904a7b79613314d3",
+    "postprocess_version": "1+verify4",
+    "reprocessed": false,
+    "section_ids": [
+      "title-page",
+      "sec-3",
+      "sec-3.1",
+      "sec-3.2",
+      "sec-3.5",
+      "sec-3.7"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 6776,
+      "output_tokens": 1407,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 25.04,
+      "cost_usd": 0.027622,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": []
+  },
+  "records": {
+    "name": {
+      "value": "Study Design 1",
+      "provenance": {
+        "origin": "derived",
+        "source_section_id": null,
+        "source_page": null,
+        "raw_phrase": null,
+        "confidence": 1.0,
+        "verified": true,
+        "note": "the single study design of this protocol",
+        "reviewer_accepted": false
+      },
+      "terminology": null
+    },
+    "label": {
+      "value": null,
+      "provenance": null,
+      "terminology": null
+    },
+    "description": {
+      "value": "Patients with probable mild to moderate AD will be studied in a randomized, double-blind, parallel (3 arm), placebo-controlled trial of 26 weeks duration.",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "sec-3.1",
+        "source_page": 8,
+        "raw_phrase": "randomized, double-blind, parallel (3 arm), placebo-controlled trial of 26 weeks duration",
+        "confidence": 0.9,
+        "verified": true,
+        "note": null,
+        "reviewer_accepted": false
+      },
+      "terminology": null
+    },
+    "rationale": {
+      "value": "The parallel dosing regimen maximizes the ability to make direct comparisons between the treatment groups. The use of placebo allows for a blinded, thus minimally biased, study.",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "sec-3.2",
+        "source_page": 9,
+        "raw_phrase": "The parallel dosing regimen maximizes the ability to make direct comparisons between the treatment groups.",
+        "confidence": 0.8,
+        "verified": true,
+        "note": null,
+        "reviewer_accepted": false
+      },
+      "terminology": null
+    },
+    "blinding_schema": {
+      "value": "Double Blind Study",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "sec-3.7",
+        "source_page": 26,
+        "raw_phrase": "The study will be double-blind.",
+        "confidence": 0.95,
+        "verified": true,
+        "note": null,
+        "reviewer_accepted": false
+      },
+      "terminology": {
+        "status": "exact",
+        "codelist": "C66735",
+        "codelist_name": "Trial Blinding Schema Response",
+        "ct_version": "2026-03-27",
+        "code": "C15228",
+        "submission_value": "DOUBLE BLIND",
+        "preferred_term": "Double Blind Study",
+        "matched_on": "preferredTerm",
+        "candidates": []
+      }
+    },
+    "intent_types": {
+      "value": "Treatment Study",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "title-page",
+        "source_page": 1,
+        "raw_phrase": "Safety and Efficacy of the Xanomeline Transdermal Therapeutic System (TTS) in Patients with Mild to Moderate Alzheimer’s Disease",
+        "confidence": 0.75,
+        "verified": true,
+        "note": null,
+        "reviewer_accepted": false
+      },
+      "terminology": {
+        "status": "exact",
+        "codelist": "C66736",
+        "codelist_name": "Trial Intent Type Response",
+        "ct_version": "2026-03-27",
+        "code": "C49656",
+        "submission_value": "TREATMENT",
+        "preferred_term": "Treatment Study",
+        "matched_on": "preferredTerm",
+        "candidates": []
+      }
+    },
+    "sub_types": {
+      "value": "Efficacy Study, Safety Study, Pharmacokinetic Study",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "title-page",
+        "source_page": 1,
+        "raw_phrase": "Safety and Efficacy of the Xanomeline Transdermal Therapeutic System (TTS) | Safety and Efficacy of the Xanomeline Transdermal Therapeutic System (TTS) | Plasma levels of xanomeline and metabolites will be obtained at Visits 3, 4, 5, 7, 9, and 11.",
+        "confidence": 0.6,
+        "verified": true,
+        "note": "one quote per listed term",
+        "reviewer_accepted": false
+      },
+      "terminology": {
+        "status": "exact",
+        "codelist": "C66739",
+        "codelist_name": "Trial Type Response",
+        "ct_version": "2026-03-27",
+        "code": "C49666, C49667, C49663",
+        "submission_value": "EFFICACY, SAFETY, PHARMACOKINETIC",
+        "preferred_term": "Efficacy Study, Safety Study, Pharmacokinetic Study",
+        "matched_on": "multiple",
+        "candidates": []
+      }
+    },
+    "intervention_model": {
+      "value": "Parallel Study",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "sec-3.1",
+        "source_page": 8,
+        "raw_phrase": "parallel (3 arm), placebo-controlled trial",
+        "confidence": 0.9,
+        "verified": true,
+        "note": null,
+        "reviewer_accepted": false
+      },
+      "terminology": {
+        "status": "exact",
+        "codelist": "C99076",
+        "codelist_name": "Intervention Model Response",
+        "ct_version": "2026-03-27",
+        "code": "C82639",
+        "submission_value": "PARALLEL",
+        "preferred_term": "Parallel Study",
+        "matched_on": "preferredTerm",
+        "candidates": []
+      }
+    },
+    "characteristics": {
+      "value": "Randomized Controlled Clinical Trial",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "sec-3.1",
+        "source_page": 8,
+        "raw_phrase": "randomized, double-blind, parallel (3 arm), placebo-controlled trial",
+        "confidence": 0.85,
+        "verified": true,
+        "note": null,
+        "reviewer_accepted": false
+      },
+      "terminology": {
+        "status": "exact",
+        "codelist": "C207416",
+        "codelist_name": "Study Design Characteristics Value Set Terminology",
+        "ct_version": "2026-03-27",
+        "code": "C46079",
+        "submission_value": "Randomized",
+        "preferred_term": "Randomized Controlled Clinical Trial",
+        "matched_on": "preferredTerm",
+        "candidates": []
+      }
+    },
+    "study_type": {
+      "value": "Interventional Study",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "sec-3.1",
+        "source_page": 8,
+        "raw_phrase": "patients will be randomized to 1 of 3 treatment arms",
+        "confidence": 0.8,
+        "verified": true,
+        "note": "quote found in sec-3.1, not the cited sec-3.5",
+        "reviewer_accepted": false
+      },
+      "terminology": {
+        "status": "exact",
+        "codelist": "C99077",
+        "codelist_name": "Study Type Response",
+        "ct_version": "2026-03-27",
+        "code": "C98388",
+        "submission_value": "INTERVENTIONAL",
+        "preferred_term": "Interventional Study",
+        "matched_on": "preferredTerm",
+        "candidates": []
+      }
+    },
+    "study_phase": {
+      "value": null,
+      "provenance": null,
+      "terminology": null
+    }
+  },
+  "model_output": {
+    "description": {
+      "value": "Patients with probable mild to moderate AD will be studied in a randomized, double-blind, parallel (3 arm), placebo-controlled trial of 26 weeks duration.",
+      "quote": "randomized, double-blind, parallel (3 arm), placebo-controlled trial of 26 weeks duration",
+      "section_id": "sec-3.1",
+      "confidence": 0.9
+    },
+    "rationale": {
+      "value": "The parallel dosing regimen maximizes the ability to make direct comparisons between the treatment groups. The use of placebo allows for a blinded, thus minimally biased, study.",
+      "quote": "The parallel dosing regimen maximizes the ability to make direct comparisons between the treatment groups.",
+      "section_id": "sec-3.2",
+      "confidence": 0.8
+    },
+    "study_type": {
+      "value": "Interventional Study",
+      "quote": "patients will be randomized to 1 of 3 treatment arms",
+      "section_id": "sec-3.5",
+      "confidence": 0.8
+    },
+    "study_phase": {
+      "value": null,
+      "quote": null,
+      "section_id": null,
+      "confidence": 0.0
+    },
+    "blinding_schema": {
+      "value": "Double Blind Study",
+      "quote": "The study will be double-blind.",
+      "section_id": "sec-3.7",
+      "confidence": 0.95
+    },
+    "intervention_model": {
+      "value": "Parallel Study",
+      "quote": "parallel (3 arm), placebo-controlled trial",
+      "section_id": "sec-3.1",
+      "confidence": 0.9
+    },
+    "intent_types": [
+      {
+        "value": "Treatment Study",
+        "quote": "Safety and Efficacy of the Xanomeline Transdermal Therapeutic System (TTS) in Patients with Mild to Moderate Alzheimer\\u2019s Disease",
+        "section_id": "title-page",
+        "confidence": 0.75
+      }
+    ],
+    "sub_types": [
+      {
+        "value": "Efficacy Study",
+        "quote": "Safety and Efficacy of the Xanomeline Transdermal Therapeutic System (TTS)",
+        "section_id": "title-page",
+        "confidence": 0.8
+      },
+      {
+        "value": "Safety Study",
+        "quote": "Safety and Efficacy of the Xanomeline Transdermal Therapeutic System (TTS)",
+        "section_id": "title-page",
+        "confidence": 0.8
+      },
+      {
+        "value": "Pharmacokinetic Study",
+        "quote": "Plasma levels of xanomeline and metabolites will be obtained at Visits 3, 4, 5, 7, 9, and 11.",
+        "section_id": "sec-3.1",
+        "confidence": 0.6
+      }
+    ],
+    "characteristics": [
+      {
+        "value": "Randomized Controlled Clinical Trial",
+        "quote": "randomized, double-blind, parallel (3 arm), placebo-controlled trial",
+        "section_id": "sec-3.1",
+        "confidence": 0.85
+      }
+    ]
+  }
+}

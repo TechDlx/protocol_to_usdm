@@ -1,0 +1,6182 @@
+{
+  "schema_version": 1,
+  "template": "ICH M11",
+  "template_version": "spec v0.17.0 (2026-06)",
+  "source_sha256": "76f60ae6793fd7179b3091ef04ef5af26a5190bee3da4aac9e76f2d724e2bdc4",
+  "m11_native": false,
+  "m11_native_ratio": 0.0,
+  "review_threshold": 0.7,
+  "assignments": [
+    {
+      "section_id": "title-page",
+      "doc_number": null,
+      "doc_title": "Title Page",
+      "page_start": 1,
+      "page_end": 1,
+      "m11_number": "0",
+      "m11_title": "Title Page",
+      "confidence": 0.95,
+      "method": "structural",
+      "matched_text": "Title Page",
+      "candidates": [],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "fm-document-history",
+      "doc_number": null,
+      "doc_title": "Document History",
+      "page_start": 2,
+      "page_end": 7,
+      "m11_number": "12.3",
+      "m11_title": "Prior Protocol Amendment(s)",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Document History",
+      "candidates": [
+        {
+          "m11_number": "12.3",
+          "m11_title": "Prior Protocol Amendment(s)",
+          "score": 1.0
+        },
+        {
+          "m11_number": "11.9",
+          "m11_title": "Source Records",
+          "score": 0.506
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "fm-protocol-summary",
+      "doc_number": null,
+      "doc_title": "PROTOCOL SUMMARY",
+      "page_start": 8,
+      "page_end": 14,
+      "m11_number": "1",
+      "m11_title": "Protocol Summary",
+      "confidence": 1.0,
+      "method": "title_match",
+      "matched_text": "Protocol Summary",
+      "candidates": [
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 1.0
+        },
+        {
+          "m11_number": "4.1",
+          "m11_title": "Description of Trial Design",
+          "score": 0.709
+        },
+        {
+          "m11_number": "1.1.2",
+          "m11_title": "Overall Design",
+          "score": 0.709
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "fm-schedule-of-activities",
+      "doc_number": null,
+      "doc_title": "SCHEDULE OF ACTIVITIES",
+      "page_start": 15,
+      "page_end": 19,
+      "m11_number": "1.3",
+      "m11_title": "Schedule of Activities",
+      "confidence": 1.0,
+      "method": "content_soa",
+      "matched_text": "SCHEDULE OF ACTIVITIES",
+      "candidates": [
+        {
+          "m11_number": "1.3",
+          "m11_title": "Schedule of Activities",
+          "score": 1.0
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "fm-tumor-assessment-requirements-flowchart",
+      "doc_number": null,
+      "doc_title": "TUMOR ASSESSMENT REQUIREMENTS FLOWCHART",
+      "page_start": 20,
+      "page_end": 20,
+      "m11_number": "1.3",
+      "m11_title": "Schedule of Activities",
+      "confidence": 0.85,
+      "method": "content_soa",
+      "matched_text": "TUMOR ASSESSMENT REQUIREMENTS FLOWCHART",
+      "candidates": [
+        {
+          "m11_number": "8.3",
+          "m11_title": "Efficacy Assessments and Procedures",
+          "score": 0.584
+        },
+        {
+          "m11_number": "1.3",
+          "m11_title": "Schedule of Activities",
+          "score": 0.554
+        },
+        {
+          "m11_number": "9.2",
+          "m11_title": "Timing and Procedures for Collection and Reporting",
+          "score": 0.295
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "toc",
+      "doc_number": null,
+      "doc_title": "Table of Contents",
+      "page_start": 21,
+      "page_end": 26,
+      "m11_number": null,
+      "m11_title": null,
+      "confidence": 1.0,
+      "method": "excluded",
+      "matched_text": null,
+      "candidates": [],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-1",
+      "doc_number": "1",
+      "doc_title": "INTRODUCTION",
+      "page_start": 27,
+      "page_end": 44,
+      "m11_number": "2",
+      "m11_title": "Introduction",
+      "confidence": 1.0,
+      "method": "title_match",
+      "matched_text": "Introduction",
+      "candidates": [
+        {
+          "m11_number": "2",
+          "m11_title": "Introduction",
+          "score": 1.0
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-1.1",
+      "doc_number": "1.1",
+      "doc_title": "Indication",
+      "page_start": 27,
+      "page_end": 27,
+      "m11_number": "2",
+      "m11_title": "Introduction",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        },
+        {
+          "m11_number": "2",
+          "m11_title": "Introduction",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-1.2",
+      "doc_number": "1.2",
+      "doc_title": "Background and Rationale",
+      "page_start": 27,
+      "page_end": 44,
+      "m11_number": "2",
+      "m11_title": "Introduction",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Background and Rationale",
+      "candidates": [
+        {
+          "m11_number": "2",
+          "m11_title": "Introduction",
+          "score": 1.0
+        },
+        {
+          "m11_number": "2.1",
+          "m11_title": "Purpose of Trial",
+          "score": 0.677
+        },
+        {
+          "m11_number": "6.9.1",
+          "m11_title": "Background Trial Intervention",
+          "score": 0.592
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-1.2.1",
+      "doc_number": "1.2.1",
+      "doc_title": "Overview of Palbociclib",
+      "page_start": 28,
+      "page_end": 37,
+      "m11_number": "2",
+      "m11_title": "Introduction",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "4.1",
+          "m11_title": "Description of Trial Design",
+          "score": 0.535
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-1.2.1.2",
+      "doc_number": "1.2.1.2",
+      "doc_title": "Human Pharmacokinetic (PK) Data",
+      "page_start": 29,
+      "page_end": 32,
+      "m11_number": "2",
+      "m11_title": "Introduction",
+      "confidence": 0.562,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "8.5",
+          "m11_title": "Pharmacokinetics",
+          "score": 0.391
+        },
+        {
+          "m11_number": "10.8",
+          "m11_title": "Other Analyses",
+          "score": 0.326
+        },
+        {
+          "m11_number": "11.7",
+          "m11_title": "Data Governance",
+          "score": 0.257
+        }
+      ],
+      "needs_review": true,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-1.2.1.3",
+      "doc_number": "1.2.1.3",
+      "doc_title": "QT Interval Data",
+      "page_start": 32,
+      "page_end": 34,
+      "m11_number": "2",
+      "m11_title": "Introduction",
+      "confidence": 0.562,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "11.7",
+          "m11_title": "Data Governance",
+          "score": 0.298
+        },
+        {
+          "m11_number": "10.4.1.3",
+          "m11_title": "Handling of Missing Data in Relation to Primary Estimand(s)",
+          "score": 0.298
+        },
+        {
+          "m11_number": "11.9",
+          "m11_title": "Source Records",
+          "score": 0.296
+        }
+      ],
+      "needs_review": true,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-1.2.1.5",
+      "doc_number": "1.2.1.5",
+      "doc_title": "Palbociclib Dose Rationale",
+      "page_start": 34,
+      "page_end": 35,
+      "m11_number": "6.2",
+      "m11_title": "Rationale for Investigational Trial Intervention Dose and Regimen",
+      "confidence": 0.709,
+      "method": "alias_match",
+      "matched_text": "Dose Rationale",
+      "candidates": [
+        {
+          "m11_number": "6.2",
+          "m11_title": "Rationale for Investigational Trial Intervention Dose and Regimen",
+          "score": 0.709
+        },
+        {
+          "m11_number": "2.1",
+          "m11_title": "Purpose of Trial",
+          "score": 0.485
+        },
+        {
+          "m11_number": "6.4",
+          "m11_title": "Investigational Trial Intervention Dose Modification",
+          "score": 0.356
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-1.2.1.6",
+      "doc_number": "1.2.1.6",
+      "doc_title": "Phase 2 Trial of Palbociclib Alone in Women with Advanced Breast Cancer",
+      "page_start": 35,
+      "page_end": 35,
+      "m11_number": "2",
+      "m11_title": "Introduction",
+      "confidence": 0.562,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "5.4.1",
+          "m11_title": "Definitions Related to Childbearing Potential",
+          "score": 0.194
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": true,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-1.2.1.7",
+      "doc_number": "1.2.1.7",
+      "doc_title": "Data from Phase 1/2 Study of Palbociclib in Combination with Letrozole in Advanced Breast Cancer",
+      "page_start": 35,
+      "page_end": 36,
+      "m11_number": "2",
+      "m11_title": "Introduction",
+      "confidence": 0.562,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "11.7",
+          "m11_title": "Data Governance",
+          "score": 0.132
+        },
+        {
+          "m11_number": "10.4.1.3",
+          "m11_title": "Handling of Missing Data in Relation to Primary Estimand(s)",
+          "score": 0.132
+        },
+        {
+          "m11_number": "11.9",
+          "m11_title": "Source Records",
+          "score": 0.131
+        }
+      ],
+      "needs_review": true,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-1.2.1.8",
+      "doc_number": "1.2.1.8",
+      "doc_title": "Interim Analysis Data from Phase 3 Study A5481023 of Palbociclib in Combination with Fulvestrant",
+      "page_start": 36,
+      "page_end": 37,
+      "m11_number": "2",
+      "m11_title": "Introduction",
+      "confidence": 0.562,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "10.9",
+          "m11_title": "Interim Analyses",
+          "score": 0.304
+        },
+        {
+          "m11_number": "4.2.6",
+          "m11_title": "Rationale for Interim Analysis",
+          "score": 0.284
+        },
+        {
+          "m11_number": "10",
+          "m11_title": "Statistical Considerations",
+          "score": 0.25
+        }
+      ],
+      "needs_review": true,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-1.2.2",
+      "doc_number": "1.2.2",
+      "doc_title": "Overview of Fulvestrant (Faslodex )",
+      "page_start": 37,
+      "page_end": 38,
+      "m11_number": "2",
+      "m11_title": "Introduction",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "4.1",
+          "m11_title": "Description of Trial Design",
+          "score": 0.413
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-1.2.3",
+      "doc_number": "1.2.3",
+      "doc_title": "Study Rationale",
+      "page_start": 39,
+      "page_end": 41,
+      "m11_number": "2.1",
+      "m11_title": "Purpose of Trial",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Study Rationale",
+      "candidates": [
+        {
+          "m11_number": "2.1",
+          "m11_title": "Purpose of Trial",
+          "score": 1.0
+        },
+        {
+          "m11_number": "2",
+          "m11_title": "Introduction",
+          "score": 0.677
+        },
+        {
+          "m11_number": "4.2",
+          "m11_title": "Rationale for Trial Design",
+          "score": 0.66
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-1.2.4",
+      "doc_number": "1.2.4",
+      "doc_title": "Amendment Rationale",
+      "page_start": 41,
+      "page_end": 44,
+      "m11_number": "12.3",
+      "m11_title": "Prior Protocol Amendment(s)",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Amendment Rationale",
+      "candidates": [
+        {
+          "m11_number": "12.3",
+          "m11_title": "Prior Protocol Amendment(s)",
+          "score": 1.0
+        },
+        {
+          "m11_number": "2.1",
+          "m11_title": "Purpose of Trial",
+          "score": 0.677
+        },
+        {
+          "m11_number": "2",
+          "m11_title": "Introduction",
+          "score": 0.506
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-1.2.4.1",
+      "doc_number": "1.2.4.1",
+      "doc_title": "Rationale for Changes in Amendment 1",
+      "page_start": 41,
+      "page_end": 41,
+      "m11_number": "12.3",
+      "m11_title": "Prior Protocol Amendment(s)",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Rationale for Changes in Amendment",
+      "candidates": [
+        {
+          "m11_number": "12.3",
+          "m11_title": "Prior Protocol Amendment(s)",
+          "score": 1.0
+        },
+        {
+          "m11_number": "2.1",
+          "m11_title": "Purpose of Trial",
+          "score": 0.411
+        },
+        {
+          "m11_number": "4.2",
+          "m11_title": "Rationale for Trial Design",
+          "score": 0.339
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-1.2.4.2",
+      "doc_number": "1.2.4.2",
+      "doc_title": "Rationale for Changes in Amendment 2",
+      "page_start": 42,
+      "page_end": 43,
+      "m11_number": "12.3",
+      "m11_title": "Prior Protocol Amendment(s)",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Rationale for Changes in Amendment",
+      "candidates": [
+        {
+          "m11_number": "12.3",
+          "m11_title": "Prior Protocol Amendment(s)",
+          "score": 1.0
+        },
+        {
+          "m11_number": "2.1",
+          "m11_title": "Purpose of Trial",
+          "score": 0.411
+        },
+        {
+          "m11_number": "4.2",
+          "m11_title": "Rationale for Trial Design",
+          "score": 0.339
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-1.2.4.3",
+      "doc_number": "1.2.4.3",
+      "doc_title": "Rationale for Changes in Amendment 3",
+      "page_start": 43,
+      "page_end": 44,
+      "m11_number": "12.3",
+      "m11_title": "Prior Protocol Amendment(s)",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Rationale for Changes in Amendment",
+      "candidates": [
+        {
+          "m11_number": "12.3",
+          "m11_title": "Prior Protocol Amendment(s)",
+          "score": 1.0
+        },
+        {
+          "m11_number": "2.1",
+          "m11_title": "Purpose of Trial",
+          "score": 0.411
+        },
+        {
+          "m11_number": "4.2",
+          "m11_title": "Rationale for Trial Design",
+          "score": 0.339
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-2",
+      "doc_number": "2",
+      "doc_title": "STUDY OBJECTIVES AND ENDPOINTS",
+      "page_start": 44,
+      "page_end": 45,
+      "m11_number": "3",
+      "m11_title": "Trial Objectives and Associated Estimands",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Objectives and Endpoints",
+      "candidates": [
+        {
+          "m11_number": "3",
+          "m11_title": "Trial Objectives and Associated Estimands",
+          "score": 1.0
+        },
+        {
+          "m11_number": "3.1",
+          "m11_title": "Primary Objective(s) and Associated Estimand(s)",
+          "score": 0.515
+        },
+        {
+          "m11_number": "3.2",
+          "m11_title": "Secondary Objective(s) and Associated Estimand(s)",
+          "score": 0.513
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-2.1",
+      "doc_number": "2.1",
+      "doc_title": "Objectives",
+      "page_start": 44,
+      "page_end": 44,
+      "m11_number": "3",
+      "m11_title": "Trial Objectives and Associated Estimands",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Objectives",
+      "candidates": [
+        {
+          "m11_number": "3",
+          "m11_title": "Trial Objectives and Associated Estimands",
+          "score": 1.0
+        },
+        {
+          "m11_number": "3.1",
+          "m11_title": "Primary Objective(s) and Associated Estimand(s)",
+          "score": 0.719
+        },
+        {
+          "m11_number": "3.1.1",
+          "m11_title": "Primary Objective <#>",
+          "score": 0.719
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-2.2",
+      "doc_number": "2.2",
+      "doc_title": "Endpoints",
+      "page_start": 45,
+      "page_end": 45,
+      "m11_number": "3",
+      "m11_title": "Trial Objectives and Associated Estimands",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Endpoints",
+      "candidates": [
+        {
+          "m11_number": "3",
+          "m11_title": "Trial Objectives and Associated Estimands",
+          "score": 1.0
+        },
+        {
+          "m11_number": "3.1",
+          "m11_title": "Primary Objective(s) and Associated Estimand(s)",
+          "score": 0.747
+        },
+        {
+          "m11_number": "3.2",
+          "m11_title": "Secondary Objective(s) and Associated Estimand(s)",
+          "score": 0.743
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-3",
+      "doc_number": "3",
+      "doc_title": "STUDY DESIGN",
+      "page_start": 45,
+      "page_end": 48,
+      "m11_number": "4",
+      "m11_title": "Trial Design",
+      "confidence": 1.0,
+      "method": "title_match",
+      "matched_text": "Trial Design",
+      "candidates": [
+        {
+          "m11_number": "4",
+          "m11_title": "Trial Design",
+          "score": 1.0
+        },
+        {
+          "m11_number": "4.2",
+          "m11_title": "Rationale for Trial Design",
+          "score": 0.673
+        },
+        {
+          "m11_number": "4.1",
+          "m11_title": "Description of Trial Design",
+          "score": 0.622
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-4",
+      "doc_number": "4",
+      "doc_title": "PATIENT SELECTION",
+      "page_start": 48,
+      "page_end": 53,
+      "m11_number": "5",
+      "m11_title": "Trial Population",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Patient Selection",
+      "candidates": [
+        {
+          "m11_number": "5",
+          "m11_title": "Trial Population",
+          "score": 1.0
+        },
+        {
+          "m11_number": "6.2",
+          "m11_title": "Rationale for Investigational Trial Intervention Dose and Regimen",
+          "score": 0.545
+        },
+        {
+          "m11_number": "6",
+          "m11_title": "Trial Intervention and Concomitant Therapy",
+          "score": 0.476
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-4.1",
+      "doc_number": "4.1",
+      "doc_title": "Inclusion Criteria",
+      "page_start": 49,
+      "page_end": 51,
+      "m11_number": "5.2",
+      "m11_title": "Inclusion Criteria",
+      "confidence": 1.0,
+      "method": "title_match",
+      "matched_text": "Inclusion Criteria",
+      "candidates": [
+        {
+          "m11_number": "5.2",
+          "m11_title": "Inclusion Criteria",
+          "score": 1.0
+        },
+        {
+          "m11_number": "5.6",
+          "m11_title": "Screen Failure and Rescreening",
+          "score": 0.536
+        },
+        {
+          "m11_number": "5.3",
+          "m11_title": "Exclusion Criteria",
+          "score": 0.519
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-4.2",
+      "doc_number": "4.2",
+      "doc_title": "Exclusion Criteria",
+      "page_start": 51,
+      "page_end": 52,
+      "m11_number": "5.3",
+      "m11_title": "Exclusion Criteria",
+      "confidence": 1.0,
+      "method": "title_match",
+      "matched_text": "Exclusion Criteria",
+      "candidates": [
+        {
+          "m11_number": "5.3",
+          "m11_title": "Exclusion Criteria",
+          "score": 1.0
+        },
+        {
+          "m11_number": "5.6",
+          "m11_title": "Screen Failure and Rescreening",
+          "score": 0.536
+        },
+        {
+          "m11_number": "5.2",
+          "m11_title": "Inclusion Criteria",
+          "score": 0.519
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-4.3",
+      "doc_number": "4.3",
+      "doc_title": "Randomization Criteria",
+      "page_start": 52,
+      "page_end": 53,
+      "m11_number": "5.6",
+      "m11_title": "Screen Failure and Rescreening",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Randomization Criteria",
+      "candidates": [
+        {
+          "m11_number": "5.6",
+          "m11_title": "Screen Failure and Rescreening",
+          "score": 1.0
+        },
+        {
+          "m11_number": "6.7.2",
+          "m11_title": "Randomisation",
+          "score": 0.689
+        },
+        {
+          "m11_number": "5.2",
+          "m11_title": "Inclusion Criteria",
+          "score": 0.536
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-4.4",
+      "doc_number": "4.4",
+      "doc_title": "Sponsor Qualified Medical Personnel",
+      "page_start": 53,
+      "page_end": 53,
+      "m11_number": "11.2.1",
+      "m11_title": "Investigator Responsibilities",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Sponsor Qualified Medical Personnel",
+      "candidates": [
+        {
+          "m11_number": "11.2.1",
+          "m11_title": "Investigator Responsibilities",
+          "score": 1.0
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.31
+        },
+        {
+          "m11_number": "11.2.2",
+          "m11_title": "Sponsor Responsibilities",
+          "score": 0.31
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5",
+      "doc_number": "5",
+      "doc_title": "STUDY TREATMENTS",
+      "page_start": 53,
+      "page_end": 67,
+      "m11_number": "6",
+      "m11_title": "Trial Intervention and Concomitant Therapy",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Study Treatments",
+      "candidates": [
+        {
+          "m11_number": "6",
+          "m11_title": "Trial Intervention and Concomitant Therapy",
+          "score": 1.0
+        },
+        {
+          "m11_number": "7.1",
+          "m11_title": "Discontinuation of Trial Intervention for Individual Participants",
+          "score": 0.629
+        },
+        {
+          "m11_number": "6.10",
+          "m11_title": "Concomitant Therapy",
+          "score": 0.597
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.1",
+      "doc_number": "5.1",
+      "doc_title": "Allocation to Treatment",
+      "page_start": 53,
+      "page_end": 54,
+      "m11_number": "6.7.1",
+      "m11_title": "Participant Assignment to Investigational Trial Intervention",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Allocation to Treatment",
+      "candidates": [
+        {
+          "m11_number": "6.7.1",
+          "m11_title": "Participant Assignment to Investigational Trial Intervention",
+          "score": 1.0
+        },
+        {
+          "m11_number": "6",
+          "m11_title": "Trial Intervention and Concomitant Therapy",
+          "score": 0.597
+        },
+        {
+          "m11_number": "7.1",
+          "m11_title": "Discontinuation of Trial Intervention for Individual Participants",
+          "score": 0.396
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.2",
+      "doc_number": "5.2",
+      "doc_title": "Breaking the Blind",
+      "page_start": 54,
+      "page_end": 54,
+      "m11_number": "6.7.4",
+      "m11_title": "Emergency Unblinding at the Site",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Breaking the Blind",
+      "candidates": [
+        {
+          "m11_number": "6.7.4",
+          "m11_title": "Emergency Unblinding at the Site",
+          "score": 1.0
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3",
+      "doc_number": "5.3",
+      "doc_title": "Drug Supplies",
+      "page_start": 54,
+      "page_end": 63,
+      "m11_number": "6.1",
+      "m11_title": "Description of Investigational Trial Intervention",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Drug Supplies",
+      "candidates": [
+        {
+          "m11_number": "6.1",
+          "m11_title": "Description of Investigational Trial Intervention",
+          "score": 1.0
+        },
+        {
+          "m11_number": "6.10",
+          "m11_title": "Concomitant Therapy",
+          "score": 0.491
+        },
+        {
+          "m11_number": "6.6.2",
+          "m11_title": "Storage and Handling of Investigational Trial Intervention",
+          "score": 0.481
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3.1",
+      "doc_number": "5.3.1",
+      "doc_title": "Formulation and Packaging",
+      "page_start": 54,
+      "page_end": 55,
+      "m11_number": "6.1",
+      "m11_title": "Description of Investigational Trial Intervention",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Formulation and Packaging",
+      "candidates": [
+        {
+          "m11_number": "6.1",
+          "m11_title": "Description of Investigational Trial Intervention",
+          "score": 1.0
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3.1.1",
+      "doc_number": "5.3.1.1",
+      "doc_title": "Palbociclib (PD-0332991)/Placebo",
+      "page_start": 54,
+      "page_end": 55,
+      "m11_number": "6.1",
+      "m11_title": "Description of Investigational Trial Intervention",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "4.2.3",
+          "m11_title": "Rationale for Control Type",
+          "score": 0.414
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3.1.2",
+      "doc_number": "5.3.1.2",
+      "doc_title": "Fulvestrant",
+      "page_start": 55,
+      "page_end": 55,
+      "m11_number": "6.1",
+      "m11_title": "Description of Investigational Trial Intervention",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        },
+        {
+          "m11_number": "2",
+          "m11_title": "Introduction",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3.2",
+      "doc_number": "5.3.2",
+      "doc_title": "Preparation and Dispensing",
+      "page_start": 55,
+      "page_end": 56,
+      "m11_number": "6.6.1",
+      "m11_title": "Preparation of Investigational Trial Intervention",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Preparation and Dispensing",
+      "candidates": [
+        {
+          "m11_number": "6.6.1",
+          "m11_title": "Preparation of Investigational Trial Intervention",
+          "score": 1.0
+        },
+        {
+          "m11_number": "6.6",
+          "m11_title": "Preparation, Storage, Handling and Accountability of Investigational Trial Intervention",
+          "score": 0.338
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3.2.1",
+      "doc_number": "5.3.2.1",
+      "doc_title": "Palbociclib/Placebo",
+      "page_start": 55,
+      "page_end": 55,
+      "m11_number": "6.6.1",
+      "m11_title": "Preparation of Investigational Trial Intervention",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "4.2.3",
+          "m11_title": "Rationale for Control Type",
+          "score": 0.537
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3.2.2",
+      "doc_number": "5.3.2.2",
+      "doc_title": "Fulvestrant",
+      "page_start": 55,
+      "page_end": 56,
+      "m11_number": "6.6.1",
+      "m11_title": "Preparation of Investigational Trial Intervention",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        },
+        {
+          "m11_number": "2",
+          "m11_title": "Introduction",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3.3",
+      "doc_number": "5.3.3",
+      "doc_title": "Administration",
+      "page_start": 56,
+      "page_end": 56,
+      "m11_number": "6.3",
+      "m11_title": "Investigational Trial Intervention Administration",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Administration",
+      "candidates": [
+        {
+          "m11_number": "6.3",
+          "m11_title": "Investigational Trial Intervention Administration",
+          "score": 1.0
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3.3.1",
+      "doc_number": "5.3.3.1",
+      "doc_title": "Palbociclib/Placebo",
+      "page_start": 56,
+      "page_end": 56,
+      "m11_number": "6.3",
+      "m11_title": "Investigational Trial Intervention Administration",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "4.2.3",
+          "m11_title": "Rationale for Control Type",
+          "score": 0.537
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3.3.2",
+      "doc_number": "5.3.3.2",
+      "doc_title": "Fulvestrant",
+      "page_start": 56,
+      "page_end": 56,
+      "m11_number": "6.3",
+      "m11_title": "Investigational Trial Intervention Administration",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        },
+        {
+          "m11_number": "2",
+          "m11_title": "Introduction",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3.4",
+      "doc_number": "5.3.4",
+      "doc_title": "Dose Modification",
+      "page_start": 57,
+      "page_end": 62,
+      "m11_number": "6.4",
+      "m11_title": "Investigational Trial Intervention Dose Modification",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Dose Modification",
+      "candidates": [
+        {
+          "m11_number": "6.4",
+          "m11_title": "Investigational Trial Intervention Dose Modification",
+          "score": 1.0
+        },
+        {
+          "m11_number": "6.2",
+          "m11_title": "Rationale for Investigational Trial Intervention Dose and Regimen",
+          "score": 0.518
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3.4.1",
+      "doc_number": "5.3.4.1",
+      "doc_title": "Fulvestrant",
+      "page_start": 57,
+      "page_end": 57,
+      "m11_number": "6.4",
+      "m11_title": "Investigational Trial Intervention Dose Modification",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        },
+        {
+          "m11_number": "2",
+          "m11_title": "Introduction",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3.4.2",
+      "doc_number": "5.3.4.2",
+      "doc_title": "Palbociclib/Placebo",
+      "page_start": 57,
+      "page_end": 62,
+      "m11_number": "6.4",
+      "m11_title": "Investigational Trial Intervention Dose Modification",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "4.2.3",
+          "m11_title": "Rationale for Control Type",
+          "score": 0.537
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3.4.2.1",
+      "doc_number": "5.3.4.2.1",
+      "doc_title": "Dosing Interruptions/Delays",
+      "page_start": 58,
+      "page_end": 59,
+      "m11_number": "6.4",
+      "m11_title": "Investigational Trial Intervention Dose Modification",
+      "confidence": 0.562,
+      "method": "alias_match",
+      "matched_text": "Dose Delays",
+      "candidates": [
+        {
+          "m11_number": "6.4",
+          "m11_title": "Investigational Trial Intervention Dose Modification",
+          "score": 0.5
+        },
+        {
+          "m11_number": "7.1.2",
+          "m11_title": "Temporary Discontinuation of Trial Intervention",
+          "score": 0.416
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        }
+      ],
+      "needs_review": true,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3.4.2.2",
+      "doc_number": "5.3.4.2.2",
+      "doc_title": "Retreatment Criteria",
+      "page_start": 59,
+      "page_end": 60,
+      "m11_number": "6.4",
+      "m11_title": "Investigational Trial Intervention Dose Modification",
+      "confidence": 0.562,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "8.3",
+          "m11_title": "Efficacy Assessments and Procedures",
+          "score": 0.429
+        },
+        {
+          "m11_number": "5.6",
+          "m11_title": "Screen Failure and Rescreening",
+          "score": 0.427
+        },
+        {
+          "m11_number": "5.2",
+          "m11_title": "Inclusion Criteria",
+          "score": 0.412
+        }
+      ],
+      "needs_review": true,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3.4.2.3",
+      "doc_number": "5.3.4.2.3",
+      "doc_title": "Dose Reductions",
+      "page_start": 60,
+      "page_end": 61,
+      "m11_number": "6.4",
+      "m11_title": "Investigational Trial Intervention Dose Modification",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Dose Reduction",
+      "candidates": [
+        {
+          "m11_number": "6.4",
+          "m11_title": "Investigational Trial Intervention Dose Modification",
+          "score": 1.0
+        },
+        {
+          "m11_number": "6.2",
+          "m11_title": "Rationale for Investigational Trial Intervention Dose and Regimen",
+          "score": 0.502
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3.4.2.4",
+      "doc_number": "5.3.4.2.4",
+      "doc_title": "QTc prolongation management",
+      "page_start": 61,
+      "page_end": 62,
+      "m11_number": "6.4",
+      "m11_title": "Investigational Trial Intervention Dose Modification",
+      "confidence": 0.562,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "11.7",
+          "m11_title": "Data Governance",
+          "score": 0.377
+        },
+        {
+          "m11_number": "6.5",
+          "m11_title": "Management of Investigational Trial Intervention Overdose",
+          "score": 0.286
+        },
+        {
+          "m11_number": "11.6",
+          "m11_title": "Risk-Based Quality Management",
+          "score": 0.268
+        }
+      ],
+      "needs_review": true,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3.5",
+      "doc_number": "5.3.5",
+      "doc_title": "Medication Errors",
+      "page_start": 62,
+      "page_end": 63,
+      "m11_number": "9.4",
+      "m11_title": "Special Safety Situations",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Medication Errors",
+      "candidates": [
+        {
+          "m11_number": "9.4",
+          "m11_title": "Special Safety Situations",
+          "score": 1.0
+        },
+        {
+          "m11_number": "6.5",
+          "m11_title": "Management of Investigational Trial Intervention Overdose",
+          "score": 0.804
+        },
+        {
+          "m11_number": "6.1",
+          "m11_title": "Description of Investigational Trial Intervention",
+          "score": 0.489
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.3.6",
+      "doc_number": "5.3.6",
+      "doc_title": "Compliance",
+      "page_start": 63,
+      "page_end": 63,
+      "m11_number": "6.8",
+      "m11_title": "Investigational Trial Intervention Adherence",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Compliance",
+      "candidates": [
+        {
+          "m11_number": "6.8",
+          "m11_title": "Investigational Trial Intervention Adherence",
+          "score": 1.0
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.4",
+      "doc_number": "5.4",
+      "doc_title": "Drug Storage and Drug Accountability",
+      "page_start": 63,
+      "page_end": 64,
+      "m11_number": "6.6",
+      "m11_title": "Preparation, Storage, Handling and Accountability of Investigational Trial Intervention",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Drug Storage and Accountability",
+      "candidates": [
+        {
+          "m11_number": "6.6",
+          "m11_title": "Preparation, Storage, Handling and Accountability of Investigational Trial Intervention",
+          "score": 1.0
+        },
+        {
+          "m11_number": "6.6.2",
+          "m11_title": "Storage and Handling of Investigational Trial Intervention",
+          "score": 0.856
+        },
+        {
+          "m11_number": "6.6.3",
+          "m11_title": "Accountability of Investigational Trial Intervention",
+          "score": 0.856
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.4.1",
+      "doc_number": "5.4.1",
+      "doc_title": "Palbociclib/Placebo Storage and Accountability",
+      "page_start": 64,
+      "page_end": 64,
+      "m11_number": "6.6",
+      "m11_title": "Preparation, Storage, Handling and Accountability of Investigational Trial Intervention",
+      "confidence": 0.75,
+      "method": "alias_match",
+      "matched_text": "Drug Storage and Accountability",
+      "candidates": [
+        {
+          "m11_number": "6.6",
+          "m11_title": "Preparation, Storage, Handling and Accountability of Investigational Trial Intervention",
+          "score": 0.622
+        },
+        {
+          "m11_number": "4.2.3",
+          "m11_title": "Rationale for Control Type",
+          "score": 0.376
+        },
+        {
+          "m11_number": "6.6.2",
+          "m11_title": "Storage and Handling of Investigational Trial Intervention",
+          "score": 0.354
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.4.1.1",
+      "doc_number": "5.4.1.1",
+      "doc_title": "Fulvestrant Storage and Accountability",
+      "page_start": 64,
+      "page_end": 64,
+      "m11_number": "6.6",
+      "m11_title": "Preparation, Storage, Handling and Accountability of Investigational Trial Intervention",
+      "confidence": 0.734,
+      "method": "alias_match",
+      "matched_text": "Drug Storage and Accountability",
+      "candidates": [
+        {
+          "m11_number": "6.6",
+          "m11_title": "Preparation, Storage, Handling and Accountability of Investigational Trial Intervention",
+          "score": 0.734
+        },
+        {
+          "m11_number": "6.6.2",
+          "m11_title": "Storage and Handling of Investigational Trial Intervention",
+          "score": 0.536
+        },
+        {
+          "m11_number": "6.6.3",
+          "m11_title": "Accountability of Investigational Trial Intervention",
+          "score": 0.536
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.5",
+      "doc_number": "5.5",
+      "doc_title": "Concomitant Medications",
+      "page_start": 64,
+      "page_end": 67,
+      "m11_number": "6.10",
+      "m11_title": "Concomitant Therapy",
+      "confidence": 1.0,
+      "method": "title_match",
+      "matched_text": "Concomitant Therapy",
+      "candidates": [
+        {
+          "m11_number": "6.10",
+          "m11_title": "Concomitant Therapy",
+          "score": 1.0
+        },
+        {
+          "m11_number": "6",
+          "m11_title": "Trial Intervention and Concomitant Therapy",
+          "score": 0.91
+        },
+        {
+          "m11_number": "6.10.1",
+          "m11_title": "Prohibited Concomitant Therapy",
+          "score": 0.824
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.5.1",
+      "doc_number": "5.5.1",
+      "doc_title": "Prohibited Medications",
+      "page_start": 64,
+      "page_end": 65,
+      "m11_number": "6.10.1",
+      "m11_title": "Prohibited Concomitant Therapy",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Prohibited Medications",
+      "candidates": [
+        {
+          "m11_number": "6.10.1",
+          "m11_title": "Prohibited Concomitant Therapy",
+          "score": 1.0
+        },
+        {
+          "m11_number": "6.10",
+          "m11_title": "Concomitant Therapy",
+          "score": 0.497
+        },
+        {
+          "m11_number": "6.1",
+          "m11_title": "Description of Investigational Trial Intervention",
+          "score": 0.439
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.5.2",
+      "doc_number": "5.5.2",
+      "doc_title": "Medications Not Recommended",
+      "page_start": 65,
+      "page_end": 66,
+      "m11_number": "6.10",
+      "m11_title": "Concomitant Therapy",
+      "confidence": 0.75,
+      "method": "title_match",
+      "matched_text": "Concomitant Therapy",
+      "candidates": [
+        {
+          "m11_number": "6.10",
+          "m11_title": "Concomitant Therapy",
+          "score": 0.291
+        },
+        {
+          "m11_number": "6.1",
+          "m11_title": "Description of Investigational Trial Intervention",
+          "score": 0.287
+        },
+        {
+          "m11_number": "6.6.2",
+          "m11_title": "Storage and Handling of Investigational Trial Intervention",
+          "score": 0.286
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.5.3",
+      "doc_number": "5.5.3",
+      "doc_title": "Permitted Medications",
+      "page_start": 66,
+      "page_end": 67,
+      "m11_number": "6.10.2",
+      "m11_title": "Permitted Concomitant Therapy",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Permitted Medications",
+      "candidates": [
+        {
+          "m11_number": "6.10.2",
+          "m11_title": "Permitted Concomitant Therapy",
+          "score": 1.0
+        },
+        {
+          "m11_number": "6.10",
+          "m11_title": "Concomitant Therapy",
+          "score": 0.497
+        },
+        {
+          "m11_number": "6.1",
+          "m11_title": "Description of Investigational Trial Intervention",
+          "score": 0.439
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-5.6",
+      "doc_number": "5.6",
+      "doc_title": "Concomitant Radiotherapy or Surgery",
+      "page_start": 67,
+      "page_end": 67,
+      "m11_number": "6",
+      "m11_title": "Trial Intervention and Concomitant Therapy",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "6.10",
+          "m11_title": "Concomitant Therapy",
+          "score": 0.345
+        },
+        {
+          "m11_number": "6",
+          "m11_title": "Trial Intervention and Concomitant Therapy",
+          "score": 0.303
+        },
+        {
+          "m11_number": "6.10.1",
+          "m11_title": "Prohibited Concomitant Therapy",
+          "score": 0.282
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-6",
+      "doc_number": "6",
+      "doc_title": "STUDY PROCEDURES",
+      "page_start": 67,
+      "page_end": 72,
+      "m11_number": "8",
+      "m11_title": "Trial Assessments and Procedures",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Study Procedures",
+      "candidates": [
+        {
+          "m11_number": "8",
+          "m11_title": "Trial Assessments and Procedures",
+          "score": 1.0
+        },
+        {
+          "m11_number": "1.3",
+          "m11_title": "Schedule of Activities",
+          "score": 0.657
+        },
+        {
+          "m11_number": "6.7.2",
+          "m11_title": "Randomisation",
+          "score": 0.64
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-6.1",
+      "doc_number": "6.1",
+      "doc_title": "Screening",
+      "page_start": 68,
+      "page_end": 69,
+      "m11_number": "8.2",
+      "m11_title": "Screening/Baseline Assessments and Procedures",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Screening",
+      "candidates": [
+        {
+          "m11_number": "8.2",
+          "m11_title": "Screening/Baseline Assessments and Procedures",
+          "score": 1.0
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-6.2",
+      "doc_number": "6.2",
+      "doc_title": "Screen Failure",
+      "page_start": 69,
+      "page_end": 69,
+      "m11_number": "5.6",
+      "m11_title": "Screen Failure and Rescreening",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Screen Failures",
+      "candidates": [
+        {
+          "m11_number": "5.6",
+          "m11_title": "Screen Failure and Rescreening",
+          "score": 1.0
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-6.3",
+      "doc_number": "6.3",
+      "doc_title": "Active Treatment Phase",
+      "page_start": 69,
+      "page_end": 69,
+      "m11_number": "8",
+      "m11_title": "Trial Assessments and Procedures",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "6",
+          "m11_title": "Trial Intervention and Concomitant Therapy",
+          "score": 0.327
+        },
+        {
+          "m11_number": "7.1",
+          "m11_title": "Discontinuation of Trial Intervention for Individual Participants",
+          "score": 0.274
+        },
+        {
+          "m11_number": "6.10",
+          "m11_title": "Concomitant Therapy",
+          "score": 0.268
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-6.4",
+      "doc_number": "6.4",
+      "doc_title": "End of Treatment Visit",
+      "page_start": 69,
+      "page_end": 70,
+      "m11_number": "8",
+      "m11_title": "Trial Assessments and Procedures",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "4.5",
+          "m11_title": "Access to Trial Intervention After End of Trial",
+          "score": 0.736
+        },
+        {
+          "m11_number": "8.1",
+          "m11_title": "Trial Assessments and Procedures Considerations",
+          "score": 0.564
+        },
+        {
+          "m11_number": "4.4",
+          "m11_title": "Start of Trial and End of Trial",
+          "score": 0.513
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-6.5",
+      "doc_number": "6.5",
+      "doc_title": "Follow-up Visits",
+      "page_start": 70,
+      "page_end": 70,
+      "m11_number": "8",
+      "m11_title": "Trial Assessments and Procedures",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "7.3",
+          "m11_title": "Management of Loss to Follow-Up",
+          "score": 0.656
+        },
+        {
+          "m11_number": "8.1",
+          "m11_title": "Trial Assessments and Procedures Considerations",
+          "score": 0.51
+        },
+        {
+          "m11_number": "1.3",
+          "m11_title": "Schedule of Activities",
+          "score": 0.427
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-6.5.1",
+      "doc_number": "6.5.1",
+      "doc_title": "28-day Post-treatment Follow-up",
+      "page_start": 70,
+      "page_end": 70,
+      "m11_number": "8",
+      "m11_title": "Trial Assessments and Procedures",
+      "confidence": 0.562,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "7.3",
+          "m11_title": "Management of Loss to Follow-Up",
+          "score": 0.505
+        },
+        {
+          "m11_number": "4.5",
+          "m11_title": "Access to Trial Intervention After End of Trial",
+          "score": 0.304
+        },
+        {
+          "m11_number": "6",
+          "m11_title": "Trial Intervention and Concomitant Therapy",
+          "score": 0.218
+        }
+      ],
+      "needs_review": true,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-6.5.2",
+      "doc_number": "6.5.2",
+      "doc_title": "Survival Follow-up",
+      "page_start": 70,
+      "page_end": 70,
+      "m11_number": "7.3",
+      "m11_title": "Management of Loss to Follow-Up",
+      "confidence": 0.637,
+      "method": "alias_match",
+      "matched_text": "Lost to Follow Up",
+      "candidates": [
+        {
+          "m11_number": "7.3",
+          "m11_title": "Management of Loss to Follow-Up",
+          "score": 0.637
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": true,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-6.6",
+      "doc_number": "6.6",
+      "doc_title": "Patient Withdrawal",
+      "page_start": 70,
+      "page_end": 72,
+      "m11_number": "7",
+      "m11_title": "Participant Discontinuation of Trial Intervention and Discontinuation or Withdrawal from Trial",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Subject Withdrawal",
+      "candidates": [
+        {
+          "m11_number": "7",
+          "m11_title": "Participant Discontinuation of Trial Intervention and Discontinuation or Withdrawal from Trial",
+          "score": 1.0
+        },
+        {
+          "m11_number": "7.2",
+          "m11_title": "Participant Discontinuation or Withdrawal from the Trial",
+          "score": 1.0
+        },
+        {
+          "m11_number": "5",
+          "m11_title": "Trial Population",
+          "score": 0.757
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-6.6.1",
+      "doc_number": "6.6.1",
+      "doc_title": "Active Treatment Phase Discontinuation",
+      "page_start": 70,
+      "page_end": 71,
+      "m11_number": "7.1",
+      "m11_title": "Discontinuation of Trial Intervention for Individual Participants",
+      "confidence": 0.594,
+      "method": "alias_match",
+      "matched_text": "Discontinuation of Study Treatment",
+      "candidates": [
+        {
+          "m11_number": "7.1",
+          "m11_title": "Discontinuation of Trial Intervention for Individual Participants",
+          "score": 0.594
+        },
+        {
+          "m11_number": "7",
+          "m11_title": "Participant Discontinuation of Trial Intervention and Discontinuation or Withdrawal from Trial",
+          "score": 0.534
+        },
+        {
+          "m11_number": "7.1.1",
+          "m11_title": "Permanent Discontinuation of Trial Intervention",
+          "score": 0.506
+        }
+      ],
+      "needs_review": true,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-6.6.2",
+      "doc_number": "6.6.2",
+      "doc_title": "Study Discontinuation",
+      "page_start": 71,
+      "page_end": 72,
+      "m11_number": "7",
+      "m11_title": "Participant Discontinuation of Trial Intervention and Discontinuation or Withdrawal from Trial",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Discontinuation",
+      "candidates": [
+        {
+          "m11_number": "7",
+          "m11_title": "Participant Discontinuation of Trial Intervention and Discontinuation or Withdrawal from Trial",
+          "score": 1.0
+        },
+        {
+          "m11_number": "7.1",
+          "m11_title": "Discontinuation of Trial Intervention for Individual Participants",
+          "score": 1.0
+        },
+        {
+          "m11_number": "7.2",
+          "m11_title": "Participant Discontinuation or Withdrawal from the Trial",
+          "score": 1.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7",
+      "doc_number": "7",
+      "doc_title": "ASSESSMENTS",
+      "page_start": 72,
+      "page_end": 82,
+      "m11_number": "8",
+      "m11_title": "Trial Assessments and Procedures",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Assessments",
+      "candidates": [
+        {
+          "m11_number": "8",
+          "m11_title": "Trial Assessments and Procedures",
+          "score": 1.0
+        },
+        {
+          "m11_number": "8.4",
+          "m11_title": "Safety Assessments and Procedures",
+          "score": 0.63
+        },
+        {
+          "m11_number": "2.2.1",
+          "m11_title": "Risk Summary and Mitigation Strategy",
+          "score": 0.618
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.1",
+      "doc_number": "7.1",
+      "doc_title": "Pregnancy Testing",
+      "page_start": 72,
+      "page_end": 72,
+      "m11_number": "8.4.5",
+      "m11_title": "Pregnancy Testing",
+      "confidence": 1.0,
+      "method": "title_match",
+      "matched_text": "Pregnancy Testing",
+      "candidates": [
+        {
+          "m11_number": "8.4.5",
+          "m11_title": "Pregnancy Testing",
+          "score": 1.0
+        },
+        {
+          "m11_number": "9.3",
+          "m11_title": "Pregnancy and Postpartum Information",
+          "score": 0.629
+        },
+        {
+          "m11_number": "8.6.1",
+          "m11_title": "Genetics, Genomics, Pharmacogenetics, and Pharmacogenomics",
+          "score": 0.6
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.2",
+      "doc_number": "7.2",
+      "doc_title": "Efficacy Assessments",
+      "page_start": 72,
+      "page_end": 76,
+      "m11_number": "8.3",
+      "m11_title": "Efficacy Assessments and Procedures",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Efficacy Assessments",
+      "candidates": [
+        {
+          "m11_number": "8.3",
+          "m11_title": "Efficacy Assessments and Procedures",
+          "score": 1.0
+        },
+        {
+          "m11_number": "8",
+          "m11_title": "Trial Assessments and Procedures",
+          "score": 0.88
+        },
+        {
+          "m11_number": "10.4",
+          "m11_title": "Analyses Associated with the Primary Objective(s)",
+          "score": 0.581
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.2.1",
+      "doc_number": "7.2.1",
+      "doc_title": "Tumor Assessments",
+      "page_start": 72,
+      "page_end": 73,
+      "m11_number": "8.3",
+      "m11_title": "Efficacy Assessments and Procedures",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Tumor Assessments",
+      "candidates": [
+        {
+          "m11_number": "8.3",
+          "m11_title": "Efficacy Assessments and Procedures",
+          "score": 1.0
+        },
+        {
+          "m11_number": "8",
+          "m11_title": "Trial Assessments and Procedures",
+          "score": 0.562
+        },
+        {
+          "m11_number": "8.4",
+          "m11_title": "Safety Assessments and Procedures",
+          "score": 0.435
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.2.2",
+      "doc_number": "7.2.2",
+      "doc_title": "Ocular Safety Assessments",
+      "page_start": 73,
+      "page_end": 75,
+      "m11_number": "8.4",
+      "m11_title": "Safety Assessments and Procedures",
+      "confidence": 0.721,
+      "method": "alias_match",
+      "matched_text": "Safety Assessments",
+      "candidates": [
+        {
+          "m11_number": "8.4",
+          "m11_title": "Safety Assessments and Procedures",
+          "score": 0.721
+        },
+        {
+          "m11_number": "8",
+          "m11_title": "Trial Assessments and Procedures",
+          "score": 0.6
+        },
+        {
+          "m11_number": "10.7",
+          "m11_title": "Safety Analyses",
+          "score": 0.377
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.2.2.1",
+      "doc_number": "7.2.2.1",
+      "doc_title": "Snellen Best Corrected Visual Acuity and Refraction",
+      "page_start": 73,
+      "page_end": 74,
+      "m11_number": "8.4",
+      "m11_title": "Safety Assessments and Procedures",
+      "confidence": 0.541,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        },
+        {
+          "m11_number": "2",
+          "m11_title": "Introduction",
+          "score": 0.0
+        }
+      ],
+      "needs_review": true,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.2.2.2",
+      "doc_number": "7.2.2.2",
+      "doc_title": "Intraocular Pressure Measurement",
+      "page_start": 74,
+      "page_end": 74,
+      "m11_number": "8.4",
+      "m11_title": "Safety Assessments and Procedures",
+      "confidence": 0.541,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "8",
+          "m11_title": "Trial Assessments and Procedures",
+          "score": 0.34
+        },
+        {
+          "m11_number": "8.4",
+          "m11_title": "Safety Assessments and Procedures",
+          "score": 0.283
+        },
+        {
+          "m11_number": "2.2.1",
+          "m11_title": "Risk Summary and Mitigation Strategy",
+          "score": 0.281
+        }
+      ],
+      "needs_review": true,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.2.2.3",
+      "doc_number": "7.2.2.3",
+      "doc_title": "Slit-Lamp Biomicroscopy",
+      "page_start": 74,
+      "page_end": 75,
+      "m11_number": "8.4",
+      "m11_title": "Safety Assessments and Procedures",
+      "confidence": 0.541,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        },
+        {
+          "m11_number": "2",
+          "m11_title": "Introduction",
+          "score": 0.0
+        }
+      ],
+      "needs_review": true,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.2.2.4",
+      "doc_number": "7.2.2.4",
+      "doc_title": "Lens Grading",
+      "page_start": 75,
+      "page_end": 75,
+      "m11_number": "8.4",
+      "m11_title": "Safety Assessments and Procedures",
+      "confidence": 0.541,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        },
+        {
+          "m11_number": "2",
+          "m11_title": "Introduction",
+          "score": 0.0
+        }
+      ],
+      "needs_review": true,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.2.2.5",
+      "doc_number": "7.2.2.5",
+      "doc_title": "Funduscopy (Ophthalmoscopy)",
+      "page_start": 75,
+      "page_end": 75,
+      "m11_number": "8.4",
+      "m11_title": "Safety Assessments and Procedures",
+      "confidence": 0.541,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        },
+        {
+          "m11_number": "2",
+          "m11_title": "Introduction",
+          "score": 0.0
+        }
+      ],
+      "needs_review": true,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.2.3",
+      "doc_number": "7.2.3",
+      "doc_title": "Independent Review of Disease Assessments",
+      "page_start": 76,
+      "page_end": 76,
+      "m11_number": "8.3",
+      "m11_title": "Efficacy Assessments and Procedures",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "9.2.5",
+          "m11_title": "Disease-Related Events or Outcomes Not Qualifying as AEs or SAEs",
+          "score": 0.37
+        },
+        {
+          "m11_number": "11.1",
+          "m11_title": "Regulatory and Ethical Considerations",
+          "score": 0.358
+        },
+        {
+          "m11_number": "8",
+          "m11_title": "Trial Assessments and Procedures",
+          "score": 0.294
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.2.4",
+      "doc_number": "7.2.4",
+      "doc_title": "Overall Survival",
+      "page_start": 76,
+      "page_end": 76,
+      "m11_number": "8.3",
+      "m11_title": "Efficacy Assessments and Procedures",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "4",
+          "m11_title": "Trial Design",
+          "score": 0.477
+        },
+        {
+          "m11_number": "4.1",
+          "m11_title": "Description of Trial Design",
+          "score": 0.477
+        },
+        {
+          "m11_number": "1.1.2",
+          "m11_title": "Overall Design",
+          "score": 0.477
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.3",
+      "doc_number": "7.3",
+      "doc_title": "Safety Assessments",
+      "page_start": 76,
+      "page_end": 77,
+      "m11_number": "8.4",
+      "m11_title": "Safety Assessments and Procedures",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Safety Assessments",
+      "candidates": [
+        {
+          "m11_number": "8.4",
+          "m11_title": "Safety Assessments and Procedures",
+          "score": 1.0
+        },
+        {
+          "m11_number": "8",
+          "m11_title": "Trial Assessments and Procedures",
+          "score": 0.844
+        },
+        {
+          "m11_number": "8.4.4",
+          "m11_title": "Clinical Laboratory Assessments",
+          "score": 0.581
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.3.1",
+      "doc_number": "7.3.1",
+      "doc_title": "Laboratory Safety Assessments",
+      "page_start": 76,
+      "page_end": 77,
+      "m11_number": "8.4.4",
+      "m11_title": "Clinical Laboratory Assessments",
+      "confidence": 0.914,
+      "method": "alias_match",
+      "matched_text": "Safety Laboratory",
+      "candidates": [
+        {
+          "m11_number": "8.4.4",
+          "m11_title": "Clinical Laboratory Assessments",
+          "score": 0.914
+        },
+        {
+          "m11_number": "8.4",
+          "m11_title": "Safety Assessments and Procedures",
+          "score": 0.844
+        },
+        {
+          "m11_number": "12.1",
+          "m11_title": "Clinical Laboratory Tests",
+          "score": 0.677
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.3.2",
+      "doc_number": "7.3.2",
+      "doc_title": "Electrocardiogram",
+      "page_start": 77,
+      "page_end": 77,
+      "m11_number": "8.4.3",
+      "m11_title": "Electrocardiograms",
+      "confidence": 1.0,
+      "method": "title_match",
+      "matched_text": "Electrocardiograms",
+      "candidates": [
+        {
+          "m11_number": "8.4.3",
+          "m11_title": "Electrocardiograms",
+          "score": 1.0
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.3.3",
+      "doc_number": "7.3.3",
+      "doc_title": "Other Safety Assessments",
+      "page_start": 77,
+      "page_end": 77,
+      "m11_number": "8.4",
+      "m11_title": "Safety Assessments and Procedures",
+      "confidence": 0.841,
+      "method": "alias_match",
+      "matched_text": "Safety Assessments",
+      "candidates": [
+        {
+          "m11_number": "8.4",
+          "m11_title": "Safety Assessments and Procedures",
+          "score": 0.841
+        },
+        {
+          "m11_number": "8",
+          "m11_title": "Trial Assessments and Procedures",
+          "score": 0.646
+        },
+        {
+          "m11_number": "10.8",
+          "m11_title": "Other Analyses",
+          "score": 0.468
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.4",
+      "doc_number": "7.4",
+      "doc_title": "Pharmacokinetic Assessments",
+      "page_start": 77,
+      "page_end": 78,
+      "m11_number": "8.5",
+      "m11_title": "Pharmacokinetics",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Pharmacokinetic Assessments",
+      "candidates": [
+        {
+          "m11_number": "8.5",
+          "m11_title": "Pharmacokinetics",
+          "score": 1.0
+        },
+        {
+          "m11_number": "8",
+          "m11_title": "Trial Assessments and Procedures",
+          "score": 0.736
+        },
+        {
+          "m11_number": "10.8",
+          "m11_title": "Other Analyses",
+          "score": 0.592
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.5",
+      "doc_number": "7.5",
+      "doc_title": "Patient Reported Outcomes",
+      "page_start": 79,
+      "page_end": 79,
+      "m11_number": "8.8",
+      "m11_title": "Medical Resource Utilisation and Health Economics",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Patient Reported Outcomes",
+      "candidates": [
+        {
+          "m11_number": "8.8",
+          "m11_title": "Medical Resource Utilisation and Health Economics",
+          "score": 1.0
+        },
+        {
+          "m11_number": "10.8",
+          "m11_title": "Other Analyses",
+          "score": 0.901
+        },
+        {
+          "m11_number": "6",
+          "m11_title": "Trial Intervention and Concomitant Therapy",
+          "score": 0.341
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.5.1",
+      "doc_number": "7.5.1",
+      "doc_title": "EuroQol Health Utilities Index EQ-5D",
+      "page_start": 79,
+      "page_end": 79,
+      "m11_number": "8.8",
+      "m11_title": "Medical Resource Utilisation and Health Economics",
+      "confidence": 0.75,
+      "method": "alias_match",
+      "matched_text": "Health Outcomes",
+      "candidates": [
+        {
+          "m11_number": "8.8",
+          "m11_title": "Medical Resource Utilisation and Health Economics",
+          "score": 0.22
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.5.2",
+      "doc_number": "7.5.2",
+      "doc_title": "EORTC QLQ-C30",
+      "page_start": 79,
+      "page_end": 79,
+      "m11_number": "8.8",
+      "m11_title": "Medical Resource Utilisation and Health Economics",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        },
+        {
+          "m11_number": "2",
+          "m11_title": "Introduction",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.5.3",
+      "doc_number": "7.5.3",
+      "doc_title": "EORTC QLQ-BR23",
+      "page_start": 79,
+      "page_end": 79,
+      "m11_number": "8.8",
+      "m11_title": "Medical Resource Utilisation and Health Economics",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        },
+        {
+          "m11_number": "2",
+          "m11_title": "Introduction",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.6",
+      "doc_number": "7.6",
+      "doc_title": "Biomarker Assessments",
+      "page_start": 80,
+      "page_end": 82,
+      "m11_number": "8.6",
+      "m11_title": "Biomarkers",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Biomarker Assessments",
+      "candidates": [
+        {
+          "m11_number": "8.6",
+          "m11_title": "Biomarkers",
+          "score": 1.0
+        },
+        {
+          "m11_number": "8",
+          "m11_title": "Trial Assessments and Procedures",
+          "score": 0.668
+        },
+        {
+          "m11_number": "8.6.3",
+          "m11_title": "Other Biomarkers",
+          "score": 0.622
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-7.6.1",
+      "doc_number": "7.6.1",
+      "doc_title": "Optional Tumor Tissue Biopsy for Molecular Profiling",
+      "page_start": 81,
+      "page_end": 82,
+      "m11_number": "8.6",
+      "m11_title": "Biomarkers",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "8.3",
+          "m11_title": "Efficacy Assessments and Procedures",
+          "score": 0.247
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8",
+      "doc_number": "8",
+      "doc_title": "ADVERSE EVENT REPORTING",
+      "page_start": 83,
+      "page_end": 91,
+      "m11_number": "9",
+      "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Adverse Event Reporting",
+      "candidates": [
+        {
+          "m11_number": "9",
+          "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+          "score": 1.0
+        },
+        {
+          "m11_number": "9.2.3",
+          "m11_title": "Reporting",
+          "score": 0.837
+        },
+        {
+          "m11_number": "9.1.1",
+          "m11_title": "Definitions of Adverse Events",
+          "score": 0.656
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8.1",
+      "doc_number": "8.1",
+      "doc_title": "Adverse Events",
+      "page_start": 83,
+      "page_end": 83,
+      "m11_number": "9",
+      "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Adverse Events",
+      "candidates": [
+        {
+          "m11_number": "9",
+          "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+          "score": 1.0
+        },
+        {
+          "m11_number": "9.1.1",
+          "m11_title": "Definitions of Adverse Events",
+          "score": 0.874
+        },
+        {
+          "m11_number": "9.1.2",
+          "m11_title": "Definitions of Serious Adverse Events",
+          "score": 0.85
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8.2",
+      "doc_number": "8.2",
+      "doc_title": "Reporting Period",
+      "page_start": 83,
+      "page_end": 83,
+      "m11_number": "9.2",
+      "m11_title": "Timing and Procedures for Collection and Reporting",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Reporting Period",
+      "candidates": [
+        {
+          "m11_number": "9.2",
+          "m11_title": "Timing and Procedures for Collection and Reporting",
+          "score": 1.0
+        },
+        {
+          "m11_number": "9.2.1",
+          "m11_title": "Timing",
+          "score": 1.0
+        },
+        {
+          "m11_number": "9.2.3",
+          "m11_title": "Reporting",
+          "score": 0.687
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8.3",
+      "doc_number": "8.3",
+      "doc_title": "Definition of an Adverse Event",
+      "page_start": 83,
+      "page_end": 84,
+      "m11_number": "9.1.1",
+      "m11_title": "Definitions of Adverse Events",
+      "confidence": 1.0,
+      "method": "title_match",
+      "matched_text": "Definitions of Adverse Events",
+      "candidates": [
+        {
+          "m11_number": "9.1.1",
+          "m11_title": "Definitions of Adverse Events",
+          "score": 1.0
+        },
+        {
+          "m11_number": "9.1.2",
+          "m11_title": "Definitions of Serious Adverse Events",
+          "score": 0.916
+        },
+        {
+          "m11_number": "9",
+          "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+          "score": 0.874
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8.4",
+      "doc_number": "8.4",
+      "doc_title": "Abnormal Test Findings",
+      "page_start": 84,
+      "page_end": 85,
+      "m11_number": "9",
+      "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "12.1",
+          "m11_title": "Clinical Laboratory Tests",
+          "score": 0.349
+        },
+        {
+          "m11_number": "8.4.4",
+          "m11_title": "Clinical Laboratory Assessments",
+          "score": 0.349
+        },
+        {
+          "m11_number": "8.4.5",
+          "m11_title": "Pregnancy Testing",
+          "score": 0.349
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8.5",
+      "doc_number": "8.5",
+      "doc_title": "Serious Adverse Events",
+      "page_start": 85,
+      "page_end": 87,
+      "m11_number": "9",
+      "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Adverse Events and Serious Adverse Events",
+      "candidates": [
+        {
+          "m11_number": "9",
+          "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+          "score": 1.0
+        },
+        {
+          "m11_number": "9.1.2",
+          "m11_title": "Definitions of Serious Adverse Events",
+          "score": 1.0
+        },
+        {
+          "m11_number": "9.2.3",
+          "m11_title": "Reporting",
+          "score": 0.937
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8.5.1",
+      "doc_number": "8.5.1",
+      "doc_title": "Protocol-Specified Serious Adverse Events",
+      "page_start": 85,
+      "page_end": 85,
+      "m11_number": "9",
+      "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+      "confidence": 0.871,
+      "method": "alias_match",
+      "matched_text": "Adverse Events and Serious Adverse Events",
+      "candidates": [
+        {
+          "m11_number": "9",
+          "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+          "score": 0.871
+        },
+        {
+          "m11_number": "9.1.2",
+          "m11_title": "Definitions of Serious Adverse Events",
+          "score": 0.871
+        },
+        {
+          "m11_number": "9.2.3",
+          "m11_title": "Reporting",
+          "score": 0.779
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8.5.2",
+      "doc_number": "8.5.2",
+      "doc_title": "Potential Cases of Drug-Induced Liver Injury",
+      "page_start": 86,
+      "page_end": 87,
+      "m11_number": "9",
+      "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "11.7",
+          "m11_title": "Data Governance",
+          "score": 0.211
+        },
+        {
+          "m11_number": "2.2.1",
+          "m11_title": "Risk Summary and Mitigation Strategy",
+          "score": 0.204
+        },
+        {
+          "m11_number": "2.2.2",
+          "m11_title": "Benefit Summary",
+          "score": 0.204
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8.6",
+      "doc_number": "8.6",
+      "doc_title": "Hospitalization",
+      "page_start": 87,
+      "page_end": 88,
+      "m11_number": "9",
+      "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        },
+        {
+          "m11_number": "2",
+          "m11_title": "Introduction",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8.7",
+      "doc_number": "8.7",
+      "doc_title": "Severity Assessment",
+      "page_start": 88,
+      "page_end": 88,
+      "m11_number": "9",
+      "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "8",
+          "m11_title": "Trial Assessments and Procedures",
+          "score": 0.508
+        },
+        {
+          "m11_number": "8.4",
+          "m11_title": "Safety Assessments and Procedures",
+          "score": 0.391
+        },
+        {
+          "m11_number": "2.2.1",
+          "m11_title": "Risk Summary and Mitigation Strategy",
+          "score": 0.386
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8.8",
+      "doc_number": "8.8",
+      "doc_title": "Causality Assessment",
+      "page_start": 88,
+      "page_end": 88,
+      "m11_number": "9",
+      "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "8",
+          "m11_title": "Trial Assessments and Procedures",
+          "score": 0.508
+        },
+        {
+          "m11_number": "8.4",
+          "m11_title": "Safety Assessments and Procedures",
+          "score": 0.391
+        },
+        {
+          "m11_number": "2.2.1",
+          "m11_title": "Risk Summary and Mitigation Strategy",
+          "score": 0.386
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8.9",
+      "doc_number": "8.9",
+      "doc_title": "Exposure during Pregnancy",
+      "page_start": 89,
+      "page_end": 90,
+      "m11_number": "9.3",
+      "m11_title": "Pregnancy and Postpartum Information",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Exposure During Pregnancy",
+      "candidates": [
+        {
+          "m11_number": "9.3",
+          "m11_title": "Pregnancy and Postpartum Information",
+          "score": 1.0
+        },
+        {
+          "m11_number": "9.4",
+          "m11_title": "Special Safety Situations",
+          "score": 0.585
+        },
+        {
+          "m11_number": "8.4.5",
+          "m11_title": "Pregnancy Testing",
+          "score": 0.474
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8.10",
+      "doc_number": "8.10",
+      "doc_title": "Occupational Exposure",
+      "page_start": 90,
+      "page_end": 90,
+      "m11_number": "9.4",
+      "m11_title": "Special Safety Situations",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Occupational Exposure",
+      "candidates": [
+        {
+          "m11_number": "9.4",
+          "m11_title": "Special Safety Situations",
+          "score": 1.0
+        },
+        {
+          "m11_number": "9.3",
+          "m11_title": "Pregnancy and Postpartum Information",
+          "score": 0.585
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8.11",
+      "doc_number": "8.11",
+      "doc_title": "Withdrawal Due to Adverse Events (See also the Section on Patient Withdrawal )",
+      "page_start": 90,
+      "page_end": 90,
+      "m11_number": "9",
+      "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+      "confidence": 0.75,
+      "method": "alias_match",
+      "matched_text": "Adverse Events",
+      "candidates": [
+        {
+          "m11_number": "9",
+          "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+          "score": 0.316
+        },
+        {
+          "m11_number": "7",
+          "m11_title": "Participant Discontinuation of Trial Intervention and Discontinuation or Withdrawal from Trial",
+          "score": 0.302
+        },
+        {
+          "m11_number": "7.2",
+          "m11_title": "Participant Discontinuation or Withdrawal from the Trial",
+          "score": 0.302
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8.12",
+      "doc_number": "8.12",
+      "doc_title": "Eliciting Adverse Event Information",
+      "page_start": 90,
+      "page_end": 90,
+      "m11_number": "9.2.2",
+      "m11_title": "Collection Procedures",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Eliciting Adverse Event Information",
+      "candidates": [
+        {
+          "m11_number": "9.2.2",
+          "m11_title": "Collection Procedures",
+          "score": 1.0
+        },
+        {
+          "m11_number": "9",
+          "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+          "score": 0.675
+        },
+        {
+          "m11_number": "9.2.1",
+          "m11_title": "Timing",
+          "score": 0.596
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8.13",
+      "doc_number": "8.13",
+      "doc_title": "Reporting Requirements",
+      "page_start": 90,
+      "page_end": 91,
+      "m11_number": "9.2",
+      "m11_title": "Timing and Procedures for Collection and Reporting",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Reporting Requirements",
+      "candidates": [
+        {
+          "m11_number": "9.2",
+          "m11_title": "Timing and Procedures for Collection and Reporting",
+          "score": 1.0
+        },
+        {
+          "m11_number": "9.2.3",
+          "m11_title": "Reporting",
+          "score": 1.0
+        },
+        {
+          "m11_number": "9.2.3.1",
+          "m11_title": "Regulatory Reporting Requirements",
+          "score": 0.867
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8.13.1",
+      "doc_number": "8.13.1",
+      "doc_title": "Serious Adverse Event Reporting Requirements",
+      "page_start": 90,
+      "page_end": 91,
+      "m11_number": "9.2.3",
+      "m11_title": "Reporting",
+      "confidence": 0.957,
+      "method": "alias_match",
+      "matched_text": "Serious Adverse Event Reporting",
+      "candidates": [
+        {
+          "m11_number": "9.2.3",
+          "m11_title": "Reporting",
+          "score": 0.957
+        },
+        {
+          "m11_number": "9",
+          "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+          "score": 0.907
+        },
+        {
+          "m11_number": "9.1.2",
+          "m11_title": "Definitions of Serious Adverse Events",
+          "score": 0.769
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8.13.2",
+      "doc_number": "8.13.2",
+      "doc_title": "Non-Serious Adverse Event Reporting Requirements",
+      "page_start": 91,
+      "page_end": 91,
+      "m11_number": "9.2.3",
+      "m11_title": "Reporting",
+      "confidence": 0.837,
+      "method": "alias_match",
+      "matched_text": "Serious Adverse Event Reporting",
+      "candidates": [
+        {
+          "m11_number": "9.2.3",
+          "m11_title": "Reporting",
+          "score": 0.837
+        },
+        {
+          "m11_number": "9",
+          "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+          "score": 0.787
+        },
+        {
+          "m11_number": "9.1.2",
+          "m11_title": "Definitions of Serious Adverse Events",
+          "score": 0.658
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-8.13.3",
+      "doc_number": "8.13.3",
+      "doc_title": "Sponsor Reporting Requirements to Regulatory Authorities",
+      "page_start": 91,
+      "page_end": 91,
+      "m11_number": "9.2.3.1",
+      "m11_title": "Regulatory Reporting Requirements",
+      "confidence": 0.78,
+      "method": "title_match",
+      "matched_text": "Regulatory Reporting Requirements",
+      "candidates": [
+        {
+          "m11_number": "9.2.3.1",
+          "m11_title": "Regulatory Reporting Requirements",
+          "score": 0.78
+        },
+        {
+          "m11_number": "9.2",
+          "m11_title": "Timing and Procedures for Collection and Reporting",
+          "score": 0.598
+        },
+        {
+          "m11_number": "9.2.3",
+          "m11_title": "Reporting",
+          "score": 0.598
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-9",
+      "doc_number": "9",
+      "doc_title": "DATA ANALYSIS/STATISTICAL METHODS",
+      "page_start": 91,
+      "page_end": 99,
+      "m11_number": "10",
+      "m11_title": "Statistical Considerations",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Data Analysis and Statistical Methods",
+      "candidates": [
+        {
+          "m11_number": "10",
+          "m11_title": "Statistical Considerations",
+          "score": 1.0
+        },
+        {
+          "m11_number": "10.4.1.1",
+          "m11_title": "Statistical Analysis Method",
+          "score": 0.861
+        },
+        {
+          "m11_number": "10.5.1.1",
+          "m11_title": "Statistical Analysis Method",
+          "score": 0.861
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-9.2",
+      "doc_number": "9.2",
+      "doc_title": "Analysis Population",
+      "page_start": 92,
+      "page_end": 92,
+      "m11_number": "10.2",
+      "m11_title": "Analysis Sets",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Analysis Populations",
+      "candidates": [
+        {
+          "m11_number": "10.2",
+          "m11_title": "Analysis Sets",
+          "score": 1.0
+        },
+        {
+          "m11_number": "5",
+          "m11_title": "Trial Population",
+          "score": 0.746
+        },
+        {
+          "m11_number": "5.1",
+          "m11_title": "Description of Trial Population and Rationale",
+          "score": 0.543
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-9.2.1",
+      "doc_number": "9.2.1",
+      "doc_title": "Intent-to-Treat Population (ITT)",
+      "page_start": 92,
+      "page_end": 92,
+      "m11_number": "10.2",
+      "m11_title": "Analysis Sets",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "5",
+          "m11_title": "Trial Population",
+          "score": 0.32
+        },
+        {
+          "m11_number": "10.2",
+          "m11_title": "Analysis Sets",
+          "score": 0.288
+        },
+        {
+          "m11_number": "5.1",
+          "m11_title": "Description of Trial Population and Rationale",
+          "score": 0.276
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-9.2.2",
+      "doc_number": "9.2.2",
+      "doc_title": "As-Treated Population (AT)",
+      "page_start": 92,
+      "page_end": 92,
+      "m11_number": "10.2",
+      "m11_title": "Analysis Sets",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "5",
+          "m11_title": "Trial Population",
+          "score": 0.425
+        },
+        {
+          "m11_number": "10.2",
+          "m11_title": "Analysis Sets",
+          "score": 0.371
+        },
+        {
+          "m11_number": "5.1",
+          "m11_title": "Description of Trial Population and Rationale",
+          "score": 0.351
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-9.3",
+      "doc_number": "9.3",
+      "doc_title": "Efficacy Analysis",
+      "page_start": 93,
+      "page_end": 95,
+      "m11_number": "10.4",
+      "m11_title": "Analyses Associated with the Primary Objective(s)",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Efficacy Analyses",
+      "candidates": [
+        {
+          "m11_number": "10.4",
+          "m11_title": "Analyses Associated with the Primary Objective(s)",
+          "score": 1.0
+        },
+        {
+          "m11_number": "10.9",
+          "m11_title": "Interim Analyses",
+          "score": 0.84
+        },
+        {
+          "m11_number": "8.3",
+          "m11_title": "Efficacy Assessments and Procedures",
+          "score": 0.742
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-9.3.1",
+      "doc_number": "9.3.1",
+      "doc_title": "Analysis of Primary Endpoint",
+      "page_start": 93,
+      "page_end": 93,
+      "m11_number": "10.4",
+      "m11_title": "Analyses Associated with the Primary Objective(s)",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Primary Endpoint Analysis",
+      "candidates": [
+        {
+          "m11_number": "10.4",
+          "m11_title": "Analyses Associated with the Primary Objective(s)",
+          "score": 1.0
+        },
+        {
+          "m11_number": "3.1",
+          "m11_title": "Primary Objective(s) and Associated Estimand(s)",
+          "score": 0.841
+        },
+        {
+          "m11_number": "10.5",
+          "m11_title": "Analyses Associated with the Secondary Objective(s)",
+          "score": 0.665
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-9.3.2",
+      "doc_number": "9.3.2",
+      "doc_title": "Analysis of Secondary Endpoints",
+      "page_start": 94,
+      "page_end": 95,
+      "m11_number": "10.5",
+      "m11_title": "Analyses Associated with the Secondary Objective(s)",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Secondary Endpoint Analyses",
+      "candidates": [
+        {
+          "m11_number": "10.5",
+          "m11_title": "Analyses Associated with the Secondary Objective(s)",
+          "score": 1.0
+        },
+        {
+          "m11_number": "3.2",
+          "m11_title": "Secondary Objective(s) and Associated Estimand(s)",
+          "score": 0.842
+        },
+        {
+          "m11_number": "10.4",
+          "m11_title": "Analyses Associated with the Primary Objective(s)",
+          "score": 0.715
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-9.5",
+      "doc_number": "9.5",
+      "doc_title": "Analysis of Other Endpoints",
+      "page_start": 96,
+      "page_end": 97,
+      "m11_number": "10.8",
+      "m11_title": "Other Analyses",
+      "confidence": 0.868,
+      "method": "title_match",
+      "matched_text": "Other Analyses",
+      "candidates": [
+        {
+          "m11_number": "10.8",
+          "m11_title": "Other Analyses",
+          "score": 0.868
+        },
+        {
+          "m11_number": "10.4",
+          "m11_title": "Analyses Associated with the Primary Objective(s)",
+          "score": 0.705
+        },
+        {
+          "m11_number": "10.5",
+          "m11_title": "Analyses Associated with the Secondary Objective(s)",
+          "score": 0.703
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-9.6",
+      "doc_number": "9.6",
+      "doc_title": "Safety Analysis",
+      "page_start": 97,
+      "page_end": 98,
+      "m11_number": "10.7",
+      "m11_title": "Safety Analyses",
+      "confidence": 1.0,
+      "method": "title_match",
+      "matched_text": "Safety Analyses",
+      "candidates": [
+        {
+          "m11_number": "10.7",
+          "m11_title": "Safety Analyses",
+          "score": 1.0
+        },
+        {
+          "m11_number": "10.9",
+          "m11_title": "Interim Analyses",
+          "score": 0.826
+        },
+        {
+          "m11_number": "8.4",
+          "m11_title": "Safety Assessments and Procedures",
+          "score": 0.716
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-9.7",
+      "doc_number": "9.7",
+      "doc_title": "Interim Analysis",
+      "page_start": 98,
+      "page_end": 98,
+      "m11_number": "10.9",
+      "m11_title": "Interim Analyses",
+      "confidence": 1.0,
+      "method": "title_match",
+      "matched_text": "Interim Analyses",
+      "candidates": [
+        {
+          "m11_number": "10.9",
+          "m11_title": "Interim Analyses",
+          "score": 1.0
+        },
+        {
+          "m11_number": "4.2.6",
+          "m11_title": "Rationale for Interim Analysis",
+          "score": 0.813
+        },
+        {
+          "m11_number": "10.7",
+          "m11_title": "Safety Analyses",
+          "score": 0.497
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-9.8",
+      "doc_number": "9.8",
+      "doc_title": "Data Monitoring Committee",
+      "page_start": 98,
+      "page_end": 99,
+      "m11_number": "11.4",
+      "m11_title": "Committees",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Data Monitoring Committee",
+      "candidates": [
+        {
+          "m11_number": "11.4",
+          "m11_title": "Committees",
+          "score": 1.0
+        },
+        {
+          "m11_number": "11.6",
+          "m11_title": "Risk-Based Quality Management",
+          "score": 0.526
+        },
+        {
+          "m11_number": "8.4",
+          "m11_title": "Safety Assessments and Procedures",
+          "score": 0.433
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-10",
+      "doc_number": "10",
+      "doc_title": "QUALITY CONTROL AND QUALITY ASSURANCE",
+      "page_start": 99,
+      "page_end": 99,
+      "m11_number": "11.6",
+      "m11_title": "Risk-Based Quality Management",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Quality Control and Quality Assurance",
+      "candidates": [
+        {
+          "m11_number": "11.6",
+          "m11_title": "Risk-Based Quality Management",
+          "score": 1.0
+        },
+        {
+          "m11_number": "8.8",
+          "m11_title": "Medical Resource Utilisation and Health Economics",
+          "score": 0.377
+        },
+        {
+          "m11_number": "5.4",
+          "m11_title": "Contraception",
+          "score": 0.37
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-11",
+      "doc_number": "11",
+      "doc_title": "DATA HANDLING AND RECORD KEEPING",
+      "page_start": 99,
+      "page_end": 100,
+      "m11_number": "11.7",
+      "m11_title": "Data Governance",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Data Handling and Record Keeping",
+      "candidates": [
+        {
+          "m11_number": "11.7",
+          "m11_title": "Data Governance",
+          "score": 1.0
+        },
+        {
+          "m11_number": "10.4.1.3",
+          "m11_title": "Handling of Missing Data in Relation to Primary Estimand(s)",
+          "score": 0.509
+        },
+        {
+          "m11_number": "10.4.1.2",
+          "m11_title": "Handling of Data in Relation to Primary Estimand(s)",
+          "score": 0.403
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-11.1",
+      "doc_number": "11.1",
+      "doc_title": "Case Report Forms/Electronic Data Record",
+      "page_start": 99,
+      "page_end": 100,
+      "m11_number": "11.7",
+      "m11_title": "Data Governance",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Case Report Forms/Electronic Data Record",
+      "candidates": [
+        {
+          "m11_number": "11.7",
+          "m11_title": "Data Governance",
+          "score": 1.0
+        },
+        {
+          "m11_number": "11.9",
+          "m11_title": "Source Records",
+          "score": 0.239
+        },
+        {
+          "m11_number": "11.2",
+          "m11_title": "Trial Oversight",
+          "score": 0.224
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-11.2",
+      "doc_number": "11.2",
+      "doc_title": "Record Retention",
+      "page_start": 100,
+      "page_end": 100,
+      "m11_number": "11.9",
+      "m11_title": "Source Records",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Record Retention",
+      "candidates": [
+        {
+          "m11_number": "11.9",
+          "m11_title": "Source Records",
+          "score": 1.0
+        },
+        {
+          "m11_number": "11.7",
+          "m11_title": "Data Governance",
+          "score": 0.334
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-12",
+      "doc_number": "12",
+      "doc_title": "ETHICS",
+      "page_start": 100,
+      "page_end": 102,
+      "m11_number": "11",
+      "m11_title": "Trial Oversight and Other General Considerations",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Ethics",
+      "candidates": [
+        {
+          "m11_number": "11",
+          "m11_title": "Trial Oversight and Other General Considerations",
+          "score": 1.0
+        },
+        {
+          "m11_number": "11.1",
+          "m11_title": "Regulatory and Ethical Considerations",
+          "score": 0.517
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-12.1",
+      "doc_number": "12.1",
+      "doc_title": "Institutional Review Board (IRB)/Independent Ethics Committee (IEC)",
+      "page_start": 100,
+      "page_end": 100,
+      "m11_number": "11.1",
+      "m11_title": "Regulatory and Ethical Considerations",
+      "confidence": 0.622,
+      "method": "alias_match",
+      "matched_text": "Institutional Review Board",
+      "candidates": [
+        {
+          "m11_number": "11.1",
+          "m11_title": "Regulatory and Ethical Considerations",
+          "score": 0.622
+        },
+        {
+          "m11_number": "11.4",
+          "m11_title": "Committees",
+          "score": 0.318
+        },
+        {
+          "m11_number": "11",
+          "m11_title": "Trial Oversight and Other General Considerations",
+          "score": 0.215
+        }
+      ],
+      "needs_review": true,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-12.2",
+      "doc_number": "12.2",
+      "doc_title": "Ethical Conduct of the Study",
+      "page_start": 101,
+      "page_end": 101,
+      "m11_number": "11.1",
+      "m11_title": "Regulatory and Ethical Considerations",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Ethical Conduct of the Study",
+      "candidates": [
+        {
+          "m11_number": "11.1",
+          "m11_title": "Regulatory and Ethical Considerations",
+          "score": 1.0
+        },
+        {
+          "m11_number": "11",
+          "m11_title": "Trial Oversight and Other General Considerations",
+          "score": 0.326
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-12.3",
+      "doc_number": "12.3",
+      "doc_title": "Patient Information and Consent",
+      "page_start": 101,
+      "page_end": 101,
+      "m11_number": "11.3",
+      "m11_title": "Informed Consent Process",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Patient Information and Consent",
+      "candidates": [
+        {
+          "m11_number": "11.3",
+          "m11_title": "Informed Consent Process",
+          "score": 1.0
+        },
+        {
+          "m11_number": "11.2",
+          "m11_title": "Trial Oversight",
+          "score": 0.494
+        },
+        {
+          "m11_number": "7.2",
+          "m11_title": "Participant Discontinuation or Withdrawal from the Trial",
+          "score": 0.431
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-12.4",
+      "doc_number": "12.4",
+      "doc_title": "Patient Recruitment",
+      "page_start": 101,
+      "page_end": 101,
+      "m11_number": "11",
+      "m11_title": "Trial Oversight and Other General Considerations",
+      "confidence": 0.75,
+      "method": "inherited",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "6",
+          "m11_title": "Trial Intervention and Concomitant Therapy",
+          "score": 0.424
+        },
+        {
+          "m11_number": "7",
+          "m11_title": "Participant Discontinuation of Trial Intervention and Discontinuation or Withdrawal from Trial",
+          "score": 0.411
+        },
+        {
+          "m11_number": "7.2",
+          "m11_title": "Participant Discontinuation or Withdrawal from the Trial",
+          "score": 0.411
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-12.5",
+      "doc_number": "12.5",
+      "doc_title": "Reporting of Safety Issues and Serious Breaches of the Protocol or ICH GCP",
+      "page_start": 102,
+      "page_end": 102,
+      "m11_number": "11.1",
+      "m11_title": "Regulatory and Ethical Considerations",
+      "confidence": 0.87,
+      "method": "alias_match",
+      "matched_text": "Reporting of Safety Issues and Serious Breaches of the Protocol",
+      "candidates": [
+        {
+          "m11_number": "11.1",
+          "m11_title": "Regulatory and Ethical Considerations",
+          "score": 0.87
+        },
+        {
+          "m11_number": "9",
+          "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+          "score": 0.353
+        },
+        {
+          "m11_number": "9.2.3",
+          "m11_title": "Reporting",
+          "score": 0.322
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-13",
+      "doc_number": "13",
+      "doc_title": "DEFINITION OF END OF TRIAL",
+      "page_start": 102,
+      "page_end": 102,
+      "m11_number": "4.4",
+      "m11_title": "Start of Trial and End of Trial",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Definition of End of Trial",
+      "candidates": [
+        {
+          "m11_number": "4.4",
+          "m11_title": "Start of Trial and End of Trial",
+          "score": 1.0
+        },
+        {
+          "m11_number": "9.1",
+          "m11_title": "Definitions",
+          "score": 0.635
+        },
+        {
+          "m11_number": "4.5",
+          "m11_title": "Access to Trial Intervention After End of Trial",
+          "score": 0.562
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-13.1",
+      "doc_number": "13.1",
+      "doc_title": "End of Trial in a Member State",
+      "page_start": 102,
+      "page_end": 102,
+      "m11_number": "4.4",
+      "m11_title": "Start of Trial and End of Trial",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "End of Trial in a Member State",
+      "candidates": [
+        {
+          "m11_number": "4.4",
+          "m11_title": "Start of Trial and End of Trial",
+          "score": 1.0
+        },
+        {
+          "m11_number": "4.5",
+          "m11_title": "Access to Trial Intervention After End of Trial",
+          "score": 0.38
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-13.2",
+      "doc_number": "13.2",
+      "doc_title": "End of Trial in all other Participating Countries",
+      "page_start": 102,
+      "page_end": 102,
+      "m11_number": "4.4",
+      "m11_title": "Start of Trial and End of Trial",
+      "confidence": 0.75,
+      "method": "alias_match",
+      "matched_text": "End of Trial",
+      "candidates": [
+        {
+          "m11_number": "4.4",
+          "m11_title": "Start of Trial and End of Trial",
+          "score": 0.343
+        },
+        {
+          "m11_number": "10.8",
+          "m11_title": "Other Analyses",
+          "score": 0.307
+        },
+        {
+          "m11_number": "4.5",
+          "m11_title": "Access to Trial Intervention After End of Trial",
+          "score": 0.306
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-14",
+      "doc_number": "14",
+      "doc_title": "SPONSOR DISCONTINUATION CRITERIA",
+      "page_start": 102,
+      "page_end": 102,
+      "m11_number": "4.3",
+      "m11_title": "Trial Stopping Rules",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Sponsor Discontinuation Criteria",
+      "candidates": [
+        {
+          "m11_number": "4.3",
+          "m11_title": "Trial Stopping Rules",
+          "score": 1.0
+        },
+        {
+          "m11_number": "7",
+          "m11_title": "Participant Discontinuation of Trial Intervention and Discontinuation or Withdrawal from Trial",
+          "score": 0.451
+        },
+        {
+          "m11_number": "7.1",
+          "m11_title": "Discontinuation of Trial Intervention for Individual Participants",
+          "score": 0.451
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-15",
+      "doc_number": "15",
+      "doc_title": "PUBLICATION OF STUDY RESULTS",
+      "page_start": 102,
+      "page_end": 104,
+      "m11_number": "11.12",
+      "m11_title": "Data Dissemination",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Publication of Study Results",
+      "candidates": [
+        {
+          "m11_number": "11.12",
+          "m11_title": "Data Dissemination",
+          "score": 1.0
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-15.1",
+      "doc_number": "15.1",
+      "doc_title": "Communication of Results by Pfizer",
+      "page_start": 102,
+      "page_end": 103,
+      "m11_number": "11.12",
+      "m11_title": "Data Dissemination",
+      "confidence": 0.855,
+      "method": "alias_match",
+      "matched_text": "Communication of Results",
+      "candidates": [
+        {
+          "m11_number": "11.12",
+          "m11_title": "Data Dissemination",
+          "score": 0.855
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-15.2",
+      "doc_number": "15.2",
+      "doc_title": "Publications by Investigators",
+      "page_start": 103,
+      "page_end": 104,
+      "m11_number": "11.12",
+      "m11_title": "Data Dissemination",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "Publications by Investigators",
+      "candidates": [
+        {
+          "m11_number": "11.12",
+          "m11_title": "Data Dissemination",
+          "score": 1.0
+        },
+        {
+          "m11_number": "11.2",
+          "m11_title": "Trial Oversight",
+          "score": 0.53
+        },
+        {
+          "m11_number": "11.2.1",
+          "m11_title": "Investigator Responsibilities",
+          "score": 0.517
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "sec-16",
+      "doc_number": "16",
+      "doc_title": "REFERENCES",
+      "page_start": 105,
+      "page_end": 110,
+      "m11_number": "14",
+      "m11_title": "Appendix: References",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "References",
+      "candidates": [
+        {
+          "m11_number": "14",
+          "m11_title": "Appendix: References",
+          "score": 1.0
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "app-appendix-1-list-of-abbreviations",
+      "doc_number": null,
+      "doc_title": "Appendix 1. List of Abbreviations",
+      "page_start": 111,
+      "page_end": 113,
+      "m11_number": "13",
+      "m11_title": "Appendix: Glossary of Terms and Abbreviations",
+      "confidence": 1.0,
+      "method": "alias_match",
+      "matched_text": "List of Abbreviations",
+      "candidates": [
+        {
+          "m11_number": "13",
+          "m11_title": "Appendix: Glossary of Terms and Abbreviations",
+          "score": 1.0
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "app-appendix-2-eastern-cooperative-oncology",
+      "doc_number": null,
+      "doc_title": "Appendix 2. Eastern Cooperative Oncology Group (ECOG) Performance Status",
+      "page_start": 114,
+      "page_end": 114,
+      "m11_number": "12.X",
+      "m11_title": "Additional Appendices",
+      "confidence": 0.72,
+      "method": "appendix_default",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "4.2.3",
+          "m11_title": "Rationale for Control Type",
+          "score": 0.183
+        },
+        {
+          "m11_number": "6.7.1",
+          "m11_title": "Participant Assignment to Investigational Trial Intervention",
+          "score": 0.165
+        },
+        {
+          "m11_number": "0",
+          "m11_title": "Title Page",
+          "score": 0.0
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "app-appendix-3-list-of-drugs-known-to-predis",
+      "doc_number": null,
+      "doc_title": "Appendix 3. List of Drugs Known to Predispose to Torsade de Pointes",
+      "page_start": 115,
+      "page_end": 115,
+      "m11_number": "12.X",
+      "m11_title": "Additional Appendices",
+      "confidence": 0.72,
+      "method": "appendix_default",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "13",
+          "m11_title": "Appendix: Glossary of Terms and Abbreviations",
+          "score": 0.227
+        },
+        {
+          "m11_number": "2.2.1",
+          "m11_title": "Risk Summary and Mitigation Strategy",
+          "score": 0.201
+        },
+        {
+          "m11_number": "2.2.2",
+          "m11_title": "Benefit Summary",
+          "score": 0.201
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "app-appendix-4-recist-response-evaluation-cr",
+      "doc_number": null,
+      "doc_title": "Appendix 4. RECIST (Response Evaluation Criteria In Solid Tumors) Version 1.1",
+      "page_start": 116,
+      "page_end": 122,
+      "m11_number": "12.X",
+      "m11_title": "Additional Appendices",
+      "confidence": 0.72,
+      "method": "appendix_default",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "8.3",
+          "m11_title": "Efficacy Assessments and Procedures",
+          "score": 0.38
+        },
+        {
+          "m11_number": "5.6",
+          "m11_title": "Screen Failure and Rescreening",
+          "score": 0.172
+        },
+        {
+          "m11_number": "5.2",
+          "m11_title": "Inclusion Criteria",
+          "score": 0.17
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    },
+    {
+      "section_id": "app-appendix-8-wisconsin-age-related-eye-dis",
+      "doc_number": null,
+      "doc_title": "Appendix 8. Wisconsin Age-Related Eye Disease Study (AREDS) 2008 Clinical Lens",
+      "page_start": 124,
+      "page_end": 124,
+      "m11_number": "12.X",
+      "m11_title": "Additional Appendices",
+      "confidence": 0.72,
+      "method": "appendix_default",
+      "matched_text": null,
+      "candidates": [
+        {
+          "m11_number": "9.2.5",
+          "m11_title": "Disease-Related Events or Outcomes Not Qualifying as AEs or SAEs",
+          "score": 0.204
+        },
+        {
+          "m11_number": "1",
+          "m11_title": "Protocol Summary",
+          "score": 0.189
+        },
+        {
+          "m11_number": "8.4.4",
+          "m11_title": "Clinical Laboratory Assessments",
+          "score": 0.178
+        }
+      ],
+      "needs_review": false,
+      "reviewer_override": false
+    }
+  ],
+  "coverage": [
+    {
+      "m11_number": "0",
+      "m11_title": "Title Page",
+      "level": 1,
+      "optional": false,
+      "section_ids": [
+        "title-page"
+      ],
+      "best_confidence": 0.95,
+      "status": "found"
+    },
+    {
+      "m11_number": "1",
+      "m11_title": "Protocol Summary",
+      "level": 1,
+      "optional": false,
+      "section_ids": [
+        "fm-protocol-summary"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "1.1",
+      "m11_title": "Protocol Synopsis",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "1.1.1",
+      "m11_title": "Primary and Secondary Objectives and Estimands",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "1.1.2",
+      "m11_title": "Overall Design",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "1.2",
+      "m11_title": "Trial Schema",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "1.3",
+      "m11_title": "Schedule of Activities",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "fm-schedule-of-activities",
+        "fm-tumor-assessment-requirements-flowchart"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "2",
+      "m11_title": "Introduction",
+      "level": 1,
+      "optional": false,
+      "section_ids": [
+        "sec-1",
+        "sec-1.2"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "2.1",
+      "m11_title": "Purpose of Trial",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-1.2.3"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "2.2",
+      "m11_title": "Assessment of Risks and Benefits",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "2.2.1",
+      "m11_title": "Risk Summary and Mitigation Strategy",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "2.2.2",
+      "m11_title": "Benefit Summary",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "2.2.3",
+      "m11_title": "Overall Risk-Benefit Assessment",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "3",
+      "m11_title": "Trial Objectives and Associated Estimands",
+      "level": 1,
+      "optional": false,
+      "section_ids": [
+        "sec-2",
+        "sec-2.1",
+        "sec-2.2"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "3.1",
+      "m11_title": "Primary Objective(s) and Associated Estimand(s)",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "3.1.1",
+      "m11_title": "Primary Objective <#>",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "3.2",
+      "m11_title": "Secondary Objective(s) and Associated Estimand(s)",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "3.2.1",
+      "m11_title": "Secondary Objective <#>",
+      "level": 3,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "3.3",
+      "m11_title": "Exploratory Objective(s)",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "3.3.1",
+      "m11_title": "Exploratory Objective <#>",
+      "level": 3,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "4",
+      "m11_title": "Trial Design",
+      "level": 1,
+      "optional": false,
+      "section_ids": [
+        "sec-3"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "4.1",
+      "m11_title": "Description of Trial Design",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "4.1.1",
+      "m11_title": "Stakeholder Input into Design",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "4.2",
+      "m11_title": "Rationale for Trial Design",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "4.2.1",
+      "m11_title": "Rationale for Estimand(s)",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "4.2.2",
+      "m11_title": "Rationale for Intervention Model",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "4.2.3",
+      "m11_title": "Rationale for Control Type",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "4.2.4",
+      "m11_title": "Rationale for Trial Duration",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "4.2.5",
+      "m11_title": "Rationale for Adaptive or Novel Trial Design",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "4.2.6",
+      "m11_title": "Rationale for Interim Analysis",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "4.2.7",
+      "m11_title": "Rationale for Other Trial Design Aspects",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "4.3",
+      "m11_title": "Trial Stopping Rules",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-14"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "4.4",
+      "m11_title": "Start of Trial and End of Trial",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-13",
+        "sec-13.1",
+        "sec-13.2"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "4.5",
+      "m11_title": "Access to Trial Intervention After End of Trial",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "5",
+      "m11_title": "Trial Population",
+      "level": 1,
+      "optional": false,
+      "section_ids": [
+        "sec-4"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "5.1",
+      "m11_title": "Description of Trial Population and Rationale",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "5.2",
+      "m11_title": "Inclusion Criteria",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-4.1"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "5.3",
+      "m11_title": "Exclusion Criteria",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-4.2"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "5.4",
+      "m11_title": "Contraception",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "5.4.1",
+      "m11_title": "Definitions Related to Childbearing Potential",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "5.4.2",
+      "m11_title": "Contraception Requirements",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "5.5",
+      "m11_title": "Lifestyle Restrictions",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "5.5.1",
+      "m11_title": "Meals and Dietary Restrictions",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "5.5.2",
+      "m11_title": "Caffeine, Alcohol, Tobacco, and Other Restrictions",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "5.5.3",
+      "m11_title": "Physical Activity Restrictions",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "5.5.4",
+      "m11_title": "Other Activity Restrictions",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "5.6",
+      "m11_title": "Screen Failure and Rescreening",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-4.3",
+        "sec-6.2"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "6",
+      "m11_title": "Trial Intervention and Concomitant Therapy",
+      "level": 1,
+      "optional": false,
+      "section_ids": [
+        "sec-5"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "6.1",
+      "m11_title": "Description of Investigational Trial Intervention",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-5.3",
+        "sec-5.3.1"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "6.2",
+      "m11_title": "Rationale for Investigational Trial Intervention Dose and Regimen",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-1.2.1.5"
+      ],
+      "best_confidence": 0.709,
+      "status": "found"
+    },
+    {
+      "m11_number": "6.3",
+      "m11_title": "Investigational Trial Intervention Administration",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-5.3.3"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "6.4",
+      "m11_title": "Investigational Trial Intervention Dose Modification",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-5.3.4",
+        "sec-5.3.4.2.1",
+        "sec-5.3.4.2.3"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "6.5",
+      "m11_title": "Management of Investigational Trial Intervention Overdose",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "6.6",
+      "m11_title": "Preparation, Storage, Handling and Accountability of Investigational Trial Intervention",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-5.4",
+        "sec-5.4.1",
+        "sec-5.4.1.1"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "6.6.1",
+      "m11_title": "Preparation of Investigational Trial Intervention",
+      "level": 3,
+      "optional": false,
+      "section_ids": [
+        "sec-5.3.2"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "6.6.2",
+      "m11_title": "Storage and Handling of Investigational Trial Intervention",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "6.6.3",
+      "m11_title": "Accountability of Investigational Trial Intervention",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "6.7",
+      "m11_title": "Investigational Trial Intervention Assignment, Randomisation and Blinding",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "6.7.1",
+      "m11_title": "Participant Assignment to Investigational Trial Intervention",
+      "level": 3,
+      "optional": false,
+      "section_ids": [
+        "sec-5.1"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "6.7.2",
+      "m11_title": "Randomisation",
+      "level": 3,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "6.7.3",
+      "m11_title": "Measures to Maintain Blinding",
+      "level": 3,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "6.7.4",
+      "m11_title": "Emergency Unblinding at the Site",
+      "level": 3,
+      "optional": true,
+      "section_ids": [
+        "sec-5.2"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "6.8",
+      "m11_title": "Investigational Trial Intervention Adherence",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-5.3.6"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "6.9",
+      "m11_title": "Description of Noninvestigational Trial Intervention",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "6.9.1",
+      "m11_title": "Background Trial Intervention",
+      "level": 3,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "6.9.2",
+      "m11_title": "Rescue Therapy",
+      "level": 3,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "6.9.3",
+      "m11_title": "Other Noninvestigational Trial Intervention",
+      "level": 3,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "6.10",
+      "m11_title": "Concomitant Therapy",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-5.5",
+        "sec-5.5.2"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "6.10.1",
+      "m11_title": "Prohibited Concomitant Therapy",
+      "level": 3,
+      "optional": true,
+      "section_ids": [
+        "sec-5.5.1"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "6.10.2",
+      "m11_title": "Permitted Concomitant Therapy",
+      "level": 3,
+      "optional": true,
+      "section_ids": [
+        "sec-5.5.3"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "7",
+      "m11_title": "Participant Discontinuation of Trial Intervention and Discontinuation or Withdrawal from Trial",
+      "level": 1,
+      "optional": false,
+      "section_ids": [
+        "sec-6.6",
+        "sec-6.6.2"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "7.1",
+      "m11_title": "Discontinuation of Trial Intervention for Individual Participants",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-6.6.1"
+      ],
+      "best_confidence": 0.594,
+      "status": "low_confidence"
+    },
+    {
+      "m11_number": "7.1.1",
+      "m11_title": "Permanent Discontinuation of Trial Intervention",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "7.1.2",
+      "m11_title": "Temporary Discontinuation of Trial Intervention",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "7.1.3",
+      "m11_title": "Rechallenge",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "7.2",
+      "m11_title": "Participant Discontinuation or Withdrawal from the Trial",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "7.3",
+      "m11_title": "Management of Loss to Follow-Up",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-6.5.2"
+      ],
+      "best_confidence": 0.637,
+      "status": "low_confidence"
+    },
+    {
+      "m11_number": "8",
+      "m11_title": "Trial Assessments and Procedures",
+      "level": 1,
+      "optional": false,
+      "section_ids": [
+        "sec-6",
+        "sec-7"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "8.1",
+      "m11_title": "Trial Assessments and Procedures Considerations",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "8.2",
+      "m11_title": "Screening/Baseline Assessments and Procedures",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-6.1"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "8.3",
+      "m11_title": "Efficacy Assessments and Procedures",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-7.2",
+        "sec-7.2.1"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "8.4",
+      "m11_title": "Safety Assessments and Procedures",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-7.2.2",
+        "sec-7.3",
+        "sec-7.3.3"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "8.4.1",
+      "m11_title": "Physical Examination",
+      "level": 3,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "8.4.2",
+      "m11_title": "Vital Signs",
+      "level": 3,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "8.4.3",
+      "m11_title": "Electrocardiograms",
+      "level": 3,
+      "optional": true,
+      "section_ids": [
+        "sec-7.3.2"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "8.4.4",
+      "m11_title": "Clinical Laboratory Assessments",
+      "level": 3,
+      "optional": true,
+      "section_ids": [
+        "sec-7.3.1"
+      ],
+      "best_confidence": 0.914,
+      "status": "found"
+    },
+    {
+      "m11_number": "8.4.5",
+      "m11_title": "Pregnancy Testing",
+      "level": 3,
+      "optional": true,
+      "section_ids": [
+        "sec-7.1"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "8.4.6",
+      "m11_title": "Suicidal Ideation and Behaviour Risk Monitoring",
+      "level": 3,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "8.5",
+      "m11_title": "Pharmacokinetics",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-7.4"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "8.6",
+      "m11_title": "Biomarkers",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-7.6"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "8.6.1",
+      "m11_title": "Genetics, Genomics, Pharmacogenetics, and Pharmacogenomics",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "8.6.2",
+      "m11_title": "Pharmacodynamic Biomarkers",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "8.6.3",
+      "m11_title": "Other Biomarkers",
+      "level": 3,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "8.7",
+      "m11_title": "Immunogenicity Assessments",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "8.8",
+      "m11_title": "Medical Resource Utilisation and Health Economics",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-7.5",
+        "sec-7.5.1"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "9",
+      "m11_title": "Adverse Events, Serious Adverse Events, Product Complaints, Pregnancy and Postpartum Information, and Special Safety Situations",
+      "level": 1,
+      "optional": false,
+      "section_ids": [
+        "sec-8",
+        "sec-8.1",
+        "sec-8.5",
+        "sec-8.5.1",
+        "sec-8.11"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "9.1",
+      "m11_title": "Definitions",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "9.1.1",
+      "m11_title": "Definitions of Adverse Events",
+      "level": 3,
+      "optional": false,
+      "section_ids": [
+        "sec-8.3"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "9.1.2",
+      "m11_title": "Definitions of Serious Adverse Events",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "9.1.3",
+      "m11_title": "Definitions of Product Complaints",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "9.1.3.1",
+      "m11_title": "Definitions of Medical Device Product Complaints",
+      "level": 4,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "9.2",
+      "m11_title": "Timing and Procedures for Collection and Reporting",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-8.2",
+        "sec-8.13"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "9.2.1",
+      "m11_title": "Timing",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "9.2.2",
+      "m11_title": "Collection Procedures",
+      "level": 3,
+      "optional": false,
+      "section_ids": [
+        "sec-8.12"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "9.2.3",
+      "m11_title": "Reporting",
+      "level": 3,
+      "optional": false,
+      "section_ids": [
+        "sec-8.13.1",
+        "sec-8.13.2"
+      ],
+      "best_confidence": 0.957,
+      "status": "found"
+    },
+    {
+      "m11_number": "9.2.3.1",
+      "m11_title": "Regulatory Reporting Requirements",
+      "level": 4,
+      "optional": false,
+      "section_ids": [
+        "sec-8.13.3"
+      ],
+      "best_confidence": 0.78,
+      "status": "found"
+    },
+    {
+      "m11_number": "9.2.4",
+      "m11_title": "Adverse Events of Special Interest",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "9.2.5",
+      "m11_title": "Disease-Related Events or Outcomes Not Qualifying as AEs or SAEs",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "9.3",
+      "m11_title": "Pregnancy and Postpartum Information",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-8.9"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "9.3.1",
+      "m11_title": "Participants Who Become Pregnant During the Trial",
+      "level": 3,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "9.3.2",
+      "m11_title": "Participants Whose Partners Become Pregnant During the Trial",
+      "level": 3,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "9.4",
+      "m11_title": "Special Safety Situations",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-5.3.5",
+        "sec-8.10"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "10",
+      "m11_title": "Statistical Considerations",
+      "level": 1,
+      "optional": false,
+      "section_ids": [
+        "sec-9"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "10.1",
+      "m11_title": "General Considerations",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "10.2",
+      "m11_title": "Analysis Sets",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-9.2"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "10.3",
+      "m11_title": "Analyses of Demographics and Other Baseline Variables",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "10.4",
+      "m11_title": "Analyses Associated with the Primary Objective(s)",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-9.3",
+        "sec-9.3.1"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "10.4.1",
+      "m11_title": "Primary Objective <#>",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "10.4.1.1",
+      "m11_title": "Statistical Analysis Method",
+      "level": 4,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "10.4.1.2",
+      "m11_title": "Handling of Data in Relation to Primary Estimand(s)",
+      "level": 4,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "10.4.1.3",
+      "m11_title": "Handling of Missing Data in Relation to Primary Estimand(s)",
+      "level": 4,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "10.4.1.4",
+      "m11_title": "Sensitivity Analysis",
+      "level": 4,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "10.4.1.5",
+      "m11_title": "Supplementary Analysis",
+      "level": 4,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "10.5",
+      "m11_title": "Analyses Associated with the Secondary Objective(s)",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-9.3.2"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "10.5.1",
+      "m11_title": "Secondary Objective <#>",
+      "level": 3,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "10.5.1.1",
+      "m11_title": "Statistical Analysis Method",
+      "level": 4,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "10.5.1.2",
+      "m11_title": "Handling of Data in Relation to Secondary Estimand(s)",
+      "level": 4,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "10.5.1.3",
+      "m11_title": "Handling of Missing Data in Relation to Secondary Estimand(s)",
+      "level": 4,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "10.5.1.4",
+      "m11_title": "Sensitivity Analysis",
+      "level": 4,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "10.5.1.5",
+      "m11_title": "Supplementary Analysis",
+      "level": 4,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "10.6",
+      "m11_title": "Analyses Associated with the Exploratory Objective(s)",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "10.7",
+      "m11_title": "Safety Analyses",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-9.6"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "10.8",
+      "m11_title": "Other Analyses",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-9.5"
+      ],
+      "best_confidence": 0.868,
+      "status": "found"
+    },
+    {
+      "m11_number": "10.9",
+      "m11_title": "Interim Analyses",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-9.7"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "10.10",
+      "m11_title": "Multiplicity Adjustments",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "10.11",
+      "m11_title": "Sample Size Determination",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "11",
+      "m11_title": "Trial Oversight and Other General Considerations",
+      "level": 1,
+      "optional": false,
+      "section_ids": [
+        "sec-12"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "11.1",
+      "m11_title": "Regulatory and Ethical Considerations",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-12.1",
+        "sec-12.2",
+        "sec-12.5"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "11.2",
+      "m11_title": "Trial Oversight",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "11.2.1",
+      "m11_title": "Investigator Responsibilities",
+      "level": 3,
+      "optional": false,
+      "section_ids": [
+        "sec-4.4"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "11.2.2",
+      "m11_title": "Sponsor Responsibilities",
+      "level": 3,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "11.3",
+      "m11_title": "Informed Consent Process",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-12.3"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "11.3.1",
+      "m11_title": "Informed Consent for Rescreening",
+      "level": 3,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "11.3.2",
+      "m11_title": "Informed Consent for Use of Remaining Samples in Exploratory Research",
+      "level": 3,
+      "optional": true,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "11.4",
+      "m11_title": "Committees",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-9.8"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "11.5",
+      "m11_title": "Insurance and Indemnity",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "11.6",
+      "m11_title": "Risk-Based Quality Management",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-10"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "11.7",
+      "m11_title": "Data Governance",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-11",
+        "sec-11.1"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "11.8",
+      "m11_title": "Data Protection",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "11.9",
+      "m11_title": "Source Records",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-11.2"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "11.10",
+      "m11_title": "Protocol Deviations",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "11.11",
+      "m11_title": "Early Site Closure",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "11.12",
+      "m11_title": "Data Dissemination",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "sec-15",
+        "sec-15.1",
+        "sec-15.2"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "12",
+      "m11_title": "Appendix: Supporting Details",
+      "level": 1,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "12.1",
+      "m11_title": "Clinical Laboratory Tests",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "12.2",
+      "m11_title": "Country/Region-Specific Differences",
+      "level": 2,
+      "optional": false,
+      "section_ids": [],
+      "best_confidence": null,
+      "status": "missing"
+    },
+    {
+      "m11_number": "12.3",
+      "m11_title": "Prior Protocol Amendment(s)",
+      "level": 2,
+      "optional": false,
+      "section_ids": [
+        "fm-document-history",
+        "sec-1.2.4",
+        "sec-1.2.4.1",
+        "sec-1.2.4.2",
+        "sec-1.2.4.3"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "12.X",
+      "m11_title": "Additional Appendices",
+      "level": 2,
+      "optional": true,
+      "section_ids": [
+        "app-appendix-2-eastern-cooperative-oncology",
+        "app-appendix-3-list-of-drugs-known-to-predis",
+        "app-appendix-4-recist-response-evaluation-cr",
+        "app-appendix-8-wisconsin-age-related-eye-dis"
+      ],
+      "best_confidence": 0.72,
+      "status": "found"
+    },
+    {
+      "m11_number": "13",
+      "m11_title": "Appendix: Glossary of Terms and Abbreviations",
+      "level": 1,
+      "optional": false,
+      "section_ids": [
+        "app-appendix-1-list-of-abbreviations"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    },
+    {
+      "m11_number": "14",
+      "m11_title": "Appendix: References",
+      "level": 1,
+      "optional": false,
+      "section_ids": [
+        "sec-16"
+      ],
+      "best_confidence": 1.0,
+      "status": "found"
+    }
+  ]
+}

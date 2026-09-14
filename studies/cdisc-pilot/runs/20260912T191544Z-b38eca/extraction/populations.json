@@ -1,0 +1,214 @@
+{
+  "run": {
+    "sheet": "populations",
+    "status": "done",
+    "started_at": "2026-09-13T21:27:55.113716Z",
+    "finished_at": "2026-09-13T21:28:01.462487Z",
+    "input_hash": "e0917317b941dd768cc42f95ed16d38b38aba7deb1a678b39cfa7236997e5d1b",
+    "postprocess_version": "1+verify4",
+    "reprocessed": false,
+    "section_ids": [
+      "sec-3.1",
+      "sec-3.4",
+      "sec-3.4.1",
+      "sec-3.4.2",
+      "sec-3.4.2.1",
+      "sec-3.4.3",
+      "sec-3.4.4"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 7264,
+      "output_tokens": 604,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 6.34,
+      "cost_usd": 0.020568,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": [
+      "POP1: only a minimum age (50) is stated; a planned age needs both ends, so it is left empty"
+    ]
+  },
+  "records": [
+    {
+      "row_id": null,
+      "level": {
+        "value": "Main",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "main population or cohort, as the model classed it",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "name": {
+        "value": "POP1",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Patients with probable mild to moderate AD",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.1",
+          "source_page": 8,
+          "raw_phrase": "Patients with probable mild to moderate AD will be studied in a randomized, double-\nblind, parallel (3 arm), placebo-controlled trial",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": "Males and postmenopausal females at least 50 years of age with a diagnosis of probable mild to moderate Alzheimer's disease.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "Males and postmenopausal females at least 50 years of age.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "planned_completion_number": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "planned_enrollment_number": {
+        "value": "300",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2",
+          "source_page": 11,
+          "raw_phrase": "Approximately 300 patients with a diagnosis of probable mild to moderate AD will be\nenrolled in the study.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": "digits only",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "planned_age": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "planned_sex": {
+        "value": "Both",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "Males and postmenopausal females at least 50 years of age.",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66732",
+          "codelist_name": "Sex of Participants Response",
+          "ct_version": "2026-03-27",
+          "code": "C49636",
+          "submission_value": "BOTH",
+          "preferred_term": "Both",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "includes_healthy_subjects": {
+        "value": "N",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.2.1",
+          "source_page": 11,
+          "raw_phrase": "Diagnosis of probable AD as defined by National Institute of\nNeurological and Communicative Disorders and Stroke (NINCDS)",
+          "confidence": 0.9,
+          "verified": true,
+          "note": "as Y/N",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    }
+  ],
+  "model_output": {
+    "populations": [
+      {
+        "level": "main",
+        "label": {
+          "value": "Patients with probable mild to moderate AD",
+          "quote": "Patients with probable mild to moderate AD will be studied in a randomized, double-\nblind, parallel (3 arm), placebo-controlled trial",
+          "section_id": "sec-3.1",
+          "confidence": 0.9
+        },
+        "description": {
+          "value": "Males and postmenopausal females at least 50 years of age with a diagnosis of probable mild to moderate Alzheimer's disease.",
+          "quote": "Males and postmenopausal females at least 50 years of age.",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.9
+        },
+        "planned_enrollment": {
+          "value": {
+            "value": "300",
+            "quote": "Approximately 300 patients with a diagnosis of probable mild to moderate AD will be\nenrolled in the study.",
+            "section_id": "sec-3.4.2",
+            "confidence": 0.95
+          },
+          "upper": null
+        },
+        "planned_completion": null,
+        "age_min": {
+          "value": "50",
+          "quote": "Males and postmenopausal females at least 50 years of age.",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.9
+        },
+        "age_max": {
+          "value": null,
+          "quote": null,
+          "section_id": null,
+          "confidence": 0.0
+        },
+        "age_unit": "years",
+        "sex": [
+          {
+            "value": "Both",
+            "quote": "Males and postmenopausal females at least 50 years of age.",
+            "section_id": "sec-3.4.2.1",
+            "confidence": 0.85
+          }
+        ],
+        "healthy_subjects": {
+          "value": "no",
+          "quote": "Diagnosis of probable AD as defined by National Institute of\nNeurological and Communicative Disorders and Stroke (NINCDS)",
+          "section_id": "sec-3.4.2.1",
+          "confidence": 0.9
+        }
+      }
+    ]
+  }
+}

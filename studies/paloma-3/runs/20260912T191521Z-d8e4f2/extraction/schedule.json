@@ -1,0 +1,5497 @@
+{
+  "run": {
+    "sheet": "schedule",
+    "status": "skipped",
+    "started_at": "2026-09-13T21:39:20.391356Z",
+    "finished_at": "2026-09-13T21:41:33.537258Z",
+    "input_hash": "393bd19dc6c4a5ceb1acd0b32a05b61498ee422a0fa2808c2b2ac6c264d42a16",
+    "postprocess_version": "2+verify4",
+    "reprocessed": true,
+    "section_ids": [
+      "fm-schedule-of-activities",
+      "fm-tumor-assessment-requirements-flowchart"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 28737,
+      "output_tokens": 17042,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 133.05,
+      "cost_usd": 0.227894,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": [
+      "Screening: no planned time stated, so no timing",
+      "Cycles ≥3 Day 1: no planned time stated, so no timing",
+      "End of Treatment/Withdrawal: no planned time stated, so no timing",
+      "Post-Treatment Follow-Up: no planned time stated, so no timing",
+      "Tumor Assessment Requirements Flowchart: expected one anchor visit, found 0; no timings built"
+    ]
+  },
+  "records": {
+    "epochs": [
+      {
+        "row_id": null,
+        "name": {
+          "value": "Screening",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the epoch name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Screening",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Screening",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Screening Epoch",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Screening",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C99079",
+            "codelist_name": "Epoch",
+            "ct_version": "2026-03-27",
+            "code": "C202487",
+            "submission_value": "SCREENING",
+            "preferred_term": "Screening Epoch",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Active Treatment Phase",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the epoch name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Active Treatment Phase",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Active Treatment Phasea - One Cycle = 28 days",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Treatment Epoch",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Active Treatment Phasea - One Cycle = 28 days",
+            "confidence": 0.8,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C99079",
+            "codelist_name": "Epoch",
+            "ct_version": "2026-03-27",
+            "code": "C101526",
+            "submission_value": "TREATMENT",
+            "preferred_term": "Treatment Epoch",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Post-Treatment Follow-Up",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the epoch name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Post-Treatment Follow-Up",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Post-Treatment Follow-Upd",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Follow-Up Epoch",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Post-Treatment Follow-Upd",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C99079",
+            "codelist_name": "Epoch",
+            "ct_version": "2026-03-27",
+            "code": "C202578",
+            "submission_value": "FOLLOW-UP",
+            "preferred_term": "Follow-Up Epoch",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        }
+      }
+    ],
+    "encounters": [
+      {
+        "row_id": null,
+        "name": {
+          "value": "Screening",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the visit heading",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Screening",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Screening",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Visit",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "every scheduled visit",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C188728",
+            "codelist_name": "Encounter Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C25716",
+            "submission_value": "Visit",
+            "preferred_term": "Visit",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "environmental_settings": {
+          "value": "Clinic",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "default: an in-person clinic visit; change it for telephone, remote or home visits",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C127262",
+            "codelist_name": "Environmental Setting",
+            "ct_version": "2026-03-27",
+            "code": "C211570",
+            "submission_value": "CLINIC",
+            "preferred_term": "Clinic",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "contact_modes": {
+          "value": "In Person",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "default: an in-person clinic visit; change it for telephone, remote or home visits",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C171445",
+            "codelist_name": "Mode of Subject Contact",
+            "ct_version": "2026-03-27",
+            "code": "C175574",
+            "submission_value": "IN PERSON",
+            "preferred_term": "In Person",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "transition_start_rule": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "transition_end_rule": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "window": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Cycles 1 and 2 Day 1",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the visit heading",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Cycles 1 and 2 Day 1",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Day 1b",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Visit",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "every scheduled visit",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C188728",
+            "codelist_name": "Encounter Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C25716",
+            "submission_value": "Visit",
+            "preferred_term": "Visit",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "environmental_settings": {
+          "value": "Clinic",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "default: an in-person clinic visit; change it for telephone, remote or home visits",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C127262",
+            "codelist_name": "Environmental Setting",
+            "ct_version": "2026-03-27",
+            "code": "C211570",
+            "submission_value": "CLINIC",
+            "preferred_term": "Clinic",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "contact_modes": {
+          "value": "In Person",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "default: an in-person clinic visit; change it for telephone, remote or home visits",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C171445",
+            "codelist_name": "Mode of Subject Contact",
+            "ct_version": "2026-03-27",
+            "code": "C175574",
+            "submission_value": "IN PERSON",
+            "preferred_term": "In Person",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "transition_start_rule": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "transition_end_rule": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "window": {
+          "value": "Cycles 1 and 2 Day 1 timing",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timing that schedules this visit",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Cycles 1 and 2 Day 15",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the visit heading",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Cycles 1 and 2 Day 15",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Day 15",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Visit",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "every scheduled visit",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C188728",
+            "codelist_name": "Encounter Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C25716",
+            "submission_value": "Visit",
+            "preferred_term": "Visit",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "environmental_settings": {
+          "value": "Clinic",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "default: an in-person clinic visit; change it for telephone, remote or home visits",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C127262",
+            "codelist_name": "Environmental Setting",
+            "ct_version": "2026-03-27",
+            "code": "C211570",
+            "submission_value": "CLINIC",
+            "preferred_term": "Clinic",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "contact_modes": {
+          "value": "In Person",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "default: an in-person clinic visit; change it for telephone, remote or home visits",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C171445",
+            "codelist_name": "Mode of Subject Contact",
+            "ct_version": "2026-03-27",
+            "code": "C175574",
+            "submission_value": "IN PERSON",
+            "preferred_term": "In Person",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "transition_start_rule": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "transition_end_rule": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "window": {
+          "value": "Cycles 1 and 2 Day 15 timing",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timing that schedules this visit",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Cycles ≥3 Day 1",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the visit heading",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Cycles ≥3 Day 1",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Cycles 3",
+            "confidence": 0.7,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Visit",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "every scheduled visit",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C188728",
+            "codelist_name": "Encounter Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C25716",
+            "submission_value": "Visit",
+            "preferred_term": "Visit",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "environmental_settings": {
+          "value": "Clinic",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "default: an in-person clinic visit; change it for telephone, remote or home visits",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C127262",
+            "codelist_name": "Environmental Setting",
+            "ct_version": "2026-03-27",
+            "code": "C211570",
+            "submission_value": "CLINIC",
+            "preferred_term": "Clinic",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "contact_modes": {
+          "value": "In Person",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "default: an in-person clinic visit; change it for telephone, remote or home visits",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C171445",
+            "codelist_name": "Mode of Subject Contact",
+            "ct_version": "2026-03-27",
+            "code": "C175574",
+            "submission_value": "IN PERSON",
+            "preferred_term": "In Person",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "transition_start_rule": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "transition_end_rule": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "window": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "End of Treatment/Withdrawal",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the visit heading",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "End of Treatment/Withdrawal",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "End of Treatment/Withdrawalc",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Visit",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "every scheduled visit",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C188728",
+            "codelist_name": "Encounter Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C25716",
+            "submission_value": "Visit",
+            "preferred_term": "Visit",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "environmental_settings": {
+          "value": "Clinic",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "default: an in-person clinic visit; change it for telephone, remote or home visits",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C127262",
+            "codelist_name": "Environmental Setting",
+            "ct_version": "2026-03-27",
+            "code": "C211570",
+            "submission_value": "CLINIC",
+            "preferred_term": "Clinic",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "contact_modes": {
+          "value": "In Person",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "default: an in-person clinic visit; change it for telephone, remote or home visits",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C171445",
+            "codelist_name": "Mode of Subject Contact",
+            "ct_version": "2026-03-27",
+            "code": "C175574",
+            "submission_value": "IN PERSON",
+            "preferred_term": "In Person",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "transition_start_rule": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "transition_end_rule": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "window": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Post-Treatment Follow-Up",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the visit heading",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Post-Treatment Follow-Up",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Post-Treatment Follow-Upd",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Visit",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "every scheduled visit",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C188728",
+            "codelist_name": "Encounter Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C25716",
+            "submission_value": "Visit",
+            "preferred_term": "Visit",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "environmental_settings": {
+          "value": "Clinic",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "default: an in-person clinic visit; change it for telephone, remote or home visits",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C127262",
+            "codelist_name": "Environmental Setting",
+            "ct_version": "2026-03-27",
+            "code": "C211570",
+            "submission_value": "CLINIC",
+            "preferred_term": "Clinic",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "contact_modes": {
+          "value": "In Person",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "default: an in-person clinic visit; change it for telephone, remote or home visits",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C171445",
+            "codelist_name": "Mode of Subject Contact",
+            "ct_version": "2026-03-27",
+            "code": "C175574",
+            "submission_value": "IN PERSON",
+            "preferred_term": "In Person",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "transition_start_rule": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "transition_end_rule": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "window": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      }
+    ],
+    "timings": [
+      {
+        "row_id": null,
+        "name": {
+          "value": "Cycles 1 and 2 Day 1 timing",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Cycles 1 and 2 Day 1",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timepoint it schedules",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Fixed Reference",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Day 1b",
+            "confidence": 0.9,
+            "verified": true,
+            "note": "timing type",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C201264",
+            "codelist_name": "Timing Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C201358",
+            "submission_value": "Fixed Reference",
+            "preferred_term": "Fixed Reference Timing Type",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "relative_from": {
+          "value": "Cycles 1 and 2 Day 1",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timepoint scheduled",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "relative_to": {
+          "value": "Cycles 1 and 2 Day 1",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline's anchor visit",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "value": {
+          "value": "0 days",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Day 1b",
+            "confidence": 0.9,
+            "verified": true,
+            "note": "planned time",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "relative_to_from": {
+          "value": "S2S",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "start to start",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "window": {
+          "value": "-2..2 days",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "-2 days",
+            "confidence": 0.6,
+            "verified": true,
+            "note": "window as lower..upper",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Cycles 1 and 2 Day 15 timing",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Cycles 1 and 2 Day 15",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timepoint it schedules",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "After",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Day 15",
+            "confidence": 0.6,
+            "verified": true,
+            "note": "timing type",
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C201264",
+            "codelist_name": "Timing Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C201356",
+            "submission_value": "After",
+            "preferred_term": "After Timing Type",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "relative_from": {
+          "value": "Cycles 1 and 2 Day 15",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timepoint scheduled",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "relative_to": {
+          "value": "Cycles 1 and 2 Day 1",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline's anchor visit",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "value": {
+          "value": "14 days",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Day 15",
+            "confidence": 0.6,
+            "verified": true,
+            "note": "planned time",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "relative_to_from": {
+          "value": "S2S",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "start to start",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "window": {
+          "value": "-2..2 days",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "2 days",
+            "confidence": 0.7,
+            "verified": true,
+            "note": "window as lower..upper",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      }
+    ],
+    "timelines": [
+      {
+        "row_id": null,
+        "name": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Schedule of Activities",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the schedule's title as the model read it",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": "Overview of protocol visits and procedures from screening through post-treatment follow-up",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "summary written by the extraction model",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "main": {
+          "value": "Y",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the main schedule of activities",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "entry_condition": {
+          "value": "Participant enters the study",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generic entry condition: the protocol states none; replace if it does",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "sheet_name": {
+          "value": "main-timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "deterministic sheet name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Tumor Assessment Requirements Flowchart",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Tumor Assessment Requirements Flowchart",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the schedule's title as the model read it",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": "Schedule of imaging and lesion assessment methods for tumor evaluation",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "summary written by the extraction model",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "main": {
+          "value": "N",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "a separate schedule",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "entry_condition": {
+          "value": "As scheduled by the main timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generic entry condition: the protocol states none; replace if it does",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "sheet_name": {
+          "value": "timeline-2",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "deterministic sheet name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      }
+    ],
+    "timepoints": [
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this column belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "name": {
+          "value": "Screening",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the visit heading",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Screening",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Screening",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Activity",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "a column of scheduled activities",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "default": {
+          "value": "Cycles 1 and 2 Day 1",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the next column",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "condition": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "epoch": {
+          "value": "Screening",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the epoch the model placed this column in",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "encounter": {
+          "value": "Screening",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the visit this timepoint happens at",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this column belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "name": {
+          "value": "Cycles 1 and 2 Day 1",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the visit heading",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Cycles 1 and 2 Day 1",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Day 1b",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Activity",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "a column of scheduled activities",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "default": {
+          "value": "Cycles 1 and 2 Day 15",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the next column",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "condition": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "epoch": {
+          "value": "Active Treatment Phase",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the epoch the model placed this column in",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "encounter": {
+          "value": "Cycles 1 and 2 Day 1",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the visit this timepoint happens at",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this column belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "name": {
+          "value": "Cycles 1 and 2 Day 15",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the visit heading",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Cycles 1 and 2 Day 15",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Day 15",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Activity",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "a column of scheduled activities",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "default": {
+          "value": "Cycles ≥3 Day 1",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the next column",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "condition": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "epoch": {
+          "value": "Active Treatment Phase",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the epoch the model placed this column in",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "encounter": {
+          "value": "Cycles 1 and 2 Day 15",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the visit this timepoint happens at",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this column belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "name": {
+          "value": "Cycles ≥3 Day 1",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the visit heading",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Cycles ≥3 Day 1",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Cycles 3",
+            "confidence": 0.7,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Activity",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "a column of scheduled activities",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "default": {
+          "value": "End of Treatment/Withdrawal",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the next column",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "condition": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "epoch": {
+          "value": "Active Treatment Phase",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.7,
+            "verified": true,
+            "note": "the epoch the model placed this column in",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "encounter": {
+          "value": "Cycles ≥3 Day 1",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.7,
+            "verified": true,
+            "note": "the visit this timepoint happens at",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this column belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "name": {
+          "value": "End of Treatment/Withdrawal",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the visit heading",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "End of Treatment/Withdrawal",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "End of Treatment/Withdrawalc",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Activity",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "a column of scheduled activities",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "default": {
+          "value": "Post-Treatment Follow-Up",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the next column",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "condition": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "epoch": {
+          "value": "Active Treatment Phase",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the epoch the model placed this column in",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "encounter": {
+          "value": "End of Treatment/Withdrawal",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the visit this timepoint happens at",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this column belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "name": {
+          "value": "Post-Treatment Follow-Up",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the visit heading",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Post-Treatment Follow-Up",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Post-Treatment Follow-Upd",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Activity",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "a column of scheduled activities",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "default": {
+          "value": "(Exit)",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline ends after its last column",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "condition": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "epoch": {
+          "value": "Post-Treatment Follow-Up",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the epoch the model placed this column in",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "encounter": {
+          "value": "Post-Treatment Follow-Up",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the visit this timepoint happens at",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Tumor Assessment Requirements Flowchart",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this column belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "name": {
+          "value": "Tumor Assessment Requirements Flowchart Screening",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the visit heading",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Screening",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-tumor-assessment-requirements-flowchart",
+            "source_page": 20,
+            "raw_phrase": "Screeninga",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Activity",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "a column of scheduled activities",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "default": {
+          "value": "Tumor Assessment Requirements Flowchart Treatment Period",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the next column",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "condition": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "epoch": {
+          "value": "Screening",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-tumor-assessment-requirements-flowchart",
+            "source_page": 20,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the epoch the model placed this column in",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "encounter": {
+          "value": "Screening",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-tumor-assessment-requirements-flowchart",
+            "source_page": 20,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the visit this timepoint happens at",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Tumor Assessment Requirements Flowchart",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this column belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "name": {
+          "value": "Tumor Assessment Requirements Flowchart Treatment Period",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the visit heading",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Treatment Period",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-tumor-assessment-requirements-flowchart",
+            "source_page": 20,
+            "raw_phrase": "Treatment Periodb",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Activity",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "a column of scheduled activities",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "default": {
+          "value": "Tumor Assessment Requirements Flowchart End of Treatment Visit",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the next column",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "condition": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "epoch": {
+          "value": "Active Treatment Phase",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-tumor-assessment-requirements-flowchart",
+            "source_page": 20,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the epoch the model placed this column in",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "encounter": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Tumor Assessment Requirements Flowchart",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this column belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "name": {
+          "value": "Tumor Assessment Requirements Flowchart End of Treatment Visit",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the visit heading",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "End of Treatment Visit",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-tumor-assessment-requirements-flowchart",
+            "source_page": 20,
+            "raw_phrase": "End of Treatment Visitc",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Activity",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "a column of scheduled activities",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "default": {
+          "value": "(Exit)",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline ends after its last column",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "condition": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "epoch": {
+          "value": "Active Treatment Phase",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-tumor-assessment-requirements-flowchart",
+            "source_page": 20,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the epoch the model placed this column in",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "encounter": {
+          "value": "End of Treatment/Withdrawal",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-tumor-assessment-requirements-flowchart",
+            "source_page": 20,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the visit this timepoint happens at",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      }
+    ],
+    "activities": [
+      {
+        "row_id": null,
+        "name": {
+          "value": "Informed Consent",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Informed Consent",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Informed Consente",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Medical/Oncological History",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Medical/Oncological History",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Medical/Oncological Historyf",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Baseline Signs/Symptoms",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Baseline Signs/Symptoms",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Baseline Signs/Symptomsg",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Physical Examination/Vital Signs",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Physical Examination/Vital Signs",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Physical Examination/Vital Signsh",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Ophthalmic Examination",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Ophthalmic Examination",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Ophthalmic Examinationi",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "ECOG Performance Status",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "ECOG Performance Status",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "ECOG Performance Status",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Hematology",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Hematology",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Hematologyj",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": "Laboratory Studies",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the heading row the activity sits under",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Blood Chemistry",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Blood Chemistry",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Blood Chemistryj",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": "Laboratory Studies",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the heading row the activity sits under",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Pregnancy test serum estradiol and FSH (if applicable)",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Pregnancy test, serum estradiol and FSH (if applicable)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Pregnancy test, serum estradiol and FSH (if applicable) j",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": "Laboratory Studies",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the heading row the activity sits under",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "12-Lead ECG (in triplicate)",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "12-Lead ECG (in triplicate)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "12-Lead ECG (in triplicate)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": "Laboratory Studies",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the heading row the activity sits under",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "CT/MRI Scans of Chest Abdomen Pelvis any clinically indicate",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "CT/MRI Scans of Chest, Abdomen, Pelvis, any clinically indicated sites of disease, and of bone lesions; Clinical evaluation of superficial disease",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "CT/MRI Scans of Chest, Abdomen, Pelvis, any clinically indicated sites of disease, and of bone lesions; Clinical evaluation of superficial diseasek",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": "Disease Assessment",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the heading row the activity sits under",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Radionuclide Bone Scan Whole Body",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Radionuclide Bone Scan, Whole Body",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Radionuclide Bone Scan, Whole Bodyl",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": "Disease Assessment",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the heading row the activity sits under",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Adverse Event Reporting",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Adverse Event Reporting",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Adverse Event Reportingm",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": "Other Clinical Assessments",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the heading row the activity sits under",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Concomitant Medications/Treatments",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Concomitant Medications/Treatments",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": "Concomitant Medications/Treatments",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Pharmacokinetics (PK)",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Pharmacokinetics (PK)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": "Pharmacokinetics (PK)n",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "EuroQol-5D (EQ-5D)",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "EuroQol-5D (EQ-5D)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": "EuroQol-5D (EQ-5D) r",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "European Organization for Research and Treatment of Cancer Q",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "European Organization for Research and Treatment of Cancer Quality of Life Questionnaire (EORTC-QLQ-C30)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": "European Organization for Research and Treatment of Cancer Quality of Life Questionnaire (EORTC-QLQ-C30) r",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "European Organisation for Research and Treatment of Cancer B",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "European Organisation for Research and Treatment of Cancer Breast Cancer Module (EORTC-QLQ-BR23)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": "European Organisation for Research and Treatment of Cancer Breast Cancer Module (EORTC-QLQ-BR23)r",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Survival Follow-up",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Survival Follow-up",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": "Survival Follow-ups",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Randomization",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Randomization",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Randomization",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": "Study Treatment",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the heading row the activity sits under",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Fulvestrant (both treatment arms)",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Fulvestrant (both treatment arms)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": "Fulvestrant (both treatment arms)t",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": "Study Treatment",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the heading row the activity sits under",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Palbociclib or placebo (Arm A only)",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Palbociclib or placebo (Arm A only)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": "Palbociclib or placebo (Arm A only)u",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": "Study Treatment",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the heading row the activity sits under",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Goserelin (both treatment arms if applicable)",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Goserelin (both treatment arms, if applicable)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": "For pre-/peri-menopausal patients only: Goserelin (both treatment arms, if applicable)v",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": "Study Treatment",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the heading row the activity sits under",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "CT or MRI of chest abdomen and pelvis",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "CT or MRI of chest, abdomen, and pelvis",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-tumor-assessment-requirements-flowchart",
+            "source_page": 20,
+            "raw_phrase": "CT or MRI of chest, abdomen, and pelvis",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "CT or MRI of any other site of disease as clinically indicat",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "CT or MRI of any other site of disease, as clinically indicated",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-tumor-assessment-requirements-flowchart",
+            "source_page": 20,
+            "raw_phrase": "CT or MRI of any other site of disease, as clinically indicated",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Radionuclide bone scan (whole body) and confirmatory imaging",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Radionuclide bone scan (whole body) and confirmatory imaging in case of any hot spots (CT, MRI or X-ray)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-tumor-assessment-requirements-flowchart",
+            "source_page": null,
+            "raw_phrase": "Radionuclide bone scan (whole body) and confirmatory imaging in case of any hot spots (CT, MRI or X-ray)",
+            "confidence": 0.3,
+            "verified": false,
+            "note": "quote not found in the protocol text; the value may not be supported",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "Photographs of all superficial lesions as applicable",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the activity row name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Photographs of all superficial lesions as applicable",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-tumor-assessment-requirements-flowchart",
+            "source_page": 20,
+            "raw_phrase": "Photographs of all superficial lesions as applicable",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      }
+    ],
+    "rows": [
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Informed Consent",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Screening",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Informed Consente",
+            "confidence": 0.9,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Medical/Oncological History",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Screening",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Medical/Oncological Historyf",
+            "confidence": 0.9,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Baseline Signs/Symptoms",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Cycles 1 and 2 Day 1",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Baseline Signs/Symptomsg",
+            "confidence": 0.85,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Physical Examination/Vital Signs",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Screening, Cycles 1 and 2 Day 1, Cycles ≥3 Day 1, End of Treatment/Withdrawal",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Physical Examination/Vital Signsh",
+            "confidence": 0.85,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Ophthalmic Examination",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Screening, Cycles ≥3 Day 1, End of Treatment/Withdrawal",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Ophthalmic Examinationi",
+            "confidence": 0.8,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "ECOG Performance Status",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Screening, Cycles 1 and 2 Day 1, Cycles ≥3 Day 1, End of Treatment/Withdrawal",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "ECOG Performance Status",
+            "confidence": 0.85,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Hematology",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Screening, Cycles 1 and 2 Day 1, Cycles 1 and 2 Day 15, Cycles ≥3 Day 1, End of Treatment/Withdrawal",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Hematologyj",
+            "confidence": 0.85,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Blood Chemistry",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Screening, Cycles 1 and 2 Day 1, Cycles 1 and 2 Day 15, Cycles ≥3 Day 1, End of Treatment/Withdrawal",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Blood Chemistryj",
+            "confidence": 0.85,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Pregnancy test serum estradiol and FSH (if applicable)",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Screening",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Pregnancy test, serum estradiol and FSH (if applicable) j",
+            "confidence": 0.85,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "12-Lead ECG (in triplicate)",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Screening, End of Treatment/Withdrawal",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "12-Lead ECG (in triplicate)",
+            "confidence": 0.85,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "CT/MRI Scans of Chest Abdomen Pelvis any clinically indicate",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Screening, Cycles 1 and 2 Day 1, Cycles 1 and 2 Day 15, Cycles ≥3 Day 1, End of Treatment/Withdrawal, Post-Treatment Follow-Up",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "CT/MRI Scans of Chest, Abdomen, Pelvis, any clinically indicated sites of disease, and of bone lesions; Clinical evaluation of superficial diseasek",
+            "confidence": 0.8,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Radionuclide Bone Scan Whole Body",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Screening, Cycles 1 and 2 Day 1, Cycles 1 and 2 Day 15, Cycles ≥3 Day 1, End of Treatment/Withdrawal, Post-Treatment Follow-Up",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Radionuclide Bone Scan, Whole Bodyl",
+            "confidence": 0.8,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Adverse Event Reporting",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Screening, Cycles 1 and 2 Day 1, Cycles 1 and 2 Day 15, Cycles ≥3 Day 1, End of Treatment/Withdrawal, Post-Treatment Follow-Up",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Adverse Event Reportingm",
+            "confidence": 0.9,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Concomitant Medications/Treatments",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Cycles 1 and 2 Day 1, Cycles 1 and 2 Day 15, Cycles ≥3 Day 1",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": "Concomitant Medications/Treatments",
+            "confidence": 0.7,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Pharmacokinetics (PK)",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Cycles 1 and 2 Day 1, Cycles 1 and 2 Day 15, Cycles ≥3 Day 1",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": "Pharmacokinetics (PK)n",
+            "confidence": 0.75,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "EuroQol-5D (EQ-5D)",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Cycles 1 and 2 Day 1, Cycles ≥3 Day 1, End of Treatment/Withdrawal",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": "EuroQol-5D (EQ-5D) r",
+            "confidence": 0.7,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "European Organization for Research and Treatment of Cancer Q",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Cycles 1 and 2 Day 1, Cycles ≥3 Day 1, End of Treatment/Withdrawal",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": "European Organization for Research and Treatment of Cancer Quality of Life Questionnaire (EORTC-QLQ-C30) r",
+            "confidence": 0.7,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "European Organisation for Research and Treatment of Cancer B",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Cycles 1 and 2 Day 1, Cycles ≥3 Day 1, End of Treatment/Withdrawal",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": "European Organisation for Research and Treatment of Cancer Breast Cancer Module (EORTC-QLQ-BR23)r",
+            "confidence": 0.7,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Survival Follow-up",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Post-Treatment Follow-Up",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": "Survival Follow-ups",
+            "confidence": 0.85,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Randomization",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Cycles 1 and 2 Day 1",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 15,
+            "raw_phrase": "Randomization",
+            "confidence": 0.9,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Fulvestrant (both treatment arms)",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Cycles 1 and 2 Day 1, Cycles 1 and 2 Day 15, Cycles ≥3 Day 1",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": "Fulvestrant (both treatment arms)t",
+            "confidence": 0.8,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Palbociclib or placebo (Arm A only)",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Cycles 1 and 2 Day 1, Cycles 1 and 2 Day 15, Cycles ≥3 Day 1",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": "Palbociclib or placebo (Arm A only)u",
+            "confidence": 0.8,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Main Timeline",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Goserelin (both treatment arms if applicable)",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Screening, Cycles 1 and 2 Day 1, Cycles 1 and 2 Day 15, Cycles ≥3 Day 1",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-schedule-of-activities",
+            "source_page": 16,
+            "raw_phrase": "For pre-/peri-menopausal patients only: Goserelin (both treatment arms, if applicable)v",
+            "confidence": 0.75,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Tumor Assessment Requirements Flowchart",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "CT or MRI of chest abdomen and pelvis",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Tumor Assessment Requirements Flowchart Screening, Tumor Assessment Requirements Flowchart Treatment Period, Tumor Assessment Requirements Flowchart End of Treatment Visit",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-tumor-assessment-requirements-flowchart",
+            "source_page": 20,
+            "raw_phrase": "CT or MRI of chest, abdomen, and pelvis",
+            "confidence": 0.85,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Tumor Assessment Requirements Flowchart",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "CT or MRI of any other site of disease as clinically indicat",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Tumor Assessment Requirements Flowchart Screening, Tumor Assessment Requirements Flowchart Treatment Period, Tumor Assessment Requirements Flowchart End of Treatment Visit",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-tumor-assessment-requirements-flowchart",
+            "source_page": 20,
+            "raw_phrase": "CT or MRI of any other site of disease, as clinically indicated",
+            "confidence": 0.85,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Tumor Assessment Requirements Flowchart",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Radionuclide bone scan (whole body) and confirmatory imaging",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Tumor Assessment Requirements Flowchart Screening, Tumor Assessment Requirements Flowchart Treatment Period, Tumor Assessment Requirements Flowchart End of Treatment Visit",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-tumor-assessment-requirements-flowchart",
+            "source_page": null,
+            "raw_phrase": "Radionuclide bone scan (whole body) and confirmatory imaging in case of any hot spots (CT, MRI or X-ray)",
+            "confidence": 0.3,
+            "verified": false,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "timeline": {
+          "value": "Tumor Assessment Requirements Flowchart",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the timeline this row belongs to",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "activity": {
+          "value": "Photographs of all superficial lesions as applicable",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "the activity of this row",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "biomedical_concepts": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "scheduled_at": {
+          "value": "Tumor Assessment Requirements Flowchart Screening, Tumor Assessment Requirements Flowchart Treatment Period, Tumor Assessment Requirements Flowchart End of Treatment Visit",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-tumor-assessment-requirements-flowchart",
+            "source_page": 20,
+            "raw_phrase": "Photographs of all superficial lesions as applicable",
+            "confidence": 0.85,
+            "verified": true,
+            "note": "marks read from the schedule table (page images)",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      }
+    ]
+  },
+  "model_output": {
+    "epochs": [
+      {
+        "key": "scr",
+        "label": {
+          "value": "Screening",
+          "quote": "Screening",
+          "section_id": "fm-schedule-of-activities",
+          "confidence": 0.9
+        },
+        "type": {
+          "value": "Screening Epoch",
+          "quote": "Screening",
+          "section_id": "fm-schedule-of-activities",
+          "confidence": 0.85
+        }
+      },
+      {
+        "key": "trt",
+        "label": {
+          "value": "Active Treatment Phase",
+          "quote": "Active Treatment Phasea - One Cycle = 28 days",
+          "section_id": "fm-schedule-of-activities",
+          "confidence": 0.9
+        },
+        "type": {
+          "value": "Treatment Epoch",
+          "quote": "Active Treatment Phasea - One Cycle = 28 days",
+          "section_id": "fm-schedule-of-activities",
+          "confidence": 0.8
+        }
+      },
+      {
+        "key": "fu",
+        "label": {
+          "value": "Post-Treatment Follow-Up",
+          "quote": "Post-Treatment Follow-Upd",
+          "section_id": "fm-schedule-of-activities",
+          "confidence": 0.9
+        },
+        "type": {
+          "value": "Follow-Up Epoch",
+          "quote": "Post-Treatment Follow-Upd",
+          "section_id": "fm-schedule-of-activities",
+          "confidence": 0.85
+        }
+      }
+    ],
+    "timelines": [
+      {
+        "key": "main",
+        "label": "Schedule of Activities",
+        "main": true,
+        "description": "Overview of protocol visits and procedures from screening through post-treatment follow-up",
+        "entry_condition": {
+          "value": null,
+          "quote": null,
+          "section_id": null,
+          "confidence": 0.0
+        },
+        "visits": [
+          {
+            "key": "v_scr",
+            "label": {
+              "value": "Screening",
+              "quote": "Screening",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.9
+            },
+            "epoch_key": "scr",
+            "anchor": false,
+            "offset": null,
+            "window": null,
+            "main_visit_key": null
+          },
+          {
+            "key": "v_d1_c12",
+            "label": {
+              "value": "Cycles 1 and 2 Day 1",
+              "quote": "Day 1b",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.9
+            },
+            "epoch_key": "trt",
+            "anchor": true,
+            "offset": null,
+            "window": {
+              "before": "2",
+              "after": "2",
+              "unit": "days",
+              "quote": {
+                "value": "±2 days",
+                "quote": "-2 days",
+                "section_id": "fm-schedule-of-activities",
+                "confidence": 0.6
+              }
+            },
+            "main_visit_key": null
+          },
+          {
+            "key": "v_d15_c12",
+            "label": {
+              "value": "Cycles 1 and 2 Day 15",
+              "quote": "Day 15",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.9
+            },
+            "epoch_key": "trt",
+            "anchor": false,
+            "offset": {
+              "value": {
+                "value": "14",
+                "quote": "Day 15",
+                "section_id": "fm-schedule-of-activities",
+                "confidence": 0.6
+              },
+              "unit": "days",
+              "direction": "after"
+            },
+            "window": {
+              "before": "2",
+              "after": "2",
+              "unit": "days",
+              "quote": {
+                "value": "±2 days",
+                "quote": "2 days",
+                "section_id": "fm-schedule-of-activities",
+                "confidence": 0.7
+              }
+            },
+            "main_visit_key": null
+          },
+          {
+            "key": "v_d1_c3",
+            "label": {
+              "value": "Cycles ≥3 Day 1",
+              "quote": "Cycles 3",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.7
+            },
+            "epoch_key": "trt",
+            "anchor": false,
+            "offset": null,
+            "window": {
+              "before": "7",
+              "after": "7",
+              "unit": "days",
+              "quote": {
+                "value": "±7 days",
+                "quote": "7 daysa",
+                "section_id": "fm-schedule-of-activities",
+                "confidence": 0.7
+              }
+            },
+            "main_visit_key": null
+          },
+          {
+            "key": "v_eot",
+            "label": {
+              "value": "End of Treatment/Withdrawal",
+              "quote": "End of Treatment/Withdrawalc",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.9
+            },
+            "epoch_key": "trt",
+            "anchor": false,
+            "offset": null,
+            "window": null,
+            "main_visit_key": null
+          },
+          {
+            "key": "v_ptfu",
+            "label": {
+              "value": "Post-Treatment Follow-Up",
+              "quote": "Post-Treatment Follow-Upd",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.9
+            },
+            "epoch_key": "fu",
+            "anchor": false,
+            "offset": null,
+            "window": {
+              "before": "7",
+              "after": "7",
+              "unit": "days",
+              "quote": {
+                "value": "±7 days",
+                "quote": "7 days",
+                "section_id": "fm-schedule-of-activities",
+                "confidence": 0.7
+              }
+            },
+            "main_visit_key": null
+          }
+        ],
+        "activities": [
+          {
+            "label": {
+              "value": "Informed Consent",
+              "quote": "Informed Consente",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.9
+            },
+            "group": null,
+            "visit_keys": [
+              "v_scr"
+            ],
+            "marks_confidence": 0.9
+          },
+          {
+            "label": {
+              "value": "Medical/Oncological History",
+              "quote": "Medical/Oncological Historyf",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.9
+            },
+            "group": null,
+            "visit_keys": [
+              "v_scr"
+            ],
+            "marks_confidence": 0.9
+          },
+          {
+            "label": {
+              "value": "Baseline Signs/Symptoms",
+              "quote": "Baseline Signs/Symptomsg",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.9
+            },
+            "group": null,
+            "visit_keys": [
+              "v_d1_c12"
+            ],
+            "marks_confidence": 0.85
+          },
+          {
+            "label": {
+              "value": "Physical Examination/Vital Signs",
+              "quote": "Physical Examination/Vital Signsh",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.9
+            },
+            "group": null,
+            "visit_keys": [
+              "v_scr",
+              "v_d1_c12",
+              "v_d1_c3",
+              "v_eot"
+            ],
+            "marks_confidence": 0.85
+          },
+          {
+            "label": {
+              "value": "Ophthalmic Examination",
+              "quote": "Ophthalmic Examinationi",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.9
+            },
+            "group": null,
+            "visit_keys": [
+              "v_scr",
+              "v_d1_c3",
+              "v_eot"
+            ],
+            "marks_confidence": 0.8
+          },
+          {
+            "label": {
+              "value": "ECOG Performance Status",
+              "quote": "ECOG Performance Status",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.9
+            },
+            "group": null,
+            "visit_keys": [
+              "v_scr",
+              "v_d1_c12",
+              "v_d1_c3",
+              "v_eot"
+            ],
+            "marks_confidence": 0.85
+          },
+          {
+            "label": {
+              "value": "Hematology",
+              "quote": "Hematologyj",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.9
+            },
+            "group": "Laboratory Studies",
+            "visit_keys": [
+              "v_scr",
+              "v_d1_c12",
+              "v_d15_c12",
+              "v_d1_c3",
+              "v_eot"
+            ],
+            "marks_confidence": 0.85
+          },
+          {
+            "label": {
+              "value": "Blood Chemistry",
+              "quote": "Blood Chemistryj",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.9
+            },
+            "group": "Laboratory Studies",
+            "visit_keys": [
+              "v_scr",
+              "v_d1_c12",
+              "v_d15_c12",
+              "v_d1_c3",
+              "v_eot"
+            ],
+            "marks_confidence": 0.85
+          },
+          {
+            "label": {
+              "value": "Pregnancy test, serum estradiol and FSH (if applicable)",
+              "quote": "Pregnancy test, serum estradiol and FSH (if applicable) j",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.85
+            },
+            "group": "Laboratory Studies",
+            "visit_keys": [
+              "v_scr"
+            ],
+            "marks_confidence": 0.85
+          },
+          {
+            "label": {
+              "value": "12-Lead ECG (in triplicate)",
+              "quote": "12-Lead ECG (in triplicate)",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.9
+            },
+            "group": "Laboratory Studies",
+            "visit_keys": [
+              "v_scr",
+              "v_eot"
+            ],
+            "marks_confidence": 0.85
+          },
+          {
+            "label": {
+              "value": "CT/MRI Scans of Chest, Abdomen, Pelvis, any clinically indicated sites of disease, and of bone lesions; Clinical evaluation of superficial disease",
+              "quote": "CT/MRI Scans of Chest, Abdomen, Pelvis, any clinically indicated sites of disease, and of bone lesions; Clinical evaluation of superficial diseasek",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.85
+            },
+            "group": "Disease Assessment",
+            "visit_keys": [
+              "v_scr",
+              "v_d1_c12",
+              "v_d15_c12",
+              "v_d1_c3",
+              "v_eot",
+              "v_ptfu"
+            ],
+            "marks_confidence": 0.8
+          },
+          {
+            "label": {
+              "value": "Radionuclide Bone Scan, Whole Body",
+              "quote": "Radionuclide Bone Scan, Whole Bodyl",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.85
+            },
+            "group": "Disease Assessment",
+            "visit_keys": [
+              "v_scr",
+              "v_d1_c12",
+              "v_d15_c12",
+              "v_d1_c3",
+              "v_eot",
+              "v_ptfu"
+            ],
+            "marks_confidence": 0.8
+          },
+          {
+            "label": {
+              "value": "Adverse Event Reporting",
+              "quote": "Adverse Event Reportingm",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.9
+            },
+            "group": "Other Clinical Assessments",
+            "visit_keys": [
+              "v_scr",
+              "v_d1_c12",
+              "v_d15_c12",
+              "v_d1_c3",
+              "v_eot",
+              "v_ptfu"
+            ],
+            "marks_confidence": 0.9
+          },
+          {
+            "label": {
+              "value": "Concomitant Medications/Treatments",
+              "quote": "Concomitant Medications/Treatments",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.85
+            },
+            "group": null,
+            "visit_keys": [
+              "v_d1_c12",
+              "v_d15_c12",
+              "v_d1_c3"
+            ],
+            "marks_confidence": 0.7
+          },
+          {
+            "label": {
+              "value": "Pharmacokinetics (PK)",
+              "quote": "Pharmacokinetics (PK)n",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.85
+            },
+            "group": null,
+            "visit_keys": [
+              "v_d1_c12",
+              "v_d15_c12",
+              "v_d1_c3"
+            ],
+            "marks_confidence": 0.75
+          },
+          {
+            "label": {
+              "value": "EuroQol-5D (EQ-5D)",
+              "quote": "EuroQol-5D (EQ-5D) r",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.85
+            },
+            "group": null,
+            "visit_keys": [
+              "v_d1_c12",
+              "v_d1_c3",
+              "v_eot"
+            ],
+            "marks_confidence": 0.7
+          },
+          {
+            "label": {
+              "value": "European Organization for Research and Treatment of Cancer Quality of Life Questionnaire (EORTC-QLQ-C30)",
+              "quote": "European Organization for Research and Treatment of Cancer Quality of Life Questionnaire (EORTC-QLQ-C30) r",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.85
+            },
+            "group": null,
+            "visit_keys": [
+              "v_d1_c12",
+              "v_d1_c3",
+              "v_eot"
+            ],
+            "marks_confidence": 0.7
+          },
+          {
+            "label": {
+              "value": "European Organisation for Research and Treatment of Cancer Breast Cancer Module (EORTC-QLQ-BR23)",
+              "quote": "European Organisation for Research and Treatment of Cancer Breast Cancer Module (EORTC-QLQ-BR23)r",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.85
+            },
+            "group": null,
+            "visit_keys": [
+              "v_d1_c12",
+              "v_d1_c3",
+              "v_eot"
+            ],
+            "marks_confidence": 0.7
+          },
+          {
+            "label": {
+              "value": "Survival Follow-up",
+              "quote": "Survival Follow-ups",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.85
+            },
+            "group": null,
+            "visit_keys": [
+              "v_ptfu"
+            ],
+            "marks_confidence": 0.85
+          },
+          {
+            "label": {
+              "value": "Randomization",
+              "quote": "Randomization",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.9
+            },
+            "group": "Study Treatment",
+            "visit_keys": [
+              "v_d1_c12"
+            ],
+            "marks_confidence": 0.9
+          },
+          {
+            "label": {
+              "value": "Fulvestrant (both treatment arms)",
+              "quote": "Fulvestrant (both treatment arms)t",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.9
+            },
+            "group": "Study Treatment",
+            "visit_keys": [
+              "v_d1_c12",
+              "v_d15_c12",
+              "v_d1_c3"
+            ],
+            "marks_confidence": 0.8
+          },
+          {
+            "label": {
+              "value": "Palbociclib or placebo (Arm A only)",
+              "quote": "Palbociclib or placebo (Arm A only)u",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.9
+            },
+            "group": "Study Treatment",
+            "visit_keys": [
+              "v_d1_c12",
+              "v_d15_c12",
+              "v_d1_c3"
+            ],
+            "marks_confidence": 0.8
+          },
+          {
+            "label": {
+              "value": "Goserelin (both treatment arms, if applicable)",
+              "quote": "For pre-/peri-menopausal patients only: Goserelin (both treatment arms, if applicable)v",
+              "section_id": "fm-schedule-of-activities",
+              "confidence": 0.85
+            },
+            "group": "Study Treatment",
+            "visit_keys": [
+              "v_scr",
+              "v_d1_c12",
+              "v_d15_c12",
+              "v_d1_c3"
+            ],
+            "marks_confidence": 0.75
+          }
+        ]
+      },
+      {
+        "key": "tumor",
+        "label": "Tumor Assessment Requirements Flowchart",
+        "main": false,
+        "description": "Schedule of imaging and lesion assessment methods for tumor evaluation",
+        "entry_condition": {
+          "value": null,
+          "quote": null,
+          "section_id": null,
+          "confidence": 0.0
+        },
+        "visits": [
+          {
+            "key": "t_scr",
+            "label": {
+              "value": "Screening",
+              "quote": "Screeninga",
+              "section_id": "fm-tumor-assessment-requirements-flowchart",
+              "confidence": 0.9
+            },
+            "epoch_key": "scr",
+            "anchor": false,
+            "offset": null,
+            "window": null,
+            "main_visit_key": "v_scr"
+          },
+          {
+            "key": "t_trt",
+            "label": {
+              "value": "Treatment Period",
+              "quote": "Treatment Periodb",
+              "section_id": "fm-tumor-assessment-requirements-flowchart",
+              "confidence": 0.9
+            },
+            "epoch_key": "trt",
+            "anchor": false,
+            "offset": null,
+            "window": null,
+            "main_visit_key": null
+          },
+          {
+            "key": "t_eot",
+            "label": {
+              "value": "End of Treatment Visit",
+              "quote": "End of Treatment Visitc",
+              "section_id": "fm-tumor-assessment-requirements-flowchart",
+              "confidence": 0.9
+            },
+            "epoch_key": "trt",
+            "anchor": false,
+            "offset": null,
+            "window": null,
+            "main_visit_key": "v_eot"
+          }
+        ],
+        "activities": [
+          {
+            "label": {
+              "value": "CT or MRI of chest, abdomen, and pelvis",
+              "quote": "CT or MRI of chest, abdomen, and pelvis",
+              "section_id": "fm-tumor-assessment-requirements-flowchart",
+              "confidence": 0.9
+            },
+            "group": null,
+            "visit_keys": [
+              "t_scr",
+              "t_trt",
+              "t_eot"
+            ],
+            "marks_confidence": 0.85
+          },
+          {
+            "label": {
+              "value": "CT or MRI of any other site of disease, as clinically indicated",
+              "quote": "CT or MRI of any other site of disease, as clinically indicated",
+              "section_id": "fm-tumor-assessment-requirements-flowchart",
+              "confidence": 0.9
+            },
+            "group": null,
+            "visit_keys": [
+              "t_scr",
+              "t_trt",
+              "t_eot"
+            ],
+            "marks_confidence": 0.85
+          },
+          {
+            "label": {
+              "value": "Radionuclide bone scan (whole body) and confirmatory imaging in case of any hot spots (CT, MRI or X-ray)",
+              "quote": "Radionuclide bone scan (whole body) and confirmatory imaging in case of any hot spots (CT, MRI or X-ray)",
+              "section_id": "fm-tumor-assessment-requirements-flowchart",
+              "confidence": 0.9
+            },
+            "group": null,
+            "visit_keys": [
+              "t_scr",
+              "t_trt",
+              "t_eot"
+            ],
+            "marks_confidence": 0.85
+          },
+          {
+            "label": {
+              "value": "Photographs of all superficial lesions as applicable",
+              "quote": "Photographs of all superficial lesions as applicable",
+              "section_id": "fm-tumor-assessment-requirements-flowchart",
+              "confidence": 0.9
+            },
+            "group": null,
+            "visit_keys": [
+              "t_scr",
+              "t_trt",
+              "t_eot"
+            ],
+            "marks_confidence": 0.85
+          }
+        ]
+      }
+    ]
+  }
+}

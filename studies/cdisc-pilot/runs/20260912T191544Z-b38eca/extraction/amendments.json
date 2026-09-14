@@ -1,0 +1,19 @@
+{
+  "run": {
+    "sheet": "amendments",
+    "status": "done",
+    "started_at": null,
+    "finished_at": null,
+    "input_hash": null,
+    "postprocess_version": null,
+    "reprocessed": false,
+    "section_ids": [],
+    "usage": null,
+    "error": null,
+    "warnings": [
+      "the protocol has no section for this sheet; it is left empty"
+    ]
+  },
+  "records": [],
+  "model_output": null
+}

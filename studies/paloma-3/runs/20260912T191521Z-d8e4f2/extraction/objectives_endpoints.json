@@ -1,0 +1,2193 @@
+{
+  "run": {
+    "sheet": "objectives_endpoints",
+    "status": "done",
+    "started_at": "2026-09-13T21:38:29.037670Z",
+    "finished_at": "2026-09-13T21:40:13.393553Z",
+    "input_hash": "e146db020301b827a9bd72b9fa288d0a84490410f05e00e5c20f86c58a6be0c4",
+    "postprocess_version": "1+verify4",
+    "reprocessed": false,
+    "section_ids": [
+      "sec-2",
+      "sec-2.1",
+      "sec-2.2",
+      "sec-9.3",
+      "sec-9.3.1",
+      "sec-9.3.2"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 7171,
+      "output_tokens": 13784,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 104.33,
+      "cost_usd": 0.152182,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": []
+  },
+  "records": [
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": "OBJ1",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_label": {
+        "value": "PFS superiority",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": "To demonstrate the superiority of palbociclib in combination with fulvestrant (with or without goserelin) over fulvestrant (with or without goserelin) alone in prolonging investigator-assessed PFS in women with HR+/HER2- metastatic breast cancer whose disease has progressed on prior endocrine therapy.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": "in prolonging investigator-assessed PFS in women with HR+/HER2- metastatic breast cancer whose disease has progressed on prior endocrine therapy.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_level": {
+        "value": "Trial Primary Objective",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": "Primary Objective:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188725",
+          "codelist_name": "Objective Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C85826",
+          "submission_value": "Study Primary Objective",
+          "preferred_term": "Trial Primary Objective",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "endpoint_name": {
+        "value": "END1",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": "Investigator-assessed PFS",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": "Progression-Free Survival (PFS) as assessed by the Investigator.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Progression-Free Survival (PFS) as assessed by the Investigator.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": "Efficacy",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Progression-Free Survival (PFS) as assessed by the Investigator.",
+          "confidence": 0.7,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": "Primary Endpoint",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Primary Endpoint:",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188726",
+          "codelist_name": "Endpoint Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C94496",
+          "submission_value": "Primary Endpoint",
+          "preferred_term": "Primary Endpoint",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    },
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": "OBJ2",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_label": {
+        "value": "Tumor control measures",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": "To compare measures of tumor control (including PFS, DR, CBR) between the treatment arms.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": "To compare measures of tumor control (including PFS, DR, CBR) between the treatment arms.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_level": {
+        "value": "Trial Secondary Objective",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": "Secondary Objectives:",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188725",
+          "codelist_name": "Objective Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C85827",
+          "submission_value": "Study Secondary Objective",
+          "preferred_term": "Trial Secondary Objective",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "endpoint_name": {
+        "value": "END2",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": "Overall survival",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": null,
+          "confidence": 0.6,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": "Overall Survival (OS).",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Overall Survival (OS).",
+          "confidence": 0.6,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": "Efficacy",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Overall Survival (OS).",
+          "confidence": 0.6,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": "Secondary Endpoint",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Secondary Endpoints:",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188726",
+          "codelist_name": "Endpoint Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C139173",
+          "submission_value": "Secondary Endpoint",
+          "preferred_term": "Secondary Endpoint",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    },
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_label": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_level": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_name": {
+        "value": "END3",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": "Survival probabilities",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": null,
+          "confidence": 0.6,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": "1-year, 2-year, and 3-year survival probabilities.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "1-year, 2-year, and 3-year survival probabilities.",
+          "confidence": 0.6,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": "Efficacy",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "1-year, 2-year, and 3-year survival probabilities.",
+          "confidence": 0.6,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": "Secondary Endpoint",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Secondary Endpoints:",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188726",
+          "codelist_name": "Endpoint Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C139173",
+          "submission_value": "Secondary Endpoint",
+          "preferred_term": "Secondary Endpoint",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    },
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_label": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_level": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_name": {
+        "value": "END4",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": "Objective response",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": null,
+          "confidence": 0.6,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": "Objective Response (OR: CR or PR).",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Objective Response (OR: CR or PR).",
+          "confidence": 0.6,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": "Efficacy",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Objective Response (OR: CR or PR).",
+          "confidence": 0.6,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": "Secondary Endpoint",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Secondary Endpoints:",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188726",
+          "codelist_name": "Endpoint Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C139173",
+          "submission_value": "Secondary Endpoint",
+          "preferred_term": "Secondary Endpoint",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    },
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_label": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_level": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_name": {
+        "value": "END5",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": "Duration of response",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": "Duration of Response (DR).",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Duration of Response (DR).",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": "Efficacy",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Duration of Response (DR).",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": "Secondary Endpoint",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Secondary Endpoints:",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188726",
+          "codelist_name": "Endpoint Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C139173",
+          "submission_value": "Secondary Endpoint",
+          "preferred_term": "Secondary Endpoint",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    },
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_label": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_level": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_name": {
+        "value": "END6",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": "Clinical benefit response",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": "Clinical Benefit Response (CBR: CR or PR or SD 24 weeks).",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Clinical Benefit Response (CBR: CR or PR or SD 24 weeks).",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": "Efficacy",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Clinical Benefit Response (CBR: CR or PR or SD 24 weeks).",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": "Secondary Endpoint",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Secondary Endpoints:",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188726",
+          "codelist_name": "Endpoint Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C139173",
+          "submission_value": "Secondary Endpoint",
+          "preferred_term": "Secondary Endpoint",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    },
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": "OBJ3",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_label": {
+        "value": "Safety and tolerability",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": "To compare safety and tolerability between the treatment arms.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": "To compare safety and tolerability between the treatment arms.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_level": {
+        "value": "Trial Secondary Objective",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": "Secondary Objectives:",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188725",
+          "codelist_name": "Objective Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C85827",
+          "submission_value": "Study Secondary Objective",
+          "preferred_term": "Trial Secondary Objective",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "endpoint_name": {
+        "value": "END7",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": "Adverse event characteristics",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": "Type, incidence, severity (as graded by the National Cancer Institute Common Terminology Criteria for Adverse Events [NCI CTCAE] v4.0), seriousness and relationship to study medications of AEs and any laboratory abnormalities.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Type, incidence, severity (as graded by the National Cancer Institute Common Terminology Criteria for Adverse Events [NCI CTCAE] v4.0), seriousness and relationship to study medications",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": "Safety",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Adverse Events",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": "Secondary Endpoint",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Secondary Endpoints:",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188726",
+          "codelist_name": "Endpoint Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C139173",
+          "submission_value": "Secondary Endpoint",
+          "preferred_term": "Secondary Endpoint",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    },
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": "OBJ4",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_label": {
+        "value": "Palbociclib trough concentrations",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": "To evaluate trough concentrations of palbociclib when given in combination with fulvestrant or fulvestrant plus goserelin compared to historical palbociclib data.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": "To evaluate trough concentrations of palbociclib when given in combination with fulvestrant or fulvestrant plus goserelin compared to historical palbociclib data.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_level": {
+        "value": "Trial Secondary Objective",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": "Secondary Objectives:",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188725",
+          "codelist_name": "Objective Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C85827",
+          "submission_value": "Study Secondary Objective",
+          "preferred_term": "Trial Secondary Objective",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "endpoint_name": {
+        "value": "END8",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": "PK trough concentrations",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": null,
+          "confidence": 0.6,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": "Trough plasma concentration of palbociclib, fulvestrant and goserelin (if applicable) in the subgroup of approximately 40 patients included in the initial safety assessment.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Trough plasma concentration of palbociclib, fulvestrant and goserelin (if applicable) in the subgroup of approximately 40 patients",
+          "confidence": 0.6,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": "Pharmacokinetics",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Trough plasma concentration of palbociclib, fulvestrant and goserelin",
+          "confidence": 0.7,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": "Secondary Endpoint",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Secondary Endpoints:",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188726",
+          "codelist_name": "Endpoint Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C139173",
+          "submission_value": "Secondary Endpoint",
+          "preferred_term": "Secondary Endpoint",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    },
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": "OBJ5",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_label": {
+        "value": "Fulvestrant/goserelin trough concentrations",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": "To compare fulvestrant and goserelin trough concentrations when given in combination with palbociclib to those when given without palbociclib.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": "To compare fulvestrant and goserelin trough concentrations when given in combination with palbociclib to those when given without palbociclib.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_level": {
+        "value": "Trial Secondary Objective",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": "Secondary Objectives:",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188725",
+          "codelist_name": "Objective Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C85827",
+          "submission_value": "Study Secondary Objective",
+          "preferred_term": "Trial Secondary Objective",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "endpoint_name": {
+        "value": "END9",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": "PK trough concentrations",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": null,
+          "confidence": 0.6,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": "Trough plasma concentration of palbociclib, fulvestrant and goserelin (if applicable) in the subgroup of approximately 40 patients included in the initial safety assessment.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Trough plasma concentration of palbociclib, fulvestrant and goserelin (if applicable) in the subgroup of approximately 40 patients",
+          "confidence": 0.6,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": "Pharmacokinetics",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Trough plasma concentration of palbociclib, fulvestrant and goserelin",
+          "confidence": 0.7,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": "Secondary Endpoint",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Secondary Endpoints:",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188726",
+          "codelist_name": "Endpoint Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C139173",
+          "submission_value": "Secondary Endpoint",
+          "preferred_term": "Secondary Endpoint",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    },
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": "OBJ6",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_label": {
+        "value": "Exposure-efficacy/safety correlations",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": "To explore correlations between palbociclib exposures and efficacy/safety findings in this patient population.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": "To explore correlations between palbociclib exposures and efficacy/safety findings in this patient population.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_level": {
+        "value": "Trial Secondary Objective",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": "Secondary Objectives:",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188725",
+          "codelist_name": "Objective Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C85827",
+          "submission_value": "Study Secondary Objective",
+          "preferred_term": "Trial Secondary Objective",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "endpoint_name": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": "OBJ7",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_label": {
+        "value": "Patient reported outcomes",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": "To compare Patient Reported Outcomes measures between treatment arms.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": "To compare Patient Reported Outcomes measures between treatment arms.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_level": {
+        "value": "Trial Secondary Objective",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": "Secondary Objectives:",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188725",
+          "codelist_name": "Objective Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C85827",
+          "submission_value": "Study Secondary Objective",
+          "preferred_term": "Trial Secondary Objective",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "endpoint_name": {
+        "value": "END10",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": "PRO scores",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": "PRO endpoints such as global quality of life , symptoms and functioning assessed using the European Organisation for Research and Treatment of Cancer Quality of Life Instrument (EORTC QLQ-C30) and European Organisation for Research and Treatment of Cancer Breast Cancer Module (EORTC QLQ-BR23) and Dimension Health State EuroQoL Score (EQ-5D) and time to deterioration (TTD) in pain endpoint.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "PRO endpoints such as global quality of life , symptoms and functioning assessed using the European Organisation for Research and Treatment of Cancer Quality of",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": "Patient-Reported Outcome",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "PRO endpoints such as global quality of life",
+          "confidence": 0.75,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": "Secondary Endpoint",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Secondary Endpoints:",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188726",
+          "codelist_name": "Endpoint Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C139173",
+          "submission_value": "Secondary Endpoint",
+          "preferred_term": "Secondary Endpoint",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    },
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": "OBJ8",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_label": {
+        "value": "Biomarker alterations",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": "To characterize alterations in genes, proteins, and RNAs relevant to the cell cycle, drug targets, tumor sensitivity and/or resistance.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": "To characterize alterations in genes, proteins, and RNAs relevant to the cell cycle, drug targets, tumor sensitivity and/or resistance.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_level": {
+        "value": "Trial Secondary Objective",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": "Secondary Objectives:",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188725",
+          "codelist_name": "Objective Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C85827",
+          "submission_value": "Study Secondary Objective",
+          "preferred_term": "Trial Secondary Objective",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "endpoint_name": {
+        "value": "END11",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": "Tumor tissue biomarkers",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": "Tumor tissue biomarkers, including genes (eg, copy numbers of CCND1 and CDKN2A, PIK3CA mutations), proteins (eg, Ki67, pRb, CCNE1), and RNA expression (eg, cdk4, cdk6).",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Tumor tissue biomarkers, including genes (eg, copy numbers of CCND1 and CDKN2A, PIK3CA mutations), proteins (eg, Ki67, pRb, CCNE1), and RNA expression (eg, cdk4, cdk6).",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": "Biomarker",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Tumor tissue biomarkers, including genes",
+          "confidence": 0.75,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": "Secondary Endpoint",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 45,
+          "raw_phrase": "Secondary Endpoints:",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188726",
+          "codelist_name": "Endpoint Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C139173",
+          "submission_value": "Secondary Endpoint",
+          "preferred_term": "Secondary Endpoint",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    },
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": "OBJ9",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_label": {
+        "value": "Subgroup analysis",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": "To conduct subgroup analysis for primary and secondary endpoints in stratified groups.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": "To conduct subgroup analysis for primary and secondary endpoints in stratified groups.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_level": {
+        "value": "Trial Secondary Objective",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 44,
+          "raw_phrase": "Secondary Objectives:",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188725",
+          "codelist_name": "Objective Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C85827",
+          "submission_value": "Study Secondary Objective",
+          "preferred_term": "Trial Secondary Objective",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "endpoint_name": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      }
+    }
+  ],
+  "model_output": {
+    "objectives": [
+      {
+        "text": {
+          "value": "To demonstrate the superiority of palbociclib in combination with fulvestrant (with or without goserelin) over fulvestrant (with or without goserelin) alone in prolonging investigator-assessed PFS in women with HR+/HER2- metastatic breast cancer whose disease has progressed on prior endocrine therapy.",
+          "quote": "in prolonging investigator-assessed PFS in women with HR+/HER2- metastatic breast cancer whose disease has progressed on prior endocrine therapy.",
+          "section_id": "sec-2.1",
+          "confidence": 0.95
+        },
+        "label": "PFS superiority",
+        "level": {
+          "value": "Trial Primary Objective",
+          "quote": "Primary Objective:",
+          "section_id": "sec-2.1",
+          "confidence": 0.95
+        },
+        "endpoints": [
+          {
+            "text": {
+              "value": "Progression-Free Survival (PFS) as assessed by the Investigator.",
+              "quote": "Progression-Free Survival (PFS) as assessed by the Investigator.",
+              "section_id": "sec-2.2",
+              "confidence": 0.95
+            },
+            "label": "Investigator-assessed PFS",
+            "level": {
+              "value": "Primary Endpoint",
+              "quote": "Primary Endpoint:",
+              "section_id": "sec-2.2",
+              "confidence": 0.95
+            },
+            "purpose": {
+              "value": "Efficacy",
+              "quote": "Progression-Free Survival (PFS) as assessed by the Investigator.",
+              "section_id": "sec-2.2",
+              "confidence": 0.7
+            }
+          }
+        ]
+      },
+      {
+        "text": {
+          "value": "To compare measures of tumor control (including PFS, DR, CBR) between the treatment arms.",
+          "quote": "To compare measures of tumor control (including PFS, DR, CBR) between the treatment arms.",
+          "section_id": "sec-2.1",
+          "confidence": 0.9
+        },
+        "label": "Tumor control measures",
+        "level": {
+          "value": "Trial Secondary Objective",
+          "quote": "Secondary Objectives:",
+          "section_id": "sec-2.1",
+          "confidence": 0.9
+        },
+        "endpoints": [
+          {
+            "text": {
+              "value": "Overall Survival (OS).",
+              "quote": "Overall Survival (OS).",
+              "section_id": "sec-2.2",
+              "confidence": 0.6
+            },
+            "label": "Overall survival",
+            "level": {
+              "value": "Secondary Endpoint",
+              "quote": "Secondary Endpoints:",
+              "section_id": "sec-2.2",
+              "confidence": 0.85
+            },
+            "purpose": {
+              "value": "Efficacy",
+              "quote": "Overall Survival (OS).",
+              "section_id": "sec-2.2",
+              "confidence": 0.6
+            }
+          },
+          {
+            "text": {
+              "value": "1-year, 2-year, and 3-year survival probabilities.",
+              "quote": "1-year, 2-year, and 3-year survival probabilities.",
+              "section_id": "sec-2.2",
+              "confidence": 0.6
+            },
+            "label": "Survival probabilities",
+            "level": {
+              "value": "Secondary Endpoint",
+              "quote": "Secondary Endpoints:",
+              "section_id": "sec-2.2",
+              "confidence": 0.85
+            },
+            "purpose": {
+              "value": "Efficacy",
+              "quote": "1-year, 2-year, and 3-year survival probabilities.",
+              "section_id": "sec-2.2",
+              "confidence": 0.6
+            }
+          },
+          {
+            "text": {
+              "value": "Objective Response (OR: CR or PR).",
+              "quote": "Objective Response (OR: CR or PR).",
+              "section_id": "sec-2.2",
+              "confidence": 0.6
+            },
+            "label": "Objective response",
+            "level": {
+              "value": "Secondary Endpoint",
+              "quote": "Secondary Endpoints:",
+              "section_id": "sec-2.2",
+              "confidence": 0.85
+            },
+            "purpose": {
+              "value": "Efficacy",
+              "quote": "Objective Response (OR: CR or PR).",
+              "section_id": "sec-2.2",
+              "confidence": 0.6
+            }
+          },
+          {
+            "text": {
+              "value": "Duration of Response (DR).",
+              "quote": "Duration of Response (DR).",
+              "section_id": "sec-2.2",
+              "confidence": 0.85
+            },
+            "label": "Duration of response",
+            "level": {
+              "value": "Secondary Endpoint",
+              "quote": "Secondary Endpoints:",
+              "section_id": "sec-2.2",
+              "confidence": 0.85
+            },
+            "purpose": {
+              "value": "Efficacy",
+              "quote": "Duration of Response (DR).",
+              "section_id": "sec-2.2",
+              "confidence": 0.8
+            }
+          },
+          {
+            "text": {
+              "value": "Clinical Benefit Response (CBR: CR or PR or SD 24 weeks).",
+              "quote": "Clinical Benefit Response (CBR: CR or PR or SD 24 weeks).",
+              "section_id": "sec-2.2",
+              "confidence": 0.85
+            },
+            "label": "Clinical benefit response",
+            "level": {
+              "value": "Secondary Endpoint",
+              "quote": "Secondary Endpoints:",
+              "section_id": "sec-2.2",
+              "confidence": 0.85
+            },
+            "purpose": {
+              "value": "Efficacy",
+              "quote": "Clinical Benefit Response (CBR: CR or PR or SD 24 weeks).",
+              "section_id": "sec-2.2",
+              "confidence": 0.8
+            }
+          }
+        ]
+      },
+      {
+        "text": {
+          "value": "To compare safety and tolerability between the treatment arms.",
+          "quote": "To compare safety and tolerability between the treatment arms.",
+          "section_id": "sec-2.1",
+          "confidence": 0.9
+        },
+        "label": "Safety and tolerability",
+        "level": {
+          "value": "Trial Secondary Objective",
+          "quote": "Secondary Objectives:",
+          "section_id": "sec-2.1",
+          "confidence": 0.9
+        },
+        "endpoints": [
+          {
+            "text": {
+              "value": "Type, incidence, severity (as graded by the National Cancer Institute Common Terminology Criteria for Adverse Events [NCI CTCAE] v4.0), seriousness and relationship to study medications of AEs and any laboratory abnormalities.",
+              "quote": "Type, incidence, severity (as graded by the National Cancer Institute Common Terminology Criteria for Adverse Events [NCI CTCAE] v4.0), seriousness and relationship to study medications",
+              "section_id": "sec-2.2",
+              "confidence": 0.85
+            },
+            "label": "Adverse event characteristics",
+            "level": {
+              "value": "Secondary Endpoint",
+              "quote": "Secondary Endpoints:",
+              "section_id": "sec-2.2",
+              "confidence": 0.85
+            },
+            "purpose": {
+              "value": "Safety",
+              "quote": "Adverse Events",
+              "section_id": "sec-2.2",
+              "confidence": 0.8
+            }
+          }
+        ]
+      },
+      {
+        "text": {
+          "value": "To evaluate trough concentrations of palbociclib when given in combination with fulvestrant or fulvestrant plus goserelin compared to historical palbociclib data.",
+          "quote": "To evaluate trough concentrations of palbociclib when given in combination with fulvestrant or fulvestrant plus goserelin compared to historical palbociclib data.",
+          "section_id": "sec-2.1",
+          "confidence": 0.9
+        },
+        "label": "Palbociclib trough concentrations",
+        "level": {
+          "value": "Trial Secondary Objective",
+          "quote": "Secondary Objectives:",
+          "section_id": "sec-2.1",
+          "confidence": 0.9
+        },
+        "endpoints": [
+          {
+            "text": {
+              "value": "Trough plasma concentration of palbociclib, fulvestrant and goserelin (if applicable) in the subgroup of approximately 40 patients included in the initial safety assessment.",
+              "quote": "Trough plasma concentration of palbociclib, fulvestrant and goserelin (if applicable) in the subgroup of approximately 40 patients",
+              "section_id": "sec-2.2",
+              "confidence": 0.6
+            },
+            "label": "PK trough concentrations",
+            "level": {
+              "value": "Secondary Endpoint",
+              "quote": "Secondary Endpoints:",
+              "section_id": "sec-2.2",
+              "confidence": 0.85
+            },
+            "purpose": {
+              "value": "Pharmacokinetics",
+              "quote": "Trough plasma concentration of palbociclib, fulvestrant and goserelin",
+              "section_id": "sec-2.2",
+              "confidence": 0.7
+            }
+          }
+        ]
+      },
+      {
+        "text": {
+          "value": "To compare fulvestrant and goserelin trough concentrations when given in combination with palbociclib to those when given without palbociclib.",
+          "quote": "To compare fulvestrant and goserelin trough concentrations when given in combination with palbociclib to those when given without palbociclib.",
+          "section_id": "sec-2.1",
+          "confidence": 0.9
+        },
+        "label": "Fulvestrant/goserelin trough concentrations",
+        "level": {
+          "value": "Trial Secondary Objective",
+          "quote": "Secondary Objectives:",
+          "section_id": "sec-2.1",
+          "confidence": 0.9
+        },
+        "endpoints": [
+          {
+            "text": {
+              "value": "Trough plasma concentration of palbociclib, fulvestrant and goserelin (if applicable) in the subgroup of approximately 40 patients included in the initial safety assessment.",
+              "quote": "Trough plasma concentration of palbociclib, fulvestrant and goserelin (if applicable) in the subgroup of approximately 40 patients",
+              "section_id": "sec-2.2",
+              "confidence": 0.6
+            },
+            "label": "PK trough concentrations",
+            "level": {
+              "value": "Secondary Endpoint",
+              "quote": "Secondary Endpoints:",
+              "section_id": "sec-2.2",
+              "confidence": 0.85
+            },
+            "purpose": {
+              "value": "Pharmacokinetics",
+              "quote": "Trough plasma concentration of palbociclib, fulvestrant and goserelin",
+              "section_id": "sec-2.2",
+              "confidence": 0.7
+            }
+          }
+        ]
+      },
+      {
+        "text": {
+          "value": "To explore correlations between palbociclib exposures and efficacy/safety findings in this patient population.",
+          "quote": "To explore correlations between palbociclib exposures and efficacy/safety findings in this patient population.",
+          "section_id": "sec-2.1",
+          "confidence": 0.9
+        },
+        "label": "Exposure-efficacy/safety correlations",
+        "level": {
+          "value": "Trial Secondary Objective",
+          "quote": "Secondary Objectives:",
+          "section_id": "sec-2.1",
+          "confidence": 0.9
+        },
+        "endpoints": []
+      },
+      {
+        "text": {
+          "value": "To compare Patient Reported Outcomes measures between treatment arms.",
+          "quote": "To compare Patient Reported Outcomes measures between treatment arms.",
+          "section_id": "sec-2.1",
+          "confidence": 0.9
+        },
+        "label": "Patient reported outcomes",
+        "level": {
+          "value": "Trial Secondary Objective",
+          "quote": "Secondary Objectives:",
+          "section_id": "sec-2.1",
+          "confidence": 0.9
+        },
+        "endpoints": [
+          {
+            "text": {
+              "value": "PRO endpoints such as global quality of life , symptoms and functioning assessed using the European Organisation for Research and Treatment of Cancer Quality of Life Instrument (EORTC QLQ-C30) and European Organisation for Research and Treatment of Cancer Breast Cancer Module (EORTC QLQ-BR23) and Dimension Health State EuroQoL Score (EQ-5D) and time to deterioration (TTD) in pain endpoint.",
+              "quote": "PRO endpoints such as global quality of life , symptoms and functioning assessed using the European Organisation for Research and Treatment of Cancer Quality of",
+              "section_id": "sec-2.2",
+              "confidence": 0.8
+            },
+            "label": "PRO scores",
+            "level": {
+              "value": "Secondary Endpoint",
+              "quote": "Secondary Endpoints:",
+              "section_id": "sec-2.2",
+              "confidence": 0.85
+            },
+            "purpose": {
+              "value": "Patient-Reported Outcome",
+              "quote": "PRO endpoints such as global quality of life",
+              "section_id": "sec-2.2",
+              "confidence": 0.75
+            }
+          }
+        ]
+      },
+      {
+        "text": {
+          "value": "To characterize alterations in genes, proteins, and RNAs relevant to the cell cycle, drug targets, tumor sensitivity and/or resistance.",
+          "quote": "To characterize alterations in genes, proteins, and RNAs relevant to the cell cycle, drug targets, tumor sensitivity and/or resistance.",
+          "section_id": "sec-2.1",
+          "confidence": 0.9
+        },
+        "label": "Biomarker alterations",
+        "level": {
+          "value": "Trial Secondary Objective",
+          "quote": "Secondary Objectives:",
+          "section_id": "sec-2.1",
+          "confidence": 0.9
+        },
+        "endpoints": [
+          {
+            "text": {
+              "value": "Tumor tissue biomarkers, including genes (eg, copy numbers of CCND1 and CDKN2A, PIK3CA mutations), proteins (eg, Ki67, pRb, CCNE1), and RNA expression (eg, cdk4, cdk6).",
+              "quote": "Tumor tissue biomarkers, including genes (eg, copy numbers of CCND1 and CDKN2A, PIK3CA mutations), proteins (eg, Ki67, pRb, CCNE1), and RNA expression (eg, cdk4, cdk6).",
+              "section_id": "sec-2.2",
+              "confidence": 0.85
+            },
+            "label": "Tumor tissue biomarkers",
+            "level": {
+              "value": "Secondary Endpoint",
+              "quote": "Secondary Endpoints:",
+              "section_id": "sec-2.2",
+              "confidence": 0.85
+            },
+            "purpose": {
+              "value": "Biomarker",
+              "quote": "Tumor tissue biomarkers, including genes",
+              "section_id": "sec-2.2",
+              "confidence": 0.75
+            }
+          }
+        ]
+      },
+      {
+        "text": {
+          "value": "To conduct subgroup analysis for primary and secondary endpoints in stratified groups.",
+          "quote": "To conduct subgroup analysis for primary and secondary endpoints in stratified groups.",
+          "section_id": "sec-2.1",
+          "confidence": 0.9
+        },
+        "label": "Subgroup analysis",
+        "level": {
+          "value": "Trial Secondary Objective",
+          "quote": "Secondary Objectives:",
+          "section_id": "sec-2.1",
+          "confidence": 0.9
+        },
+        "endpoints": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,986 @@
+{
+  "run": {
+    "sheet": "interventions",
+    "status": "done",
+    "started_at": "2026-09-13T21:38:42.185165Z",
+    "finished_at": "2026-09-13T21:39:15.777340Z",
+    "input_hash": "35099159add1c3108188ffe76b8e56221c128519c83644081814cf901bce2a84",
+    "postprocess_version": "1+verify4",
+    "reprocessed": false,
+    "section_ids": [
+      "sec-1.2.1.5",
+      "sec-5",
+      "sec-5.3",
+      "sec-5.3.1",
+      "sec-5.3.1.1",
+      "sec-5.3.1.2",
+      "sec-5.3.3",
+      "sec-5.3.3.1",
+      "sec-5.3.3.2",
+      "sec-5.6"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 9474,
+      "output_tokens": 4224,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 33.56,
+      "cost_usd": 0.061188,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": []
+  },
+  "records": [
+    {
+      "row_id": null,
+      "name": {
+        "value": "Palbociclib",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the intervention name",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Palbociclib",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.1.1",
+          "source_page": 54,
+          "raw_phrase": "Palbociclib will be supplied as capsules containing 75 mg, 100 mg, or 125 mg equivalents of\npalbociclib free base.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": "Palbociclib capsules containing 75 mg, 100 mg, or 125 mg equivalents of palbociclib free base",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.1.1",
+          "source_page": 54,
+          "raw_phrase": "Palbociclib will be supplied as capsules containing 75 mg, 100 mg, or 125 mg equivalents of\npalbociclib free base.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "role": {
+        "value": "Protocol Agent",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3",
+          "source_page": 54,
+          "raw_phrase": "The experimental drugs used in the course of this trial are palbociclib or placebo.",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C207417",
+          "codelist_name": "Study Intervention Role Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C41161",
+          "submission_value": "Experimental Intervention",
+          "preferred_term": "Protocol Agent",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "type": {
+        "value": "Pharmacologic Substance",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.1.1",
+          "source_page": 54,
+          "raw_phrase": "Palbociclib will be supplied as capsules",
+          "confidence": 0.7,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C99078",
+          "codelist_name": "Intervention Type Response",
+          "ct_version": "2026-03-27",
+          "code": "C1909",
+          "submission_value": "DRUG",
+          "preferred_term": "Pharmacologic Substance",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "minimum_response_duration": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "administration_name": {
+        "value": "Palbociclib 125 mg orally once daily",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the administration name",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_label": {
+        "value": "Palbociclib 125 mg orally once daily",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-1.2.1.5",
+          "source_page": 34,
+          "raw_phrase": "the RP2D for this\nschedule was determined to be 125 mg/day",
+          "confidence": 0.6,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_description": {
+        "value": "Palbociclib/placebo will be administered orally once a day for 21 days followed by 7 days off treatment for each 28-day cycle",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.3.1",
+          "source_page": 56,
+          "raw_phrase": "Palbociclib/placebo will be administered\norally once a day for 21 days followed by 7 days off treatment for each 28-day cycle.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_route": {
+        "value": "ORAL",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.3.1",
+          "source_page": 56,
+          "raw_phrase": "Patients should be instructed to swallow palbociclib/placebo capsules whole",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66729",
+          "codelist_name": "Route of Administration Response",
+          "ct_version": "2026-03-27",
+          "code": "C38288",
+          "submission_value": "ORAL",
+          "preferred_term": "Oral Route of Administration",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "administration_dose": {
+        "value": "125 mg",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-1.2.1.5",
+          "source_page": 34,
+          "raw_phrase": "the RP2D for this\nschedule was determined to be 125 mg/day",
+          "confidence": 0.5,
+          "verified": true,
+          "note": "number with CDISC unit",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_frequency": {
+        "value": "QD",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.3.1",
+          "source_page": 56,
+          "raw_phrase": "administered\norally once a day",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C71113",
+          "codelist_name": "Frequency",
+          "ct_version": "2026-03-27",
+          "code": "C25473",
+          "submission_value": "QD",
+          "preferred_term": "Daily",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "duration_description": {
+        "value": "21 days on treatment followed by 7 days off treatment for each 28-day cycle",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.3.1",
+          "source_page": 56,
+          "raw_phrase": "for 21 days followed by 7 days off treatment for each 28-day cycle",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "duration_will_vary": {
+        "value": "N",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.3.1",
+          "source_page": 56,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "judged from the stated duration",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "duration_will_vary_reason": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "duration_quantity": {
+        "value": "21 DAYS",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.3.1",
+          "source_page": 56,
+          "raw_phrase": "for 21 days followed by 7 days off treatment",
+          "confidence": 0.6,
+          "verified": true,
+          "note": "number with CDISC unit",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "Placebo",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the intervention name",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Placebo",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.1.1",
+          "source_page": 54,
+          "raw_phrase": "Placebo will be indistinguishable from the palbociclib capsules and will be supplied as\ncapsules matching in size and color the various palbociclib dosage strengths",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": "Placebo capsules matching in size and color the various palbociclib dosage strengths",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.1.1",
+          "source_page": 54,
+          "raw_phrase": "Placebo will be indistinguishable from the palbociclib capsules and will be supplied as\ncapsules matching in size and color the various palbociclib dosage strengths",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "role": {
+        "value": "Placebo",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3",
+          "source_page": 54,
+          "raw_phrase": "The experimental drugs used in the course of this trial are palbociclib or placebo.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C207417",
+          "codelist_name": "Study Intervention Role Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C753",
+          "submission_value": "Placebo",
+          "preferred_term": "Placebo",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "type": {
+        "value": "Pharmacologic Substance",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.1.1",
+          "source_page": 54,
+          "raw_phrase": "Placebo will be indistinguishable from the palbociclib capsules",
+          "confidence": 0.6,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C99078",
+          "codelist_name": "Intervention Type Response",
+          "ct_version": "2026-03-27",
+          "code": "C1909",
+          "submission_value": "DRUG",
+          "preferred_term": "Pharmacologic Substance",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "minimum_response_duration": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "administration_name": {
+        "value": "Placebo capsule orally once daily",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the administration name",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_label": {
+        "value": "Placebo capsule orally once daily",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.3.1",
+          "source_page": 56,
+          "raw_phrase": "Palbociclib/placebo will be administered\norally once a day for 21 days followed by 7 days off treatment for each 28-day cycle.",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_description": {
+        "value": "Palbociclib/placebo will be administered orally once a day for 21 days followed by 7 days off treatment for each 28-day cycle",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.3.1",
+          "source_page": 56,
+          "raw_phrase": "Palbociclib/placebo will be administered\norally once a day for 21 days followed by 7 days off treatment for each 28-day cycle.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_route": {
+        "value": "ORAL",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.3.1",
+          "source_page": 56,
+          "raw_phrase": "Patients should be instructed to swallow palbociclib/placebo capsules whole",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66729",
+          "codelist_name": "Route of Administration Response",
+          "ct_version": "2026-03-27",
+          "code": "C38288",
+          "submission_value": "ORAL",
+          "preferred_term": "Oral Route of Administration",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "administration_dose": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "administration_frequency": {
+        "value": "QD",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.3.1",
+          "source_page": 56,
+          "raw_phrase": "administered\norally once a day",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C71113",
+          "codelist_name": "Frequency",
+          "ct_version": "2026-03-27",
+          "code": "C25473",
+          "submission_value": "QD",
+          "preferred_term": "Daily",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "duration_description": {
+        "value": "21 days on treatment followed by 7 days off treatment for each 28-day cycle",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.3.1",
+          "source_page": 56,
+          "raw_phrase": "for 21 days followed by 7 days off treatment for each 28-day cycle",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "duration_will_vary": {
+        "value": "N",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.3.1",
+          "source_page": 56,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "judged from the stated duration",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "duration_will_vary_reason": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "duration_quantity": {
+        "value": "21 DAYS",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.3.1",
+          "source_page": 56,
+          "raw_phrase": "for 21 days followed by 7 days off treatment",
+          "confidence": 0.6,
+          "verified": true,
+          "note": "number with CDISC unit",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "Fulvestrant",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the intervention name",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Fulvestrant",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3",
+          "source_page": 54,
+          "raw_phrase": "all patients will receive fulvestrant\n(Faslodex ) administered at the study site",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": "Commercially available fulvestrant, 50mg/mL solution, administered at the study site",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.1.2",
+          "source_page": 55,
+          "raw_phrase": "Commercially available fulvestrant, 50mg/mL solution, will be supplied to sites by the\nsponsor.",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "role": {
+        "value": "Background Treatment",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3",
+          "source_page": 54,
+          "raw_phrase": "all patients will receive fulvestrant\n(Faslodex ) administered at the study site",
+          "confidence": 0.6,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C207417",
+          "codelist_name": "Study Intervention Role Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C165822",
+          "submission_value": "Background Treatment",
+          "preferred_term": "Background Treatment",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "type": {
+        "value": "Pharmacologic Substance",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.1.2",
+          "source_page": 55,
+          "raw_phrase": "Commercially available fulvestrant, 50mg/mL solution",
+          "confidence": 0.7,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C99078",
+          "codelist_name": "Intervention Type Response",
+          "ct_version": "2026-03-27",
+          "code": "C1909",
+          "submission_value": "DRUG",
+          "preferred_term": "Pharmacologic Substance",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "minimum_response_duration": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "administration_name": {
+        "value": "Fulvestrant 500 mg intramuscular",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the administration name",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_label": {
+        "value": "Fulvestrant 500 mg intramuscular",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.3.2",
+          "source_page": 56,
+          "raw_phrase": "Fulvestrant 500 mg will be administered intramuscularly into the buttocks slowly\n(1-2 minutes per injection) as two 5 mL injections, one in each buttock.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_description": {
+        "value": "Fulvestrant 500 mg administered intramuscularly into the buttocks slowly as two 5 mL injections, one in each buttock",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.3.2",
+          "source_page": 56,
+          "raw_phrase": "Fulvestrant 500 mg will be administered intramuscularly into the buttocks slowly\n(1-2 minutes per injection) as two 5 mL injections, one in each buttock.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_route": {
+        "value": "INTRAMUSCULAR",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.3.2",
+          "source_page": 56,
+          "raw_phrase": "administered intramuscularly into the buttocks slowly",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66729",
+          "codelist_name": "Route of Administration Response",
+          "ct_version": "2026-03-27",
+          "code": "C28161",
+          "submission_value": "INTRAMUSCULAR",
+          "preferred_term": "Intramuscular Route of Administration",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "administration_dose": {
+        "value": "500 mg",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.3.2",
+          "source_page": 56,
+          "raw_phrase": "Fulvestrant 500 mg will be administered intramuscularly",
+          "confidence": 0.9,
+          "verified": true,
+          "note": "number with CDISC unit",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_frequency": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "duration_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "duration_will_vary": {
+        "value": "N",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-5.3.3.2",
+          "source_page": 56,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "judged from the stated duration",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "duration_will_vary_reason": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "duration_quantity": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      }
+    }
+  ],
+  "model_output": {
+    "interventions": [
+      {
+        "label": {
+          "value": "Palbociclib",
+          "quote": "Palbociclib will be supplied as capsules containing 75 mg, 100 mg, or 125 mg equivalents of\npalbociclib free base.",
+          "section_id": "sec-5.3.1.1",
+          "confidence": 0.9
+        },
+        "description": {
+          "value": "Palbociclib capsules containing 75 mg, 100 mg, or 125 mg equivalents of palbociclib free base",
+          "quote": "Palbociclib will be supplied as capsules containing 75 mg, 100 mg, or 125 mg equivalents of\npalbociclib free base.",
+          "section_id": "sec-5.3.1.1",
+          "confidence": 0.9
+        },
+        "role": {
+          "value": "Protocol Agent",
+          "quote": "The experimental drugs used in the course of this trial are palbociclib or placebo.",
+          "section_id": "sec-5.3",
+          "confidence": 0.85
+        },
+        "type": {
+          "value": "Pharmacologic Substance",
+          "quote": "Palbociclib will be supplied as capsules",
+          "section_id": "sec-5.3.1.1",
+          "confidence": 0.7
+        },
+        "administrations": [
+          {
+            "label": {
+              "value": "Palbociclib 125 mg orally once daily",
+              "quote": "the RP2D for this\nschedule was determined to be 125 mg/day",
+              "section_id": "sec-1.2.1.5",
+              "confidence": 0.6
+            },
+            "description": {
+              "value": "Palbociclib/placebo will be administered orally once a day for 21 days followed by 7 days off treatment for each 28-day cycle",
+              "quote": "Palbociclib/placebo will be administered\norally once a day for 21 days followed by 7 days off treatment for each 28-day cycle.",
+              "section_id": "sec-5.3.3.1",
+              "confidence": 0.9
+            },
+            "route": {
+              "value": "ORAL",
+              "quote": "Patients should be instructed to swallow palbociclib/placebo capsules whole",
+              "section_id": "sec-5.3.3.1",
+              "confidence": 0.9
+            },
+            "dose_value": {
+              "value": "125",
+              "quote": "the RP2D for this\nschedule was determined to be 125 mg/day",
+              "section_id": "sec-1.2.1.5",
+              "confidence": 0.5
+            },
+            "dose_unit": "mg",
+            "frequency": {
+              "value": "QD",
+              "quote": "administered\norally once a day",
+              "section_id": "sec-5.3.3.1",
+              "confidence": 0.85
+            },
+            "duration_description": {
+              "value": "21 days on treatment followed by 7 days off treatment for each 28-day cycle",
+              "quote": "for 21 days followed by 7 days off treatment for each 28-day cycle",
+              "section_id": "sec-5.3.3.1",
+              "confidence": 0.85
+            },
+            "duration_value": {
+              "value": "21",
+              "quote": "for 21 days followed by 7 days off treatment",
+              "section_id": "sec-5.3.3.1",
+              "confidence": 0.6
+            },
+            "duration_unit": "days",
+            "duration_will_vary": false,
+            "duration_will_vary_reason": {
+              "value": null,
+              "quote": null,
+              "section_id": null,
+              "confidence": 0.0
+            }
+          }
+        ]
+      },
+      {
+        "label": {
+          "value": "Placebo",
+          "quote": "Placebo will be indistinguishable from the palbociclib capsules and will be supplied as\ncapsules matching in size and color the various palbociclib dosage strengths",
+          "section_id": "sec-5.3.1.1",
+          "confidence": 0.9
+        },
+        "description": {
+          "value": "Placebo capsules matching in size and color the various palbociclib dosage strengths",
+          "quote": "Placebo will be indistinguishable from the palbociclib capsules and will be supplied as\ncapsules matching in size and color the various palbociclib dosage strengths",
+          "section_id": "sec-5.3.1.1",
+          "confidence": 0.9
+        },
+        "role": {
+          "value": "Placebo",
+          "quote": "The experimental drugs used in the course of this trial are palbociclib or placebo.",
+          "section_id": "sec-5.3",
+          "confidence": 0.9
+        },
+        "type": {
+          "value": "Pharmacologic Substance",
+          "quote": "Placebo will be indistinguishable from the palbociclib capsules",
+          "section_id": "sec-5.3.1.1",
+          "confidence": 0.6
+        },
+        "administrations": [
+          {
+            "label": {
+              "value": "Placebo capsule orally once daily",
+              "quote": "Palbociclib/placebo will be administered\norally once a day for 21 days followed by 7 days off treatment for each 28-day cycle.",
+              "section_id": "sec-5.3.3.1",
+              "confidence": 0.85
+            },
+            "description": {
+              "value": "Palbociclib/placebo will be administered orally once a day for 21 days followed by 7 days off treatment for each 28-day cycle",
+              "quote": "Palbociclib/placebo will be administered\norally once a day for 21 days followed by 7 days off treatment for each 28-day cycle.",
+              "section_id": "sec-5.3.3.1",
+              "confidence": 0.9
+            },
+            "route": {
+              "value": "ORAL",
+              "quote": "Patients should be instructed to swallow palbociclib/placebo capsules whole",
+              "section_id": "sec-5.3.3.1",
+              "confidence": 0.9
+            },
+            "dose_value": {
+              "value": null,
+              "quote": null,
+              "section_id": null,
+              "confidence": 0.0
+            },
+            "dose_unit": null,
+            "frequency": {
+              "value": "QD",
+              "quote": "administered\norally once a day",
+              "section_id": "sec-5.3.3.1",
+              "confidence": 0.85
+            },
+            "duration_description": {
+              "value": "21 days on treatment followed by 7 days off treatment for each 28-day cycle",
+              "quote": "for 21 days followed by 7 days off treatment for each 28-day cycle",
+              "section_id": "sec-5.3.3.1",
+              "confidence": 0.85
+            },
+            "duration_value": {
+              "value": "21",
+              "quote": "for 21 days followed by 7 days off treatment",
+              "section_id": "sec-5.3.3.1",
+              "confidence": 0.6
+            },
+            "duration_unit": "days",
+            "duration_will_vary": false,
+            "duration_will_vary_reason": {
+              "value": null,
+              "quote": null,
+              "section_id": null,
+              "confidence": 0.0
+            }
+          }
+        ]
+      },
+      {
+        "label": {
+          "value": "Fulvestrant",
+          "quote": "all patients will receive fulvestrant\n(Faslodex ) administered at the study site",
+          "section_id": "sec-5.3",
+          "confidence": 0.9
+        },
+        "description": {
+          "value": "Commercially available fulvestrant, 50mg/mL solution, administered at the study site",
+          "quote": "Commercially available fulvestrant, 50mg/mL solution, will be supplied to sites by the\nsponsor.",
+          "section_id": "sec-5.3.1.2",
+          "confidence": 0.85
+        },
+        "role": {
+          "value": "Background Treatment",
+          "quote": "all patients will receive fulvestrant\n(Faslodex ) administered at the study site",
+          "section_id": "sec-5.3",
+          "confidence": 0.6
+        },
+        "type": {
+          "value": "Pharmacologic Substance",
+          "quote": "Commercially available fulvestrant, 50mg/mL solution",
+          "section_id": "sec-5.3.1.2",
+          "confidence": 0.7
+        },
+        "administrations": [
+          {
+            "label": {
+              "value": "Fulvestrant 500 mg intramuscular",
+              "quote": "Fulvestrant 500 mg will be administered intramuscularly into the buttocks slowly\n(1-2 minutes per injection) as two 5 mL injections, one in each buttock.",
+              "section_id": "sec-5.3.3.2",
+              "confidence": 0.9
+            },
+            "description": {
+              "value": "Fulvestrant 500 mg administered intramuscularly into the buttocks slowly as two 5 mL injections, one in each buttock",
+              "quote": "Fulvestrant 500 mg will be administered intramuscularly into the buttocks slowly\n(1-2 minutes per injection) as two 5 mL injections, one in each buttock.",
+              "section_id": "sec-5.3.3.2",
+              "confidence": 0.9
+            },
+            "route": {
+              "value": "INTRAMUSCULAR",
+              "quote": "administered intramuscularly into the buttocks slowly",
+              "section_id": "sec-5.3.3.2",
+              "confidence": 0.9
+            },
+            "dose_value": {
+              "value": "500",
+              "quote": "Fulvestrant 500 mg will be administered intramuscularly",
+              "section_id": "sec-5.3.3.2",
+              "confidence": 0.9
+            },
+            "dose_unit": "mg",
+            "frequency": {
+              "value": null,
+              "quote": null,
+              "section_id": null,
+              "confidence": 0.0
+            },
+            "duration_description": {
+              "value": null,
+              "quote": null,
+              "section_id": null,
+              "confidence": 0.0
+            },
+            "duration_value": {
+              "value": null,
+              "quote": null,
+              "section_id": null,
+              "confidence": 0.0
+            },
+            "duration_unit": null,
+            "duration_will_vary": false,
+            "duration_will_vary_reason": {
+              "value": null,
+              "quote": null,
+              "section_id": null,
+              "confidence": 0.0
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

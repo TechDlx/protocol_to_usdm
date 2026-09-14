@@ -1,0 +1,1861 @@
+{
+  "run": {
+    "sheet": "assessments",
+    "status": "done",
+    "started_at": "2026-09-13T21:39:23.451880Z",
+    "finished_at": "2026-09-13T21:40:52.130002Z",
+    "input_hash": "7f069d69a70b14afe8487b9d2bdd5dacdc11a23de3c115899a1e570a9b365db0",
+    "postprocess_version": "1+verify4",
+    "reprocessed": false,
+    "section_ids": [
+      "sec-6",
+      "sec-6.1",
+      "sec-6.3",
+      "sec-6.4",
+      "sec-6.5",
+      "sec-6.5.1",
+      "sec-7",
+      "sec-7.1",
+      "sec-7.2",
+      "sec-7.2.1",
+      "sec-7.2.2",
+      "sec-7.2.2.1",
+      "sec-7.2.2.2",
+      "sec-7.2.2.3",
+      "sec-7.2.2.4",
+      "sec-7.2.2.5",
+      "sec-7.2.3",
+      "sec-7.2.4",
+      "sec-7.3",
+      "sec-7.3.1",
+      "sec-7.3.2",
+      "sec-7.3.3",
+      "sec-7.4",
+      "sec-7.5",
+      "sec-7.5.1",
+      "sec-7.5.2",
+      "sec-7.5.3",
+      "sec-7.6",
+      "sec-7.6.1"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 14241,
+      "output_tokens": 12234,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 88.65,
+      "cost_usd": 0.150822,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": []
+  },
+  "records": [
+    {
+      "assessment": {
+        "value": "Pregnancy Testing",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-7.1",
+          "source_page": 72,
+          "raw_phrase": "a serum pregnancy test, with a sensitivity of at least\n25 mIU/mL will be performed",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "serum pregnancy test (hCG)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.1",
+            "source_page": 72,
+            "raw_phrase": "a serum pregnancy test, with a sensitivity of at least 25 mIU/mL will be performed",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "Snellen Best Corrected Visual Acuity and Refraction",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-7.2.2.1",
+          "source_page": 73,
+          "raw_phrase": "Snellen visual acuity will be assessed by using a standard wall or projection chart",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "visual acuity",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.2.2.1",
+            "source_page": 73,
+            "raw_phrase": "Snellen visual acuity will be assessed by using a standard wall or projection chart",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "refractive error",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.2.2.1",
+            "source_page": 73,
+            "raw_phrase": "The refractive error will be determined at the Screening visit.",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "Intraocular Pressure Measurement",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-7.2.2.2",
+          "source_page": 74,
+          "raw_phrase": "Intraocular pressure (IOP) will be measured using a calibrated Goldmann applanation\ntonometer.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "intraocular pressure (IOP)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.2.2.2",
+            "source_page": 74,
+            "raw_phrase": "Intraocular pressure (IOP) will be measured using a calibrated Goldmann applanation tonometer.",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "Slit-Lamp Biomicroscopy",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-7.2.2.3",
+          "source_page": 74,
+          "raw_phrase": "Slit-lamp biomicroscopy with fluorescein will be performed.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "Grading of aqueous flare",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.2.2.3",
+            "source_page": 74,
+            "raw_phrase": "Grading of aqueous flarea",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Grading of cells in the aqueous",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.2.2.3",
+            "source_page": 74,
+            "raw_phrase": "Grading of cells in the aqueousa",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "Lens Grading",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-7.2.2.4",
+          "source_page": 75,
+          "raw_phrase": "The Wisconsin AREDS 2008\nClinical Lens Opacity Grading Procedure will be used.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "Nuclear opacity",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.2.2.4",
+            "source_page": 75,
+            "raw_phrase": "Nuclear opacity:",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Cortical and PSC opacities",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.2.2.4",
+            "source_page": 75,
+            "raw_phrase": "Cortical and PSC opacities:",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "Laboratory Safety Assessments - Hematology Panel",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-7.3.1",
+          "source_page": 76,
+          "raw_phrase": "Hematology Panel",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "Hemoglobin",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "Hemoglobin",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Platelets",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "Platelets",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "WBC",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "WBC",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Absolute Neutrophil Count",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "Absolute Neutrophil",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "Laboratory Safety Assessments - Blood Chemistry Panel",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-7.3.1",
+          "source_page": 76,
+          "raw_phrase": "Blood Chemistry Panel",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "ALT",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "ALT",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "AST",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "AST",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Alkaline Phosphatase",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "Alkaline Phosphatase",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Sodium",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "Sodium",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Potassium",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "Potassium",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Total Calcium",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "Total Calcium",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Magnesium",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "Magnesium",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Total Bilirubin",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "Total Bilirubin",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "BUN or Urea",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "BUN or Urea",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Serum Creatinine",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "Serum Creatinine",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Albumin",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "Albumin",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Hemoglobin A1c",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "Hemoglobin A1c",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "Laboratory Safety Assessments - Hormonal Status Panel",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-7.3.1",
+          "source_page": 76,
+          "raw_phrase": "Hormonal Status (if",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "Serum Beta-HCG",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "Serum Beta-HCG*",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "Serum estradiol",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "Serum estradiol**",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "FSH",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.1",
+            "source_page": 76,
+            "raw_phrase": "FSH**",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "Electrocardiogram",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-7.3.2",
+          "source_page": 77,
+          "raw_phrase": "ECG measurements will include PR interval, QT interval, RR interval, and\nQRS complex.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "PR interval",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.2",
+            "source_page": 77,
+            "raw_phrase": "PR interval",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "QT interval",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.2",
+            "source_page": 77,
+            "raw_phrase": "QT interval",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "RR interval",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.2",
+            "source_page": 77,
+            "raw_phrase": "RR interval",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "QRS complex",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.2",
+            "source_page": 77,
+            "raw_phrase": "QRS complex",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "Physical Examination and Vital Signs",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-7.3.3",
+          "source_page": 77,
+          "raw_phrase": "A full physical examination including an examination of all major body systems and breasts,\nheight (at screening only), weight, blood pressure and pulse rate",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "examination of all major body systems and breasts",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.3",
+            "source_page": 77,
+            "raw_phrase": "examination of all major body systems and breasts",
+            "confidence": 0.8,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "height",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.3",
+            "source_page": 77,
+            "raw_phrase": "height (at screening only)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "weight",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.3",
+            "source_page": 77,
+            "raw_phrase": "weight",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "blood pressure",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.3",
+            "source_page": 77,
+            "raw_phrase": "blood pressure",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "pulse rate",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.3",
+            "source_page": 77,
+            "raw_phrase": "pulse rate",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "ECOG Performance Status",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-7.3.3",
+          "source_page": 77,
+          "raw_phrase": "The ECOG performance status scale will be used",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "ECOG performance status",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.3.3",
+            "source_page": 77,
+            "raw_phrase": "The ECOG performance status scale will be used",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "Pharmacokinetic Assessments",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-7.4",
+          "source_page": 78,
+          "raw_phrase": "PK samples will be analyzed for palbociclib and fulvestrant concentrations.",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "palbociclib concentration",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.4",
+            "source_page": 78,
+            "raw_phrase": "PK samples will be analyzed for palbociclib and fulvestrant concentrations.",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "fulvestrant concentration",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.4",
+            "source_page": 78,
+            "raw_phrase": "PK samples will be analyzed for palbociclib and fulvestrant concentrations.",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "goserelin concentration",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.4",
+            "source_page": 78,
+            "raw_phrase": "PK samples will be analyzed for palbociclib, fulvestrant AND goserelin\nconcentrations.",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "EuroQol Health Utilities Index EQ-5D",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-7.5.1",
+          "source_page": 79,
+          "raw_phrase": "The EuroQol-5D (EQ-5D) (version 3L) (see Appendix 5 ) is a 6 item instrument designed to\nassess health status",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "mobility",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.1",
+            "source_page": 79,
+            "raw_phrase": "5 descriptors of current health state (mobility, self care, usual activities, pain/discomfort, and\nanxiety/depression)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "self care",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.1",
+            "source_page": 79,
+            "raw_phrase": "5 descriptors of current health state (mobility, self care, usual activities, pain/discomfort, and\nanxiety/depression)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "usual activities",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.1",
+            "source_page": 79,
+            "raw_phrase": "5 descriptors of current health state (mobility, self care, usual activities, pain/discomfort, and\nanxiety/depression)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "pain/discomfort",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.1",
+            "source_page": 79,
+            "raw_phrase": "5 descriptors of current health state (mobility, self care, usual activities, pain/discomfort, and\nanxiety/depression)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "anxiety/depression",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.1",
+            "source_page": 79,
+            "raw_phrase": "5 descriptors of current health state (mobility, self care, usual activities, pain/discomfort, and\nanxiety/depression)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "EQ VAS (self-rated health, visual analogue scale)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.1",
+            "source_page": 79,
+            "raw_phrase": "It also includes a visual analogue scale: the EQ VAS.",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "EORTC QLQ-C30",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-7.5.2",
+          "source_page": 79,
+          "raw_phrase": "The EORTC-QLQ-C30 (see Appendix 6 ) is a 30-item questionnaire composed of five\nmulti-item functional subscales",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "physical functioning",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.2",
+            "source_page": 79,
+            "raw_phrase": "five\nmulti-item functional subscales (physical, role, cognitive emotional, and social functioning)",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "role functioning",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.2",
+            "source_page": 79,
+            "raw_phrase": "five\nmulti-item functional subscales (physical, role, cognitive emotional, and social functioning)",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "cognitive functioning",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.2",
+            "source_page": 79,
+            "raw_phrase": "five\nmulti-item functional subscales (physical, role, cognitive emotional, and social functioning)",
+            "confidence": 0.8,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "emotional functioning",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.2",
+            "source_page": 79,
+            "raw_phrase": "five\nmulti-item functional subscales (physical, role, cognitive emotional, and social functioning)",
+            "confidence": 0.8,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "social functioning",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.2",
+            "source_page": 79,
+            "raw_phrase": "five\nmulti-item functional subscales (physical, role, cognitive emotional, and social functioning)",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "fatigue",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.2",
+            "source_page": 79,
+            "raw_phrase": "three multi-item symptom scales (fatigue, nausea/vomiting, and pain)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "nausea/vomiting",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.2",
+            "source_page": 79,
+            "raw_phrase": "three multi-item symptom scales (fatigue, nausea/vomiting, and pain)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "pain",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.2",
+            "source_page": 79,
+            "raw_phrase": "three multi-item symptom scales (fatigue, nausea/vomiting, and pain)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "global health/quality of life",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.2",
+            "source_page": 79,
+            "raw_phrase": "a global health/quality of life (QOL) subscale",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "dyspnea",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.2",
+            "source_page": 79,
+            "raw_phrase": "six single items assessing other cancer-related symptoms\n(dyspnea, sleep disturbance, appetite, diarrhea, constipation, and the financial impact of\ncancer)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "sleep disturbance",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.2",
+            "source_page": 79,
+            "raw_phrase": "six single items assessing other cancer-related symptoms\n(dyspnea, sleep disturbance, appetite, diarrhea, constipation, and the financial impact of\ncancer)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "appetite",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.2",
+            "source_page": 79,
+            "raw_phrase": "six single items assessing other cancer-related symptoms\n(dyspnea, sleep disturbance, appetite, diarrhea, constipation, and the financial impact of\ncancer)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "diarrhea",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.2",
+            "source_page": 79,
+            "raw_phrase": "six single items assessing other cancer-related symptoms\n(dyspnea, sleep disturbance, appetite, diarrhea, constipation, and the financial impact of\ncancer)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "constipation",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.2",
+            "source_page": 79,
+            "raw_phrase": "six single items assessing other cancer-related symptoms\n(dyspnea, sleep disturbance, appetite, diarrhea, constipation, and the financial impact of\ncancer)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "financial impact of cancer",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.2",
+            "source_page": 79,
+            "raw_phrase": "six single items assessing other cancer-related symptoms\n(dyspnea, sleep disturbance, appetite, diarrhea, constipation, and the financial impact of\ncancer)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    },
+    {
+      "assessment": {
+        "value": "EORTC QLQ-BR23",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-7.5.3",
+          "source_page": 79,
+          "raw_phrase": "The EORTC-QLQ-BR23 (see Appendix 7 ) is a 23-item breast cancer-specific companion\nmodule",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "measurements": [
+        {
+          "value": "body image",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.3",
+            "source_page": 79,
+            "raw_phrase": "two functional scales (body image and\nsexuality)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "sexuality",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.3",
+            "source_page": 79,
+            "raw_phrase": "two functional scales (body image and\nsexuality)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "arm/hand symptoms",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.3",
+            "source_page": 79,
+            "raw_phrase": "three symptom subscales (arm/hand, breast, and systemic side effects)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "breast symptoms",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.3",
+            "source_page": 79,
+            "raw_phrase": "three symptom subscales (arm/hand, breast, and systemic side effects)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "systemic side effects",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.3",
+            "source_page": 79,
+            "raw_phrase": "three symptom subscales (arm/hand, breast, and systemic side effects)",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "sexual enjoyment",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.3",
+            "source_page": 79,
+            "raw_phrase": "single\nitems covering sexual enjoyment, distress at hair loss, and future perspective",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "distress at hair loss",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.3",
+            "source_page": 79,
+            "raw_phrase": "single\nitems covering sexual enjoyment, distress at hair loss, and future perspective",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        {
+          "value": "future perspective",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-7.5.3",
+            "source_page": 79,
+            "raw_phrase": "single\nitems covering sexual enjoyment, distress at hair loss, and future perspective",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      ]
+    }
+  ],
+  "model_output": {
+    "assessments": [
+      {
+        "name": {
+          "value": "Pregnancy Testing",
+          "quote": "a serum pregnancy test, with a sensitivity of at least\n25 mIU/mL will be performed",
+          "section_id": "sec-7.1",
+          "confidence": 0.9
+        },
+        "measurements": [
+          {
+            "value": "serum pregnancy test (hCG)",
+            "quote": "a serum pregnancy test, with a sensitivity of at least 25 mIU/mL will be performed",
+            "section_id": "sec-7.1",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Snellen Best Corrected Visual Acuity and Refraction",
+          "quote": "Snellen visual acuity will be assessed by using a standard wall or projection chart",
+          "section_id": "sec-7.2.2.1",
+          "confidence": 0.9
+        },
+        "measurements": [
+          {
+            "value": "visual acuity",
+            "quote": "Snellen visual acuity will be assessed by using a standard wall or projection chart",
+            "section_id": "sec-7.2.2.1",
+            "confidence": 0.9
+          },
+          {
+            "value": "refractive error",
+            "quote": "The refractive error will be determined at the Screening visit.",
+            "section_id": "sec-7.2.2.1",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Intraocular Pressure Measurement",
+          "quote": "Intraocular pressure (IOP) will be measured using a calibrated Goldmann applanation\ntonometer.",
+          "section_id": "sec-7.2.2.2",
+          "confidence": 0.9
+        },
+        "measurements": [
+          {
+            "value": "intraocular pressure (IOP)",
+            "quote": "Intraocular pressure (IOP) will be measured using a calibrated Goldmann applanation tonometer.",
+            "section_id": "sec-7.2.2.2",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Slit-Lamp Biomicroscopy",
+          "quote": "Slit-lamp biomicroscopy with fluorescein will be performed.",
+          "section_id": "sec-7.2.2.3",
+          "confidence": 0.9
+        },
+        "measurements": [
+          {
+            "value": "Grading of aqueous flare",
+            "quote": "Grading of aqueous flarea",
+            "section_id": "sec-7.2.2.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "Grading of cells in the aqueous",
+            "quote": "Grading of cells in the aqueousa",
+            "section_id": "sec-7.2.2.3",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Lens Grading",
+          "quote": "The Wisconsin AREDS 2008\nClinical Lens Opacity Grading Procedure will be used.",
+          "section_id": "sec-7.2.2.4",
+          "confidence": 0.9
+        },
+        "measurements": [
+          {
+            "value": "Nuclear opacity",
+            "quote": "Nuclear opacity:",
+            "section_id": "sec-7.2.2.4",
+            "confidence": 0.85
+          },
+          {
+            "value": "Cortical and PSC opacities",
+            "quote": "Cortical and PSC opacities:",
+            "section_id": "sec-7.2.2.4",
+            "confidence": 0.85
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Laboratory Safety Assessments - Hematology Panel",
+          "quote": "Hematology Panel",
+          "section_id": "sec-7.3.1",
+          "confidence": 0.95
+        },
+        "measurements": [
+          {
+            "value": "Hemoglobin",
+            "quote": "Hemoglobin",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.95
+          },
+          {
+            "value": "Platelets",
+            "quote": "Platelets",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.95
+          },
+          {
+            "value": "WBC",
+            "quote": "WBC",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.95
+          },
+          {
+            "value": "Absolute Neutrophil Count",
+            "quote": "Absolute Neutrophil",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.85
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Laboratory Safety Assessments - Blood Chemistry Panel",
+          "quote": "Blood Chemistry Panel",
+          "section_id": "sec-7.3.1",
+          "confidence": 0.95
+        },
+        "measurements": [
+          {
+            "value": "ALT",
+            "quote": "ALT",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.95
+          },
+          {
+            "value": "AST",
+            "quote": "AST",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.95
+          },
+          {
+            "value": "Alkaline Phosphatase",
+            "quote": "Alkaline Phosphatase",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.95
+          },
+          {
+            "value": "Sodium",
+            "quote": "Sodium",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.9
+          },
+          {
+            "value": "Potassium",
+            "quote": "Potassium",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.95
+          },
+          {
+            "value": "Total Calcium",
+            "quote": "Total Calcium",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.95
+          },
+          {
+            "value": "Magnesium",
+            "quote": "Magnesium",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.95
+          },
+          {
+            "value": "Total Bilirubin",
+            "quote": "Total Bilirubin",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.95
+          },
+          {
+            "value": "BUN or Urea",
+            "quote": "BUN or Urea",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.95
+          },
+          {
+            "value": "Serum Creatinine",
+            "quote": "Serum Creatinine",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.95
+          },
+          {
+            "value": "Albumin",
+            "quote": "Albumin",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.95
+          },
+          {
+            "value": "Hemoglobin A1c",
+            "quote": "Hemoglobin A1c",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Laboratory Safety Assessments - Hormonal Status Panel",
+          "quote": "Hormonal Status (if",
+          "section_id": "sec-7.3.1",
+          "confidence": 0.9
+        },
+        "measurements": [
+          {
+            "value": "Serum Beta-HCG",
+            "quote": "Serum Beta-HCG*",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.9
+          },
+          {
+            "value": "Serum estradiol",
+            "quote": "Serum estradiol**",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.9
+          },
+          {
+            "value": "FSH",
+            "quote": "FSH**",
+            "section_id": "sec-7.3.1",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Electrocardiogram",
+          "quote": "ECG measurements will include PR interval, QT interval, RR interval, and\nQRS complex.",
+          "section_id": "sec-7.3.2",
+          "confidence": 0.95
+        },
+        "measurements": [
+          {
+            "value": "PR interval",
+            "quote": "PR interval",
+            "section_id": "sec-7.3.2",
+            "confidence": 0.95
+          },
+          {
+            "value": "QT interval",
+            "quote": "QT interval",
+            "section_id": "sec-7.3.2",
+            "confidence": 0.95
+          },
+          {
+            "value": "RR interval",
+            "quote": "RR interval",
+            "section_id": "sec-7.3.2",
+            "confidence": 0.95
+          },
+          {
+            "value": "QRS complex",
+            "quote": "QRS complex",
+            "section_id": "sec-7.3.2",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Physical Examination and Vital Signs",
+          "quote": "A full physical examination including an examination of all major body systems and breasts,\nheight (at screening only), weight, blood pressure and pulse rate",
+          "section_id": "sec-7.3.3",
+          "confidence": 0.9
+        },
+        "measurements": [
+          {
+            "value": "examination of all major body systems and breasts",
+            "quote": "examination of all major body systems and breasts",
+            "section_id": "sec-7.3.3",
+            "confidence": 0.8
+          },
+          {
+            "value": "height",
+            "quote": "height (at screening only)",
+            "section_id": "sec-7.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "weight",
+            "quote": "weight",
+            "section_id": "sec-7.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "blood pressure",
+            "quote": "blood pressure",
+            "section_id": "sec-7.3.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "pulse rate",
+            "quote": "pulse rate",
+            "section_id": "sec-7.3.3",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "ECOG Performance Status",
+          "quote": "The ECOG performance status scale will be used",
+          "section_id": "sec-7.3.3",
+          "confidence": 0.9
+        },
+        "measurements": [
+          {
+            "value": "ECOG performance status",
+            "quote": "The ECOG performance status scale will be used",
+            "section_id": "sec-7.3.3",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "Pharmacokinetic Assessments",
+          "quote": "PK samples will be analyzed for palbociclib and fulvestrant concentrations.",
+          "section_id": "sec-7.4",
+          "confidence": 0.85
+        },
+        "measurements": [
+          {
+            "value": "palbociclib concentration",
+            "quote": "PK samples will be analyzed for palbociclib and fulvestrant concentrations.",
+            "section_id": "sec-7.4",
+            "confidence": 0.85
+          },
+          {
+            "value": "fulvestrant concentration",
+            "quote": "PK samples will be analyzed for palbociclib and fulvestrant concentrations.",
+            "section_id": "sec-7.4",
+            "confidence": 0.85
+          },
+          {
+            "value": "goserelin concentration",
+            "quote": "PK samples will be analyzed for palbociclib, fulvestrant AND goserelin\nconcentrations.",
+            "section_id": "sec-7.4",
+            "confidence": 0.85
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "EuroQol Health Utilities Index EQ-5D",
+          "quote": "The EuroQol-5D (EQ-5D) (version 3L) (see Appendix 5 ) is a 6 item instrument designed to\nassess health status",
+          "section_id": "sec-7.5.1",
+          "confidence": 0.9
+        },
+        "measurements": [
+          {
+            "value": "mobility",
+            "quote": "5 descriptors of current health state (mobility, self care, usual activities, pain/discomfort, and\nanxiety/depression)",
+            "section_id": "sec-7.5.1",
+            "confidence": 0.9
+          },
+          {
+            "value": "self care",
+            "quote": "5 descriptors of current health state (mobility, self care, usual activities, pain/discomfort, and\nanxiety/depression)",
+            "section_id": "sec-7.5.1",
+            "confidence": 0.9
+          },
+          {
+            "value": "usual activities",
+            "quote": "5 descriptors of current health state (mobility, self care, usual activities, pain/discomfort, and\nanxiety/depression)",
+            "section_id": "sec-7.5.1",
+            "confidence": 0.9
+          },
+          {
+            "value": "pain/discomfort",
+            "quote": "5 descriptors of current health state (mobility, self care, usual activities, pain/discomfort, and\nanxiety/depression)",
+            "section_id": "sec-7.5.1",
+            "confidence": 0.9
+          },
+          {
+            "value": "anxiety/depression",
+            "quote": "5 descriptors of current health state (mobility, self care, usual activities, pain/discomfort, and\nanxiety/depression)",
+            "section_id": "sec-7.5.1",
+            "confidence": 0.9
+          },
+          {
+            "value": "EQ VAS (self-rated health, visual analogue scale)",
+            "quote": "It also includes a visual analogue scale: the EQ VAS.",
+            "section_id": "sec-7.5.1",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "EORTC QLQ-C30",
+          "quote": "The EORTC-QLQ-C30 (see Appendix 6 ) is a 30-item questionnaire composed of five\nmulti-item functional subscales",
+          "section_id": "sec-7.5.2",
+          "confidence": 0.9
+        },
+        "measurements": [
+          {
+            "value": "physical functioning",
+            "quote": "five\nmulti-item functional subscales (physical, role, cognitive emotional, and social functioning)",
+            "section_id": "sec-7.5.2",
+            "confidence": 0.85
+          },
+          {
+            "value": "role functioning",
+            "quote": "five\nmulti-item functional subscales (physical, role, cognitive emotional, and social functioning)",
+            "section_id": "sec-7.5.2",
+            "confidence": 0.85
+          },
+          {
+            "value": "cognitive functioning",
+            "quote": "five\nmulti-item functional subscales (physical, role, cognitive emotional, and social functioning)",
+            "section_id": "sec-7.5.2",
+            "confidence": 0.8
+          },
+          {
+            "value": "emotional functioning",
+            "quote": "five\nmulti-item functional subscales (physical, role, cognitive emotional, and social functioning)",
+            "section_id": "sec-7.5.2",
+            "confidence": 0.8
+          },
+          {
+            "value": "social functioning",
+            "quote": "five\nmulti-item functional subscales (physical, role, cognitive emotional, and social functioning)",
+            "section_id": "sec-7.5.2",
+            "confidence": 0.85
+          },
+          {
+            "value": "fatigue",
+            "quote": "three multi-item symptom scales (fatigue, nausea/vomiting, and pain)",
+            "section_id": "sec-7.5.2",
+            "confidence": 0.9
+          },
+          {
+            "value": "nausea/vomiting",
+            "quote": "three multi-item symptom scales (fatigue, nausea/vomiting, and pain)",
+            "section_id": "sec-7.5.2",
+            "confidence": 0.9
+          },
+          {
+            "value": "pain",
+            "quote": "three multi-item symptom scales (fatigue, nausea/vomiting, and pain)",
+            "section_id": "sec-7.5.2",
+            "confidence": 0.9
+          },
+          {
+            "value": "global health/quality of life",
+            "quote": "a global health/quality of life (QOL) subscale",
+            "section_id": "sec-7.5.2",
+            "confidence": 0.9
+          },
+          {
+            "value": "dyspnea",
+            "quote": "six single items assessing other cancer-related symptoms\n(dyspnea, sleep disturbance, appetite, diarrhea, constipation, and the financial impact of\ncancer)",
+            "section_id": "sec-7.5.2",
+            "confidence": 0.9
+          },
+          {
+            "value": "sleep disturbance",
+            "quote": "six single items assessing other cancer-related symptoms\n(dyspnea, sleep disturbance, appetite, diarrhea, constipation, and the financial impact of\ncancer)",
+            "section_id": "sec-7.5.2",
+            "confidence": 0.9
+          },
+          {
+            "value": "appetite",
+            "quote": "six single items assessing other cancer-related symptoms\n(dyspnea, sleep disturbance, appetite, diarrhea, constipation, and the financial impact of\ncancer)",
+            "section_id": "sec-7.5.2",
+            "confidence": 0.9
+          },
+          {
+            "value": "diarrhea",
+            "quote": "six single items assessing other cancer-related symptoms\n(dyspnea, sleep disturbance, appetite, diarrhea, constipation, and the financial impact of\ncancer)",
+            "section_id": "sec-7.5.2",
+            "confidence": 0.9
+          },
+          {
+            "value": "constipation",
+            "quote": "six single items assessing other cancer-related symptoms\n(dyspnea, sleep disturbance, appetite, diarrhea, constipation, and the financial impact of\ncancer)",
+            "section_id": "sec-7.5.2",
+            "confidence": 0.9
+          },
+          {
+            "value": "financial impact of cancer",
+            "quote": "six single items assessing other cancer-related symptoms\n(dyspnea, sleep disturbance, appetite, diarrhea, constipation, and the financial impact of\ncancer)",
+            "section_id": "sec-7.5.2",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "name": {
+          "value": "EORTC QLQ-BR23",
+          "quote": "The EORTC-QLQ-BR23 (see Appendix 7 ) is a 23-item breast cancer-specific companion\nmodule",
+          "section_id": "sec-7.5.3",
+          "confidence": 0.9
+        },
+        "measurements": [
+          {
+            "value": "body image",
+            "quote": "two functional scales (body image and\nsexuality)",
+            "section_id": "sec-7.5.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "sexuality",
+            "quote": "two functional scales (body image and\nsexuality)",
+            "section_id": "sec-7.5.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "arm/hand symptoms",
+            "quote": "three symptom subscales (arm/hand, breast, and systemic side effects)",
+            "section_id": "sec-7.5.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "breast symptoms",
+            "quote": "three symptom subscales (arm/hand, breast, and systemic side effects)",
+            "section_id": "sec-7.5.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "systemic side effects",
+            "quote": "three symptom subscales (arm/hand, breast, and systemic side effects)",
+            "section_id": "sec-7.5.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "sexual enjoyment",
+            "quote": "single\nitems covering sexual enjoyment, distress at hair loss, and future perspective",
+            "section_id": "sec-7.5.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "distress at hair loss",
+            "quote": "single\nitems covering sexual enjoyment, distress at hair loss, and future perspective",
+            "section_id": "sec-7.5.3",
+            "confidence": 0.9
+          },
+          {
+            "value": "future perspective",
+            "quote": "single\nitems covering sexual enjoyment, distress at hair loss, and future perspective",
+            "section_id": "sec-7.5.3",
+            "confidence": 0.9
+          }
+        ]
+      }
+    ]
+  }
+}

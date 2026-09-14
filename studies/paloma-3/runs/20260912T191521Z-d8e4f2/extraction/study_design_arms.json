@@ -1,0 +1,320 @@
+{
+  "run": {
+    "sheet": "study_design_arms",
+    "status": "done",
+    "started_at": "2026-09-13T21:38:18.387410Z",
+    "finished_at": "2026-09-13T21:38:26.698371Z",
+    "input_hash": "c04cc1e5923adae8a13bfe7aaf001a300519be7c3aed25254b89df8d12bb659b",
+    "postprocess_version": "1+verify4",
+    "reprocessed": false,
+    "section_ids": [
+      "fm-protocol-summary",
+      "sec-3",
+      "sec-5",
+      "sec-5.1",
+      "sec-5.2",
+      "sec-5.3",
+      "sec-5.3.1",
+      "sec-5.3.1.1",
+      "sec-5.3.1.2",
+      "sec-5.6"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 13671,
+      "output_tokens": 1061,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 8.29,
+      "cost_usd": 0.037952,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": []
+  },
+  "records": [
+    {
+      "row_id": null,
+      "name": {
+        "value": "Arm A (Investigational arm)",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the arm label",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Arm A (Investigational arm)",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3",
+          "source_page": 47,
+          "raw_phrase": "Arm A (Investigational arm):",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": "Palbociclib 125 mg/day orally for 3 weeks followed by 1 week off plus fulvestrant 500 mg intramuscularly on Days 1 and 15 of Cycle 1, every 28 days thereafter",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3",
+          "source_page": 47,
+          "raw_phrase": "Palbociclib 125 mg/day orally for 3 weeks followed by 1 week off plus fulvestrant 500 mg intramuscularly on Days 1 and 15 of Cycle 1, every 28 days (+/- 7 days) thereafter starting from Day 1 of Cycle 1.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "type": {
+        "value": "Investigational Arm",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3",
+          "source_page": 47,
+          "raw_phrase": "Arm A (Investigational arm):",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C174222",
+          "codelist_name": "Study Arm Type Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C174266",
+          "submission_value": "Experimental Arm",
+          "preferred_term": "Investigational Arm",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "data_origin_description": {
+        "value": "Data collected from patients randomly assigned to receive palbociclib plus fulvestrant in this study",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3",
+          "source_page": 46,
+          "raw_phrase": "Approximately 417 women will be randomly assigned on a 2:1 basis to receive either palbociclib plus fulvestrant (at least 278 women; investigational arm)",
+          "confidence": 0.7,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "data_origin_type": {
+        "value": "Data Generated Within Study",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3",
+          "source_page": 46,
+          "raw_phrase": "Approximately 417 women will be randomly assigned on a 2:1 basis to receive either palbociclib plus fulvestrant",
+          "confidence": 0.7,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188727",
+          "codelist_name": "Study Arm Data Origin Type Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C188866",
+          "submission_value": "Data Generated Within Study",
+          "preferred_term": "Data Generated Within Study",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "Arm B (Comparator arm)",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the arm label",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Arm B (Comparator arm)",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3",
+          "source_page": 47,
+          "raw_phrase": "Arm B (Comparator arm):",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": "Placebo orally daily for 3 weeks followed by 1 week off plus fulvestrant 500 mg intramuscularly on Days 1 and 15 of Cycle 1, every 28 days thereafter",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3",
+          "source_page": 47,
+          "raw_phrase": "Placebo orally daily for 3 weeks followed by 1 week off plus fulvestrant 500 mg intramuscularly on Days 1 and 15 of Cycle 1, every 28 days (+/- 7 days) thereafter starting from Day 1 of Cycle 1.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "type": {
+        "value": "Placebo Control Arm",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3",
+          "source_page": 47,
+          "raw_phrase": "Arm B (Comparator arm):",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C174222",
+          "codelist_name": "Study Arm Type Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C174268",
+          "submission_value": "Placebo Comparator Arm",
+          "preferred_term": "Placebo Control Arm",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "data_origin_description": {
+        "value": "Data collected from patients randomly assigned to receive placebo plus fulvestrant in this study",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3",
+          "source_page": 46,
+          "raw_phrase": "or placebo plus fulvestrant (at least 139 women; comparator arm)",
+          "confidence": 0.7,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "data_origin_type": {
+        "value": "Data Generated Within Study",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3",
+          "source_page": 46,
+          "raw_phrase": "or placebo plus fulvestrant (at least 139 women; comparator arm)",
+          "confidence": 0.7,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188727",
+          "codelist_name": "Study Arm Data Origin Type Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C188866",
+          "submission_value": "Data Generated Within Study",
+          "preferred_term": "Data Generated Within Study",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    }
+  ],
+  "model_output": {
+    "arms": [
+      {
+        "label": {
+          "value": "Arm A (Investigational arm)",
+          "quote": "Arm A (Investigational arm):",
+          "section_id": "sec-3",
+          "confidence": 0.9
+        },
+        "description": {
+          "value": "Palbociclib 125 mg/day orally for 3 weeks followed by 1 week off plus fulvestrant 500 mg intramuscularly on Days 1 and 15 of Cycle 1, every 28 days thereafter",
+          "quote": "Palbociclib 125 mg/day orally for 3 weeks followed by 1 week off plus fulvestrant 500 mg intramuscularly on Days 1 and 15 of Cycle 1, every 28 days (+/- 7 days) thereafter starting from Day 1 of Cycle 1.",
+          "section_id": "sec-3",
+          "confidence": 0.9
+        },
+        "type": {
+          "value": "Investigational Arm",
+          "quote": "Arm A (Investigational arm):",
+          "section_id": "sec-3",
+          "confidence": 0.9
+        },
+        "data_origin_type": {
+          "value": "Data Generated Within Study",
+          "quote": "Approximately 417 women will be randomly assigned on a 2:1 basis to receive either palbociclib plus fulvestrant",
+          "section_id": "sec-3",
+          "confidence": 0.7
+        },
+        "data_origin_description": {
+          "value": "Data collected from patients randomly assigned to receive palbociclib plus fulvestrant in this study",
+          "quote": "Approximately 417 women will be randomly assigned on a 2:1 basis to receive either palbociclib plus fulvestrant (at least 278 women; investigational arm)",
+          "section_id": "sec-3",
+          "confidence": 0.7
+        }
+      },
+      {
+        "label": {
+          "value": "Arm B (Comparator arm)",
+          "quote": "Arm B (Comparator arm):",
+          "section_id": "sec-3",
+          "confidence": 0.9
+        },
+        "description": {
+          "value": "Placebo orally daily for 3 weeks followed by 1 week off plus fulvestrant 500 mg intramuscularly on Days 1 and 15 of Cycle 1, every 28 days thereafter",
+          "quote": "Placebo orally daily for 3 weeks followed by 1 week off plus fulvestrant 500 mg intramuscularly on Days 1 and 15 of Cycle 1, every 28 days (+/- 7 days) thereafter starting from Day 1 of Cycle 1.",
+          "section_id": "sec-3",
+          "confidence": 0.9
+        },
+        "type": {
+          "value": "Placebo Control Arm",
+          "quote": "Arm B (Comparator arm):",
+          "section_id": "sec-3",
+          "confidence": 0.85
+        },
+        "data_origin_type": {
+          "value": "Data Generated Within Study",
+          "quote": "or placebo plus fulvestrant (at least 139 women; comparator arm)",
+          "section_id": "sec-3",
+          "confidence": 0.7
+        },
+        "data_origin_description": {
+          "value": "Data collected from patients randomly assigned to receive placebo plus fulvestrant in this study",
+          "quote": "or placebo plus fulvestrant (at least 139 women; comparator arm)",
+          "section_id": "sec-3",
+          "confidence": 0.7
+        }
+      }
+    ]
+  }
+}

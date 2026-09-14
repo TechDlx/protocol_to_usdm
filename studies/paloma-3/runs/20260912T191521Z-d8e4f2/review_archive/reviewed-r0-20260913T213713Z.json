@@ -1,0 +1,3277 @@
+{
+  "schema_version": 1,
+  "status": "draft",
+  "revision": 0,
+  "source_sha256": "76f60ae6793fd7179b3091ef04ef5af26a5190bee3da4aac9e76f2d724e2bdc4",
+  "ct_version": "2026-03-27",
+  "base_extraction_generated_at": "2026-09-13T02:29:23.800143Z",
+  "created_at": "2026-09-13T03:19:46.778855Z",
+  "updated_at": "2026-09-13T03:19:46.778855Z",
+  "confirmed_at": null,
+  "next_row_seq": 35,
+  "row_seqs": {},
+  "sheets": {
+    "study": {
+      "name": {
+        "value": "PALOMA-3",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "the study name entered in this app",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "PALOMA-3",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "fm-protocol-summary",
+          "source_page": 9,
+          "raw_phrase": "The present study (PALOMA-3/A5481023) met its primary endpoint as per protocol at the interim analysis",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "study_version": {
+        "value": "Amendment 3",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-1.2.1",
+          "source_page": 29,
+          "raw_phrase": "Final Protocol Amendment 3, 20 October2015",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "acronym": {
+        "value": "PALOMA-3",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "fm-protocol-summary",
+          "source_page": 9,
+          "raw_phrase": "The present study (PALOMA-3/A5481023) met its primary endpoint as per protocol at the interim analysis",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "rationale": {
+        "value": "The present study is an international, multicenter, randomized, double-blind, placebo-controlled, parallel-group, Phase 3 clinical trial with the primary objective of demonstrating the superiority of palbociclib in combination with fulvestrant (Faslodex ) over fulvestrant alone in prolonging PFS in women with HR+, HER2-negative metastatic breast cancer whose disease has progressed after prior endocrine therapy.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-1.2.3",
+          "source_page": 39,
+          "raw_phrase": "The present study is an international, multicenter, randomized, double-blind, placebo-controlled, parallel-group, Phase 3 clinical trial with the primary objective of demonstrating the superiority of palbociclib in combination with fulvestrant (Faslodex ) over fulvestrant alone in prolonging PFS",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "brief_title": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "official_title": {
+        "value": "MULTICENTER, RANDOMIZED, DOUBLE-BLIND, PLACEBO-CONTROLLED, PHASE 3 TRIAL OF FULVESTRANT (FASLODEX ) WITH OR WITHOUT PD-0332991 (PALBOCICLIB) GOSERELIN IN WOMEN WITH HORMONE RECEPTOR-POSITIVE, HER2-NEGATIVE METASTATIC BREAST CANCER WHOSE DISEASE PROGRESSED AFTER PRIOR ENDOCRINE THERAPY",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "title-page",
+          "source_page": 1,
+          "raw_phrase": "MULTICENTER, RANDOMIZED, DOUBLE-BLIND, PLACEBO-CONTROLLED, PHASE 3 TRIAL OF FULVESTRANT (FASLODEX ) WITH OR WITHOUT PD-0332991 (PALBOCICLIB) GOSERELIN IN WOMEN WITH HORMONE RECEPTOR-POSITIVE, HER2-NEGATIVE METASTATIC BREAST CANCER WHOSE DISEASE PROGRESSED AFTER PRIOR ENDOCRINE THERAPY",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "public_title": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "scientific_title": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "protocol_version": {
+        "value": "Amendment 3",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-1.2.1",
+          "source_page": 29,
+          "raw_phrase": "Final Protocol Amendment 3, 20 October2015",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "protocol_status": {
+        "value": "Final",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-1.2.1",
+          "source_page": 29,
+          "raw_phrase": "Final Protocol Amendment 3, 20 October2015",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188723",
+          "codelist_name": "Study Definition Document Version Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C25508",
+          "submission_value": "Final",
+          "preferred_term": "Final",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "sponsor_protocol_identifier": {
+        "value": "A5481023",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "title-page",
+          "source_page": 1,
+          "raw_phrase": "Protocol Number: A5481023",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "governance_dates": [
+        {
+          "row_id": "date-1",
+          "name": {
+            "value": "STUDY_VERSION_ISSUED_DATE_1",
+            "provenance": {
+              "origin": "derived",
+              "source_section_id": null,
+              "source_page": null,
+              "raw_phrase": null,
+              "confidence": 1.0,
+              "verified": true,
+              "note": "generated from the date category and type",
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          },
+          "category": {
+            "value": "study_version",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 2,
+              "raw_phrase": null,
+              "confidence": 0.8,
+              "verified": true,
+              "note": "date category chosen by the extraction model",
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          },
+          "label": {
+            "value": "Amendment 3",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 2,
+              "raw_phrase": null,
+              "confidence": 0.8,
+              "verified": true,
+              "note": "label written by the extraction model",
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          },
+          "description": {
+            "value": null,
+            "provenance": null,
+            "terminology": null
+          },
+          "type": {
+            "value": "Issued Date",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 2,
+              "raw_phrase": "Amendment 3 | 20 October 2015",
+              "confidence": 0.6,
+              "verified": true,
+              "note": null,
+              "reviewer_accepted": false
+            },
+            "terminology": {
+              "status": "exact",
+              "codelist": "C207413",
+              "codelist_name": "Governance Date Type Value Set Terminology",
+              "ct_version": "2026-03-27",
+              "code": "C215664",
+              "submission_value": "Issued Date",
+              "preferred_term": "Issued Date",
+              "matched_on": "submissionValue",
+              "candidates": []
+            }
+          },
+          "date": {
+            "value": "2015-10-20",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 2,
+              "raw_phrase": "20 October 2015",
+              "confidence": 0.9,
+              "verified": true,
+              "note": null,
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          },
+          "geographic_scopes": {
+            "value": "Global",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 2,
+              "raw_phrase": null,
+              "confidence": 0.8,
+              "verified": true,
+              "note": "geographic scope chosen by the extraction model",
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          }
+        },
+        {
+          "row_id": "date-2",
+          "name": {
+            "value": "AMENDMENT_ISSUED_DATE_1",
+            "provenance": {
+              "origin": "derived",
+              "source_section_id": null,
+              "source_page": null,
+              "raw_phrase": null,
+              "confidence": 1.0,
+              "verified": true,
+              "note": "generated from the date category and type",
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          },
+          "category": {
+            "value": "amendment",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 4,
+              "raw_phrase": null,
+              "confidence": 0.8,
+              "verified": true,
+              "note": "date category chosen by the extraction model",
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          },
+          "label": {
+            "value": "Amendment 2",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 4,
+              "raw_phrase": null,
+              "confidence": 0.8,
+              "verified": true,
+              "note": "label written by the extraction model",
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          },
+          "description": {
+            "value": null,
+            "provenance": null,
+            "terminology": null
+          },
+          "type": {
+            "value": "Issued Date",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": null,
+              "raw_phrase": "Amendment 2 | 30 September 2014",
+              "confidence": 0.3,
+              "verified": false,
+              "note": "quote not found in the protocol text; the value may not be supported",
+              "reviewer_accepted": false
+            },
+            "terminology": {
+              "status": "exact",
+              "codelist": "C207413",
+              "codelist_name": "Governance Date Type Value Set Terminology",
+              "ct_version": "2026-03-27",
+              "code": "C215664",
+              "submission_value": "Issued Date",
+              "preferred_term": "Issued Date",
+              "matched_on": "submissionValue",
+              "candidates": []
+            }
+          },
+          "date": {
+            "value": "2014-09-30",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 4,
+              "raw_phrase": "30 September 2014",
+              "confidence": 0.9,
+              "verified": true,
+              "note": null,
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          },
+          "geographic_scopes": {
+            "value": "Global",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 4,
+              "raw_phrase": null,
+              "confidence": 0.8,
+              "verified": true,
+              "note": "geographic scope chosen by the extraction model",
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          }
+        },
+        {
+          "row_id": "date-3",
+          "name": {
+            "value": "AMENDMENT_ISSUED_DATE_2",
+            "provenance": {
+              "origin": "derived",
+              "source_section_id": null,
+              "source_page": null,
+              "raw_phrase": null,
+              "confidence": 1.0,
+              "verified": true,
+              "note": "generated from the date category and type",
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          },
+          "category": {
+            "value": "amendment",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 6,
+              "raw_phrase": null,
+              "confidence": 0.8,
+              "verified": true,
+              "note": "date category chosen by the extraction model",
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          },
+          "label": {
+            "value": "Amendment 1",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 6,
+              "raw_phrase": null,
+              "confidence": 0.8,
+              "verified": true,
+              "note": "label written by the extraction model",
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          },
+          "description": {
+            "value": null,
+            "provenance": null,
+            "terminology": null
+          },
+          "type": {
+            "value": "Issued Date",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 6,
+              "raw_phrase": "Amendment 1 | 04 April 2014",
+              "confidence": 0.6,
+              "verified": true,
+              "note": null,
+              "reviewer_accepted": false
+            },
+            "terminology": {
+              "status": "exact",
+              "codelist": "C207413",
+              "codelist_name": "Governance Date Type Value Set Terminology",
+              "ct_version": "2026-03-27",
+              "code": "C215664",
+              "submission_value": "Issued Date",
+              "preferred_term": "Issued Date",
+              "matched_on": "submissionValue",
+              "candidates": []
+            }
+          },
+          "date": {
+            "value": "2014-04-04",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 6,
+              "raw_phrase": "04 April 2014",
+              "confidence": 0.9,
+              "verified": true,
+              "note": null,
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          },
+          "geographic_scopes": {
+            "value": "Global",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 6,
+              "raw_phrase": null,
+              "confidence": 0.8,
+              "verified": true,
+              "note": "geographic scope chosen by the extraction model",
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          }
+        },
+        {
+          "row_id": "date-4",
+          "name": {
+            "value": "PROTOCOL_DOCUMENT_ISSUED_DATE_1",
+            "provenance": {
+              "origin": "derived",
+              "source_section_id": null,
+              "source_page": null,
+              "raw_phrase": null,
+              "confidence": 1.0,
+              "verified": true,
+              "note": "generated from the date category and type",
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          },
+          "category": {
+            "value": "protocol_document",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 7,
+              "raw_phrase": null,
+              "confidence": 0.8,
+              "verified": true,
+              "note": "date category chosen by the extraction model",
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          },
+          "label": {
+            "value": "Original protocol",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 7,
+              "raw_phrase": null,
+              "confidence": 0.8,
+              "verified": true,
+              "note": "label written by the extraction model",
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          },
+          "description": {
+            "value": null,
+            "provenance": null,
+            "terminology": null
+          },
+          "type": {
+            "value": "Issued Date",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 7,
+              "raw_phrase": "Original protocol | 24 July 2013",
+              "confidence": 0.6,
+              "verified": true,
+              "note": null,
+              "reviewer_accepted": false
+            },
+            "terminology": {
+              "status": "exact",
+              "codelist": "C207413",
+              "codelist_name": "Governance Date Type Value Set Terminology",
+              "ct_version": "2026-03-27",
+              "code": "C215664",
+              "submission_value": "Issued Date",
+              "preferred_term": "Issued Date",
+              "matched_on": "submissionValue",
+              "candidates": []
+            }
+          },
+          "date": {
+            "value": "2013-07-24",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 7,
+              "raw_phrase": "24 July 2013",
+              "confidence": 0.9,
+              "verified": true,
+              "note": null,
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          },
+          "geographic_scopes": {
+            "value": "Global",
+            "provenance": {
+              "origin": "extracted",
+              "source_section_id": "fm-document-history",
+              "source_page": 7,
+              "raw_phrase": null,
+              "confidence": 0.8,
+              "verified": true,
+              "note": "geographic scope chosen by the extraction model",
+              "reviewer_accepted": false
+            },
+            "terminology": null
+          }
+        }
+      ]
+    },
+    "study_design_arms": [
+      {
+        "row_id": "arm-5",
+        "name": {
+          "value": "Arm A (Investigational arm): Palbociclib + Fulvestrant",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the arm label",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Arm A (Investigational arm): Palbociclib + Fulvestrant",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3",
+            "source_page": 47,
+            "raw_phrase": "Arm A (Investigational arm):",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": "Palbociclib 125 mg/day orally for 3 weeks followed by 1 week off plus fulvestrant 500 mg intramuscularly on Days 1 and 15 of Cycle 1, every 28 days (+/- 7 days) thereafter starting from Day 1 of Cycle 1. Pre- and peri-menopausal women also receive goserelin.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3",
+            "source_page": 47,
+            "raw_phrase": "Palbociclib 125 mg/day orally for 3 weeks followed by 1 week off plus fulvestrant 500 mg intramuscularly on Days 1 and 15 of Cycle 1, every 28 days (+/- 7 days) thereafter starting from Day 1 of Cycle 1.",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "type": {
+          "value": "Investigational Arm",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3",
+            "source_page": 47,
+            "raw_phrase": "Arm A (Investigational arm):",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C174222",
+            "codelist_name": "Study Arm Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C174266",
+            "submission_value": "Experimental Arm",
+            "preferred_term": "Investigational Arm",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "data_origin_description": {
+          "value": "Data collected from patients randomly assigned to receive palbociclib plus fulvestrant in this study",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3",
+            "source_page": 46,
+            "raw_phrase": "Approximately 417 women will be randomly assigned on a 2:1 basis to receive either palbociclib plus fulvestrant",
+            "confidence": 0.7,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "data_origin_type": {
+          "value": "Data Generated Within Study",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3",
+            "source_page": 46,
+            "raw_phrase": "Approximately 417 women will be randomly assigned on a 2:1 basis to receive either palbociclib plus fulvestrant",
+            "confidence": 0.7,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C188727",
+            "codelist_name": "Study Arm Data Origin Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C188866",
+            "submission_value": "Data Generated Within Study",
+            "preferred_term": "Data Generated Within Study",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        }
+      },
+      {
+        "row_id": "arm-6",
+        "name": {
+          "value": "Arm B (Comparator arm): Placebo + Fulvestrant",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the arm label",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Arm B (Comparator arm): Placebo + Fulvestrant",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3",
+            "source_page": 47,
+            "raw_phrase": "Arm B (Comparator arm):",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": "Placebo orally daily for 3 weeks followed by 1 week off plus fulvestrant 500 mg intramuscularly on Days 1 and 15 of Cycle 1, every 28 days (+/- 7 days) thereafter starting from Day 1 of Cycle 1. Pre- and peri-menopausal women also receive goserelin.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3",
+            "source_page": 47,
+            "raw_phrase": "Placebo orally daily for 3 weeks followed by 1 week off plus fulvestrant 500 mg intramuscularly on Days 1 and 15 of Cycle 1, every 28 days (+/- 7 days) thereafter starting from Day 1 of Cycle 1.",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "type": {
+          "value": "Placebo Control Arm",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3",
+            "source_page": 47,
+            "raw_phrase": "Arm B (Comparator arm):",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C174222",
+            "codelist_name": "Study Arm Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C174268",
+            "submission_value": "Placebo Comparator Arm",
+            "preferred_term": "Placebo Control Arm",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "data_origin_description": {
+          "value": "Data collected from patients randomly assigned to receive placebo plus fulvestrant in this study",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3",
+            "source_page": 46,
+            "raw_phrase": "or placebo plus fulvestrant (at least 139 women; comparator arm)",
+            "confidence": 0.7,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "data_origin_type": {
+          "value": "Data Generated Within Study",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-3",
+            "source_page": 46,
+            "raw_phrase": "or placebo plus fulvestrant (at least 139 women; comparator arm)",
+            "confidence": 0.7,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C188727",
+            "codelist_name": "Study Arm Data Origin Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C188866",
+            "submission_value": "Data Generated Within Study",
+            "preferred_term": "Data Generated Within Study",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        }
+      }
+    ],
+    "eligibility_criteria": [
+      {
+        "row_id": "crit-7",
+        "name": {
+          "value": "IN01",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Inclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Patients must meet all of the following inclusion criteria to be eligible for enrollment",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25532",
+            "submission_value": "INCLUSION",
+            "preferred_term": "Inclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "1",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Women 18 years of age or older, who are either:",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Women 18+, postmenopausal or pre/perimenopausal with LHRH agonist",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Women 18 years of age or older, who are either:\nPostmenopausal, as defined by at least one of the following criteria:\nAge 60 years;\nAge <60 years and cessation of regular menses for at least 12 consecutive\nmonths with no alternative pathological or physiological cause; and serum\nestradiol and FSH level within the laboratory’s reference range for\npostmenopausal females;\nDocumented bilateral oophorectomy;\nMedically confirmed ovarian failure.\nOR\nPre/peri-menopausal, ie, not meeting the criteria for being postmenopausal.\nPre/perimeopausal women can be enrolled if amenable to be treated with the\nLHRH agonist goserelin. Patients must have commenced treatment with\ngoserelin or an alternative LHRH agonist at least 4 weeks prior to\nrandomization. But, if patients have received an alternative LHRH agonist\nprior to study entry, they must switch to goserelin for the duration of the trial.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Women 18 years of age or older, who are either:",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-8",
+        "name": {
+          "value": "IN02",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Inclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Patients must meet all of the following inclusion criteria to be eligible for enrollment",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25532",
+            "submission_value": "INCLUSION",
+            "preferred_term": "Inclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "2",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Histologically or cytologically proven diagnosis of breast cancer with evidence of metastatic or locally advanced disease",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Confirmed metastatic/locally advanced breast cancer diagnosis",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Histologically or cytologically proven diagnosis of breast cancer with evidence of\nmetastatic or locally advanced disease, not amenable to resection or radiation therapy\nwith curative intent.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Histologically or cytologically proven diagnosis of breast cancer with evidence of metastatic or locally advanced disease",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-9",
+        "name": {
+          "value": "IN03",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Inclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Patients must meet all of the following inclusion criteria to be eligible for enrollment",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25532",
+            "submission_value": "INCLUSION",
+            "preferred_term": "Inclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "3",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Documentation of ER-positive and/or PR-positive tumor ( 1% positive stained cells)",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "ER-positive and/or PR-positive tumor documented",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Documentation of ER-positive and/or PR-positive tumor ( 1% positive stained cells)\nbased on most recent tumor biopsy (unless bone-only disease, see below) utilizing an\nassay consistent with local standards.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Documentation of ER-positive and/or PR-positive tumor ( 1% positive stained cells)",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-10",
+        "name": {
+          "value": "IN04",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Inclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Patients must meet all of the following inclusion criteria to be eligible for enrollment",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25532",
+            "submission_value": "INCLUSION",
+            "preferred_term": "Inclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "4",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Documented HER2-negative tumor based on local testing on most recent tumor biopsy",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "HER2-negative tumor documented",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Documented HER2-negative tumor based on local testing on most recent tumor biopsy:\nHER2-negative tumor is determined as immunohistochemistry score 0/1+ or negative by\nin situ hybridization (FISH/CISH/SISH/DISH) defined as a HER2/CEP17 ratio <2 or for\nsingle probe assessment a HER2 copy number <4.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Documented HER2-negative tumor based on local testing on most recent tumor biopsy",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-11",
+        "name": {
+          "value": "IN05",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Inclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Patients must meet all of the following inclusion criteria to be eligible for enrollment",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25532",
+            "submission_value": "INCLUSION",
+            "preferred_term": "Inclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "5",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 50,
+            "raw_phrase": "Patients must satisfy the following criteria for prior therapy:",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Progression on prior endocrine/adjuvant therapy criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 50,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Patients must satisfy the following criteria for prior therapy:\nProgressed during treatment or within 12 months of completion of adjuvant therapy\nwith an aromatase inhibitor if postmenopausal, or tamoxifen if pre- or\nperimenopausal.\nOR\nProgressed while on or within 1 month after the end of prior aromatase inhibitor\ntherapy for advanced/metastatic breast cancer if postmenopausal, or prior endocrine\ntreatment for advanced/metastatic breast cancer if pre- or perimenopausal.\nOne previous line of chemotherapy for advanced/metastatic disease is allowed in\naddition to endocrine therapy.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 50,
+            "raw_phrase": "Patients must satisfy the following criteria for prior therapy:",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-12",
+        "name": {
+          "value": "IN06",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Inclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Patients must meet all of the following inclusion criteria to be eligible for enrollment",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25532",
+            "submission_value": "INCLUSION",
+            "preferred_term": "Inclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "6",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 50,
+            "raw_phrase": "all patients must agree to provide and have available a formalin-fixed paraffin embedded (FFPE) tissue biopsy sample",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Agree to provide FFPE tissue biopsy sample",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 50,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Except where prohibited by local regulations, all patients must agree to provide and have\navailable a formalin-fixed paraffin embedded (FFPE) tissue biopsy sample taken at the\ntime of presentation with recurrent or metastatic disease. A de novo biopsy is required if\nno archived tissue taken at the time of presentation with recurrent/metastatic disease is\navailable. The sole exception is those patients with bone only disease for whom\nprovision of previous archival tissue only is acceptable. Patients who had surgery within\nthe last 3 years (but without neoadjuvant chemotherapy prior to surgery) and relapsed\nwhile receiving adjuvant therapy may provide a tumor specimen from that surgery.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 50,
+            "raw_phrase": "all patients must agree to provide and have available a formalin-fixed paraffin embedded (FFPE) tissue biopsy sample",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-13",
+        "name": {
+          "value": "IN07",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Inclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Patients must meet all of the following inclusion criteria to be eligible for enrollment",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25532",
+            "submission_value": "INCLUSION",
+            "preferred_term": "Inclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "7",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 50,
+            "raw_phrase": "Measurable disease as defined by RECIST version 1.1, or bone-only disease.",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Measurable disease per RECIST 1.1 or bone-only disease",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 50,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Measurable disease as defined by RECIST version 1.1, or bone-only disease. Patients\nwith bone-only metastatic cancer must have a lytic or mixed lytic-blastic lesion that can\nbe accurately assessed by CT or MRI. Patients with bone-only disease and blastic-only\nmetastasis are not eligible. Tumor lesions previously irradiated or subjected to other loco\nregional therapy will only be deemed measurable if progression at the treated site after\ncompletion of therapy is clearly documented.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 50,
+            "raw_phrase": "Measurable disease as defined by RECIST version 1.1, or bone-only disease.",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-14",
+        "name": {
+          "value": "IN08",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Inclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Patients must meet all of the following inclusion criteria to be eligible for enrollment",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25532",
+            "submission_value": "INCLUSION",
+            "preferred_term": "Inclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "8",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 50,
+            "raw_phrase": "Eastern Cooperative Oncology Group (ECOG) performance status 0-1.",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "ECOG performance status 0-1",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 50,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Eastern Cooperative Oncology Group (ECOG) performance status 0-1.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 50,
+            "raw_phrase": "Eastern Cooperative Oncology Group (ECOG) performance status 0-1.",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-15",
+        "name": {
+          "value": "IN09",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Inclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Patients must meet all of the following inclusion criteria to be eligible for enrollment",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25532",
+            "submission_value": "INCLUSION",
+            "preferred_term": "Inclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "9",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 50,
+            "raw_phrase": "Adequate organ and marrow function defined as follows:",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Adequate organ and marrow function",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 50,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Adequate organ and marrow function defined as follows:\nANC 1,500/mm3 (1.5 x 10 9 /L);\nPlatelets 100,000/mm3 (100 x 10 9 /L);\nHemoglobin 9 g/dL (90 g/L);\nSerum creatinine 1.5 x ULN or estimated creatinine clearance 60 ml/min as\ncalculated using the method standard for the institution;\nTotal serum bilirubin 1.5 x ULN (<3ULN if Gilbert’s disease);\nAST and/or ALT 3 x ULN ( 5.0 x ULN if liver metastases present);\nAlkaline phosphatase 2.5 x ULN ( 5 x ULN if bone or liver metastases present).",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 50,
+            "raw_phrase": "Adequate organ and marrow function defined as follows:",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-16",
+        "name": {
+          "value": "IN10",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Inclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Patients must meet all of the following inclusion criteria to be eligible for enrollment",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25532",
+            "submission_value": "INCLUSION",
+            "preferred_term": "Inclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "10",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 51,
+            "raw_phrase": "Resolution of all acute toxic effects of prior therapy or surgical procedures",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Resolution of prior therapy toxicities to Grade 1",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 51,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Resolution of all acute toxic effects of prior therapy or surgical procedures to National\nCancer Institute (NCI) CTCAE Grade 1 (except alopecia).",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 51,
+            "raw_phrase": "Resolution of all acute toxic effects of prior therapy or surgical procedures",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-17",
+        "name": {
+          "value": "IN11",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Inclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Patients must meet all of the following inclusion criteria to be eligible for enrollment",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25532",
+            "submission_value": "INCLUSION",
+            "preferred_term": "Inclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "11",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 51,
+            "raw_phrase": "Evidence of a personally signed and dated informed consent document",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Signed informed consent document",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 51,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Evidence of a personally signed and dated informed consent document indicating that the\npatient (or a legal representative) has been informed of all pertinent aspects of the study.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 51,
+            "raw_phrase": "Evidence of a personally signed and dated informed consent document",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-18",
+        "name": {
+          "value": "IN12",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Inclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 49,
+            "raw_phrase": "Patients must meet all of the following inclusion criteria to be eligible for enrollment",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25532",
+            "submission_value": "INCLUSION",
+            "preferred_term": "Inclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "12",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 51,
+            "raw_phrase": "Patients who are willing and able to comply with scheduled visits, treatment plan",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Willing and able to comply with study procedures",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 51,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Patients who are willing and able to comply with scheduled visits, treatment plan,\nlaboratory tests, and other study procedures.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.1",
+            "source_page": 51,
+            "raw_phrase": "Patients who are willing and able to comply with scheduled visits, treatment plan",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-19",
+        "name": {
+          "value": "EX01",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Exclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Patients presenting with any of the following will not be included in the study:",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25370",
+            "submission_value": "EXCLUSION",
+            "preferred_term": "Exclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "1",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Prior treatment with any CDK inhibitor, or fulvestrant, or with everolimus",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Prior CDK inhibitor, fulvestrant, everolimus, or PI3K-mTOR inhibitor",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Prior treatment with any CDK inhibitor, or fulvestrant, or with everolimus, or any agent\nwhose mechanism of action is to inhibit the PI3K-mTOR pathway.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Prior treatment with any CDK inhibitor, or fulvestrant, or with everolimus",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-20",
+        "name": {
+          "value": "EX02",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Exclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Patients presenting with any of the following will not be included in the study:",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25370",
+            "submission_value": "EXCLUSION",
+            "preferred_term": "Exclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "2",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Patients with advanced/metastatic, symptomatic, visceral spread, that are at risk of life-threatening complications",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Life-threatening visceral spread or organ compromise",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Patients with advanced/metastatic, symptomatic, visceral spread, that are at risk of\nlife-threatening complications in the short term (including patients with massive\nuncontrolled effusions [pleural, pericardial, peritoneal], pulmonary lymphangitis, and\nover 50% liver involvement).",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Patients with advanced/metastatic, symptomatic, visceral spread, that are at risk of life-threatening complications",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-21",
+        "name": {
+          "value": "EX03",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Exclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Patients presenting with any of the following will not be included in the study:",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25370",
+            "submission_value": "EXCLUSION",
+            "preferred_term": "Exclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "3",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Known active uncontrolled or symptomatic Central Nervous System (CNS) metastases",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Active uncontrolled CNS metastases or leptomeningeal disease",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Known active uncontrolled or symptomatic Central Nervous System (CNS) metastases,\ncarcinomatous meningitis, or leptomeningeal disease as indicated by clinical symptoms,\ncerebral edema, and/or progressive growth. Patients with a history of CNS metastases or\ncord compression are eligible if they have been definitively treated (eg, radiotherapy,\nstereotactic surgery) and are clinically stable off anticonvulsants and steroids for at least\n4 weeks before randomization.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Known active uncontrolled or symptomatic Central Nervous System (CNS) metastases",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-22",
+        "name": {
+          "value": "EX04",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Exclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Patients presenting with any of the following will not be included in the study:",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25370",
+            "submission_value": "EXCLUSION",
+            "preferred_term": "Exclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "4",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Current use of food or drugs known to be potent CYP3A4 inhibitors",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Current use of potent CYP3A4 inhibitors/inducers or QT-prolonging drugs",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Current use of food or drugs known to be potent CYP3A4 inhibitors, drugs known to be\npotent CYP3A4 inducers (for examples, see the Prohibited Medications section), and\ndrugs that are known to prolong the QT interval.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Current use of food or drugs known to be potent CYP3A4 inhibitors",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-23",
+        "name": {
+          "value": "EX05",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Exclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Patients presenting with any of the following will not be included in the study:",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25370",
+            "submission_value": "EXCLUSION",
+            "preferred_term": "Exclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "5",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Major surgery, chemotherapy, radiotherapy, or other anti-cancer therapy within 2 weeks before randomization.",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Recent major surgery, chemo, radiotherapy, or anti-cancer therapy",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Major surgery, chemotherapy, radiotherapy, or other anti-cancer therapy within 2 weeks\nbefore randomization. Patients who received prior radiotherapy to 25% of bone marrow\nare not eligible independent of when it was received.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Major surgery, chemotherapy, radiotherapy, or other anti-cancer therapy within 2 weeks before randomization.",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-24",
+        "name": {
+          "value": "EX06",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Exclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Patients presenting with any of the following will not be included in the study:",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25370",
+            "submission_value": "EXCLUSION",
+            "preferred_term": "Exclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "6",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Any other malignancy within 3 years prior to randomization",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Other malignancy within 3 years",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Any other malignancy within 3 years prior to randomization, except for adequately\ntreated basal cell or squamous cell skin cancer, or carcinoma in situ of the cervix.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Any other malignancy within 3 years prior to randomization",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-25",
+        "name": {
+          "value": "EX07",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Exclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Patients presenting with any of the following will not be included in the study:",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25370",
+            "submission_value": "EXCLUSION",
+            "preferred_term": "Exclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "7",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "QTc interval >480 msec (based on the mean value of the triplicate ECGs)",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "QTc prolongation or long/short QT syndrome history",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "QTc interval >480 msec (based on the mean value of the triplicate ECGs), family or\npersonal history of long or short QT syndrome, Brugada syndrome or known history of\nQTc prolongation or Torsade de Pointes.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "QTc interval >480 msec (based on the mean value of the triplicate ECGs)",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-26",
+        "name": {
+          "value": "EX08",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Exclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Patients presenting with any of the following will not be included in the study:",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25370",
+            "submission_value": "EXCLUSION",
+            "preferred_term": "Exclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "8",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": "Any of the following within 6 months of randomization: myocardial infarction",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Recent significant cardiovascular events",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Any of the following within 6 months of randomization: myocardial infarction,\nsevere/unstable angina, ongoing cardiac dysrhythmias of NCI CTCAE Grade 2, atrial\nfibrillation of any grade, coronary/peripheral artery bypass graft, symptomatic congestive\nheart failure, cerebrovascular accident including transient ischemic attack, or\nsymptomatic pulmonary embolism.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": "Any of the following within 6 months of randomization: myocardial infarction",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-27",
+        "name": {
+          "value": "EX09",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Exclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Patients presenting with any of the following will not be included in the study:",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25370",
+            "submission_value": "EXCLUSION",
+            "preferred_term": "Exclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "9",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": "Impairment of gastro-intestinal (GI) function or GI disease that may significantly alter the absorption of palbociclib",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "GI impairment affecting drug absorption",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Impairment of gastro-intestinal (GI) function or GI disease that may significantly alter the\nabsorption of palbociclib, such as history of GI surgery with may result in intestinal blind\nloops and patients with clinically significant gastroparesis, short bowel syndrome,\nunresolved nausea, vomiting, active inflammatory bowel disease or diarrhea of CTCAE\nGrade >1.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": "Impairment of gastro-intestinal (GI) function or GI disease that may significantly alter the absorption of palbociclib",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-28",
+        "name": {
+          "value": "EX10",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Exclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Patients presenting with any of the following will not be included in the study:",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25370",
+            "submission_value": "EXCLUSION",
+            "preferred_term": "Exclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "10",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": "Prior hematopoietic stem cell or bone marrow transplantation.",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Prior hematopoietic stem cell or bone marrow transplant",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Prior hematopoietic stem cell or bone marrow transplantation.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": "Prior hematopoietic stem cell or bone marrow transplantation.",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-29",
+        "name": {
+          "value": "EX11",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Exclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Patients presenting with any of the following will not be included in the study:",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25370",
+            "submission_value": "EXCLUSION",
+            "preferred_term": "Exclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "11",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": "Known abnormalities in coagulation such as bleeding diathesis",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Coagulation abnormalities precluding IM injections",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Known abnormalities in coagulation such as bleeding diathesis, or treatment with\nanticoagulants precluding intramuscular injections of fulvestrant or goserelin (if\napplicable).",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": "Known abnormalities in coagulation such as bleeding diathesis",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-30",
+        "name": {
+          "value": "EX12",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Exclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Patients presenting with any of the following will not be included in the study:",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25370",
+            "submission_value": "EXCLUSION",
+            "preferred_term": "Exclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "12",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": "Known or possible hypersensitivity to fulvestrant, goserelin, any of their excipients",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Hypersensitivity to fulvestrant, goserelin, or excipients",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Known or possible hypersensitivity to fulvestrant, goserelin, any of their excipients or to\nany palbociclib/placebo excipients.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": "Known or possible hypersensitivity to fulvestrant, goserelin, any of their excipients",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-31",
+        "name": {
+          "value": "EX13",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Exclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Patients presenting with any of the following will not be included in the study:",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25370",
+            "submission_value": "EXCLUSION",
+            "preferred_term": "Exclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "13",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": "Known human immunodeficiency virus infection.",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Known HIV infection",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Known human immunodeficiency virus infection.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": "Known human immunodeficiency virus infection.",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-32",
+        "name": {
+          "value": "EX14",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Exclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Patients presenting with any of the following will not be included in the study:",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25370",
+            "submission_value": "EXCLUSION",
+            "preferred_term": "Exclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "14",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": "Other severe acute or chronic medical or psychiatric condition, including recent or active suicidal ideation",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Severe medical/psychiatric condition affecting participation",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Other severe acute or chronic medical or psychiatric condition, including recent or active\nsuicidal ideation or behavior, or laboratory abnormality that may increase the risk\nassociated with study participation or investigational product administration or may\ninterfere with the interpretation of study results and, in the judgment of the investigator,\nwould make the patient inappropriate for entry into this study.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": "Other severe acute or chronic medical or psychiatric condition, including recent or active suicidal ideation",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-33",
+        "name": {
+          "value": "EX15",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Exclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Patients presenting with any of the following will not be included in the study:",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25370",
+            "submission_value": "EXCLUSION",
+            "preferred_term": "Exclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "15",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": "Patients who are investigational site staff members directly involved in the conduct of the trial",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Site staff or Pfizer employees involved in trial conduct",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Patients who are investigational site staff members directly involved in the conduct of the\ntrial and their family members, site staff members otherwise supervised by the\nInvestigator, or patients who are Pfizer employees directly involved in the conduct of the\ntrial.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": "Patients who are investigational site staff members directly involved in the conduct of the trial",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": "crit-34",
+        "name": {
+          "value": "EX16",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the category and position",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "Exclusion Criteria",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 51,
+            "raw_phrase": "Patients presenting with any of the following will not be included in the study:",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C66797",
+            "codelist_name": "Category of Inclusion/Exclusion",
+            "ct_version": "2026-03-27",
+            "code": "C25370",
+            "submission_value": "EXCLUSION",
+            "preferred_term": "Exclusion Criteria",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier": {
+          "value": "16",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": "Participation in other studies involving investigational drug(s) (Phases 1-4)",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Recent participation in another investigational drug study",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "short label written by the extraction model from the criterion text",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "text": {
+          "value": "Participation in other studies involving investigational drug(s) (Phases 1-4) within\n4 weeks before randomization in the current study.",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "sec-4.2",
+            "source_page": 52,
+            "raw_phrase": "Participation in other studies involving investigational drug(s) (Phases 1-4)",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      }
+    ],
+    "identifiers": null,
+    "study_design": null,
+    "populations": null,
+    "objectives_endpoints": null,
+    "interventions": null,
+    "indications": null,
+    "estimands": null,
+    "amendments": null,
+    "abbreviations": null,
+    "schedule": null,
+    "assessments": null,
+    "design": null
+  }
+}

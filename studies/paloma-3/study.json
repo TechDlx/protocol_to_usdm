@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "slug": "paloma-3",
+  "name": "PALOMA-3",
+  "sponsor": "Pfizer",
+  "protocol_identifier": "A5481023",
+  "created_at": "2026-09-12T18:38:52.167771Z",
+  "updated_at": "2026-09-12T18:39:24.510365Z",
+  "sources": [
+    {
+      "filename": "Pfizer A5481023 PALOMA-3 (NCT01942135).pdf",
+      "relative_path": "source/Pfizer A5481023 PALOMA-3 (NCT01942135).pdf",
+      "sha256": "76f60ae6793fd7179b3091ef04ef5af26a5190bee3da4aac9e76f2d724e2bdc4",
+      "size_bytes": 3041302,
+      "page_count": 125,
+      "uploaded_at": "2026-09-12T18:39:24.510365Z"
+    }
+  ]
+}

@@ -1,0 +1,738 @@
+{
+  "run": {
+    "sheet": "study",
+    "status": "done",
+    "started_at": "2026-09-13T21:38:18.313391Z",
+    "finished_at": "2026-09-13T21:39:20.366831Z",
+    "input_hash": "b41f23222096e3822c30b633ec9ebf942efdcbc72ab5e63ff2f257157b076986",
+    "postprocess_version": "1+verify4",
+    "reprocessed": false,
+    "section_ids": [
+      "title-page",
+      "fm-document-history",
+      "fm-protocol-summary",
+      "sec-1",
+      "sec-1.1",
+      "sec-1.2",
+      "sec-1.2.1",
+      "sec-1.2.1.2",
+      "sec-1.2.1.3",
+      "sec-1.2.1.6",
+      "sec-1.2.1.7",
+      "sec-1.2.1.8",
+      "sec-1.2.2",
+      "sec-1.2.3",
+      "sec-1.2.4",
+      "sec-1.2.4.1",
+      "sec-1.2.4.2",
+      "sec-1.2.4.3"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 30226,
+      "output_tokens": 3152,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 62.04,
+      "cost_usd": 0.091972,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": []
+  },
+  "records": {
+    "name": {
+      "value": "PALOMA-3",
+      "provenance": {
+        "origin": "derived",
+        "source_section_id": null,
+        "source_page": null,
+        "raw_phrase": null,
+        "confidence": 1.0,
+        "verified": true,
+        "note": "the study name entered in this app",
+        "reviewer_accepted": false
+      },
+      "terminology": null
+    },
+    "label": {
+      "value": "PALOMA-3",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "sec-1.2.1.8",
+        "source_page": 36,
+        "raw_phrase": "The present study A5481023 (PALOMA-3) met its primary endpoint at the preplanned interim analysis",
+        "confidence": 0.85,
+        "verified": true,
+        "note": null,
+        "reviewer_accepted": false
+      },
+      "terminology": null
+    },
+    "description": {
+      "value": null,
+      "provenance": null,
+      "terminology": null
+    },
+    "study_version": {
+      "value": "Amendment 3",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "sec-1.2.1",
+        "source_page": 29,
+        "raw_phrase": "CCI Final Protocol Amendment 3, 20 October2015",
+        "confidence": 0.9,
+        "verified": true,
+        "note": null,
+        "reviewer_accepted": false
+      },
+      "terminology": null
+    },
+    "acronym": {
+      "value": "PALOMA-3",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "sec-1.2.1.8",
+        "source_page": 36,
+        "raw_phrase": "The present study A5481023 (PALOMA-3) met its primary endpoint at the preplanned interim analysis",
+        "confidence": 0.85,
+        "verified": true,
+        "note": null,
+        "reviewer_accepted": false
+      },
+      "terminology": null
+    },
+    "rationale": {
+      "value": "The present study is an international, multicenter, randomized, double-blind, placebo-controlled, parallel-group, Phase 3 clinical trial with the primary objective of demonstrating the superiority of palbociclib in combination with fulvestrant (Faslodex ) over fulvestrant alone in prolonging PFS in women with HR+, HER2-negative metastatic breast cancer whose disease has progressed after prior endocrine therapy.",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "sec-1.2.3",
+        "source_page": 39,
+        "raw_phrase": "The present study is an international, multicenter, randomized, double-blind, placebo-controlled, parallel-group, Phase 3 clinical trial with the primary objective of demonstrating the superiority of palbociclib in combination with fulvestrant (Faslodex ) over fulvestrant alone in prolonging PFS",
+        "confidence": 0.85,
+        "verified": true,
+        "note": null,
+        "reviewer_accepted": false
+      },
+      "terminology": null
+    },
+    "brief_title": {
+      "value": null,
+      "provenance": null,
+      "terminology": null
+    },
+    "official_title": {
+      "value": "MULTICENTER, RANDOMIZED, DOUBLE-BLIND, PLACEBO-CONTROLLED, PHASE 3 TRIAL OF FULVESTRANT (FASLODEX ) WITH OR WITHOUT PD-0332991 (PALBOCICLIB) GOSERELIN IN WOMEN WITH HORMONE RECEPTOR-POSITIVE, HER2-NEGATIVE METASTATIC BREAST CANCER WHOSE DISEASE PROGRESSED AFTER PRIOR ENDOCRINE THERAPY",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "title-page",
+        "source_page": 1,
+        "raw_phrase": "MULTICENTER, RANDOMIZED, DOUBLE-BLIND, PLACEBO-CONTROLLED, PHASE 3 TRIAL OF FULVESTRANT (FASLODEX ) WITH OR WITHOUT PD-0332991 (PALBOCICLIB) GOSERELIN IN WOMEN WITH HORMONE RECEPTOR-POSITIVE, HER2-NEGATIVE METASTATIC BREAST CANCER WHOSE DISEASE PROGRESSED AFTER PRIOR ENDOCRINE THERAPY",
+        "confidence": 0.95,
+        "verified": true,
+        "note": null,
+        "reviewer_accepted": false
+      },
+      "terminology": null
+    },
+    "public_title": {
+      "value": null,
+      "provenance": null,
+      "terminology": null
+    },
+    "scientific_title": {
+      "value": null,
+      "provenance": null,
+      "terminology": null
+    },
+    "protocol_version": {
+      "value": "Amendment 3",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "sec-1.2.1",
+        "source_page": 29,
+        "raw_phrase": "CCI Final Protocol Amendment 3, 20 October2015",
+        "confidence": 0.9,
+        "verified": true,
+        "note": null,
+        "reviewer_accepted": false
+      },
+      "terminology": null
+    },
+    "protocol_status": {
+      "value": "Final",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "sec-1.2.1",
+        "source_page": 29,
+        "raw_phrase": "CCI Final Protocol Amendment 3, 20 October2015",
+        "confidence": 0.9,
+        "verified": true,
+        "note": null,
+        "reviewer_accepted": false
+      },
+      "terminology": {
+        "status": "exact",
+        "codelist": "C188723",
+        "codelist_name": "Study Definition Document Version Value Set Terminology",
+        "ct_version": "2026-03-27",
+        "code": "C25508",
+        "submission_value": "Final",
+        "preferred_term": "Final",
+        "matched_on": "submissionValue",
+        "candidates": []
+      }
+    },
+    "sponsor_protocol_identifier": {
+      "value": "A5481023",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "title-page",
+        "source_page": 1,
+        "raw_phrase": "Protocol Number: A5481023",
+        "confidence": 0.95,
+        "verified": true,
+        "note": null,
+        "reviewer_accepted": false
+      },
+      "terminology": null
+    },
+    "governance_dates": [
+      {
+        "row_id": null,
+        "name": {
+          "value": "STUDY_VERSION_ISSUED_DATE_1",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the date category and type",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "study_version",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 2,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "date category chosen by the extraction model",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Amendment 3",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 2,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "label written by the extraction model",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Issued Date",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 2,
+            "raw_phrase": "Amendment 3 | 20 October 2015",
+            "confidence": 0.7,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C207413",
+            "codelist_name": "Governance Date Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C215664",
+            "submission_value": "Issued Date",
+            "preferred_term": "Issued Date",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "date": {
+          "value": "2015-10-20",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 2,
+            "raw_phrase": "20 October 2015",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "geographic_scopes": {
+          "value": "Global",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 2,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "geographic scope chosen by the extraction model",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "AMENDMENT_ISSUED_DATE_1",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the date category and type",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "amendment",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 4,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "date category chosen by the extraction model",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Amendment 2",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 4,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "label written by the extraction model",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Issued Date",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 4,
+            "raw_phrase": "Amendment 2 | 30 September 2014",
+            "confidence": 0.7,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C207413",
+            "codelist_name": "Governance Date Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C215664",
+            "submission_value": "Issued Date",
+            "preferred_term": "Issued Date",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "date": {
+          "value": "2014-09-30",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 4,
+            "raw_phrase": "30 September 2014",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "geographic_scopes": {
+          "value": "Global",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 4,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "geographic scope chosen by the extraction model",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "AMENDMENT_ISSUED_DATE_2",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the date category and type",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "amendment",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 6,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "date category chosen by the extraction model",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Amendment 1",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 6,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "label written by the extraction model",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Issued Date",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 6,
+            "raw_phrase": "Amendment 1 | 04 April 2014",
+            "confidence": 0.7,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C207413",
+            "codelist_name": "Governance Date Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C215664",
+            "submission_value": "Issued Date",
+            "preferred_term": "Issued Date",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "date": {
+          "value": "2014-04-04",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 6,
+            "raw_phrase": "04 April 2014",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "geographic_scopes": {
+          "value": "Global",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 6,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "geographic scope chosen by the extraction model",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "PROTOCOL_DOCUMENT_ISSUED_DATE_1",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the date category and type",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "category": {
+          "value": "protocol_document",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 7,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "date category chosen by the extraction model",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Original protocol",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 7,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "label written by the extraction model",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "description": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "type": {
+          "value": "Issued Date",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 7,
+            "raw_phrase": "Original protocol | 24 July 2013",
+            "confidence": 0.7,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C207413",
+            "codelist_name": "Governance Date Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C215664",
+            "submission_value": "Issued Date",
+            "preferred_term": "Issued Date",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "date": {
+          "value": "2013-07-24",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 7,
+            "raw_phrase": "24 July 2013",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "geographic_scopes": {
+          "value": "Global",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "fm-document-history",
+            "source_page": 7,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "geographic scope chosen by the extraction model",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      }
+    ]
+  },
+  "model_output": {
+    "official_title": {
+      "value": "MULTICENTER, RANDOMIZED, DOUBLE-BLIND, PLACEBO-CONTROLLED, PHASE 3 TRIAL OF FULVESTRANT (FASLODEX ) WITH OR WITHOUT PD-0332991 (PALBOCICLIB) GOSERELIN IN WOMEN WITH HORMONE RECEPTOR-POSITIVE, HER2-NEGATIVE METASTATIC BREAST CANCER WHOSE DISEASE PROGRESSED AFTER PRIOR ENDOCRINE THERAPY",
+      "quote": "MULTICENTER, RANDOMIZED, DOUBLE-BLIND, PLACEBO-CONTROLLED, PHASE 3 TRIAL OF FULVESTRANT (FASLODEX ) WITH OR WITHOUT PD-0332991 (PALBOCICLIB) GOSERELIN IN WOMEN WITH HORMONE RECEPTOR-POSITIVE, HER2-NEGATIVE METASTATIC BREAST CANCER WHOSE DISEASE PROGRESSED AFTER PRIOR ENDOCRINE THERAPY",
+      "section_id": "title-page",
+      "confidence": 0.95
+    },
+    "brief_title": {
+      "value": null,
+      "quote": null,
+      "section_id": null,
+      "confidence": 0.0
+    },
+    "public_title": {
+      "value": null,
+      "quote": null,
+      "section_id": null,
+      "confidence": 0.0
+    },
+    "scientific_title": {
+      "value": null,
+      "quote": null,
+      "section_id": null,
+      "confidence": 0.0
+    },
+    "acronym": {
+      "value": "PALOMA-3",
+      "quote": "The present study A5481023 (PALOMA-3) met its primary endpoint at the preplanned interim analysis",
+      "section_id": "sec-1.2.1.8",
+      "confidence": 0.85
+    },
+    "sponsor_protocol_identifier": {
+      "value": "A5481023",
+      "quote": "Protocol Number: A5481023",
+      "section_id": "title-page",
+      "confidence": 0.95
+    },
+    "protocol_version": {
+      "value": "Amendment 3",
+      "quote": "CCI Final Protocol Amendment 3, 20 October2015",
+      "section_id": "sec-1.2.1",
+      "confidence": 0.9
+    },
+    "protocol_status": {
+      "value": "Final",
+      "quote": "CCI Final Protocol Amendment 3, 20 October2015",
+      "section_id": "sec-1.2.1",
+      "confidence": 0.9
+    },
+    "rationale": {
+      "value": "The present study is an international, multicenter, randomized, double-blind, placebo-controlled, parallel-group, Phase 3 clinical trial with the primary objective of demonstrating the superiority of palbociclib in combination with fulvestrant (Faslodex ) over fulvestrant alone in prolonging PFS in women with HR+, HER2-negative metastatic breast cancer whose disease has progressed after prior endocrine therapy.",
+      "quote": "The present study is an international, multicenter, randomized, double-blind, placebo-controlled, parallel-group, Phase 3 clinical trial with the primary objective of demonstrating the superiority of palbociclib in combination with fulvestrant (Faslodex ) over fulvestrant alone in prolonging PFS",
+      "section_id": "sec-1.2.3",
+      "confidence": 0.85
+    },
+    "governance_dates": [
+      {
+        "category": "study_version",
+        "label": "Amendment 3",
+        "type": {
+          "value": "Issued Date",
+          "quote": "Amendment 3 | 20 October 2015",
+          "section_id": "fm-document-history",
+          "confidence": 0.7
+        },
+        "date": {
+          "value": "2015-10-20",
+          "quote": "20 October 2015",
+          "section_id": "fm-document-history",
+          "confidence": 0.9
+        },
+        "geographic_scope": "Global"
+      },
+      {
+        "category": "amendment",
+        "label": "Amendment 2",
+        "type": {
+          "value": "Issued Date",
+          "quote": "Amendment 2 | 30 September 2014",
+          "section_id": "fm-document-history",
+          "confidence": 0.7
+        },
+        "date": {
+          "value": "2014-09-30",
+          "quote": "30 September 2014",
+          "section_id": "fm-document-history",
+          "confidence": 0.9
+        },
+        "geographic_scope": "Global"
+      },
+      {
+        "category": "amendment",
+        "label": "Amendment 1",
+        "type": {
+          "value": "Issued Date",
+          "quote": "Amendment 1 | 04 April 2014",
+          "section_id": "fm-document-history",
+          "confidence": 0.7
+        },
+        "date": {
+          "value": "2014-04-04",
+          "quote": "04 April 2014",
+          "section_id": "fm-document-history",
+          "confidence": 0.9
+        },
+        "geographic_scope": "Global"
+      },
+      {
+        "category": "protocol_document",
+        "label": "Original protocol",
+        "type": {
+          "value": "Issued Date",
+          "quote": "Original protocol | 24 July 2013",
+          "section_id": "fm-document-history",
+          "confidence": 0.7
+        },
+        "date": {
+          "value": "2013-07-24",
+          "quote": "24 July 2013",
+          "section_id": "fm-document-history",
+          "confidence": 0.9
+        },
+        "geographic_scope": "Global"
+      }
+    ]
+  }
+}

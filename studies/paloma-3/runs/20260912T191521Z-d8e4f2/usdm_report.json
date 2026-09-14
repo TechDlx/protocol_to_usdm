@@ -1,0 +1,589 @@
+{
+  "generated_at": "2026-09-13T23:39:01.220319Z",
+  "file": "usdm/paloma-3.json",
+  "sha256": "eff53dea036189517b686ddd979fbcada2efbd348cf4a979d18c4c131a2969c9",
+  "size_bytes": 147872,
+  "usdm_version": "4.0.0",
+  "system": "USDM4 Excel Package 0.10.0",
+  "workbook_file": "workbook/paloma-3.xlsx",
+  "workbook_sha256": "d40c976c36c1dc9ebf78b9ed7913904b31182ad4e5f29b9c8d55da725540aa47",
+  "review_revision": 18,
+  "ct_version": "2026-03-27",
+  "import_errors": [],
+  "import_warnings": [
+    {
+      "level": "Warning",
+      "message": "configuration not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "notes not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "dates not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "studyReferences not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "studyDesignSites not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "people not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "roles not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "extensions not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "amendmentChanges not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "amendmentImpact not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "documentContent not found but optional",
+      "location": "DocumentContentSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "documentVersions not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "documents not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "eligibilityCriteriaItems not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "studyProducts not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "studyDevices not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "studyProductOrganizationRoles not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "studyDesignProcedures not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "studyDesignSpecimen not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "studyDesignCharacteristics not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "eligibilityCriteria not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "Unable to find timing reference for instance with name 'Screening'",
+      "location": ""
+    },
+    {
+      "level": "Warning",
+      "message": "Unable to find timing reference for instance with name 'Cycles ≥3 Day 1'",
+      "location": ""
+    },
+    {
+      "level": "Warning",
+      "message": "Unable to find timing reference for instance with name 'End of Treatment/Withdrawal'",
+      "location": ""
+    },
+    {
+      "level": "Warning",
+      "message": "Unable to find timing reference for instance with name 'Post-Treatment Follow-Up'",
+      "location": ""
+    },
+    {
+      "level": "Warning",
+      "message": "Unable to find timing reference for instance with name 'Tumor Assessment Requirements Flowchart Screening'",
+      "location": ""
+    },
+    {
+      "level": "Warning",
+      "message": "Unable to find timing reference for instance with name 'Tumor Assessment Requirements Flowchart Treatment Period'",
+      "location": ""
+    },
+    {
+      "level": "Warning",
+      "message": "Unable to find timing reference for instance with name 'Tumor Assessment Requirements Flowchart End of Treatment Visit'",
+      "location": ""
+    },
+    {
+      "level": "Warning",
+      "message": "studyConditions not found but optional",
+      "location": "BaseSheet.__init__"
+    },
+    {
+      "level": "Warning",
+      "message": "dictionaries not found but optional",
+      "location": "BaseSheet.__init__"
+    }
+  ],
+  "rules": {
+    "engine": "usdm4 rule library",
+    "rules": 213,
+    "passed": 196,
+    "failed": 17,
+    "exceptions": 0,
+    "not_implemented": 0,
+    "findings": 30,
+    "expected_findings": 20
+  },
+  "findings": [
+    {
+      "rule_id": "DDF00009",
+      "status": "Failure",
+      "level": "Error",
+      "message": "ScheduleTimeline has no anchor — no instance is the target of a Fixed Reference timing within this timeline",
+      "klass": "ScheduleTimeline",
+      "attribute": "timings.type, instances",
+      "path": "$.Study.StudyVersion[0].InterventionalStudyDesign[0].ScheduleTimeline[1]",
+      "rule_text": "Each schedule timeline must contain at least one anchor (fixed time) - i.e., at least one scheduled activity instance that is referenced by a Fixed Reference timing.",
+      "kind": "review",
+      "note": "Timings sheet: give the timeline one Fixed Reference timing."
+    },
+    {
+      "rule_id": "DDF00025",
+      "status": "Failure",
+      "level": "Error",
+      "message": "Window label defined for anchor timing",
+      "klass": "Timing",
+      "attribute": "windowLabel",
+      "path": "$.Study.StudyVersion[0].InterventionalStudyDesign[0].ScheduleTimeline[0].Timing[0]",
+      "rule_text": "A window must not be defined for an anchor timing (i.e., type is \"Fixed Reference\").",
+      "kind": "review",
+      "note": "Timings sheet: remove the window from the Fixed Reference timing."
+    },
+    {
+      "rule_id": "DDF00025",
+      "status": "Failure",
+      "level": "Error",
+      "message": "Window lower defined for anchor timing",
+      "klass": "Timing",
+      "attribute": "windowLower",
+      "path": "$.Study.StudyVersion[0].InterventionalStudyDesign[0].ScheduleTimeline[0].Timing[0]",
+      "rule_text": "A window must not be defined for an anchor timing (i.e., type is \"Fixed Reference\").",
+      "kind": "review",
+      "note": "Timings sheet: remove the window from the Fixed Reference timing."
+    },
+    {
+      "rule_id": "DDF00025",
+      "status": "Failure",
+      "level": "Error",
+      "message": "Window upper defined for anchor timing",
+      "klass": "Timing",
+      "attribute": "windowUpper",
+      "path": "$.Study.StudyVersion[0].InterventionalStudyDesign[0].ScheduleTimeline[0].Timing[0]",
+      "rule_text": "A window must not be defined for an anchor timing (i.e., type is \"Fixed Reference\").",
+      "kind": "review",
+      "note": "Timings sheet: remove the window from the Fixed Reference timing."
+    },
+    {
+      "rule_id": "DDF00031",
+      "status": "Failure",
+      "level": "Error",
+      "message": "relativeToScheduledInstanceId and relativeFromScheduledInstanceId are equal",
+      "klass": "Timing",
+      "attribute": "relativeToScheduledInstanceId and relativeFromScheduledInstanceId",
+      "path": "$.Study.StudyVersion[0].InterventionalStudyDesign[0].ScheduleTimeline[0].Timing[0]",
+      "rule_text": "If timing type is not \"Fixed Reference\" then it must point to two scheduled instances (e.g. the relativeFromScheduledInstance and relativeToScheduledInstance attributes must not be missing and must not be equal to each other).",
+      "kind": "expected",
+      "note": "The importer relates the anchor (Fixed Reference) timing to its own timepoint; the CDISC Pilot reference workbook gets the same finding."
+    },
+    {
+      "rule_id": "DDF00033",
+      "status": "Failure",
+      "level": "Error",
+      "message": "Duration has neither text nor quantity specified",
+      "klass": "Duration",
+      "attribute": "text, quantity",
+      "path": "$.Study.StudyVersion[0].StudyIntervention[2].Administration[0].Duration",
+      "rule_text": "At least the text or the quantity must be specified for a duration.",
+      "kind": "review",
+      "note": "Interventions sheet: give the administration a duration."
+    },
+    {
+      "rule_id": "DDF00039",
+      "status": "Failure",
+      "level": "Warning",
+      "message": "quantity is set but durationWillVary is missing",
+      "klass": "Duration",
+      "attribute": "durationWillVary, quantity",
+      "path": "$.Study.StudyVersion[0].StudyIntervention[2].Administration[0].Duration",
+      "rule_text": "If the duration will vary, a quantity is not expected for the duration and vice versa.",
+      "kind": "review",
+      "note": "Interventions sheet: a duration either varies (no quantity) or has a quantity; an empty duration is written as not varying."
+    },
+    {
+      "rule_id": "DDF00083",
+      "status": "Failure",
+      "level": "Error",
+      "message": "id 'GovernanceDate_1' is not unique (2 occurrences)",
+      "klass": "GovernanceDate",
+      "attribute": "id",
+      "path": "$.study.versions[0].dateValues[0]",
+      "rule_text": "Within a study version, all id values must be unique.",
+      "kind": "expected",
+      "note": "Identifiers are assigned by the importer, not by this pipeline."
+    },
+    {
+      "rule_id": "DDF00083",
+      "status": "Failure",
+      "level": "Error",
+      "message": "id 'GovernanceDate_1' is not unique (2 occurrences)",
+      "klass": "GovernanceDate",
+      "attribute": "id",
+      "path": "$.study.versions[0].amendments[0].dateValues[0]",
+      "rule_text": "Within a study version, all id values must be unique.",
+      "kind": "expected",
+      "note": "Identifiers are assigned by the importer, not by this pipeline."
+    },
+    {
+      "rule_id": "DDF00083",
+      "status": "Failure",
+      "level": "Error",
+      "message": "id 'Code_4' is not unique (2 occurrences)",
+      "klass": "Code",
+      "attribute": "id",
+      "path": "$.study.versions[0].dateValues[0].type",
+      "rule_text": "Within a study version, all id values must be unique.",
+      "kind": "expected",
+      "note": "Identifiers are assigned by the importer, not by this pipeline."
+    },
+    {
+      "rule_id": "DDF00083",
+      "status": "Failure",
+      "level": "Error",
+      "message": "id 'Code_4' is not unique (2 occurrences)",
+      "klass": "Code",
+      "attribute": "id",
+      "path": "$.study.versions[0].amendments[0].dateValues[0].type",
+      "rule_text": "Within a study version, all id values must be unique.",
+      "kind": "expected",
+      "note": "Identifiers are assigned by the importer, not by this pipeline."
+    },
+    {
+      "rule_id": "DDF00083",
+      "status": "Failure",
+      "level": "Error",
+      "message": "id 'GeographicScope_1' is not unique (2 occurrences)",
+      "klass": "GeographicScope",
+      "attribute": "id",
+      "path": "$.study.versions[0].dateValues[0].geographicScopes[0]",
+      "rule_text": "Within a study version, all id values must be unique.",
+      "kind": "expected",
+      "note": "Identifiers are assigned by the importer, not by this pipeline."
+    },
+    {
+      "rule_id": "DDF00083",
+      "status": "Failure",
+      "level": "Error",
+      "message": "id 'GeographicScope_1' is not unique (2 occurrences)",
+      "klass": "GeographicScope",
+      "attribute": "id",
+      "path": "$.study.versions[0].amendments[0].dateValues[0].geographicScopes[0]",
+      "rule_text": "Within a study version, all id values must be unique.",
+      "kind": "expected",
+      "note": "Identifiers are assigned by the importer, not by this pipeline."
+    },
+    {
+      "rule_id": "DDF00083",
+      "status": "Failure",
+      "level": "Error",
+      "message": "id 'Code_5' is not unique (2 occurrences)",
+      "klass": "Code",
+      "attribute": "id",
+      "path": "$.study.versions[0].dateValues[0].geographicScopes[0].type",
+      "rule_text": "Within a study version, all id values must be unique.",
+      "kind": "expected",
+      "note": "Identifiers are assigned by the importer, not by this pipeline."
+    },
+    {
+      "rule_id": "DDF00083",
+      "status": "Failure",
+      "level": "Error",
+      "message": "id 'Code_5' is not unique (2 occurrences)",
+      "klass": "Code",
+      "attribute": "id",
+      "path": "$.study.versions[0].amendments[0].dateValues[0].geographicScopes[0].type",
+      "rule_text": "Within a study version, all id values must be unique.",
+      "kind": "expected",
+      "note": "Identifiers are assigned by the importer, not by this pipeline."
+    },
+    {
+      "rule_id": "DDF00097",
+      "status": "Failure",
+      "level": "Error",
+      "message": "plannedAge is not specified on the study population and not specified on any of the 0 cohort(s); specify it on the study population or on all cohorts",
+      "klass": "StudyDesignPopulation",
+      "attribute": "plannedAge",
+      "path": "$.Study.StudyVersion[0].InterventionalStudyDesign[0].StudyDesignPopulation",
+      "rule_text": "Within a study design, the planned age range must be specified either in the study population or in all cohorts.",
+      "kind": "review",
+      "note": "Populations sheet: enter the planned age range. USDM needs both ends, so an open range ('18 years or older') needs an upper bound chosen by the reviewer, e.g. 18..100 YEARS."
+    },
+    {
+      "rule_id": "DDF00101",
+      "status": "Failure",
+      "level": "Warning",
+      "message": "Interventional StudyDesign has no Procedure referencing a StudyIntervention",
+      "klass": "Procedure",
+      "attribute": "studyInterventionId",
+      "path": "$.Study.StudyVersion[0].InterventionalStudyDesign[0]",
+      "rule_text": "Within a study design, if study type is Interventional then at least one intervention is expected to be referenced from a procedure.",
+      "kind": "expected",
+      "note": "Procedures are not extracted yet; activities use biomedical concepts."
+    },
+    {
+      "rule_id": "DDF00153",
+      "status": "Failure",
+      "level": "Warning",
+      "message": "Main ScheduleTimeline has no plannedDuration",
+      "klass": "ScheduleTimeline",
+      "attribute": "plannedDuration",
+      "path": "$.Study.StudyVersion[0].InterventionalStudyDesign[0].ScheduleTimeline[0]",
+      "rule_text": "A planned duration is expected for the main timeline.",
+      "kind": "expected",
+      "note": "Timeline planned durations are not extracted yet."
+    },
+    {
+      "rule_id": "DDF00172",
+      "status": "Failure",
+      "level": "Error",
+      "message": "Expected exactly one sponsor study identifier, found 0",
+      "klass": "StudyVersion",
+      "attribute": "studyIdentifiers",
+      "path": "$.Study.StudyVersion[0]",
+      "rule_text": "There must be exactly one sponsor study identifier (i.e., a study identifier whose scope is an organization that is identified as the organization for the sponsor study role).",
+      "kind": "expected",
+      "note": "Study roles and their organisations are not extracted yet."
+    },
+    {
+      "rule_id": "DDF00177",
+      "status": "Failure",
+      "level": "Warning",
+      "message": "route is set but dose is missing",
+      "klass": "Administration",
+      "attribute": "dose, route",
+      "path": "$.Study.StudyVersion[0].StudyIntervention[1].Administration[0]",
+      "rule_text": "If an administration's dose is specified then a corresponding route is expected and vice versa.",
+      "kind": "review",
+      "note": "Interventions sheet: a dose needs a route and a route needs a dose."
+    },
+    {
+      "rule_id": "DDF00178",
+      "status": "Failure",
+      "level": "Error",
+      "message": "dose is set but required frequency is missing",
+      "klass": "Administration",
+      "attribute": "dose, frequency",
+      "path": "$.Study.StudyVersion[0].StudyIntervention[2].Administration[0]",
+      "rule_text": "If a dose is specified then a corresponding frequency must also be specified.",
+      "kind": "review",
+      "note": "Interventions sheet: a dose needs a frequency."
+    },
+    {
+      "rule_id": "DDF00185",
+      "status": "Failure",
+      "level": "Error",
+      "message": "Administration: dose specified but no administrable product (direct or embedded)",
+      "klass": "Administration",
+      "attribute": "dose, administrableProductId, medicalDeviceId",
+      "path": "$.Study.StudyVersion[0].StudyIntervention[0].Administration[0]",
+      "rule_text": "If a dose is specified, then a corresponding administrable product must also be specified either directly or embedded in the medical device and vice versa.",
+      "kind": "expected",
+      "note": "Administrable products are not extracted yet."
+    },
+    {
+      "rule_id": "DDF00185",
+      "status": "Failure",
+      "level": "Error",
+      "message": "Administration: dose specified but no administrable product (direct or embedded)",
+      "klass": "Administration",
+      "attribute": "dose, administrableProductId, medicalDeviceId",
+      "path": "$.Study.StudyVersion[0].StudyIntervention[2].Administration[0]",
+      "rule_text": "If a dose is specified, then a corresponding administrable product must also be specified either directly or embedded in the medical device and vice versa.",
+      "kind": "expected",
+      "note": "Administrable products are not extracted yet."
+    },
+    {
+      "rule_id": "DDF00192",
+      "status": "Failure",
+      "level": "Warning",
+      "message": "Double-blind StudyDesign has 0 masked applicable StudyRoles (expected at least 2)",
+      "klass": "StudyRole",
+      "attribute": "masking",
+      "path": "$.Study.StudyVersion[0].InterventionalStudyDesign[0]",
+      "rule_text": "A masking is expected to be defined for at least two study roles in a study design with a double blind blinding schema.",
+      "kind": "expected",
+      "note": "Study roles and their organisations are not extracted yet."
+    },
+    {
+      "rule_id": "DDF00201",
+      "status": "Failure",
+      "level": "Error",
+      "message": "Expected exactly one sponsor study role, found 0",
+      "klass": "StudyVersion",
+      "attribute": "roles",
+      "path": "$.Study.StudyVersion[0]",
+      "rule_text": "There must be exactly one study role with a code of sponsor.",
+      "kind": "expected",
+      "note": "Study roles and their organisations are not extracted yet."
+    },
+    {
+      "rule_id": "DDF00236",
+      "status": "Failure",
+      "level": "Warning",
+      "message": "BiomedicalConcept synonym 'Informed Consent Obtained' equals the label (case-insensitive)",
+      "klass": "BiomedicalConcept",
+      "attribute": "synonyms",
+      "path": "$.Study.StudyVersion[0].BiomedicalConcept[0]",
+      "rule_text": "If a synonym is specified then it is not expected to be equal to the label of the biomedical concept (case insensitive).",
+      "kind": "expected",
+      "note": "Biomedical concept definitions come from the usdm4 catalogue, which lists the label among the synonyms."
+    },
+    {
+      "rule_id": "DDF00236",
+      "status": "Failure",
+      "level": "Warning",
+      "message": "BiomedicalConcept synonym 'HEIGHT' equals the label (case-insensitive)",
+      "klass": "BiomedicalConcept",
+      "attribute": "synonyms",
+      "path": "$.Study.StudyVersion[0].BiomedicalConcept[1]",
+      "rule_text": "If a synonym is specified then it is not expected to be equal to the label of the biomedical concept (case insensitive).",
+      "kind": "expected",
+      "note": "Biomedical concept definitions come from the usdm4 catalogue, which lists the label among the synonyms."
+    },
+    {
+      "rule_id": "DDF00236",
+      "status": "Failure",
+      "level": "Warning",
+      "message": "BiomedicalConcept synonym 'WEIGHT' equals the label (case-insensitive)",
+      "klass": "BiomedicalConcept",
+      "attribute": "synonyms",
+      "path": "$.Study.StudyVersion[0].BiomedicalConcept[2]",
+      "rule_text": "If a synonym is specified then it is not expected to be equal to the label of the biomedical concept (case insensitive).",
+      "kind": "expected",
+      "note": "Biomedical concept definitions come from the usdm4 catalogue, which lists the label among the synonyms."
+    },
+    {
+      "rule_id": "DDF00236",
+      "status": "Failure",
+      "level": "Warning",
+      "message": "BiomedicalConcept synonym 'Sexual Orientation' equals the label (case-insensitive)",
+      "klass": "BiomedicalConcept",
+      "attribute": "synonyms",
+      "path": "$.Study.StudyVersion[0].BiomedicalConcept[6]",
+      "rule_text": "If a synonym is specified then it is not expected to be equal to the label of the biomedical concept (case insensitive).",
+      "kind": "expected",
+      "note": "Biomedical concept definitions come from the usdm4 catalogue, which lists the label among the synonyms."
+    },
+    {
+      "rule_id": "DDF00258",
+      "status": "Failure",
+      "level": "Warning",
+      "message": "InterventionalStudyDesign has 2 characteristics from the randomisation set: C46079, C25689",
+      "klass": "InterventionalStudyDesign",
+      "attribute": "characteristics",
+      "path": "$.Study.StudyVersion[0].InterventionalStudyDesign[0]",
+      "rule_text": "A study design is not expected to have more than one of the following characteristics: \"Randomized\", \"Stratification\", \"Stratified Randomisation\".",
+      "kind": "review",
+      "note": "Study design sheet: keep only one of Randomized, Stratification and Stratified Randomisation among the characteristics."
+    }
+  ],
+  "core": {
+    "ran": false,
+    "reason": "the CDISC CORE cache is not built (it needs CDISC Library API access); missing: JSONata custom function files, XSD schema files, USDM validation rules (version 4-0), CT package index",
+    "rules_executed": 0,
+    "findings": 0,
+    "execution_errors": 0,
+    "results": []
+  },
+  "entities": {
+    "Abbreviation": 108,
+    "Activity": 27,
+    "Administration": 3,
+    "AliasCode": 51,
+    "BiomedicalConcept": 8,
+    "BiomedicalConceptProperty": 32,
+    "Code": 194,
+    "Duration": 3,
+    "EligibilityCriterion": 28,
+    "EligibilityCriterionItem": 28,
+    "Encounter": 6,
+    "Endpoint": 11,
+    "GeographicScope": 10,
+    "GovernanceDate": 4,
+    "Indication": 1,
+    "InterventionalStudyDesign": 1,
+    "Objective": 9,
+    "Organization": 3,
+    "Quantity": 8,
+    "ResponseCode": 19,
+    "ScheduleTimeline": 2,
+    "ScheduleTimelineExit": 2,
+    "ScheduledActivityInstance": 9,
+    "Study": 1,
+    "StudyAmendment": 3,
+    "StudyAmendmentReason": 10,
+    "StudyArm": 2,
+    "StudyCell": 6,
+    "StudyDesignPopulation": 1,
+    "StudyElement": 4,
+    "StudyEpoch": 3,
+    "StudyIdentifier": 3,
+    "StudyIntervention": 3,
+    "StudyTitle": 2,
+    "StudyVersion": 1,
+    "SubjectEnrollment": 3,
+    "Timing": 2
+  },
+  "seconds": {
+    "import": 37.8,
+    "rules": 5.0
+  },
+  "reused": false
+}

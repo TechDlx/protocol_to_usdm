@@ -1,0 +1,1068 @@
+{
+  "run": {
+    "sheet": "objectives_endpoints",
+    "status": "done",
+    "started_at": "2026-09-13T21:27:55.383690Z",
+    "finished_at": "2026-09-13T21:28:47.622998Z",
+    "input_hash": "36cfe9381ef582afb5d9af176a824c1f409bd90db104e7bc4613d7433423dcab",
+    "postprocess_version": "1+verify4",
+    "reprocessed": false,
+    "section_ids": [
+      "sec-2",
+      "sec-2.1",
+      "sec-2.2",
+      "sec-4.3",
+      "sec-4.3.1",
+      "sec-4.3.2",
+      "sec-4.3.3",
+      "sec-4.3.4"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 7797,
+      "output_tokens": 6467,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 52.22,
+      "cost_usd": 0.080264,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": []
+  },
+  "records": [
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": "OBJ1",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_label": {
+        "value": "ADAS-Cog/CIBIC+ dose relationship",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 7,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": "To determine if there is a statistically significant relationship (overall Type 1 error rate, α =.05) between the change in both ADAS-Cog (see Attachment LZZT.2) and CIBIC+ (see Attachment LZZT.3) scores, and drug dose (0, 50 cm 2 [54 mg], and 75 cm 2 [81 mg]).",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 7,
+          "raw_phrase": "To determine if there is a statistically significant relationship (overall Type 1 error rate, α =.05) between the change in both ADAS-Cog",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_level": {
+        "value": "Trial Primary Objective",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 7,
+          "raw_phrase": "The primary objectives of this study are",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188725",
+          "codelist_name": "Objective Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C85826",
+          "submission_value": "Study Primary Objective",
+          "preferred_term": "Trial Primary Objective",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "endpoint_name": {
+        "value": "END1",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": "ADAS-Cog and CIBIC+ change",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 7,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": "the change in both ADAS-Cog (see Attachment LZZT.2) and CIBIC+ (see Attachment LZZT.3) scores",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 7,
+          "raw_phrase": "the change in both ADAS-Cog (see Attachment LZZT.2) and CIBIC+ (see Attachment LZZT.3) scores",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": "Efficacy",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-4.3.1",
+          "source_page": 41,
+          "raw_phrase": "the primary outcome measures are the ADAS-Cog (11) and CIBIC+ instruments",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": "Primary Endpoint",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-4.3.1",
+          "source_page": 41,
+          "raw_phrase": "the primary outcome measures are the ADAS-Cog (11) and CIBIC+ instruments",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188726",
+          "codelist_name": "Endpoint Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C94496",
+          "submission_value": "Primary Endpoint",
+          "preferred_term": "Primary Endpoint",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    },
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": "OBJ2",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_label": {
+        "value": "Safety profile",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 7,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": "To document the safety profile of the xanomeline TTS.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 7,
+          "raw_phrase": "To document the safety profile of the xanomeline TTS.",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_level": {
+        "value": "Trial Primary Objective",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.1",
+          "source_page": 7,
+          "raw_phrase": "The primary objectives of this study are",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188725",
+          "codelist_name": "Objective Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C85826",
+          "submission_value": "Study Primary Objective",
+          "preferred_term": "Trial Primary Objective",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "endpoint_name": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": "OBJ3",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_label": {
+        "value": "Behavior improvement",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": "To assess the dose-dependent improvement in behavior.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": "To assess the dose-dependent improvement in behavior.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_level": {
+        "value": "Trial Secondary Objective",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": "The secondary objectives of this study are",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188725",
+          "codelist_name": "Objective Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C85827",
+          "submission_value": "Study Secondary Objective",
+          "preferred_term": "Trial Secondary Objective",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "endpoint_name": {
+        "value": "END2",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": "NPI-X score improvement",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": "Improved scores on the Revised Neuropsychiatric Inventory (NPI-X) will indicate improvement in these areas (see Attachment LZZT.4).",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": "Improved scores on the Revised Neuropsychiatric Inventory (NPI-X) will indicate improvement in these areas",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": "Efficacy",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": "To assess the dose-dependent improvement in behavior.",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": "Secondary Endpoint",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": "The secondary objectives of this study are",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188726",
+          "codelist_name": "Endpoint Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C139173",
+          "submission_value": "Secondary Endpoint",
+          "preferred_term": "Secondary Endpoint",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    },
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": "OBJ4",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_label": {
+        "value": "Activities of daily living",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": "To assess the dose-dependent improvements in activities of daily living.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": "To assess the dose-dependent improvements in activities of daily living.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_level": {
+        "value": "Trial Secondary Objective",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": "The secondary objectives of this study are",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188725",
+          "codelist_name": "Objective Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C85827",
+          "submission_value": "Study Secondary Objective",
+          "preferred_term": "Trial Secondary Objective",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "endpoint_name": {
+        "value": "END3",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": "DAD score improvement",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": "Improved scores on the Disability Assessment for Dementia (DAD) will indicate improvement in these areas (see Attachment LZZT.5).",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": "Improved scores on the Disability Assessment for Dementia (DAD) will indicate improvement in these areas",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": "Efficacy",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": "To assess the dose-dependent improvements in activities of daily living.",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": "Secondary Endpoint",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": "The secondary objectives of this study are",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188726",
+          "codelist_name": "Endpoint Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C139173",
+          "submission_value": "Secondary Endpoint",
+          "preferred_term": "Secondary Endpoint",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    },
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": "OBJ5",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_label": {
+        "value": "Extended cognition assessment",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": "To assess the dose-dependent improvements in an extended assessment of cognition that integrates attention/concentration tasks.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": "To assess the dose-dependent improvements in an extended assessment of cognition that integrates attention/concentration tasks.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_level": {
+        "value": "Trial Secondary Objective",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": "The secondary objectives of this study are",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188725",
+          "codelist_name": "Objective Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C85827",
+          "submission_value": "Study Secondary Objective",
+          "preferred_term": "Trial Secondary Objective",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "endpoint_name": {
+        "value": "END4",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": "ADAS-Cog (14) assessment",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": "The Alzheimer’s Disease Assessment Scale-14 item Cognitive Subscale, hereafter referred to as ADAS-Cog (14), will be used for this assessment (see Attachment LZZT.2).",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": "The Alzheimer’s Disease Assessment Scale-14 item Cognitive Subscale, hereafter referred to as ADAS-Cog (14)",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": "Efficacy",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": "To assess the dose-dependent improvements in an extended assessment of cognition that integrates attention/concentration tasks.",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": "Secondary Endpoint",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": "The secondary objectives of this study are",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188726",
+          "codelist_name": "Endpoint Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C139173",
+          "submission_value": "Secondary Endpoint",
+          "preferred_term": "Secondary Endpoint",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      }
+    },
+    {
+      "row_id": null,
+      "objective_name": {
+        "value": "OBJ6",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_label": {
+        "value": "Apo E genotype response",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "short label written by the extraction model",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "objective_text": {
+        "value": "To assess the treatment response as a function of Apo E genotype.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": "To assess the treatment response as a function of Apo E genotype.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "objective_level": {
+        "value": "Trial Exploratory Objective",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-2.2",
+          "source_page": 7,
+          "raw_phrase": "The secondary objectives of this study are",
+          "confidence": 0.6,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C188725",
+          "codelist_name": "Objective Level Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C163559",
+          "submission_value": "Exploratory Objective",
+          "preferred_term": "Trial Exploratory Objective",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "endpoint_name": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_label": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_text": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_purpose": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "endpoint_level": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      }
+    }
+  ],
+  "model_output": {
+    "objectives": [
+      {
+        "text": {
+          "value": "To determine if there is a statistically significant relationship (overall Type 1 error rate, α =.05) between the change in both ADAS-Cog (see Attachment LZZT.2) and CIBIC+ (see Attachment LZZT.3) scores, and drug dose (0, 50 cm 2 [54 mg], and 75 cm 2 [81 mg]).",
+          "quote": "To determine if there is a statistically significant relationship (overall Type 1 error rate, α =.05) between the change in both ADAS-Cog",
+          "section_id": "sec-2.1",
+          "confidence": 0.9
+        },
+        "label": "ADAS-Cog/CIBIC+ dose relationship",
+        "level": {
+          "value": "Trial Primary Objective",
+          "quote": "The primary objectives of this study are",
+          "section_id": "sec-2.1",
+          "confidence": 0.95
+        },
+        "endpoints": [
+          {
+            "text": {
+              "value": "the change in both ADAS-Cog (see Attachment LZZT.2) and CIBIC+ (see Attachment LZZT.3) scores",
+              "quote": "the change in both ADAS-Cog (see Attachment LZZT.2) and CIBIC+ (see Attachment LZZT.3) scores",
+              "section_id": "sec-2.1",
+              "confidence": 0.85
+            },
+            "label": "ADAS-Cog and CIBIC+ change",
+            "level": {
+              "value": "Primary Endpoint",
+              "quote": "the primary outcome measures are the ADAS-Cog (11) and CIBIC+ instruments",
+              "section_id": "sec-4.3.1",
+              "confidence": 0.9
+            },
+            "purpose": {
+              "value": "Efficacy",
+              "quote": "the primary outcome measures are the ADAS-Cog (11) and CIBIC+ instruments",
+              "section_id": "sec-4.3.1",
+              "confidence": 0.85
+            }
+          }
+        ]
+      },
+      {
+        "text": {
+          "value": "To document the safety profile of the xanomeline TTS.",
+          "quote": "To document the safety profile of the xanomeline TTS.",
+          "section_id": "sec-2.1",
+          "confidence": 0.95
+        },
+        "label": "Safety profile",
+        "level": {
+          "value": "Trial Primary Objective",
+          "quote": "The primary objectives of this study are",
+          "section_id": "sec-2.1",
+          "confidence": 0.95
+        },
+        "endpoints": []
+      },
+      {
+        "text": {
+          "value": "To assess the dose-dependent improvement in behavior.",
+          "quote": "To assess the dose-dependent improvement in behavior.",
+          "section_id": "sec-2.2",
+          "confidence": 0.9
+        },
+        "label": "Behavior improvement",
+        "level": {
+          "value": "Trial Secondary Objective",
+          "quote": "The secondary objectives of this study are",
+          "section_id": "sec-2.2",
+          "confidence": 0.95
+        },
+        "endpoints": [
+          {
+            "text": {
+              "value": "Improved scores on the Revised Neuropsychiatric Inventory (NPI-X) will indicate improvement in these areas (see Attachment LZZT.4).",
+              "quote": "Improved scores on the Revised Neuropsychiatric Inventory (NPI-X) will indicate improvement in these areas",
+              "section_id": "sec-2.2",
+              "confidence": 0.85
+            },
+            "label": "NPI-X score improvement",
+            "level": {
+              "value": "Secondary Endpoint",
+              "quote": "The secondary objectives of this study are",
+              "section_id": "sec-2.2",
+              "confidence": 0.9
+            },
+            "purpose": {
+              "value": "Efficacy",
+              "quote": "To assess the dose-dependent improvement in behavior.",
+              "section_id": "sec-2.2",
+              "confidence": 0.8
+            }
+          }
+        ]
+      },
+      {
+        "text": {
+          "value": "To assess the dose-dependent improvements in activities of daily living.",
+          "quote": "To assess the dose-dependent improvements in activities of daily living.",
+          "section_id": "sec-2.2",
+          "confidence": 0.9
+        },
+        "label": "Activities of daily living",
+        "level": {
+          "value": "Trial Secondary Objective",
+          "quote": "The secondary objectives of this study are",
+          "section_id": "sec-2.2",
+          "confidence": 0.95
+        },
+        "endpoints": [
+          {
+            "text": {
+              "value": "Improved scores on the Disability Assessment for Dementia (DAD) will indicate improvement in these areas (see Attachment LZZT.5).",
+              "quote": "Improved scores on the Disability Assessment for Dementia (DAD) will indicate improvement in these areas",
+              "section_id": "sec-2.2",
+              "confidence": 0.85
+            },
+            "label": "DAD score improvement",
+            "level": {
+              "value": "Secondary Endpoint",
+              "quote": "The secondary objectives of this study are",
+              "section_id": "sec-2.2",
+              "confidence": 0.9
+            },
+            "purpose": {
+              "value": "Efficacy",
+              "quote": "To assess the dose-dependent improvements in activities of daily living.",
+              "section_id": "sec-2.2",
+              "confidence": 0.8
+            }
+          }
+        ]
+      },
+      {
+        "text": {
+          "value": "To assess the dose-dependent improvements in an extended assessment of cognition that integrates attention/concentration tasks.",
+          "quote": "To assess the dose-dependent improvements in an extended assessment of cognition that integrates attention/concentration tasks.",
+          "section_id": "sec-2.2",
+          "confidence": 0.9
+        },
+        "label": "Extended cognition assessment",
+        "level": {
+          "value": "Trial Secondary Objective",
+          "quote": "The secondary objectives of this study are",
+          "section_id": "sec-2.2",
+          "confidence": 0.95
+        },
+        "endpoints": [
+          {
+            "text": {
+              "value": "The Alzheimer’s Disease Assessment Scale-14 item Cognitive Subscale, hereafter referred to as ADAS-Cog (14), will be used for this assessment (see Attachment LZZT.2).",
+              "quote": "The Alzheimer’s Disease Assessment Scale-14 item Cognitive Subscale, hereafter referred to as ADAS-Cog (14)",
+              "section_id": "sec-2.2",
+              "confidence": 0.85
+            },
+            "label": "ADAS-Cog (14) assessment",
+            "level": {
+              "value": "Secondary Endpoint",
+              "quote": "The secondary objectives of this study are",
+              "section_id": "sec-2.2",
+              "confidence": 0.9
+            },
+            "purpose": {
+              "value": "Efficacy",
+              "quote": "To assess the dose-dependent improvements in an extended assessment of cognition that integrates attention/concentration tasks.",
+              "section_id": "sec-2.2",
+              "confidence": 0.8
+            }
+          }
+        ]
+      },
+      {
+        "text": {
+          "value": "To assess the treatment response as a function of Apo E genotype.",
+          "quote": "To assess the treatment response as a function of Apo E genotype.",
+          "section_id": "sec-2.2",
+          "confidence": 0.9
+        },
+        "label": "Apo E genotype response",
+        "level": {
+          "value": "Trial Exploratory Objective",
+          "quote": "The secondary objectives of this study are",
+          "section_id": "sec-2.2",
+          "confidence": 0.6
+        },
+        "endpoints": []
+      }
+    ]
+  }
+}

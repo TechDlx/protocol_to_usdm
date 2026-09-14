@@ -1,0 +1,177 @@
+{
+  "run": {
+    "sheet": "identifiers",
+    "status": "done",
+    "started_at": "2026-09-13T21:27:55.041590Z",
+    "finished_at": "2026-09-13T21:28:04.963469Z",
+    "input_hash": "92a7c2dff4205bcb03d901d131e555f53f8d9a4d9d852f464a7a160ea4f4768e",
+    "postprocess_version": "1+verify4",
+    "reprocessed": false,
+    "section_ids": [
+      "title-page"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 3873,
+      "output_tokens": 874,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 9.91,
+      "cost_usd": 0.016486,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": []
+  },
+  "records": {
+    "organizations": [
+      {
+        "row_id": null,
+        "name": {
+          "value": "Eli Lilly and Company",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the organization name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Eli Lilly and Company",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "title-page",
+            "source_page": 1,
+            "raw_phrase": "Copyright © 2006 Eli Lilly and Company.",
+            "confidence": 0.7,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "type": {
+          "value": "Drug Company",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "title-page",
+            "source_page": 1,
+            "raw_phrase": "Copyright © 2006 Eli Lilly and Company.",
+            "confidence": 0.6,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C188724",
+            "codelist_name": "Organization Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C54149",
+            "submission_value": "Pharmaceutical Company",
+            "preferred_term": "Drug Company",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier_scheme": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "identifier": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "address": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      }
+    ],
+    "identifiers": [
+      {
+        "row_id": null,
+        "identifier": {
+          "value": "H2Q-MC-LZZT(c)",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "title-page",
+            "source_page": 1,
+            "raw_phrase": "Protocol H2Q-MC-LZZT(c)",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "organization": {
+          "value": "Eli Lilly and Company",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "title-page",
+            "source_page": 1,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the issuer the model named",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      }
+    ]
+  },
+  "model_output": {
+    "organizations": [
+      {
+        "key": "sponsor",
+        "name": {
+          "value": "Eli Lilly and Company",
+          "quote": "Copyright © 2006 Eli Lilly and Company.",
+          "section_id": "title-page",
+          "confidence": 0.7
+        },
+        "type": {
+          "value": "Drug Company",
+          "quote": "Copyright © 2006 Eli Lilly and Company.",
+          "section_id": "title-page",
+          "confidence": 0.6
+        },
+        "identifier_scheme": {
+          "value": null,
+          "quote": null,
+          "section_id": null,
+          "confidence": 0.0
+        },
+        "identifier": {
+          "value": null,
+          "quote": null,
+          "section_id": null,
+          "confidence": 0.0
+        },
+        "address": null
+      }
+    ],
+    "identifiers": [
+      {
+        "identifier": {
+          "value": "H2Q-MC-LZZT(c)",
+          "quote": "Protocol H2Q-MC-LZZT(c)",
+          "section_id": "title-page",
+          "confidence": 0.85
+        },
+        "organization_key": "sponsor"
+      }
+    ]
+  }
+}

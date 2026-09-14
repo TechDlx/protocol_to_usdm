@@ -1,0 +1,210 @@
+{
+  "run": {
+    "sheet": "populations",
+    "status": "done",
+    "started_at": "2026-09-13T21:38:18.410711Z",
+    "finished_at": "2026-09-13T21:38:29.025464Z",
+    "input_hash": "c825c5594b142a0d41cf911198a67c9c17a12120c659f55bb2a0cef76a7b75b5",
+    "postprocess_version": "1+verify4",
+    "reprocessed": false,
+    "section_ids": [
+      "fm-protocol-summary",
+      "sec-4",
+      "sec-4.1"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 10879,
+      "output_tokens": 1131,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 10.59,
+      "cost_usd": 0.033068,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": [
+      "POP1: only a minimum age (18) is stated; a planned age needs both ends, so it is left empty"
+    ]
+  },
+  "records": [
+    {
+      "row_id": null,
+      "level": {
+        "value": "Main",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "main population or cohort, as the model classed it",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "name": {
+        "value": "POP1",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Women with HR+/HER2-negative metastatic breast cancer progressed after prior endocrine therapy",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "fm-protocol-summary",
+          "source_page": 10,
+          "raw_phrase": "in women with HR+/HER2-negative metastatic breast cancer whose disease has progressed after prior endocrine therapy",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": "Eligible patients must have histologically or cytologically proven diagnosis of adenocarcinoma of the breast with evidence of recurrent advanced (locally or metastatic) disease.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "fm-protocol-summary",
+          "source_page": 10,
+          "raw_phrase": "Eligible patients must have histologically or cytologically proven diagnosis of adenocarcinoma of the breast with evidence of recurrent advanced (locally or metastatic) disease.",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "planned_completion_number": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "planned_enrollment_number": {
+        "value": "417",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "fm-protocol-summary",
+          "source_page": 10,
+          "raw_phrase": "At least 417 patients will be randomized in a 2:1 ratio and stratified by documented sensitivity to prior hormonal therapy",
+          "confidence": 0.9,
+          "verified": true,
+          "note": "digits only",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "planned_age": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "planned_sex": {
+        "value": "Female",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-4.1",
+          "source_page": 49,
+          "raw_phrase": "Women 18 years of age or older",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66732",
+          "codelist_name": "Sex of Participants Response",
+          "ct_version": "2026-03-27",
+          "code": "C16576",
+          "submission_value": "F",
+          "preferred_term": "Female",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "includes_healthy_subjects": {
+        "value": "N",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-4.1",
+          "source_page": 49,
+          "raw_phrase": "Histologically or cytologically proven diagnosis of breast cancer with evidence of metastatic or locally advanced disease",
+          "confidence": 0.9,
+          "verified": true,
+          "note": "as Y/N",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    }
+  ],
+  "model_output": {
+    "populations": [
+      {
+        "level": "main",
+        "label": {
+          "value": "Women with HR+/HER2-negative metastatic breast cancer progressed after prior endocrine therapy",
+          "quote": "in women with HR+/HER2-negative metastatic breast cancer whose disease has progressed after prior endocrine therapy",
+          "section_id": "fm-protocol-summary",
+          "confidence": 0.9
+        },
+        "description": {
+          "value": "Eligible patients must have histologically or cytologically proven diagnosis of adenocarcinoma of the breast with evidence of recurrent advanced (locally or metastatic) disease.",
+          "quote": "Eligible patients must have histologically or cytologically proven diagnosis of adenocarcinoma of the breast with evidence of recurrent advanced (locally or metastatic) disease.",
+          "section_id": "fm-protocol-summary",
+          "confidence": 0.9
+        },
+        "planned_enrollment": {
+          "value": {
+            "value": "417",
+            "quote": "At least 417 patients will be randomized in a 2:1 ratio and stratified by documented sensitivity to prior hormonal therapy",
+            "section_id": "fm-protocol-summary",
+            "confidence": 0.9
+          },
+          "upper": null
+        },
+        "planned_completion": null,
+        "age_min": {
+          "value": "18",
+          "quote": "Women 18 years of age or older",
+          "section_id": "sec-4.1",
+          "confidence": 0.95
+        },
+        "age_max": {
+          "value": null,
+          "quote": null,
+          "section_id": null,
+          "confidence": 0.0
+        },
+        "age_unit": "years",
+        "sex": [
+          {
+            "value": "Female",
+            "quote": "Women 18 years of age or older",
+            "section_id": "sec-4.1",
+            "confidence": 0.9
+          }
+        ],
+        "healthy_subjects": {
+          "value": "no",
+          "quote": "Histologically or cytologically proven diagnosis of breast cancer with evidence of metastatic or locally advanced disease",
+          "section_id": "sec-4.1",
+          "confidence": 0.9
+        }
+      }
+    ]
+  }
+}

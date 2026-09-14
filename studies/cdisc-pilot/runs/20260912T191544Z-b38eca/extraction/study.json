@@ -1,0 +1,189 @@
+{
+  "run": {
+    "sheet": "study",
+    "status": "skipped",
+    "started_at": "2026-09-13T02:22:57.847948Z",
+    "finished_at": "2026-09-13T02:23:10.019453Z",
+    "input_hash": "9e535d2fbc16568d1fbbc66e2f9cde85374b5bd23f3e0bdea9179fe2eb47bd54",
+    "postprocess_version": "1+verify4",
+    "reprocessed": true,
+    "section_ids": [
+      "title-page",
+      "sec-1"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 4430,
+      "output_tokens": 1423,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 12.16,
+      "cost_usd": 0.02309,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": []
+  },
+  "records": {
+    "name": {
+      "value": "CDISC Pilot",
+      "provenance": {
+        "origin": "derived",
+        "source_section_id": null,
+        "source_page": null,
+        "raw_phrase": null,
+        "confidence": 1.0,
+        "verified": true,
+        "note": "the study name entered in this app",
+        "reviewer_accepted": false
+      },
+      "terminology": null
+    },
+    "label": {
+      "value": null,
+      "provenance": null,
+      "terminology": null
+    },
+    "description": {
+      "value": null,
+      "provenance": null,
+      "terminology": null
+    },
+    "study_version": {
+      "value": null,
+      "provenance": null,
+      "terminology": null
+    },
+    "acronym": {
+      "value": null,
+      "provenance": null,
+      "terminology": null
+    },
+    "rationale": {
+      "value": "Relative to the oral formulation, the transdermal formulation eliminates high concentrations of xanomeline in the gastrointestinal (GI) tract and presystemic (first-pass) metabolism.",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "sec-1",
+        "source_page": 5,
+        "raw_phrase": "the transdermal formulation eliminates high concentrations of xanomeline in the gastrointestinal (GI) tract and presystemic (first-pass) metabolism",
+        "confidence": 0.5,
+        "verified": true,
+        "note": null,
+        "reviewer_accepted": false
+      },
+      "terminology": null
+    },
+    "brief_title": {
+      "value": null,
+      "provenance": null,
+      "terminology": null
+    },
+    "official_title": {
+      "value": "Safety and Efficacy of the Xanomeline Transdermal Therapeutic System (TTS) in Patients with Mild to Moderate Alzheimer’s Disease",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "title-page",
+        "source_page": 1,
+        "raw_phrase": "Safety and Efficacy of the Xanomeline Transdermal Therapeutic System (TTS) in Patients with Mild to Moderate Alzheimer’s Disease",
+        "confidence": 0.9,
+        "verified": true,
+        "note": null,
+        "reviewer_accepted": false
+      },
+      "terminology": null
+    },
+    "public_title": {
+      "value": null,
+      "provenance": null,
+      "terminology": null
+    },
+    "scientific_title": {
+      "value": null,
+      "provenance": null,
+      "terminology": null
+    },
+    "protocol_version": {
+      "value": null,
+      "provenance": null,
+      "terminology": null
+    },
+    "protocol_status": {
+      "value": null,
+      "provenance": null,
+      "terminology": null
+    },
+    "sponsor_protocol_identifier": {
+      "value": "H2Q-MC-LZZT(c)",
+      "provenance": {
+        "origin": "extracted",
+        "source_section_id": "title-page",
+        "source_page": 1,
+        "raw_phrase": "Protocol H2Q-MC-LZZT(c)",
+        "confidence": 0.9,
+        "verified": true,
+        "note": null,
+        "reviewer_accepted": false
+      },
+      "terminology": null
+    },
+    "governance_dates": []
+  },
+  "model_output": {
+    "official_title": {
+      "value": "Safety and Efficacy of the Xanomeline Transdermal Therapeutic System (TTS) in Patients with Mild to Moderate Alzheimer’s Disease",
+      "quote": "Safety and Efficacy of the Xanomeline Transdermal Therapeutic System (TTS) in Patients with Mild to Moderate Alzheimer’s Disease",
+      "section_id": "title-page",
+      "confidence": 0.9
+    },
+    "brief_title": {
+      "value": null,
+      "quote": null,
+      "section_id": null,
+      "confidence": 0.0
+    },
+    "public_title": {
+      "value": null,
+      "quote": null,
+      "section_id": null,
+      "confidence": 0.0
+    },
+    "scientific_title": {
+      "value": null,
+      "quote": null,
+      "section_id": null,
+      "confidence": 0.0
+    },
+    "acronym": {
+      "value": null,
+      "quote": null,
+      "section_id": null,
+      "confidence": 0.0
+    },
+    "sponsor_protocol_identifier": {
+      "value": "H2Q-MC-LZZT(c)",
+      "quote": "Protocol H2Q-MC-LZZT(c)",
+      "section_id": "title-page",
+      "confidence": 0.9
+    },
+    "protocol_version": {
+      "value": null,
+      "quote": null,
+      "section_id": null,
+      "confidence": 0.0
+    },
+    "protocol_status": {
+      "value": null,
+      "quote": null,
+      "section_id": null,
+      "confidence": 0.0
+    },
+    "rationale": {
+      "value": "Relative to the oral formulation, the transdermal formulation eliminates high concentrations of xanomeline in the gastrointestinal (GI) tract and presystemic (first-pass) metabolism.",
+      "quote": "the transdermal formulation eliminates high concentrations of xanomeline in the gastrointestinal (GI) tract and presystemic (first-pass) metabolism",
+      "section_id": "sec-1",
+      "confidence": 0.5
+    },
+    "governance_dates": []
+  }
+}

@@ -1,0 +1,631 @@
+{
+  "run": {
+    "sheet": "amendments",
+    "status": "done",
+    "started_at": "2026-09-13T21:38:46.417744Z",
+    "finished_at": "2026-09-13T21:39:23.435979Z",
+    "input_hash": "4f196249bdd15aa4e13bd2d7371c5ac396dd70aa774ba5944a97cc8c2fbb3dac",
+    "postprocess_version": "1+verify4",
+    "reprocessed": false,
+    "section_ids": [
+      "fm-document-history",
+      "sec-1.2.4",
+      "sec-1.2.4.1",
+      "sec-1.2.4.2",
+      "sec-1.2.4.3"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 8892,
+      "output_tokens": 4334,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 36.99,
+      "cost_usd": 0.061124,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": []
+  },
+  "records": [
+    {
+      "row_id": null,
+      "name": {
+        "value": "AMEND_1",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the amendment number",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Amendment 1",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the amendment number",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "number": {
+        "value": "1",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "fm-document-history",
+          "source_page": 6,
+          "raw_phrase": "Amendment 1 | 04 April 2014",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "summary": {
+        "value": "Added ocular safety assessment procedures for lens grading; revised PK-supported changes to drug administration (with food, PPI prohibition); clarified inclusion/exclusion criteria; various editorial changes.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "fm-document-history",
+          "source_page": 6,
+          "raw_phrase": "Schedule of Activities; Section 7.2.2. (Ocular Safety Assessments) – Added ocular safety assessment procedures to newly enrolled lens grading evaluable patients",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "primary_reason": {
+        "value": "New Data Available (Other Than Safety Data)",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-1.2.4.1",
+          "source_page": 41,
+          "raw_phrase": "Preliminary results from two clinical pharmacology studies A5481018 and A5481021 suggested that palbociclib taken with food results in more consistent drug absorption and exposure",
+          "confidence": 0.7,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C207415",
+          "codelist_name": "Study Amendment Reason Code Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C207607",
+          "submission_value": "New Data Available (Other Than Safety Data)",
+          "preferred_term": "New Data Available (Other Than Safety Data)",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "secondary_reasons": {
+        "value": "Regulatory Agency Request To Amend, Investigator/Site Feedback",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-1.2.4.1",
+          "source_page": 41,
+          "raw_phrase": "the sponsor is addressing a request by the Food and Drug Administration (FDA) for the palbociclib program | Clarified inclusion criterion #6 and exclusion criteria #4, 5 and 6 to address frequent questions from investigational sites",
+          "confidence": 0.8,
+          "verified": true,
+          "note": "one quote per listed term",
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C207415",
+          "codelist_name": "Study Amendment Reason Code Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C207612, C207604",
+          "submission_value": "Regulatory Agency Request To Amend, Investigator/Site Feedback",
+          "preferred_term": "Regulatory Agency Request To Amend, Investigator/Site Feedback",
+          "matched_on": "multiple",
+          "candidates": []
+        }
+      },
+      "geographic_scope": {
+        "value": "Global",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "fm-document-history",
+          "source_page": 6,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "Global unless the protocol restricts the amendment",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "enrollment": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "date": {
+        "value": "2014-04-04",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "fm-document-history",
+          "source_page": 6,
+          "raw_phrase": "Amendment 1 | 04 April 2014",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "AMEND_2",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the amendment number",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Amendment 2",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the amendment number",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "number": {
+        "value": "2",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "fm-document-history",
+          "source_page": 4,
+          "raw_phrase": "Amendment 2 | 30 September 2014",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "summary": {
+        "value": "Added prospective monitoring of hemoglobin A1c to assess glucose metabolism; clarified cycle delay, dosing schedule, and retreatment criteria; updated PK data; editorial changes to concomitant medication sections; clarified adverse event follow-up and physical exam timing; updated statistical analysis section.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "fm-document-history",
+          "source_page": 4,
+          "raw_phrase": "Added prospective monitoring of hemoglobin A1c to characterize whether or not palbociclib affects glucose metabolism",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "primary_reason": {
+        "value": "New Safety Information Available",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-1.2.4.2",
+          "source_page": 42,
+          "raw_phrase": "Given the observed nonclinical findings in rats and taking into account the limited laboratory glucose data in the current clinical dataset, the protocol was amended in order to prospectively characterize whether or not palbociclib affects glucose metabolism",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C207415",
+          "codelist_name": "Study Amendment Reason Code Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C207609",
+          "submission_value": "New Safety Information Available",
+          "preferred_term": "New Safety Information Available",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "secondary_reasons": {
+        "value": "Investigator/Site Feedback, New Data Available (Other Than Safety Data), Inconsistency and/or Error In The Protocol",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-1.2.4.2",
+          "source_page": 42,
+          "raw_phrase": "In order to answer the many requests of clarifications from the clinical sites, the language related to cycle delay was further defined | The section reporting Human Pharmacokinetic Data was updated. Data of clinical studies recently finalized have been added | minor editorial changes were made to correct inconsistencies or improve text clarity",
+          "confidence": 0.75,
+          "verified": true,
+          "note": "one quote per listed term",
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C207415",
+          "codelist_name": "Study Amendment Reason Code Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C207604, C207607, C207603",
+          "submission_value": "Investigator/Site Feedback, New Data Available (Other Than Safety Data), Inconsistency And/or Error In The Protocol",
+          "preferred_term": "Investigator/Site Feedback, New Data Available (Other Than Safety Data), Inconsistency and/or Error In The Protocol",
+          "matched_on": "multiple",
+          "candidates": []
+        }
+      },
+      "geographic_scope": {
+        "value": "Global",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "fm-document-history",
+          "source_page": 4,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "Global unless the protocol restricts the amendment",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "enrollment": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "date": {
+        "value": "2014-09-30",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "fm-document-history",
+          "source_page": 4,
+          "raw_phrase": "Amendment 2 | 30 September 2014",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "AMEND_3",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the amendment number",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Amendment 3",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the amendment number",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "number": {
+        "value": "3",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "fm-document-history",
+          "source_page": 2,
+          "raw_phrase": "Amendment 3 | 20 October 2015",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "summary": {
+        "value": "Reduced efficacy and safety assessments following interim analysis results; tumor assessments to follow local practice with RECIST no longer mandatory; discontinued central BICR review of PFS; reduced blood chemistry frequency; clarified survival follow-up timing and permitted concomitant medications; added interim analysis efficacy data.",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-1.2.4.3",
+          "source_page": 43,
+          "raw_phrase": "The scope of Amendment 3 will be to reduce efficacy and safety assessments mainly due to the following reasons: 1) the study met its primary endpoint of efficacy at the preplanned interim analysis",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "primary_reason": {
+        "value": "New Data Available (Other Than Safety Data)",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-1.2.4.3",
+          "source_page": 43,
+          "raw_phrase": "the study met its primary endpoint of efficacy at the preplanned interim analysis",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C207415",
+          "codelist_name": "Study Amendment Reason Code Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C207607",
+          "submission_value": "New Data Available (Other Than Safety Data)",
+          "preferred_term": "New Data Available (Other Than Safety Data)",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "secondary_reasons": {
+        "value": "Regulatory Agency Request To Amend, Change In Strategy",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-1.2.4.3",
+          "source_page": 43,
+          "raw_phrase": "additional efficacy analyses of the primary and secondary endpoints had been conducted upon request of Health Authorities (HAs) | the third-party core imaging laboratory will no longer perform blinded independent central review of PFS data and the investigators will stop sending the imaging studies to the central laboratory",
+          "confidence": 0.7,
+          "verified": true,
+          "note": "one quote per listed term",
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C207415",
+          "codelist_name": "Study Amendment Reason Code Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C207612, C207601",
+          "submission_value": "Regulatory Agency Request To Amend, Change In Strategy",
+          "preferred_term": "Regulatory Agency Request To Amend, Change In Strategy",
+          "matched_on": "multiple",
+          "candidates": []
+        }
+      },
+      "geographic_scope": {
+        "value": "Global",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-1.2.4.3",
+          "source_page": 43,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "Global unless the protocol restricts the amendment",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "enrollment": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "date": {
+        "value": "2015-10-20",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "fm-document-history",
+          "source_page": 2,
+          "raw_phrase": "Amendment 3 | 20 October 2015",
+          "confidence": 0.95,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    }
+  ],
+  "model_output": {
+    "amendments": [
+      {
+        "number": {
+          "value": "1",
+          "quote": "Amendment 1 | 04 April 2014",
+          "section_id": "fm-document-history",
+          "confidence": 0.95
+        },
+        "summary": {
+          "value": "Added ocular safety assessment procedures for lens grading; revised PK-supported changes to drug administration (with food, PPI prohibition); clarified inclusion/exclusion criteria; various editorial changes.",
+          "quote": "Schedule of Activities; Section 7.2.2. (Ocular Safety Assessments) – Added ocular safety assessment procedures to newly enrolled lens grading evaluable patients",
+          "section_id": "fm-document-history",
+          "confidence": 0.85
+        },
+        "primary_reason": {
+          "term": {
+            "value": "New Data Available (Other Than Safety Data)",
+            "quote": "Preliminary results from two clinical pharmacology studies A5481018 and A5481021 suggested that palbociclib taken with food results in more consistent drug absorption and exposure",
+            "section_id": "sec-1.2.4.1",
+            "confidence": 0.7
+          },
+          "other": null
+        },
+        "secondary_reasons": [
+          {
+            "term": {
+              "value": "Regulatory Agency Request To Amend",
+              "quote": "the sponsor is addressing a request by the Food and Drug Administration (FDA) for the palbociclib program",
+              "section_id": "sec-1.2.4.1",
+              "confidence": 0.85
+            },
+            "other": null
+          },
+          {
+            "term": {
+              "value": "Investigator/Site Feedback",
+              "quote": "Clarified inclusion criterion #6 and exclusion criteria #4, 5 and 6 to address frequent questions from investigational sites",
+              "section_id": "fm-document-history",
+              "confidence": 0.8
+            },
+            "other": null
+          }
+        ],
+        "scope": "Global",
+        "date": {
+          "value": "2014-04-04",
+          "quote": "Amendment 1 | 04 April 2014",
+          "section_id": "fm-document-history",
+          "confidence": 0.95
+        }
+      },
+      {
+        "number": {
+          "value": "2",
+          "quote": "Amendment 2 | 30 September 2014",
+          "section_id": "fm-document-history",
+          "confidence": 0.95
+        },
+        "summary": {
+          "value": "Added prospective monitoring of hemoglobin A1c to assess glucose metabolism; clarified cycle delay, dosing schedule, and retreatment criteria; updated PK data; editorial changes to concomitant medication sections; clarified adverse event follow-up and physical exam timing; updated statistical analysis section.",
+          "quote": "Added prospective monitoring of hemoglobin A1c to characterize whether or not palbociclib affects glucose metabolism",
+          "section_id": "fm-document-history",
+          "confidence": 0.85
+        },
+        "primary_reason": {
+          "term": {
+            "value": "New Safety Information Available",
+            "quote": "Given the observed nonclinical findings in rats and taking into account the limited laboratory glucose data in the current clinical dataset, the protocol was amended in order to prospectively characterize whether or not palbociclib affects glucose metabolism",
+            "section_id": "sec-1.2.4.2",
+            "confidence": 0.8
+          },
+          "other": null
+        },
+        "secondary_reasons": [
+          {
+            "term": {
+              "value": "Investigator/Site Feedback",
+              "quote": "In order to answer the many requests of clarifications from the clinical sites, the language related to cycle delay was further defined",
+              "section_id": "sec-1.2.4.2",
+              "confidence": 0.8
+            },
+            "other": null
+          },
+          {
+            "term": {
+              "value": "New Data Available (Other Than Safety Data)",
+              "quote": "The section reporting Human Pharmacokinetic Data was updated. Data of clinical studies recently finalized have been added",
+              "section_id": "sec-1.2.4.2",
+              "confidence": 0.75
+            },
+            "other": null
+          },
+          {
+            "term": {
+              "value": "Inconsistency and/or Error In The Protocol",
+              "quote": "minor editorial changes were made to correct inconsistencies or improve text clarity",
+              "section_id": "sec-1.2.4.2",
+              "confidence": 0.8
+            },
+            "other": null
+          }
+        ],
+        "scope": "Global",
+        "date": {
+          "value": "2014-09-30",
+          "quote": "Amendment 2 | 30 September 2014",
+          "section_id": "fm-document-history",
+          "confidence": 0.95
+        }
+      },
+      {
+        "number": {
+          "value": "3",
+          "quote": "Amendment 3 | 20 October 2015",
+          "section_id": "fm-document-history",
+          "confidence": 0.95
+        },
+        "summary": {
+          "value": "Reduced efficacy and safety assessments following interim analysis results; tumor assessments to follow local practice with RECIST no longer mandatory; discontinued central BICR review of PFS; reduced blood chemistry frequency; clarified survival follow-up timing and permitted concomitant medications; added interim analysis efficacy data.",
+          "quote": "The scope of Amendment 3 will be to reduce efficacy and safety assessments mainly due to the following reasons: 1) the study met its primary endpoint of efficacy at the preplanned interim analysis",
+          "section_id": "sec-1.2.4.3",
+          "confidence": 0.9
+        },
+        "primary_reason": {
+          "term": {
+            "value": "New Data Available (Other Than Safety Data)",
+            "quote": "the study met its primary endpoint of efficacy at the preplanned interim analysis",
+            "section_id": "sec-1.2.4.3",
+            "confidence": 0.8
+          },
+          "other": null
+        },
+        "secondary_reasons": [
+          {
+            "term": {
+              "value": "Regulatory Agency Request To Amend",
+              "quote": "additional efficacy analyses of the primary and secondary endpoints had been conducted upon request of Health Authorities (HAs)",
+              "section_id": "sec-1.2.4.3",
+              "confidence": 0.85
+            },
+            "other": null
+          },
+          {
+            "term": {
+              "value": "Change In Strategy",
+              "quote": "the third-party core imaging laboratory will no longer perform blinded independent central review of PFS data and the investigators will stop sending the imaging studies to the central laboratory",
+              "section_id": "sec-1.2.4.3",
+              "confidence": 0.7
+            },
+            "other": null
+          }
+        ],
+        "scope": "Global",
+        "date": {
+          "value": "2015-10-20",
+          "quote": "Amendment 3 | 20 October 2015",
+          "section_id": "fm-document-history",
+          "confidence": 0.95
+        }
+      }
+    ]
+  }
+}

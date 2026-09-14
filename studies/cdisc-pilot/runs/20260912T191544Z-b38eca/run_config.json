@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "source_filename": "CDISC_Pilot_Study.pdf",
+  "pdf_backend": "pymupdf",
+  "page_image_dpi": 150,
+  "segmentation_review_threshold": 0.7,
+  "extraction_model": "claude-sonnet-5",
+  "extraction_effort": null,
+  "concurrency_limit": 5,
+  "confidence_threshold": 0.7,
+  "ct_version": "2026-03-27"
+}

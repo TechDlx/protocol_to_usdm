@@ -1,0 +1,112 @@
+{
+  "run": {
+    "sheet": "indications",
+    "status": "done",
+    "started_at": "2026-09-13T21:28:01.478228Z",
+    "finished_at": "2026-09-13T21:28:04.693885Z",
+    "input_hash": "65efdc0620c4cd2e56d9ab7dd0334984f4102bfd6d022ed7ebcea445bd71372c",
+    "postprocess_version": "1+verify4",
+    "reprocessed": false,
+    "section_ids": [
+      "title-page",
+      "sec-1",
+      "sec-3.4",
+      "sec-3.4.1",
+      "sec-3.4.2",
+      "sec-3.4.3"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 4401,
+      "output_tokens": 217,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 3.2,
+      "cost_usd": 0.010972,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": []
+  },
+  "records": [
+    {
+      "row_id": null,
+      "name": {
+        "value": "IND1",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Mild to Moderate Alzheimer's Disease",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "title-page",
+          "source_page": 1,
+          "raw_phrase": "Patients with Mild to Moderate Alzheimer’s Disease",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": "Probable mild to moderate Alzheimer's disease as defined by NINCDS/ADRDA guidelines, with MMSE score of 10 to 23",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.4.3",
+          "source_page": 23,
+          "raw_phrase": "Probable AD will be defined clinically by NINCDS/ADRDA guidelines",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "is_rare_disease": {
+        "value": "N",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "title-page",
+          "source_page": 1,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "Y only when the protocol calls the condition rare",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    }
+  ],
+  "model_output": {
+    "indications": [
+      {
+        "label": {
+          "value": "Mild to Moderate Alzheimer's Disease",
+          "quote": "Patients with Mild to Moderate Alzheimer’s Disease",
+          "section_id": "title-page",
+          "confidence": 0.9
+        },
+        "description": {
+          "value": "Probable mild to moderate Alzheimer's disease as defined by NINCDS/ADRDA guidelines, with MMSE score of 10 to 23",
+          "quote": "Probable AD will be defined clinically by NINCDS/ADRDA guidelines",
+          "section_id": "sec-3.4.3",
+          "confidence": 0.85
+        },
+        "rare_disease": false
+      }
+    ]
+  }
+}

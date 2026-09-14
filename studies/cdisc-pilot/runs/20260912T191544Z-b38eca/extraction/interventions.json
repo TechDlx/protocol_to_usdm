@@ -1,0 +1,1142 @@
+{
+  "run": {
+    "sheet": "interventions",
+    "status": "done",
+    "started_at": "2026-09-13T21:27:57.878249Z",
+    "finished_at": "2026-09-13T21:28:45.093111Z",
+    "input_hash": "704689aec6bd89b3f8604feb9241123b87accf6c6f67f47475c745be9cf3b962",
+    "postprocess_version": "1+verify4",
+    "reprocessed": false,
+    "section_ids": [
+      "sec-3.6",
+      "sec-3.6.1",
+      "sec-3.6.2"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 8034,
+      "output_tokens": 6060,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 47.17,
+      "cost_usd": 0.076668,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": []
+  },
+  "records": [
+    {
+      "row_id": null,
+      "name": {
+        "value": "Xanomeline TTS",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the intervention name",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Xanomeline TTS",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.1",
+          "source_page": 24,
+          "raw_phrase": "Xanomeline TTS (adhesive patches)",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": "Xanomeline transdermal therapeutic system (TTS) adhesive patches, 50 cm² (54 mg) and 25 cm² (27 mg), applied together",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.1",
+          "source_page": 24,
+          "raw_phrase": "Xanomeline TTS (adhesive patches) 50 cm 2 , 54 mg* 25 cm 2 , 27 mg*",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "role": {
+        "value": "Protocol Agent",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.1",
+          "source_page": 24,
+          "raw_phrase": "Primary Study Material: Xanomeline TTS (adhesive patches)",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C207417",
+          "codelist_name": "Study Intervention Role Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C41161",
+          "submission_value": "Experimental Intervention",
+          "preferred_term": "Protocol Agent",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "type": {
+        "value": "Pharmacologic Substance",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.1",
+          "source_page": 24,
+          "raw_phrase": "Xanomeline TTS (adhesive patches)",
+          "confidence": 0.6,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C99078",
+          "codelist_name": "Intervention Type Response",
+          "ct_version": "2026-03-27",
+          "code": "C1909",
+          "submission_value": "DRUG",
+          "preferred_term": "Pharmacologic Substance",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "minimum_response_duration": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "administration_name": {
+        "value": "Xanomeline TTS 54 mg patch (50 cm²)",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the administration name",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_label": {
+        "value": "Xanomeline TTS 54 mg patch (50 cm²)",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.1",
+          "source_page": 24,
+          "raw_phrase": "50 cm 2 , 54 mg*",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_description": {
+        "value": "One 50 cm² xanomeline TTS patch delivering 54 mg xanomeline, applied transdermally each morning",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 25,
+          "raw_phrase": "xanomeline or placebo will be administered with the application of 2 adhesive patches, one 50 cm 2 in area, the other 25 cm 2 in area",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_route": {
+        "value": "TRANSDERMAL",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 24,
+          "raw_phrase": "To test acute tolerance of transdermal formulation",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66729",
+          "codelist_name": "Route of Administration Response",
+          "ct_version": "2026-03-27",
+          "code": "C38305",
+          "submission_value": "TRANSDERMAL",
+          "preferred_term": "Transdermal Route of Administration",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "administration_dose": {
+        "value": "54 mg",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.1",
+          "source_page": 24,
+          "raw_phrase": "50 cm 2 , 54 mg*",
+          "confidence": 0.85,
+          "verified": true,
+          "note": "number with CDISC unit",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_frequency": {
+        "value": "QD",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 25,
+          "raw_phrase": "on the morning of each subsequent day of therapy",
+          "confidence": 0.75,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C71113",
+          "codelist_name": "Frequency",
+          "ct_version": "2026-03-27",
+          "code": "C25473",
+          "submission_value": "QD",
+          "preferred_term": "Daily",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "duration_description": {
+        "value": "26 weeks of transdermal therapy",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 24,
+          "raw_phrase": "26 weeks of transdermal therapy",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "duration_will_vary": {
+        "value": "N",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 24,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "judged from the stated duration",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "duration_will_vary_reason": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "duration_quantity": {
+        "value": "26 WEEKS",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 24,
+          "raw_phrase": "26 weeks of transdermal therapy",
+          "confidence": 0.8,
+          "verified": true,
+          "note": "number with CDISC unit",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "label": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "role": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "type": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "minimum_response_duration": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "administration_name": {
+        "value": "Xanomeline TTS 27 mg patch (25 cm²)",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the administration name",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_label": {
+        "value": "Xanomeline TTS 27 mg patch (25 cm²)",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.1",
+          "source_page": 24,
+          "raw_phrase": "25 cm 2 , 27 mg*",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_description": {
+        "value": "One 25 cm² xanomeline TTS patch delivering 27 mg xanomeline, applied transdermally each morning",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 25,
+          "raw_phrase": "xanomeline or placebo will be administered with the application of 2 adhesive patches, one 50 cm 2 in area, the other 25 cm 2 in area",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_route": {
+        "value": "TRANSDERMAL",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 24,
+          "raw_phrase": "To test acute tolerance of transdermal formulation",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66729",
+          "codelist_name": "Route of Administration Response",
+          "ct_version": "2026-03-27",
+          "code": "C38305",
+          "submission_value": "TRANSDERMAL",
+          "preferred_term": "Transdermal Route of Administration",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "administration_dose": {
+        "value": "27 mg",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.1",
+          "source_page": 24,
+          "raw_phrase": "25 cm 2 , 27 mg*",
+          "confidence": 0.85,
+          "verified": true,
+          "note": "number with CDISC unit",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_frequency": {
+        "value": "QD",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 25,
+          "raw_phrase": "on the morning of each subsequent day of therapy",
+          "confidence": 0.75,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C71113",
+          "codelist_name": "Frequency",
+          "ct_version": "2026-03-27",
+          "code": "C25473",
+          "submission_value": "QD",
+          "preferred_term": "Daily",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "duration_description": {
+        "value": "26 weeks of transdermal therapy",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 24,
+          "raw_phrase": "26 weeks of transdermal therapy",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "duration_will_vary": {
+        "value": "N",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 24,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "judged from the stated duration",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "duration_will_vary_reason": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "duration_quantity": {
+        "value": "26 WEEKS",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 24,
+          "raw_phrase": "26 weeks of transdermal therapy",
+          "confidence": 0.8,
+          "verified": true,
+          "note": "number with CDISC unit",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": "Placebo TTS",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the intervention name",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "label": {
+        "value": "Placebo TTS",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.1",
+          "source_page": 24,
+          "raw_phrase": "Comparator Material: Placebo TTS",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "description": {
+        "value": "Placebo transdermal therapeutic system patches identical in appearance to xanomeline TTS",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.1",
+          "source_page": 24,
+          "raw_phrase": "Placebo TTS Identical in appearance to primary study material",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "role": {
+        "value": "Placebo",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.1",
+          "source_page": 24,
+          "raw_phrase": "Comparator Material: Placebo TTS",
+          "confidence": 0.9,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C207417",
+          "codelist_name": "Study Intervention Role Value Set Terminology",
+          "ct_version": "2026-03-27",
+          "code": "C753",
+          "submission_value": "Placebo",
+          "preferred_term": "Placebo",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "type": {
+        "value": "Pharmacologic Substance",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.1",
+          "source_page": 24,
+          "raw_phrase": "Placebo TTS Identical in appearance to primary study material",
+          "confidence": 0.5,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C99078",
+          "codelist_name": "Intervention Type Response",
+          "ct_version": "2026-03-27",
+          "code": "C1909",
+          "submission_value": "DRUG",
+          "preferred_term": "Pharmacologic Substance",
+          "matched_on": "preferredTerm",
+          "candidates": []
+        }
+      },
+      "minimum_response_duration": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "administration_name": {
+        "value": "Placebo TTS acute tolerance patch",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the administration name",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_label": {
+        "value": "Placebo TTS acute tolerance patch",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 24,
+          "raw_phrase": "patients will have a TTS (placebo) administered at the start of Visit 1, and removed at the conclusion of Visit 1",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_description": {
+        "value": "A single placebo TTS patch applied at the start of Visit 1 and removed at the conclusion of the same visit to test acute tolerance of the transdermal formulation",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 24,
+          "raw_phrase": "To test acute tolerance of transdermal formulation, patients will have a TTS (placebo) administered at the start of Visit 1, and removed at the conclusion of Visit 1",
+          "confidence": 0.85,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_route": {
+        "value": "TRANSDERMAL",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 24,
+          "raw_phrase": "To test acute tolerance of transdermal formulation",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66729",
+          "codelist_name": "Route of Administration Response",
+          "ct_version": "2026-03-27",
+          "code": "C38305",
+          "submission_value": "TRANSDERMAL",
+          "preferred_term": "Transdermal Route of Administration",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "administration_dose": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "administration_frequency": {
+        "value": "ONCE",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 24,
+          "raw_phrase": "administered at the start of Visit 1, and removed at the conclusion of Visit 1",
+          "confidence": 0.7,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C71113",
+          "codelist_name": "Frequency",
+          "ct_version": "2026-03-27",
+          "code": "C64576",
+          "submission_value": "ONCE",
+          "preferred_term": "Once",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "duration_description": {
+        "value": "Applied and removed within a single visit (Visit 1)",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 24,
+          "raw_phrase": "administered at the start of Visit 1, and removed at the conclusion of Visit 1",
+          "confidence": 0.7,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "duration_will_vary": {
+        "value": "N",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 24,
+          "raw_phrase": null,
+          "confidence": 0.7,
+          "verified": true,
+          "note": "judged from the stated duration",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "duration_will_vary_reason": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "duration_quantity": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      }
+    },
+    {
+      "row_id": null,
+      "name": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "label": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "description": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "role": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "type": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "minimum_response_duration": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "administration_name": {
+        "value": "Placebo TTS maintenance patches",
+        "provenance": {
+          "origin": "derived",
+          "source_section_id": null,
+          "source_page": null,
+          "raw_phrase": null,
+          "confidence": 1.0,
+          "verified": true,
+          "note": "generated from the administration name",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_label": {
+        "value": "Placebo TTS maintenance patches",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 25,
+          "raw_phrase": "xanomeline or placebo will be administered with the application of 2 adhesive patches, one 50 cm 2 in area, the other 25 cm 2 in area",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_description": {
+        "value": "Two placebo TTS patches (50 cm² and 25 cm²) applied together each morning for patients randomized to placebo",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 25,
+          "raw_phrase": "Upon enrollment at Visit 3, and on the morning of each subsequent day of therapy , xanomeline or placebo will be administered with the application of 2 adhesive patches",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "administration_route": {
+        "value": "TRANSDERMAL",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 24,
+          "raw_phrase": "To test acute tolerance of transdermal formulation",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C66729",
+          "codelist_name": "Route of Administration Response",
+          "ct_version": "2026-03-27",
+          "code": "C38305",
+          "submission_value": "TRANSDERMAL",
+          "preferred_term": "Transdermal Route of Administration",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "administration_dose": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "administration_frequency": {
+        "value": "QD",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 25,
+          "raw_phrase": "on the morning of each subsequent day of therapy",
+          "confidence": 0.75,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": {
+          "status": "exact",
+          "codelist": "C71113",
+          "codelist_name": "Frequency",
+          "ct_version": "2026-03-27",
+          "code": "C25473",
+          "submission_value": "QD",
+          "preferred_term": "Daily",
+          "matched_on": "submissionValue",
+          "candidates": []
+        }
+      },
+      "duration_description": {
+        "value": "26 weeks of transdermal therapy",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 24,
+          "raw_phrase": "26 weeks of transdermal therapy",
+          "confidence": 0.8,
+          "verified": true,
+          "note": null,
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "duration_will_vary": {
+        "value": "N",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 24,
+          "raw_phrase": null,
+          "confidence": 0.8,
+          "verified": true,
+          "note": "judged from the stated duration",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      },
+      "duration_will_vary_reason": {
+        "value": null,
+        "provenance": null,
+        "terminology": null
+      },
+      "duration_quantity": {
+        "value": "26 WEEKS",
+        "provenance": {
+          "origin": "extracted",
+          "source_section_id": "sec-3.6.2",
+          "source_page": 24,
+          "raw_phrase": "26 weeks of transdermal therapy",
+          "confidence": 0.8,
+          "verified": true,
+          "note": "number with CDISC unit",
+          "reviewer_accepted": false
+        },
+        "terminology": null
+      }
+    }
+  ],
+  "model_output": {
+    "interventions": [
+      {
+        "label": {
+          "value": "Xanomeline TTS",
+          "quote": "Xanomeline TTS (adhesive patches)",
+          "section_id": "sec-3.6.1",
+          "confidence": 0.9
+        },
+        "description": {
+          "value": "Xanomeline transdermal therapeutic system (TTS) adhesive patches, 50 cm² (54 mg) and 25 cm² (27 mg), applied together",
+          "quote": "Xanomeline TTS (adhesive patches) 50 cm 2 , 54 mg* 25 cm 2 , 27 mg*",
+          "section_id": "sec-3.6.1",
+          "confidence": 0.85
+        },
+        "role": {
+          "value": "Protocol Agent",
+          "quote": "Primary Study Material: Xanomeline TTS (adhesive patches)",
+          "section_id": "sec-3.6.1",
+          "confidence": 0.8
+        },
+        "type": {
+          "value": "Pharmacologic Substance",
+          "quote": "Xanomeline TTS (adhesive patches)",
+          "section_id": "sec-3.6.1",
+          "confidence": 0.6
+        },
+        "administrations": [
+          {
+            "label": {
+              "value": "Xanomeline TTS 54 mg patch (50 cm²)",
+              "quote": "50 cm 2 , 54 mg*",
+              "section_id": "sec-3.6.1",
+              "confidence": 0.85
+            },
+            "description": {
+              "value": "One 50 cm² xanomeline TTS patch delivering 54 mg xanomeline, applied transdermally each morning",
+              "quote": "xanomeline or placebo will be administered with the application of 2 adhesive patches, one 50 cm 2 in area, the other 25 cm 2 in area",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.8
+            },
+            "route": {
+              "value": "TRANSDERMAL",
+              "quote": "To test acute tolerance of transdermal formulation",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.8
+            },
+            "dose_value": {
+              "value": "54",
+              "quote": "50 cm 2 , 54 mg*",
+              "section_id": "sec-3.6.1",
+              "confidence": 0.85
+            },
+            "dose_unit": "mg",
+            "frequency": {
+              "value": "QD",
+              "quote": "on the morning of each subsequent day of therapy",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.75
+            },
+            "duration_description": {
+              "value": "26 weeks of transdermal therapy",
+              "quote": "26 weeks of transdermal therapy",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.8
+            },
+            "duration_value": {
+              "value": "26",
+              "quote": "26 weeks of transdermal therapy",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.8
+            },
+            "duration_unit": "weeks",
+            "duration_will_vary": false,
+            "duration_will_vary_reason": {
+              "value": null,
+              "quote": null,
+              "section_id": null,
+              "confidence": 0.0
+            }
+          },
+          {
+            "label": {
+              "value": "Xanomeline TTS 27 mg patch (25 cm²)",
+              "quote": "25 cm 2 , 27 mg*",
+              "section_id": "sec-3.6.1",
+              "confidence": 0.85
+            },
+            "description": {
+              "value": "One 25 cm² xanomeline TTS patch delivering 27 mg xanomeline, applied transdermally each morning",
+              "quote": "xanomeline or placebo will be administered with the application of 2 adhesive patches, one 50 cm 2 in area, the other 25 cm 2 in area",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.8
+            },
+            "route": {
+              "value": "TRANSDERMAL",
+              "quote": "To test acute tolerance of transdermal formulation",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.8
+            },
+            "dose_value": {
+              "value": "27",
+              "quote": "25 cm 2 , 27 mg*",
+              "section_id": "sec-3.6.1",
+              "confidence": 0.85
+            },
+            "dose_unit": "mg",
+            "frequency": {
+              "value": "QD",
+              "quote": "on the morning of each subsequent day of therapy",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.75
+            },
+            "duration_description": {
+              "value": "26 weeks of transdermal therapy",
+              "quote": "26 weeks of transdermal therapy",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.8
+            },
+            "duration_value": {
+              "value": "26",
+              "quote": "26 weeks of transdermal therapy",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.8
+            },
+            "duration_unit": "weeks",
+            "duration_will_vary": false,
+            "duration_will_vary_reason": {
+              "value": null,
+              "quote": null,
+              "section_id": null,
+              "confidence": 0.0
+            }
+          }
+        ]
+      },
+      {
+        "label": {
+          "value": "Placebo TTS",
+          "quote": "Comparator Material: Placebo TTS",
+          "section_id": "sec-3.6.1",
+          "confidence": 0.9
+        },
+        "description": {
+          "value": "Placebo transdermal therapeutic system patches identical in appearance to xanomeline TTS",
+          "quote": "Placebo TTS Identical in appearance to primary study material",
+          "section_id": "sec-3.6.1",
+          "confidence": 0.85
+        },
+        "role": {
+          "value": "Placebo",
+          "quote": "Comparator Material: Placebo TTS",
+          "section_id": "sec-3.6.1",
+          "confidence": 0.9
+        },
+        "type": {
+          "value": "Pharmacologic Substance",
+          "quote": "Placebo TTS Identical in appearance to primary study material",
+          "section_id": "sec-3.6.1",
+          "confidence": 0.5
+        },
+        "administrations": [
+          {
+            "label": {
+              "value": "Placebo TTS acute tolerance patch",
+              "quote": "patients will have a TTS (placebo) administered at the start of Visit 1, and removed at the conclusion of Visit 1",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.85
+            },
+            "description": {
+              "value": "A single placebo TTS patch applied at the start of Visit 1 and removed at the conclusion of the same visit to test acute tolerance of the transdermal formulation",
+              "quote": "To test acute tolerance of transdermal formulation, patients will have a TTS (placebo) administered at the start of Visit 1, and removed at the conclusion of Visit 1",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.85
+            },
+            "route": {
+              "value": "TRANSDERMAL",
+              "quote": "To test acute tolerance of transdermal formulation",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.8
+            },
+            "dose_value": {
+              "value": null,
+              "quote": null,
+              "section_id": null,
+              "confidence": 0.0
+            },
+            "dose_unit": null,
+            "frequency": {
+              "value": "ONCE",
+              "quote": "administered at the start of Visit 1, and removed at the conclusion of Visit 1",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.7
+            },
+            "duration_description": {
+              "value": "Applied and removed within a single visit (Visit 1)",
+              "quote": "administered at the start of Visit 1, and removed at the conclusion of Visit 1",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.7
+            },
+            "duration_value": {
+              "value": null,
+              "quote": null,
+              "section_id": null,
+              "confidence": 0.0
+            },
+            "duration_unit": null,
+            "duration_will_vary": false,
+            "duration_will_vary_reason": {
+              "value": null,
+              "quote": null,
+              "section_id": null,
+              "confidence": 0.0
+            }
+          },
+          {
+            "label": {
+              "value": "Placebo TTS maintenance patches",
+              "quote": "xanomeline or placebo will be administered with the application of 2 adhesive patches, one 50 cm 2 in area, the other 25 cm 2 in area",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.8
+            },
+            "description": {
+              "value": "Two placebo TTS patches (50 cm² and 25 cm²) applied together each morning for patients randomized to placebo",
+              "quote": "Upon enrollment at Visit 3, and on the morning of each subsequent day of therapy , xanomeline or placebo will be administered with the application of 2 adhesive patches",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.8
+            },
+            "route": {
+              "value": "TRANSDERMAL",
+              "quote": "To test acute tolerance of transdermal formulation",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.8
+            },
+            "dose_value": {
+              "value": null,
+              "quote": null,
+              "section_id": null,
+              "confidence": 0.0
+            },
+            "dose_unit": null,
+            "frequency": {
+              "value": "QD",
+              "quote": "on the morning of each subsequent day of therapy",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.75
+            },
+            "duration_description": {
+              "value": "26 weeks of transdermal therapy",
+              "quote": "26 weeks of transdermal therapy",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.8
+            },
+            "duration_value": {
+              "value": "26",
+              "quote": "26 weeks of transdermal therapy",
+              "section_id": "sec-3.6.2",
+              "confidence": 0.8
+            },
+            "duration_unit": "weeks",
+            "duration_will_vary": false,
+            "duration_will_vary_reason": {
+              "value": null,
+              "quote": null,
+              "section_id": null,
+              "confidence": 0.0
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

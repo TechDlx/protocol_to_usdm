@@ -1,0 +1,472 @@
+{
+  "run": {
+    "sheet": "identifiers",
+    "status": "done",
+    "started_at": "2026-09-13T21:38:18.329460Z",
+    "finished_at": "2026-09-13T21:38:42.176609Z",
+    "input_hash": "107893c813018f4a7df1c28460a8f1f319df4b1bf3a9a5dc82bf99a15685b3ac",
+    "postprocess_version": "1+verify4",
+    "reprocessed": false,
+    "section_ids": [
+      "title-page",
+      "fm-protocol-summary"
+    ],
+    "usage": {
+      "model": "claude-sonnet-5",
+      "input_tokens": 9925,
+      "output_tokens": 2445,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "latency_seconds": 23.82,
+      "cost_usd": 0.0443,
+      "stop_reason": "end_turn",
+      "request_id": null
+    },
+    "error": null,
+    "warnings": []
+  },
+  "records": {
+    "organizations": [
+      {
+        "row_id": null,
+        "name": {
+          "value": "Pfizer",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the organization name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "Pfizer",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "title-page",
+            "source_page": 1,
+            "raw_phrase": "This document contains confidential information belonging to Pfizer.",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "type": {
+          "value": "Drug Company",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "title-page",
+            "source_page": 1,
+            "raw_phrase": "This document contains confidential information belonging to Pfizer.",
+            "confidence": 0.8,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C188724",
+            "codelist_name": "Organization Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C54149",
+            "submission_value": "Pharmaceutical Company",
+            "preferred_term": "Drug Company",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier_scheme": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "identifier": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "address": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "FDA",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the organization name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "FDA",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "title-page",
+            "source_page": 1,
+            "raw_phrase": "United States Investigational New Drug 69,324\nNumber:",
+            "confidence": 0.5,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "type": {
+          "value": "Regulatory Agency",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "title-page",
+            "source_page": 1,
+            "raw_phrase": "United States Investigational New Drug 69,324\nNumber:",
+            "confidence": 0.5,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C188724",
+            "codelist_name": "Organization Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C188863",
+            "submission_value": "Regulatory Agency",
+            "preferred_term": "Regulatory Agency",
+            "matched_on": "submissionValue",
+            "candidates": []
+          }
+        },
+        "identifier_scheme": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "identifier": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        },
+        "address": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "name": {
+          "value": "EudraCT",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated from the organization name",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "label": {
+          "value": "EudraCT",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "title-page",
+            "source_page": 1,
+            "raw_phrase": "European Clinical Trial Database 2013-002580-26\n(EudraCT) Number:",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "type": {
+          "value": "Study Registry",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "title-page",
+            "source_page": 1,
+            "raw_phrase": "European Clinical Trial Database 2013-002580-26\n(EudraCT) Number:",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": {
+            "status": "exact",
+            "codelist": "C188724",
+            "codelist_name": "Organization Type Value Set Terminology",
+            "ct_version": "2026-03-27",
+            "code": "C93453",
+            "submission_value": "Clinical Study Registry",
+            "preferred_term": "Study Registry",
+            "matched_on": "preferredTerm",
+            "candidates": []
+          }
+        },
+        "identifier_scheme": {
+          "value": "URL",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated: the registry's own web address identifies it",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "identifier": {
+          "value": "https://eudract.ema.europa.eu",
+          "provenance": {
+            "origin": "derived",
+            "source_section_id": null,
+            "source_page": null,
+            "raw_phrase": null,
+            "confidence": 1.0,
+            "verified": true,
+            "note": "generated: the registry's own web address identifies it",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "address": {
+          "value": null,
+          "provenance": null,
+          "terminology": null
+        }
+      }
+    ],
+    "identifiers": [
+      {
+        "row_id": null,
+        "identifier": {
+          "value": "A5481023",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "title-page",
+            "source_page": 1,
+            "raw_phrase": "Protocol Number: A5481023",
+            "confidence": 0.95,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "organization": {
+          "value": "Pfizer",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "title-page",
+            "source_page": 1,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the issuer the model named",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "identifier": {
+          "value": "69,324",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "title-page",
+            "source_page": 1,
+            "raw_phrase": "United States Investigational New Drug 69,324\nNumber:",
+            "confidence": 0.85,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "organization": {
+          "value": "FDA",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "title-page",
+            "source_page": 1,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the issuer the model named",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      },
+      {
+        "row_id": null,
+        "identifier": {
+          "value": "2013-002580-26",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "title-page",
+            "source_page": 1,
+            "raw_phrase": "European Clinical Trial Database 2013-002580-26\n(EudraCT) Number:",
+            "confidence": 0.9,
+            "verified": true,
+            "note": null,
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        },
+        "organization": {
+          "value": "EudraCT",
+          "provenance": {
+            "origin": "extracted",
+            "source_section_id": "title-page",
+            "source_page": 1,
+            "raw_phrase": null,
+            "confidence": 0.8,
+            "verified": true,
+            "note": "the issuer the model named",
+            "reviewer_accepted": false
+          },
+          "terminology": null
+        }
+      }
+    ]
+  },
+  "model_output": {
+    "organizations": [
+      {
+        "key": "sponsor",
+        "name": {
+          "value": "Pfizer",
+          "quote": "This document contains confidential information belonging to Pfizer.",
+          "section_id": "title-page",
+          "confidence": 0.9
+        },
+        "type": {
+          "value": "Drug Company",
+          "quote": "This document contains confidential information belonging to Pfizer.",
+          "section_id": "title-page",
+          "confidence": 0.8
+        },
+        "identifier_scheme": {
+          "value": null,
+          "quote": null,
+          "section_id": null,
+          "confidence": 0.0
+        },
+        "identifier": {
+          "value": null,
+          "quote": null,
+          "section_id": null,
+          "confidence": 0.0
+        },
+        "address": null
+      },
+      {
+        "key": "fda",
+        "name": {
+          "value": "FDA",
+          "quote": "United States Investigational New Drug 69,324\nNumber:",
+          "section_id": "title-page",
+          "confidence": 0.5
+        },
+        "type": {
+          "value": "Regulatory Agency",
+          "quote": "United States Investigational New Drug 69,324\nNumber:",
+          "section_id": "title-page",
+          "confidence": 0.5
+        },
+        "identifier_scheme": {
+          "value": null,
+          "quote": null,
+          "section_id": null,
+          "confidence": 0.0
+        },
+        "identifier": {
+          "value": null,
+          "quote": null,
+          "section_id": null,
+          "confidence": 0.0
+        },
+        "address": null
+      },
+      {
+        "key": "eudract",
+        "name": {
+          "value": "EudraCT",
+          "quote": "European Clinical Trial Database 2013-002580-26\n(EudraCT) Number:",
+          "section_id": "title-page",
+          "confidence": 0.9
+        },
+        "type": {
+          "value": "Study Registry",
+          "quote": "European Clinical Trial Database 2013-002580-26\n(EudraCT) Number:",
+          "section_id": "title-page",
+          "confidence": 0.9
+        },
+        "identifier_scheme": {
+          "value": null,
+          "quote": null,
+          "section_id": null,
+          "confidence": 0.0
+        },
+        "identifier": {
+          "value": null,
+          "quote": null,
+          "section_id": null,
+          "confidence": 0.0
+        },
+        "address": null
+      }
+    ],
+    "identifiers": [
+      {
+        "identifier": {
+          "value": "A5481023",
+          "quote": "Protocol Number: A5481023",
+          "section_id": "title-page",
+          "confidence": 0.95
+        },
+        "organization_key": "sponsor"
+      },
+      {
+        "identifier": {
+          "value": "69,324",
+          "quote": "United States Investigational New Drug 69,324\nNumber:",
+          "section_id": "title-page",
+          "confidence": 0.85
+        },
+        "organization_key": "fda"
+      },
+      {
+        "identifier": {
+          "value": "2013-002580-26",
+          "quote": "European Clinical Trial Database 2013-002580-26\n(EudraCT) Number:",
+          "section_id": "title-page",
+          "confidence": 0.9
+        },
+        "organization_key": "eudract"
+      }
+    ]
+  }
+}
