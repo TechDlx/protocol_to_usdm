@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { Fragment, useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 
 import { api } from "../api";
@@ -187,6 +187,10 @@ export default function RunInspectorPage() {
           )}
           {tab === "coverage" && (
             <CoverageTab
+              slug={slug}
+              runId={runId}
+              locked={run?.status === "running" || run?.status === "generating"}
+              onMappingChanged={setMapping}
               mapping={mapping}
               doc={doc}
               onOpen={(sid) => {
@@ -325,6 +329,12 @@ function SectionsTab(props: {
                       ) : (
                         <span className="muted small">{a?.method === "excluded" ? "not protocol content" : "unmapped"}</span>
                       )}
+                      {(a?.also_m11 ?? []).map((r) => (
+                        <div key={r.m11_number} className="small">
+                          <span className="muted">also </span>
+                          <span className="mono">{r.m11_number}</span> {r.m11_title}
+                        </div>
+                      ))}
                     </td>
                     <td>{a && <Confidence a={a} threshold={mapping.review_threshold} />}</td>
                     <td className="small muted nowrap">{a ? METHOD_LABEL[a.method] : ""}</td>
@@ -536,6 +546,17 @@ function PagesPanel(props: {
 
 // ----- manual mapping ------------------------------------------------------------------------
 
+/** The saved-message, followed by the extraction agents whose input this section's change altered. */
+async function withAffectedAgents(slug: string, runId: string, sectionId: string, message: string): Promise<string> {
+  const changes = await api.getExtractionInputChanges(slug, runId).catch(() => []);
+  const affected = changes
+    .filter((c) => c.added.includes(sectionId) || c.removed.includes(sectionId))
+    .map((c) => c.sheet);
+  return affected.length
+    ? `${message} Agents whose input changed: ${affected.join(", ")}; run extraction (resume) on the Extraction tab to update them.`
+    : `${message} No extraction agent's input changed (no agent reads these M11 sections, or extraction has not run).`;
+}
+
 let templateRequest: Promise<M11TemplateSection[]> | null = null;
 function m11Template(): Promise<M11TemplateSection[]> {
   templateRequest ??= api.getM11Template().catch((e: unknown) => {
@@ -553,7 +574,8 @@ function MappingPanel(props: {
   onMappingChanged: (mapping: SectionMapping) => void;
 }) {
   const { slug, runId, assignment: a, locked } = props;
-  const [editing, setEditing] = useState(false);
+  // "main" replaces the section's mapping; "also" adds a further M11 section.
+  const [editing, setEditing] = useState<"main" | "also" | null>(null);
   const [template, setTemplate] = useState<M11TemplateSection[]>([]);
   const [query, setQuery] = useState("");
   const [busy, setBusy] = useState(false);
@@ -578,17 +600,9 @@ function MappingPanel(props: {
     setError(null);
     try {
       props.onMappingChanged(await change());
-      setEditing(false);
+      setEditing(null);
       setQuery("");
-      const changes = await api.getExtractionInputChanges(slug, runId).catch(() => []);
-      const affected = changes
-        .filter((c) => c.added.includes(a.section_id) || c.removed.includes(a.section_id))
-        .map((c) => c.sheet);
-      setSaved(
-        affected.length
-          ? `${message} Agents whose input changed: ${affected.join(", ")}; run extraction (resume) on the Extraction tab to update them.`
-          : `${message} No extraction agent's input changed (no agent reads this section's M11 sections, or extraction has not run).`,
-      );
+      setSaved(await withAffectedAgents(slug, runId, a.section_id, message));
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
@@ -601,6 +615,12 @@ function MappingPanel(props: {
       () => api.setSectionMapping(slug, runId, a.section_id, { m11_number: number }),
       `Mapped to ${number} ${title}.`,
     );
+  const alsoMapTo = (number: string, title: string) =>
+    void save(
+      () => api.addSectionMapping(slug, runId, a.section_id, number),
+      `Also mapped to ${number} ${title}.`,
+    );
+  const mapped = new Set([a.m11_number, ...a.also_m11.map((r) => r.m11_number)]);
   const disabled = locked || busy;
 
   return (
@@ -613,8 +633,26 @@ function MappingPanel(props: {
       ) : (
         <div className="muted">{a.method === "excluded" ? "Not protocol content" : "No mapping"}</div>
       )}
+      {a.also_m11.map((r) => (
+        <div key={r.m11_number} className="row-inline small">
+          <span className="muted">also</span> <span className="mono">{r.m11_number}</span> {r.m11_title}
+          <button
+            className="btn small"
+            disabled={disabled}
+            title="Remove this further mapping"
+            onClick={() =>
+              void save(
+                () => api.removeSectionMapping(slug, runId, a.section_id, r.m11_number),
+                `No longer mapped to ${r.m11_number}.`,
+              )
+            }
+          >
+            Remove
+          </button>
+        </div>
+      ))}
       <div className="small muted">
-        {a.reviewer_override ? (
+        {a.reviewer_override && (a.method === "reviewer" || a.method === "excluded") ? (
           <span className="chip found">mapped by reviewer</span>
         ) : (
           <>
@@ -643,8 +681,18 @@ function MappingPanel(props: {
 
       <div className="row-inline">
         {!editing && (
-          <button className="btn small" disabled={disabled} onClick={() => setEditing(true)}>
+          <button className="btn small" disabled={disabled} onClick={() => setEditing("main")}>
             Map to M11 section…
+          </button>
+        )}
+        {!editing && a.method !== "excluded" && (
+          <button
+            className="btn small"
+            disabled={disabled}
+            title="Keep the current mapping and add another M11 section (for a section that covers two)"
+            onClick={() => setEditing("also")}
+          >
+            Also map to…
           </button>
         )}
         {a.method !== "excluded" && (
@@ -677,6 +725,11 @@ function MappingPanel(props: {
 
       {editing && (
         <div className="mapping-editor">
+          <div className="small muted">
+            {editing === "main"
+              ? "Choose the M11 section this protocol section maps to."
+              : "Choose a further M11 section; the current mapping stays."}
+          </div>
           <input
             autoFocus
             className="mapping-search"
@@ -688,10 +741,10 @@ function MappingPanel(props: {
             {matches.map((t) => (
               <li key={t.number}>
                 <button
-                  className={`mapping-option${t.number === a.m11_number ? " current" : ""}`}
+                  className={`mapping-option${mapped.has(t.number) ? " current" : ""}`}
                   style={{ paddingLeft: `${6 + (t.level - 1) * 14}px` }}
-                  disabled={disabled}
-                  onClick={() => mapTo(t.number, t.title)}
+                  disabled={disabled || (editing === "also" && mapped.has(t.number))}
+                  onClick={() => (editing === "also" ? alsoMapTo(t.number, t.title) : mapTo(t.number, t.title))}
                 >
                   <span className="mono">{t.number}</span> {t.title}
                   {t.optional && <span className="muted"> (optional)</span>}
@@ -700,7 +753,7 @@ function MappingPanel(props: {
             ))}
             {template.length > 0 && matches.length === 0 && <li className="muted">No M11 section matches.</li>}
           </ul>
-          <button className="btn small" onClick={() => setEditing(false)}>
+          <button className="btn small" onClick={() => setEditing(null)}>
             Cancel
           </button>
         </div>
@@ -715,10 +768,21 @@ function MappingPanel(props: {
 
 // ----- coverage ------------------------------------------------------------------------------
 
-function CoverageTab({ mapping, doc, onOpen }: { mapping: SectionMapping; doc: ParsedDocument; onOpen: (id: string) => void }) {
+function CoverageTab(props: {
+  slug: string;
+  runId: string;
+  locked: boolean;
+  mapping: SectionMapping;
+  doc: ParsedDocument;
+  onOpen: (id: string) => void;
+  onMappingChanged: (mapping: SectionMapping) => void;
+}) {
+  const { mapping, doc, onOpen } = props;
   const [hideOptional, setHideOptional] = useState(true);
+  const [target, setTarget] = useState<string | null>(null);
+  const [note, setNote] = useState<string | null>(null);
   const titles = useMemo(() => new Map(doc.sections.map((s) => [s.id, s])), [doc]);
-  const rows = mapping.coverage.filter((c: M11Coverage) => !hideOptional || !c.optional);
+  const rows = mapping.coverage.filter((c: M11Coverage) => !hideOptional || !c.optional || c.m11_number === target);
   const counts = mapping.coverage.reduce<Record<string, number>>((acc, c) => {
     acc[c.status] = (acc[c.status] ?? 0) + 1;
     return acc;
@@ -738,6 +802,7 @@ function CoverageTab({ mapping, doc, onOpen }: { mapping: SectionMapping; doc: P
           {mapping.template} {mapping.template_version}
         </span>
       </div>
+      {note && <div className="alert ok small">{note}</div>}
       <div className="scroll-x">
         <table className="grid">
           <thead>
@@ -749,30 +814,173 @@ function CoverageTab({ mapping, doc, onOpen }: { mapping: SectionMapping; doc: P
           </thead>
           <tbody>
             {rows.map((c) => (
-              <tr key={c.m11_number}>
-                <td style={{ paddingLeft: `${8 + (c.level - 1) * 16}px` }}>
-                  <span className="mono muted">{c.m11_number}</span> {c.m11_title}
-                  {c.optional && <span className="muted small"> (optional)</span>}
-                </td>
-                <td>
-                  <span className={`chip ${c.status}`}>{c.status.replace("_", " ")}</span>
-                </td>
-                <td className="small">
-                  {c.section_ids.map((sid) => {
-                    const s = titles.get(sid);
-                    return (
-                      <button key={sid} className="link" onClick={() => onOpen(sid)}>
-                        {s?.number ? `${s.number} ` : ""}
-                        {s?.title ?? sid}
+              <Fragment key={c.m11_number}>
+                <tr>
+                  <td style={{ paddingLeft: `${8 + (c.level - 1) * 16}px` }}>
+                    <span className="mono muted">{c.m11_number}</span> {c.m11_title}
+                    {c.optional && <span className="muted small"> (optional)</span>}
+                  </td>
+                  <td>
+                    <span className={`chip ${c.status}`}>{c.status.replace("_", " ")}</span>
+                  </td>
+                  <td className="small">
+                    {c.section_ids.map((sid) => {
+                      const s = titles.get(sid);
+                      return (
+                        <button key={sid} className="link" onClick={() => onOpen(sid)}>
+                          {s?.number ? `${s.number} ` : ""}
+                          {s?.title ?? sid}
+                        </button>
+                      );
+                    })}
+                    {c.status !== "found" && target !== c.m11_number && (
+                      <button
+                        className="btn small"
+                        disabled={props.locked}
+                        onClick={() => {
+                          setTarget(c.m11_number);
+                          setNote(null);
+                        }}
+                      >
+                        Map a section…
                       </button>
-                    );
-                  })}
-                </td>
-              </tr>
+                    )}
+                  </td>
+                </tr>
+                {target === c.m11_number && (
+                  <tr>
+                    <td colSpan={3}>
+                      <SectionPicker
+                        {...props}
+                        target={c}
+                        onDone={(message) => {
+                          setTarget(null);
+                          setNote(message);
+                        }}
+                        onCancel={() => setTarget(null)}
+                      />
+                    </td>
+                  </tr>
+                )}
+              </Fragment>
             ))}
           </tbody>
         </table>
       </div>
+    </div>
+  );
+}
+
+/** Choose the protocol section that holds an M11 section's content, from the coverage tab. */
+function SectionPicker(props: {
+  slug: string;
+  runId: string;
+  locked: boolean;
+  mapping: SectionMapping;
+  doc: ParsedDocument;
+  target: M11Coverage;
+  onMappingChanged: (mapping: SectionMapping) => void;
+  onDone: (message: string) => void;
+  onCancel: () => void;
+}) {
+  const { slug, runId, mapping, doc, target } = props;
+  const [query, setQuery] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const byId = useMemo(() => new Map(mapping.assignments.map((a) => [a.section_id, a])), [mapping]);
+
+  const options = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    const score = (id: string) => byId.get(id)?.candidates.find((c) => c.m11_number === target.m11_number)?.score ?? 0;
+    return doc.sections
+      .filter((s) => s.kind !== "toc")
+      .filter((s) => !q || (s.number ?? "").toLowerCase().startsWith(q) || s.title.toLowerCase().includes(q))
+      .map((s) => ({ section: s, score: score(s.id) }))
+      .sort((x, y) => (y.score >= 0.4 ? y.score : 0) - (x.score >= 0.4 ? x.score : 0));
+  }, [doc, byId, query, target.m11_number]);
+
+  async function apply(sectionId: string, also: boolean) {
+    setBusy(true);
+    setError(null);
+    try {
+      const updated = also
+        ? await api.addSectionMapping(slug, runId, sectionId, target.m11_number)
+        : await api.setSectionMapping(slug, runId, sectionId, { m11_number: target.m11_number });
+      props.onMappingChanged(updated);
+      const title = doc.sections.find((s) => s.id === sectionId)?.title ?? sectionId;
+      props.onDone(
+        await withAffectedAgents(
+          slug,
+          runId,
+          sectionId,
+          `"${title}" ${also ? "is also" : "is now"} mapped to ${target.m11_number} ${target.m11_title}.`,
+        ),
+      );
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+      setBusy(false);
+    }
+  }
+
+  const disabled = props.locked || busy;
+  return (
+    <div className="mapping-editor">
+      <div className="row-inline">
+        <strong>
+          Which protocol section holds <span className="mono">{target.m11_number}</span> {target.m11_title}?
+        </strong>
+        <button className="btn small" onClick={props.onCancel}>
+          Cancel
+        </button>
+      </div>
+      <div className="small muted">
+        <strong>Map here</strong> replaces the section's current mapping. <strong>Also map here</strong> keeps it and adds this
+        M11 section, for a section that covers both. Likely sections are listed first.
+      </div>
+      <input
+        autoFocus
+        className="mapping-search"
+        placeholder="Search protocol sections by number or title"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
+      <ul className="mapping-options small">
+        {options.map(({ section: s, score }) => {
+          const a = byId.get(s.id);
+          const mappedHere = a?.m11_number === target.m11_number;
+          const alsoHere = (a?.also_m11 ?? []).some((r) => r.m11_number === target.m11_number);
+          const now = a?.m11_number
+            ? `${a.m11_number} ${a.m11_title ?? ""}`
+            : a?.method === "excluded"
+              ? "not protocol content"
+              : "unmapped";
+          return (
+            <li key={s.id} className="picker-option">
+              <span style={{ paddingLeft: `${(s.level - 1) * 14}px` }}>
+                <span className="mono muted">{s.number ?? ""}</span> {s.title}{" "}
+                <span className="muted">
+                  · p. {s.page_start === s.page_end ? s.page_start : `${s.page_start}–${s.page_end}`} · now: {now}
+                  {(a?.also_m11 ?? []).map((r) => `, ${r.m11_number}`).join("")}
+                </span>
+                {score >= 0.4 && <span className="chip found"> suggested</span>}
+              </span>
+              <span className="row-inline">
+                <button className="btn small" disabled={disabled || mappedHere} onClick={() => void apply(s.id, false)}>
+                  Map here
+                </button>
+                <button
+                  className="btn small"
+                  disabled={disabled || mappedHere || alsoHere || a?.method === "excluded"}
+                  onClick={() => void apply(s.id, true)}
+                >
+                  Also map here
+                </button>
+              </span>
+            </li>
+          );
+        })}
+      </ul>
+      {error && <div className="alert error small">{error}</div>}
     </div>
   );
 }

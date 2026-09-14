@@ -682,3 +682,18 @@ Moving pages changes the text agents read without changing which sections they r
 extraction input check (D33) now also compares each agent's input hash: the Extraction tab lists
 agents whose text changed, and extraction (resume) re-runs exactly those.
 
+## D35 — A section can map to more than one M11 section; missing coverage is fixed where it shows
+
+Protocols combine what M11 separates ("Synopsis and Schedule of Evaluations" covers 1.1 and 1.3).
+With one M11 section per protocol section, one of the two always showed missing and one set of
+agents never read the text. A reviewer can now add further M11 sections to a section
+(`also` in `section_overrides.json`), keeping the computed or reviewer mapping: agents select the
+section for any of its M11 sections, coverage counts it (as certain as a manual mapping), and the
+section's own subsections still inherit only the main mapping. Changing the main mapping keeps the
+further ones; excluding the section drops them; removing the last reviewer change removes the
+override. Additions and removals are audited like other mapping changes.
+
+The M11 coverage tab offers the fix where the gap is seen: on a missing or low-confidence row a
+picker lists the protocol sections (those whose computed candidates include that M11 section
+first) with "Map here" (replace) and "Also map here" (add), and says which agents' input changed.
+

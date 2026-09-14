@@ -143,6 +143,11 @@ export type MappingMethod =
   | "excluded"
   | "reviewer";
 
+export interface M11Ref {
+  m11_number: string;
+  m11_title: string;
+}
+
 export interface SectionAssignment {
   section_id: string;
   doc_number: string | null;
@@ -157,6 +162,8 @@ export interface SectionAssignment {
   candidates: { m11_number: string; m11_title: string; score: number }[];
   needs_review: boolean;
   reviewer_override: boolean;
+  /** Further M11 sections a reviewer mapped this section to. */
+  also_m11: M11Ref[];
 }
 
 export interface M11Coverage {

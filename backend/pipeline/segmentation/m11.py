@@ -36,6 +36,7 @@ from backend.models.segmentation import (
     Candidate,
     CoverageStatus,
     M11Coverage,
+    M11Ref,
     MappingMethod,
     SectionAssignment,
     SectionMapping,
@@ -267,23 +268,40 @@ def map_sections(
 def _overridden(
     computed: SectionAssignment, override: SectionOverride, template: M11Template
 ) -> SectionAssignment:
-    """The reviewer's mapping, keeping the computed candidates for reference."""
-    m11 = (
-        None
-        if override.excluded or override.m11_number is None
-        else template.get(override.m11_number)
-    )
-    return computed.model_copy(
-        update={
-            "m11_number": m11.number if m11 else None,
-            "m11_title": m11.title if m11 else None,
+    """The reviewer's mapping, keeping the computed candidates for reference. With no M11 section
+    of its own the override only adds further sections to the computed mapping."""
+    if override.excluded:
+        update: dict[str, object] = {
+            "m11_number": None,
+            "m11_title": None,
             "confidence": 1.0,
-            "method": MappingMethod.EXCLUDED if m11 is None else MappingMethod.REVIEWER,
+            "method": MappingMethod.EXCLUDED,
             "matched_text": None,
             "needs_review": False,
-            "reviewer_override": True,
         }
+    elif override.m11_number is not None:
+        m11 = template.get(override.m11_number)
+        update = {
+            "m11_number": m11.number,
+            "m11_title": m11.title,
+            "confidence": 1.0,
+            "method": MappingMethod.REVIEWER,
+            "matched_text": None,
+            "needs_review": False,
+        }
+    else:
+        update = {}
+    primary = None if override.excluded else update.get("m11_number", computed.m11_number)
+    also = (
+        []
+        if override.excluded
+        else [
+            M11Ref(m11_number=n, m11_title=template.get(n).title)
+            for n in dict.fromkeys(override.also)
+            if n != primary
+        ]
     )
+    return computed.model_copy(update={**update, "also_m11": also, "reviewer_override": True})
 
 
 def _m11_native_ratio(document: ParsedDocument, template: M11Template, vocab: _Vocabulary) -> float:
@@ -433,13 +451,23 @@ def _coverage(
 ) -> list[M11Coverage]:
     rows: list[M11Coverage] = []
     for m11 in template.sections:
-        direct = [
+        primary = [
             a
             for a in assignments
             if a.m11_number == m11.number
             and a.method not in (MappingMethod.INHERITED, MappingMethod.EXCLUDED)
         ]
-        best = max((a.confidence for a in direct), default=None)
+        # A reviewer's further mapping is as certain as a mapping made by hand.
+        primary_ids = {a.section_id for a in primary}
+        also = [
+            a
+            for a in assignments
+            if a.section_id not in primary_ids
+            and any(r.m11_number == m11.number for r in a.also_m11)
+        ]
+        mapped_ids = primary_ids | {a.section_id for a in also}
+        direct = [a for a in assignments if a.section_id in mapped_ids]
+        best = max([*(a.confidence for a in primary), *(1.0 for _ in also)], default=None)
         if best is None:
             status = CoverageStatus.MISSING
         elif best >= threshold:
@@ -478,11 +506,13 @@ def sections_for(
     exact = set(exact_numbers or [])
     chosen: set[str] = set()
     for a in mapping.assignments:
-        if a.m11_number is None or a.method == MappingMethod.EXCLUDED:
+        if a.method == MappingMethod.EXCLUDED:
             continue
-        if not include_inherited and a.method == MappingMethod.INHERITED:
-            continue
-        in_subtree = any(a.m11_number == n or a.m11_number.startswith(n + ".") for n in wanted)
-        if in_subtree or a.m11_number in exact:
-            chosen.add(a.section_id)
+        numbers = [r.m11_number for r in a.also_m11]
+        if a.m11_number is not None and (include_inherited or a.method != MappingMethod.INHERITED):
+            numbers.append(a.m11_number)
+        for number in numbers:
+            in_subtree = any(number == n or number.startswith(n + ".") for n in wanted)
+            if in_subtree or number in exact:
+                chosen.add(a.section_id)
     return [s.id for s in document.sections if s.id in chosen]

@@ -13,6 +13,7 @@ from backend.models.document import ParsedDocument
 from backend.models.run_config import RunConfig
 from backend.models.segmentation import (
     AgentInputChange,
+    AlsoMapRequest,
     M11TemplateSectionOut,
     SectionMapping,
     SectionOverrideRequest,
@@ -46,9 +47,11 @@ from backend.pipeline.segmentation.boundaries import (
 from backend.pipeline.segmentation.m11 import load_template
 from backend.pipeline.segmentation.overrides import (
     OverrideError,
+    add_also,
     append_audit,
     audit_change,
     clear_override,
+    remove_also,
     set_override,
 )
 from backend.pipeline.terminology.ct import get_ct_resolver
@@ -265,6 +268,47 @@ def clear_section_mapping(
             status.HTTP_404_NOT_FOUND, detail="this section has no reviewer mapping"
         ) from None
     return _resegment(store, slug, run_id, run_dir, document, ("clear", section_id))
+
+
+def _current_mapping(run_dir: Path) -> SectionMapping:
+    path = run_dir / SECTION_MAPPING_FILE
+    if not path.is_file():
+        raise HTTPException(status.HTTP_409_CONFLICT, detail="the protocol has not been mapped yet")
+    return SectionMapping.model_validate_json(path.read_text(encoding="utf-8"))
+
+
+@router.post("/{run_id}/section-mapping/{section_id}/also", response_model=SectionMapping)
+def add_section_mapping(
+    slug: str, run_id: str, section_id: str, body: AlsoMapRequest, store: Store, jobs: Jobs
+) -> SectionMapping:
+    """Map a section to a further M11 section as well, keeping its current mapping (a combined
+    section such as "Synopsis and Schedule of Activities" covers two M11 sections)."""
+    run_dir, document = _remap(store, jobs, slug, run_id)
+    try:
+        current = _current_mapping(run_dir).assignment(section_id)
+        add_also(run_dir, document, current, body.m11_number)
+    except KeyError:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, detail="section not found") from None
+    except OverrideError as exc:
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_CONTENT, detail=str(exc)) from None
+    return _resegment(store, slug, run_id, run_dir, document, ("also_add", section_id))
+
+
+@router.delete(
+    "/{run_id}/section-mapping/{section_id}/also/{m11_number}", response_model=SectionMapping
+)
+def remove_section_mapping(
+    slug: str, run_id: str, section_id: str, m11_number: str, store: Store, jobs: Jobs
+) -> SectionMapping:
+    """Remove one of a section's further M11 mappings."""
+    run_dir, document = _remap(store, jobs, slug, run_id)
+    try:
+        remove_also(run_dir, section_id, m11_number)
+    except KeyError:
+        raise HTTPException(
+            status.HTTP_404_NOT_FOUND, detail=f"this section is not also mapped to {m11_number}"
+        ) from None
+    return _resegment(store, slug, run_id, run_dir, document, ("also_remove", section_id))
 
 
 def _pages_of(document: ParsedDocument, section_id: str) -> dict[str, object]:

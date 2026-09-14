@@ -231,3 +231,40 @@ def test_reviewer_moves_a_section_start_and_extraction_sees_the_changed_text(
         ("start_page", [4, 4], [5, 5]),
         ("start_page_cleared", [5, 5], [4, 4]),
     ]
+
+
+def test_a_section_mapped_to_two_m11_sections_feeds_both_agents_and_coverage(
+    app_and_client, parsed_run: str
+) -> None:  # type: ignore[no-untyped-def]
+    _, client = app_and_client
+    client.post(f"{parsed_run}/extract", json={})
+    _wait(client, parsed_run)
+    section = "sec-2.2"  # inherits "5"; the arms agent reads 4.1
+
+    added = client.post(f"{parsed_run}/section-mapping/{section}/also", json={"m11_number": "4.1"})
+    assert added.status_code == 200, added.text
+    assignment = next(a for a in added.json()["assignments"] if a["section_id"] == section)
+    assert assignment["m11_number"] == "5" and [
+        r["m11_number"] for r in assignment["also_m11"]
+    ] == ["4.1"]
+    coverage = {c["m11_number"]: c for c in added.json()["coverage"]}
+    assert coverage["4.1"]["status"] == "found"
+    changes = {c["sheet"]: c for c in client.get(f"{parsed_run}/extraction/input-changes").json()}
+    assert changes["study_design_arms"]["added"] == [section]
+    assert all(section not in c["removed"] for c in changes.values())  # still read as "5"
+
+    again = client.post(f"{parsed_run}/section-mapping/{section}/also", json={"m11_number": "4.1"})
+    assert again.status_code == 422
+    assert (
+        client.post(
+            f"{parsed_run}/section-mapping/nope/also", json={"m11_number": "4.1"}
+        ).status_code
+        == 404
+    )
+
+    removed = client.delete(f"{parsed_run}/section-mapping/{section}/also/4.1")
+    assert removed.status_code == 200
+    assignment = next(a for a in removed.json()["assignments"] if a["section_id"] == section)
+    assert assignment["also_m11"] == [] and not assignment["reviewer_override"]
+    assert client.get(f"{parsed_run}/extraction/input-changes").json() == []
+    assert client.delete(f"{parsed_run}/section-mapping/{section}/also/4.1").status_code == 404

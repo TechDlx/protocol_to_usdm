@@ -176,6 +176,11 @@ a different file with the same name is kept alongside as `name (2).pdf`.
      still belong to the title page), set **Starts on page** in the section's **Pages** box:
      earlier pages move to the previous section, with their tables. **Revert to parsed start**
      undoes it; corrections are kept when parsing re-runs.
+   - **M11 coverage:** which M11 sections have protocol content. On a *missing* or *low confidence*
+     row, **Map a section…** lists the protocol sections (likely ones first): **Map here** replaces
+     a section's mapping, **Also map here** keeps it and adds this M11 section. A section that
+     covers two M11 sections (e.g. "Synopsis and Schedule of Evaluations") can be mapped to both,
+     also from the section panel with **Also map to…**; both sets of agents then read it.
      Rows with an amber bar are flagged for review. Click a row for its text, the next-best M11
      candidates and the source page image.
    - **M11 coverage:** which M11 sections were found, found with low confidence, or not found.

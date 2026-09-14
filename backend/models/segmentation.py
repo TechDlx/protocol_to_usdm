@@ -27,6 +27,11 @@ class Candidate(BaseModel):
     score: float
 
 
+class M11Ref(BaseModel):
+    m11_number: str
+    m11_title: str
+
+
 class SectionAssignment(BaseModel):
     section_id: str
     doc_number: str | None
@@ -41,6 +46,9 @@ class SectionAssignment(BaseModel):
     candidates: list[Candidate]
     needs_review: bool
     reviewer_override: bool = False  # set by a reviewer; survives re-segmentation
+    #: Further M11 sections a reviewer mapped this section to (a combined "Synopsis and Schedule
+    #: of Activities" section covers 1.1 and 1.3); agents and coverage treat them like the first.
+    also_m11: list[M11Ref] = Field(default_factory=list)
 
 
 class CoverageStatus(StrEnum):
@@ -85,8 +93,11 @@ class SectionOverride(BaseModel):
 
     section_id: str
     doc_title: str  # the section's title when the override was made, to detect a changed parse
-    m11_number: str | None  # None when excluded
+    #: The reviewer's M11 section; None keeps the computed one (only `also` was added) or, with
+    #: `excluded`, leaves the section unmapped.
+    m11_number: str | None
     excluded: bool = False
+    also: list[str] = Field(default_factory=list)  # further M11 sections, in the order added
     updated_at: datetime
 
 
@@ -98,6 +109,10 @@ class SectionOverrides(BaseModel):
 class SectionOverrideRequest(BaseModel):
     m11_number: str | None = None
     excluded: bool = False
+
+
+class AlsoMapRequest(BaseModel):
+    m11_number: str
 
 
 class M11TemplateSectionOut(BaseModel):

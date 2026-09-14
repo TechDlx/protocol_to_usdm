@@ -22,7 +22,14 @@ from backend.pipeline.segmentation.m11 import (
     sections_for,
     title_similarity,
 )
-from backend.pipeline.segmentation.overrides import OverrideError, clear_override, set_override
+from backend.pipeline.segmentation.overrides import (
+    OverrideError,
+    add_also,
+    clear_override,
+    load_overrides,
+    remove_also,
+    set_override,
+)
 
 
 def test_template_numbers_are_unique_and_every_parent_exists() -> None:
@@ -269,6 +276,62 @@ def test_overrides_are_validated_stored_and_kept_by_segmentation(
     assert segment(tmp_path, mapping_doc, config).assignment("sec-5.3").m11_number == "6.3"
     with pytest.raises(KeyError):
         clear_override(tmp_path, "sec-5.3")
+
+
+def test_a_section_can_also_map_to_further_m11_sections(mapping_doc: ParsedDocument) -> None:
+    also = _override("sec-5.3", "Administration", None)
+    also.also = ["1.3", "6.6"]
+    m = map_sections(mapping_doc, overrides={"sec-5.3": also})
+    a = m.assignment("sec-5.3")
+    # The computed mapping stays; the further sections are added.
+    assert (a.m11_number, a.method) == ("6.3", MappingMethod.ALIAS_MATCH)
+    assert [r.m11_number for r in a.also_m11] == ["1.3", "6.6"] and a.reviewer_override
+    assert "sec-5.3" in sections_for(m, mapping_doc, ["1"])
+    assert sections_for(m, mapping_doc, ["6.6"]) == ["sec-5.3"]
+    coverage = {c.m11_number: c for c in m.coverage}
+    assert (coverage["1.3"].status, coverage["1.3"].section_ids) == ("found", ["sec-5.3"])
+    assert coverage["6.3"].section_ids == ["sec-5.3"]
+
+    # A main override keeps them (without repeating itself); excluding the section drops them.
+    main = _override("sec-5.3", "Administration", "1.3")
+    main.also = ["1.3", "6.6"]
+    a = map_sections(mapping_doc, overrides={"sec-5.3": main}).assignment("sec-5.3")
+    assert a.m11_number == "1.3" and [r.m11_number for r in a.also_m11] == ["6.6"]
+    gone = _override("sec-5.3", "Administration", None, excluded=True)
+    gone.also = ["6.6"]
+    assert (
+        map_sections(mapping_doc, overrides={"sec-5.3": gone}).assignment("sec-5.3").also_m11 == []
+    )
+
+
+def test_further_mappings_are_validated_and_removed(
+    mapping_doc: ParsedDocument, tmp_path: Path
+) -> None:
+    config = RunConfig(source_filename="x.pdf")
+    current = segment(tmp_path, mapping_doc, config).assignment("sec-5.3")
+    with pytest.raises(OverrideError, match=r"already mapped to 6.3"):
+        add_also(tmp_path, mapping_doc, current, "6.3")
+    with pytest.raises(OverrideError, match="not a section"):
+        add_also(tmp_path, mapping_doc, current, "99")
+    add_also(tmp_path, mapping_doc, current, "1.3")
+    current = segment(tmp_path, mapping_doc, config).assignment("sec-5.3")
+    with pytest.raises(OverrideError, match=r"already mapped to 1.3"):
+        add_also(tmp_path, mapping_doc, current, "1.3")
+
+    set_override(tmp_path, mapping_doc, "sec-5.3", "6.1", excluded=False)  # keeps 1.3
+    current = segment(tmp_path, mapping_doc, config).assignment("sec-5.3")
+    assert (current.m11_number, [r.m11_number for r in current.also_m11]) == ("6.1", ["1.3"])
+
+    remove_also(tmp_path, "sec-5.3", "1.3")
+    assert segment(tmp_path, mapping_doc, config).assignment("sec-5.3").m11_number == "6.1"
+    with pytest.raises(KeyError):
+        remove_also(tmp_path, "sec-5.3", "1.3")
+    clear_override(tmp_path, "sec-5.3")
+    add_also(
+        tmp_path, mapping_doc, segment(tmp_path, mapping_doc, config).assignment("sec-5.3"), "1.3"
+    )
+    remove_also(tmp_path, "sec-5.3", "1.3")  # nothing of the reviewer's left: no override
+    assert "sec-5.3" not in load_overrides(tmp_path).overrides
 
 
 # Normalised titles/aliases shared by more than one M11 section. Each entry was reviewed: M11

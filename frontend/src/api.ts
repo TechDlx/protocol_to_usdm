@@ -169,6 +169,20 @@ export const api = {
       body: JSON.stringify(body),
     }),
 
+  /** Map a section to a further M11 section as well, keeping its current mapping. */
+  addSectionMapping: (slug: string, runId: string, sectionId: string, m11Number: string) =>
+    request<SectionMapping>(`${runUrl(slug, runId)}/section-mapping/${encodeURIComponent(sectionId)}/also`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ m11_number: m11Number }),
+    }),
+
+  removeSectionMapping: (slug: string, runId: string, sectionId: string, m11Number: string) =>
+    request<SectionMapping>(
+      `${runUrl(slug, runId)}/section-mapping/${encodeURIComponent(sectionId)}/also/${encodeURIComponent(m11Number)}`,
+      { method: "DELETE" },
+    ),
+
   clearSectionMapping: (slug: string, runId: string, sectionId: string) =>
     request<SectionMapping>(`${runUrl(slug, runId)}/section-mapping/${encodeURIComponent(sectionId)}`, {
       method: "DELETE",

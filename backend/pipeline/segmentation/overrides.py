@@ -42,6 +42,7 @@ def _describe(assignment: SectionAssignment | None) -> dict[str, object]:
         "m11_title": assignment.m11_title,
         "method": assignment.method.value,
         "confidence": assignment.confidence,
+        "also": [r.m11_number for r in assignment.also_m11],
     }
 
 
@@ -91,13 +92,60 @@ def set_override(
         except KeyError:
             raise OverrideError(f"'{m11_number}' is not a section of the M11 template") from None
     overrides = load_overrides(run_dir)
+    existing = overrides.overrides.get(section_id)
+    # Further mappings stay when the main one changes; excluding the section drops them.
+    also = [] if excluded or existing is None else [n for n in existing.also if n != m11_number]
     overrides.overrides[section_id] = SectionOverride(
         section_id=section_id,
         doc_title=section.title,
         m11_number=m11_number,
         excluded=excluded,
+        also=also,
         updated_at=datetime.now(UTC),
     )
+    write_model(run_dir / OVERRIDES_FILE, overrides)
+    return overrides
+
+
+def add_also(
+    run_dir: Path, document: ParsedDocument, current: SectionAssignment, m11_number: str
+) -> SectionOverrides:
+    """Map a section to a further M11 section, keeping its current mapping."""
+    section = next((s for s in document.sections if s.id == current.section_id), None)
+    if section is None:
+        raise KeyError(current.section_id)
+    try:
+        load_template().get(m11_number)
+    except KeyError:
+        raise OverrideError(f"'{m11_number}' is not a section of the M11 template") from None
+    if current.method.value == "excluded":
+        raise OverrideError("the section is marked as not protocol content; map it first")
+    if m11_number == current.m11_number or m11_number in {r.m11_number for r in current.also_m11}:
+        raise OverrideError(f"the section is already mapped to {m11_number}")
+    overrides = load_overrides(run_dir)
+    existing = overrides.overrides.get(current.section_id)
+    overrides.overrides[current.section_id] = SectionOverride(
+        section_id=current.section_id,
+        doc_title=section.title,
+        m11_number=existing.m11_number if existing else None,
+        excluded=False,
+        also=[*(existing.also if existing else []), m11_number],
+        updated_at=datetime.now(UTC),
+    )
+    write_model(run_dir / OVERRIDES_FILE, overrides)
+    return overrides
+
+
+def remove_also(run_dir: Path, section_id: str, m11_number: str) -> SectionOverrides:
+    """Remove a further mapping. Raises KeyError when the section does not have it."""
+    overrides = load_overrides(run_dir)
+    existing = overrides.overrides.get(section_id)
+    if existing is None or m11_number not in existing.also:
+        raise KeyError(m11_number)
+    existing.also = [n for n in existing.also if n != m11_number]
+    existing.updated_at = datetime.now(UTC)
+    if existing.m11_number is None and not existing.excluded and not existing.also:
+        del overrides.overrides[section_id]  # nothing of the reviewer's left
     write_model(run_dir / OVERRIDES_FILE, overrides)
     return overrides
 
