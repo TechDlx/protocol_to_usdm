@@ -39,7 +39,7 @@ from backend.storage.errors import (
     SourceNotFoundError,
     StudyNotFoundError,
 )
-from backend.storage.fs import ensure_within, write_json, write_model
+from backend.storage.fs import ensure_within, read_text_with_retry, write_json, write_model
 
 log = logging.getLogger(__name__)
 
@@ -117,7 +117,7 @@ class StudyStore:
 
     def get_study(self, slug: str) -> StudyMeta:
         path = self._existing_study_dir(slug) / STUDY_FILE
-        return StudyMeta.model_validate_json(path.read_text(encoding="utf-8"))
+        return StudyMeta.model_validate_json(read_text_with_retry(path))
 
     def list_studies(self) -> list[StudySummary]:
         summaries: list[StudySummary] = []
@@ -284,7 +284,7 @@ class StudyStore:
         path = self.run_dir(slug, run_id) / RUN_STATE_FILE
         if not path.is_file():
             raise RunNotFoundError(run_id)
-        return RunState.model_validate_json(path.read_text(encoding="utf-8"))
+        return RunState.model_validate_json(read_text_with_retry(path))
 
     def list_runs(self, slug: str) -> list[RunState]:
         runs_dir = self._existing_study_dir(slug) / RUNS_DIR

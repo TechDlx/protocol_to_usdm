@@ -38,6 +38,7 @@ from backend.models.segmentation import (
     M11Coverage,
     M11Ref,
     MappingMethod,
+    MappingSuggestion,
     SectionAssignment,
     SectionMapping,
     SectionOverride,
@@ -219,9 +220,12 @@ def map_sections(
     template: M11Template | None = None,
     review_threshold: float = DEFAULT_REVIEW_THRESHOLD,
     overrides: dict[str, SectionOverride] | None = None,
+    suggestions: dict[str, MappingSuggestion] | None = None,
 ) -> SectionMapping:
+    """Title-based mapping, then Claude's mapping where it was asked, then reviewer overrides."""
     template = template or load_template()
     overrides = overrides or {}
+    suggestions = suggestions or {}
     scorer = _Scorer(template)
     soa_sections = {t.section_id for t in document.tables if t.is_soa_candidate and t.section_id}
     by_id = {s.id: s for s in document.sections}
@@ -240,6 +244,9 @@ def map_sections(
         computed = _assign(
             section, parent, scorer, template, native, section.id in soa_sections, review_threshold
         )
+        suggestion = suggestions.get(section.id)
+        if suggestion is not None and suggestion.doc_title == section.title:
+            computed = _with_claude(computed, suggestion, template, review_threshold)
         override = overrides.get(section.id)
         if override is not None and override.doc_title != section.title:
             ignored.append(
@@ -262,6 +269,73 @@ def map_sections(
         assignments=ordered,
         coverage=_coverage(template, ordered, by_id, review_threshold),
         ignored_overrides=ignored,
+    )
+
+
+def _with_claude(
+    computed: SectionAssignment,
+    suggestion: MappingSuggestion,
+    template: M11Template,
+    threshold: float,
+) -> SectionAssignment:
+    """Claude's mapping in place of the title-based one, which is kept for the reviewer. A
+    suggestion naming no valid M11 section changes nothing."""
+    claude = {"claude_confidence": suggestion.confidence, "claude_reason": suggestion.reason}
+    if not suggestion.excluded and suggestion.m11_number is None:
+        return computed.model_copy(update=claude)
+    agrees = (suggestion.excluded and computed.method == MappingMethod.EXCLUDED) or (
+        not suggestion.excluded
+        and suggestion.m11_number == computed.m11_number
+        and not suggestion.also_m11_numbers
+    )
+    if agrees:
+        confidence = max(computed.confidence, suggestion.confidence)
+        return computed.model_copy(
+            update={**claude, "confidence": confidence, "needs_review": confidence < threshold}
+        )
+    # A confident title match that Claude places elsewhere needs a human decision; Claude only
+    # adding further M11 sections to it does not.
+    conflict = (
+        computed.m11_number is not None
+        and computed.method not in (MappingMethod.INHERITED, MappingMethod.UNMAPPED)
+        and computed.confidence >= threshold
+        and (suggestion.excluded or suggestion.m11_number != computed.m11_number)
+    )
+    if suggestion.excluded and conflict:
+        # Excluding hides the text from every agent: a confident title match is kept until a
+        # reviewer decides.
+        return computed.model_copy(
+            update={
+                **claude,
+                "claude_reason": f"Suggests this is not protocol content: {suggestion.reason}",
+                "needs_review": True,
+            }
+        )
+    m11 = (
+        None
+        if suggestion.excluded or suggestion.m11_number is None
+        else template.get(suggestion.m11_number)
+    )
+    also = [
+        M11Ref(m11_number=n, m11_title=template.get(n).title)
+        for n in suggestion.also_m11_numbers
+        if m11 is not None and n != m11.number
+    ]
+    return computed.model_copy(
+        update={
+            **claude,
+            "m11_number": m11.number if m11 else None,
+            "m11_title": m11.title if m11 else None,
+            "also_m11": also,
+            "confidence": suggestion.confidence,
+            "method": MappingMethod.EXCLUDED if m11 is None else MappingMethod.CLAUDE,
+            "matched_text": None,
+            "needs_review": suggestion.confidence < threshold or conflict,
+            "rule_m11_number": computed.m11_number,
+            "rule_m11_title": computed.m11_title,
+            "rule_method": computed.method,
+            "rule_confidence": computed.confidence,
+        }
     )
 
 
@@ -292,13 +366,18 @@ def _overridden(
     else:
         update = {}
     primary = None if override.excluded else update.get("m11_number", computed.m11_number)
+    # Further sections from Claude stay unless the reviewer replaced the main mapping.
+    kept = [] if override.excluded or override.m11_number is not None else computed.also_m11
     also = (
         []
         if override.excluded
         else [
-            M11Ref(m11_number=n, m11_title=template.get(n).title)
-            for n in dict.fromkeys(override.also)
-            if n != primary
+            *(r for r in kept if r.m11_number != primary and r.m11_number not in override.also),
+            *(
+                M11Ref(m11_number=n, m11_title=template.get(n).title)
+                for n in dict.fromkeys(override.also)
+                if n != primary
+            ),
         ]
     )
     return computed.model_copy(update={**update, "also_m11": also, "reviewer_override": True})

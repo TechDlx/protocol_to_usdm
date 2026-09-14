@@ -6,7 +6,6 @@ import ExtractionTab from "../components/ExtractionTab";
 import type {
   M11Coverage,
   M11TemplateSection,
-  MappingSuggestion,
   MappingSuggestions,
   ParsedDocument,
   RunDetail,
@@ -29,6 +28,7 @@ const METHOD_LABEL: Record<SectionAssignment["method"], string> = {
   unmapped: "unmapped",
   excluded: "excluded",
   reviewer: "reviewer",
+  claude: "Claude",
 };
 
 const POLL_MS = 1000;
@@ -305,7 +305,7 @@ function SectionsTab(props: {
   return (
     <div className="split">
       <div className="split-main panel">
-        <SuggestionsPanel
+        <ClaudeMappingPanel
           slug={slug}
           runId={runId}
           doc={doc}
@@ -373,12 +373,7 @@ function SectionsTab(props: {
       </div>
       <aside className="split-side panel">
         {current ? (
-          <SectionDetail
-            {...props}
-            section={current}
-            assignment={byId.get(current.id) ?? null}
-            suggestion={suggestions?.suggestions.find((s) => s.section_id === current.id) ?? null}
-          />
+          <SectionDetail {...props} section={current} assignment={byId.get(current.id) ?? null} />
         ) : (
           <p className="muted">Select a section to see its text, mapping candidates and source pages.</p>
         )}
@@ -396,7 +391,6 @@ function SectionDetail(props: {
   locked: boolean;
   onMappingChanged: (mapping: SectionMapping) => void;
   onDocumentChanged: () => Promise<void>;
-  suggestion: MappingSuggestion | null;
 }) {
   const { slug, runId, doc, section, assignment: a } = props;
   const [full, setFull] = useState(false);
@@ -431,7 +425,6 @@ function SectionDetail(props: {
           slug={slug}
           runId={runId}
           assignment={a}
-          suggestion={props.suggestion}
           locked={props.locked}
           onMappingChanged={props.onMappingChanged}
         />
@@ -577,48 +570,23 @@ function PagesPanel(props: {
   );
 }
 
-// ----- mapping suggestions from Claude -------------------------------------------------------
+// ----- Claude mapping ------------------------------------------------------------------------
 
-/** Whether the section's mapping already is what the suggestion proposes. */
-function suggestionApplied(s: MappingSuggestion, a: SectionAssignment | undefined): boolean {
-  if (!a) return false;
-  if (s.excluded) return a.method === "excluded";
-  const also = new Set(a.also_m11.map((r) => r.m11_number));
-  return a.m11_number === s.m11_number && s.also_m11_numbers.every((n) => also.has(n));
+/** Override a section back to its title-based mapping (keeps an audit trail of the choice). */
+async function switchToTitleBased(slug: string, runId: string, a: SectionAssignment): Promise<SectionMapping> {
+  if (a.rule_method === "excluded") {
+    return api.setSectionMapping(slug, runId, a.section_id, { excluded: true, source: "rule" });
+  }
+  if (!a.rule_m11_number) throw new Error("the title-based mapping left this section unmapped");
+  return api.setSectionMapping(slug, runId, a.section_id, { m11_number: a.rule_m11_number, source: "rule" });
 }
 
-function suggestedText(s: MappingSuggestion): string {
-  if (s.excluded) return "not protocol content";
-  if (!s.m11_number) return "no valid M11 section";
-  return [`${s.m11_number} ${s.m11_title ?? ""}`.trim(), ...s.also_m11_numbers.map((n) => `also ${n}`)].join(", ");
+function mappingText(number: string | null | undefined, title: string | null | undefined, method?: string | null): string {
+  if (number) return `${number} ${title ?? ""}`.trim();
+  return method === "excluded" ? "not protocol content" : "unmapped";
 }
 
-/** Apply a suggestion through the ordinary (audited) mapping endpoints. Returns the new mapping. */
-async function acceptSuggestion(
-  slug: string,
-  runId: string,
-  s: MappingSuggestion,
-  current: SectionAssignment | undefined,
-): Promise<SectionMapping | null> {
-  let latest: SectionMapping | null = null;
-  if (s.excluded) {
-    return api.setSectionMapping(slug, runId, s.section_id, { excluded: true, source: "suggestion" });
-  }
-  if (!s.m11_number) return null;
-  if (s.m11_number !== current?.m11_number || current?.method === "excluded") {
-    latest = await api.setSectionMapping(slug, runId, s.section_id, { m11_number: s.m11_number, source: "suggestion" });
-  }
-  const after = latest ? latest.assignments.find((x) => x.section_id === s.section_id) : current;
-  const have = new Set((after?.also_m11 ?? []).map((r) => r.m11_number));
-  for (const n of s.also_m11_numbers) {
-    if (!have.has(n) && n !== s.m11_number) {
-      latest = await api.addSectionMapping(slug, runId, s.section_id, n, "suggestion");
-    }
-  }
-  return latest;
-}
-
-function SuggestionsPanel(props: {
+function ClaudeMappingPanel(props: {
   slug: string;
   runId: string;
   doc: ParsedDocument;
@@ -630,33 +598,34 @@ function SuggestionsPanel(props: {
   onSelect: (id: string) => void;
 }) {
   const { slug, runId, mapping, suggestions } = props;
-  const [scope, setScope] = useState<"flagged" | "all">("flagged");
+  const [scope, setScope] = useState<"all" | "flagged">("all");
+  const [force, setForce] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [note, setNote] = useState<string | null>(null);
-  const [showAll, setShowAll] = useState(false);
-  const [dismissed, setDismissed] = useState<Set<string>>(new Set());
-  const byId = useMemo(() => new Map(mapping.assignments.map((a) => [a.section_id, a])), [mapping]);
   const titles = useMemo(() => new Map(props.doc.sections.map((s) => [s.id, s])), [props.doc]);
 
-  const flaggedCount = mapping.assignments.filter(
-    (a) => !a.reviewer_override && (a.needs_review || a.method === "unmapped") && !["title-page", "toc"].includes(a.section_id),
-  ).length;
+  const read = mapping.assignments.filter((a) => a.claude_confidence != null);
+  const changed = mapping.assignments
+    .filter((a) => a.rule_method != null)
+    .sort((x, y) => Number(y.needs_review) - Number(x.needs_review));
+  const toReview = changed.filter((a) => a.needs_review && !a.reviewer_override).length;
 
-  async function ask() {
-    const count = scope === "flagged" ? `${flaggedCount} flagged or unmapped` : `all ${mapping.assignments.length}`;
-    const ok = window.confirm(
-      `Ask Claude to suggest M11 mappings for ${count} sections?\n\n` +
-        "Section titles and the start of each section's text are sent to the Anthropic API. " +
-        "This costs a few cents (more for all sections). Nothing changes until you accept a suggestion.",
-    );
-    if (!ok) return;
+  async function rerun() {
+    const note = force
+      ? "Ask Claude again about every section in scope, even unchanged ones?"
+      : "Run Claude's mapping for the sections in scope? Sections whose text and title-based mapping are unchanged reuse Claude's earlier answer at no cost.";
+    if (!window.confirm(`${note}\n\nSection titles and the start of each section's text are sent to the Anthropic API.`)) return;
     setBusy(true);
     setError(null);
     setNote(null);
     try {
-      props.onSuggestions(await api.suggestMappings(slug, runId, scope));
-      setDismissed(new Set());
+      const result = await api.suggestMappings(slug, runId, scope, [], force);
+      props.onSuggestions(result);
+      props.onMappingChanged(await api.getSectionMapping(slug, runId));
+      setNote(
+        `Claude mapping updated: ${result.asked} section(s) asked, ${result.reused} reused, $${result.usage.cost_usd.toFixed(3)}.`,
+      );
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
@@ -664,13 +633,19 @@ function SuggestionsPanel(props: {
     }
   }
 
-  async function accept(s: MappingSuggestion) {
+  async function titleBased(a: SectionAssignment) {
     setBusy(true);
     setError(null);
     try {
-      const updated = await acceptSuggestion(slug, runId, s, byId.get(s.section_id));
-      if (updated) props.onMappingChanged(updated);
-      setNote(await withAffectedAgents(slug, runId, s.section_id, `Accepted for "${s.doc_title}": ${suggestedText(s)}.`));
+      props.onMappingChanged(await switchToTitleBased(slug, runId, a));
+      setNote(
+        await withAffectedAgents(
+          slug,
+          runId,
+          a.section_id,
+          `"${a.doc_title}" uses its title-based mapping (${mappingText(a.rule_m11_number, a.rule_m11_title, a.rule_method)}).`,
+        ),
+      );
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
@@ -678,103 +653,104 @@ function SuggestionsPanel(props: {
     }
   }
 
-  const items = (suggestions?.suggestions ?? []).filter((s) => !dismissed.has(s.section_id));
-  const open = items.filter((s) => !s.agrees && !suggestionApplied(s, byId.get(s.section_id)));
-  const shown = showAll ? items : open;
-
   return (
     <div className="suggestions">
+      <div className="small">
+        {read.length ? (
+          <>
+            <strong>Mapped with Claude:</strong> Claude read {read.length} sections and changed the title-based mapping
+            of {changed.length}
+            {toReview ? (
+              <>
+                ; <span className="error-text">{toReview} need review</span>
+              </>
+            ) : null}
+            .
+            {suggestions && (
+              <span className="muted">
+                {" "}
+                Last run {new Date(suggestions.generated_at).toLocaleString()} with {suggestions.model}: {suggestions.asked}{" "}
+                asked, {suggestions.reused} reused, ${suggestions.usage.cost_usd.toFixed(3)}.
+              </span>
+            )}
+          </>
+        ) : (
+          <span className="muted">
+            Title-based mapping only: Claude has not mapped this run's sections (no API key, the call failed, or
+            mapping assistance is off).
+          </span>
+        )}
+      </div>
       <div className="row-inline small">
-        <button className="btn small" disabled={props.locked || busy} onClick={() => void ask()}>
-          {busy && !suggestions ? "Asking Claude…" : "Suggest mappings with Claude…"}
+        <button className="btn small" disabled={props.locked || busy} onClick={() => void rerun()}>
+          {busy ? "Working…" : read.length ? "Re-run Claude mapping…" : "Map with Claude…"}
         </button>
-        <select value={scope} disabled={busy} onChange={(e) => setScope(e.target.value as "flagged" | "all")}>
-          <option value="flagged">flagged and unmapped sections ({flaggedCount})</option>
-          <option value="all">all sections ({mapping.assignments.length})</option>
+        <select value={scope} disabled={busy} onChange={(e) => setScope(e.target.value as "all" | "flagged")}>
+          <option value="all">all sections</option>
+          <option value="flagged">sections the title match flags or cannot map</option>
         </select>
-        {busy && <span className="muted">working…</span>}
+        <label className="filter">
+          <input type="checkbox" checked={force} disabled={busy} onChange={(e) => setForce(e.target.checked)} /> ask
+          again for unchanged sections
+        </label>
       </div>
       {error && <div className="alert error small">{error}</div>}
       {note && <div className="alert ok small">{note}</div>}
-      {suggestions && (
-        <details open className="small">
+      {changed.length > 0 && (
+        <details className="small" open={toReview > 0}>
           <summary>
-            Claude's suggestions: {open.length} differ from the current mapping ({items.length} suggestions,{" "}
-            {suggestions.model}, {new Date(suggestions.generated_at).toLocaleString()}, $
-            {suggestions.usage.cost_usd.toFixed(3)})
+            Where Claude changed the title-based mapping ({changed.length}
+            {toReview ? `, ${toReview} to review` : ""})
           </summary>
-          <label className="filter">
-            <input type="checkbox" checked={showAll} onChange={(e) => setShowAll(e.target.checked)} /> Also show
-            suggestions that match the current mapping
-          </label>
-          {shown.length === 0 ? (
-            <p className="muted">Nothing to review: every suggestion matches the current mapping.</p>
-          ) : (
-            <table className="grid static">
-              <thead>
-                <tr>
-                  <th>Protocol section</th>
-                  <th>Current</th>
-                  <th>Suggested</th>
-                  <th>Confidence</th>
-                  <th>Why</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {shown.map((s) => {
-                  const a = byId.get(s.section_id);
-                  const applied = suggestionApplied(s, a);
-                  const section = titles.get(s.section_id);
-                  return (
-                    <tr key={s.section_id}>
-                      <td>
-                        <button className="link" onClick={() => props.onSelect(s.section_id)}>
-                          <span className="mono muted">{section?.number ?? ""}</span> {s.doc_title}
+          <table className="grid static">
+            <thead>
+              <tr>
+                <th>Protocol section</th>
+                <th>Claude</th>
+                <th>Title-based</th>
+                <th>Why</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {changed.map((a) => {
+                const section = titles.get(a.section_id);
+                return (
+                  <tr key={a.section_id} className={a.needs_review ? "review" : ""}>
+                    <td>
+                      <button className="link" onClick={() => props.onSelect(a.section_id)}>
+                        <span className="mono muted">{section?.number ?? ""}</span> {a.doc_title}
+                      </button>
+                      {a.needs_review && <span className="chip low_confidence"> review</span>}
+                    </td>
+                    <td>
+                      {a.reviewer_override ? (
+                        <span className="muted">reviewer: {mappingText(a.m11_number, a.m11_title, a.method)}</span>
+                      ) : (
+                        <>
+                          {mappingText(a.m11_number, a.m11_title, a.method)}
+                          {a.also_m11.map((r) => `, also ${r.m11_number}`).join("")}{" "}
+                          <span className="muted">({(a.claude_confidence ?? 0).toFixed(2)})</span>
+                        </>
+                      )}
+                    </td>
+                    <td>
+                      {mappingText(a.rule_m11_number, a.rule_m11_title, a.rule_method)}{" "}
+                      <span className="muted">({(a.rule_confidence ?? 0).toFixed(2)})</span>
+                    </td>
+                    <td className="muted">{a.claude_reason}</td>
+                    <td className="nowrap">
+                      {!a.reviewer_override && (a.rule_m11_number || a.rule_method === "excluded") && (
+                        <button className="btn small" disabled={props.locked || busy} onClick={() => void titleBased(a)}>
+                          Use title-based
                         </button>
-                      </td>
-                      <td>
-                        {a?.m11_number ? `${a.m11_number} ${a.m11_title ?? ""}` : a?.method === "excluded" ? "not protocol content" : "unmapped"}
-                        {(a?.also_m11 ?? []).map((r) => `, also ${r.m11_number}`).join("")}
-                      </td>
-                      <td>
-                        {suggestedText(s)}
-                        {s.notes.map((n) => (
-                          <div key={n} className="muted">
-                            {n}
-                          </div>
-                        ))}
-                      </td>
-                      <td>{s.confidence.toFixed(2)}</td>
-                      <td className="muted">{s.reason}</td>
-                      <td className="nowrap">
-                        {applied ? (
-                          <span className="chip found">applied</span>
-                        ) : (
-                          <>
-                            <button
-                              className="btn small"
-                              disabled={props.locked || busy || (!s.excluded && !s.m11_number)}
-                              onClick={() => void accept(s)}
-                            >
-                              Accept
-                            </button>{" "}
-                            <button
-                              className="btn small"
-                              disabled={busy}
-                              onClick={() => setDismissed(new Set([...dismissed, s.section_id]))}
-                            >
-                              Dismiss
-                            </button>
-                          </>
-                        )}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          )}
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </details>
       )}
     </div>
@@ -807,11 +783,10 @@ function MappingPanel(props: {
   slug: string;
   runId: string;
   assignment: SectionAssignment;
-  suggestion: MappingSuggestion | null;
   locked: boolean;
   onMappingChanged: (mapping: SectionMapping) => void;
 }) {
-  const { slug, runId, assignment: a, locked, suggestion } = props;
+  const { slug, runId, assignment: a, locked } = props;
   // "main" replaces the section's mapping; "also" adds a further M11 section.
   const [editing, setEditing] = useState<"main" | "also" | null>(null);
   const [template, setTemplate] = useState<M11TemplateSection[]>([]);
@@ -871,22 +846,31 @@ function MappingPanel(props: {
       ) : (
         <div className="muted">{a.method === "excluded" ? "Not protocol content" : "No mapping"}</div>
       )}
-      {suggestion && !suggestion.agrees && !suggestionApplied(suggestion, a) && (
-        <div className="alert warn small">
-          Claude suggests <strong>{suggestedText(suggestion)}</strong> ({suggestion.confidence.toFixed(2)}):{" "}
-          {suggestion.reason}{" "}
-          <button
-            className="btn small"
-            disabled={locked || busy || (!suggestion.excluded && !suggestion.m11_number)}
-            onClick={() =>
-              void save(
-                async () => (await acceptSuggestion(slug, runId, suggestion, a)) ?? Promise.reject(new Error("nothing to apply")),
-                `Accepted Claude's suggestion: ${suggestedText(suggestion)}.`,
-              )
-            }
-          >
-            Accept
-          </button>
+      {a.claude_reason && (
+        <div className="small">
+          <span className="muted">Claude ({(a.claude_confidence ?? 0).toFixed(2)}):</span> {a.claude_reason}
+        </div>
+      )}
+      {a.rule_method != null && !a.reviewer_override && (
+        <div className="row-inline small">
+          <span className="muted">
+            Title-based mapping: {mappingText(a.rule_m11_number, a.rule_m11_title, a.rule_method)} (
+            {(a.rule_confidence ?? 0).toFixed(2)}, {METHOD_LABEL[a.rule_method]})
+          </span>
+          {(a.rule_m11_number || a.rule_method === "excluded") && (
+            <button
+              className="btn small"
+              disabled={disabled}
+              onClick={() =>
+                void save(
+                  () => switchToTitleBased(slug, runId, a),
+                  `Using the title-based mapping (${mappingText(a.rule_m11_number, a.rule_m11_title, a.rule_method)}).`,
+                )
+              }
+            >
+              Use title-based mapping
+            </button>
+          )}
         </div>
       )}
       {a.also_m11.map((r) => (

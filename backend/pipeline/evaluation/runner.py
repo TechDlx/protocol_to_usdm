@@ -23,7 +23,7 @@ from backend.models.extraction import AgentRun, AgentStatus, Extraction, LlmUsag
 from backend.models.run_config import RunConfig
 from backend.models.study import StudyMeta
 from backend.pipeline.extract import AgentUpdate, load_extraction, run_extraction
-from backend.pipeline.ingest import run_ingestion
+from backend.pipeline.ingest import assist_mapping, run_ingestion, segment
 from backend.pipeline.llm import LlmRequest, StructuredLlm
 from backend.pipeline.terminology.ct import CtResolver
 from backend.pipeline.workbook.writer import write_workbook
@@ -78,13 +78,20 @@ def run_stage_a(
     write_model(config_path, config)
 
     ingested = run_ingestion(run_dir, pdf, config)
+    mapping = ingested.mapping
+    if config.mapping_assist != "off":
+        try:  # as in a run: Claude's mapping when available, else the title-based one
+            if assist_mapping(run_dir, ingested.document, config, llm) is not None:
+                mapping = segment(run_dir, ingested.document, config)
+        except Exception:
+            mapping = ingested.mapping
     now = datetime.now(UTC)
     study = StudyMeta(slug="evaluation", name=EVAL_STUDY_NAME, created_at=now, updated_at=now)
     return asyncio.run(
         run_extraction(
             run_dir,
             ingested.document,
-            ingested.mapping,
+            mapping,
             config,
             study,
             llm,

@@ -183,12 +183,12 @@ export const api = {
       body: JSON.stringify({ m11_number: m11Number, source }),
     }),
 
-  /** Ask Claude for mapping suggestions (costs money; changes nothing until accepted). */
-  suggestMappings: (slug: string, runId: string, scope: "flagged" | "all", sectionIds: string[] = []) =>
+  /** Run Claude's mapping (reuses answers for unchanged sections unless forced; costs money). */
+  suggestMappings: (slug: string, runId: string, scope: "flagged" | "all", sectionIds: string[] = [], force = false) =>
     request<MappingSuggestions>(`${runUrl(slug, runId)}/section-mapping/suggestions`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ scope, section_ids: sectionIds }),
+      body: JSON.stringify({ scope, section_ids: sectionIds, force }),
     }),
 
   getMappingSuggestions: (slug: string, runId: string) =>

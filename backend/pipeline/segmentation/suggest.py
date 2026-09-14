@@ -28,13 +28,14 @@ from backend.models.segmentation import (
     SectionAssignment,
     SectionMapping,
 )
+from backend.pipeline.agents.context import input_hash
 from backend.pipeline.llm import LlmRequest, StructuredLlm
 from backend.pipeline.segmentation.m11 import M11Template, load_template
 from backend.storage.fs import write_model
 
 SUGGESTIONS_FILE = "section_suggestions.json"
 RUN_LOG_FILE = "run.log"
-PROMPT_VERSION = "1"
+PROMPT_VERSION = "2"  # 2: what counts as not protocol content
 BATCH_SIZE = 30  # sections per request
 EXCERPT_CHARS = 700
 MAX_SUBSECTION_TITLES = 12
@@ -56,8 +57,12 @@ that fits the whole section; use a chapter number (e.g. "8") when the content sp
 - A section that clearly combines content M11 keeps apart (e.g. a synopsis followed by the \
 schedule of activities) gets the main M11 section plus the others in also_m11_numbers. Do not add \
 further sections for passing mentions.
-- Signature pages, approval pages, lists of tables or figures, and similar administrative pages \
-are not protocol content: set not_protocol_content to true and m11_number to null.
+- Content that has a place in M11 is protocol content even when it looks administrative: \
+document or amendment history and summaries of changes (12.3), abbreviations and glossaries (13), \
+references (14), responsibilities of sponsor and investigators (11.2). Only pages with nothing of \
+their own are not protocol content: signature and approval pages, tables of contents, lists of \
+tables or figures, blank or instruction pages. For those set not_protocol_content to true and \
+m11_number to null.
 - Confidence: 0.9+ when the content plainly belongs there, 0.6-0.9 when it fits but another M11 \
 section is plausible, below 0.6 when unsure.
 - The reason is one short sentence a reviewer can check against the section.
@@ -99,15 +104,14 @@ class SuggestionError(RuntimeError):
     pass
 
 
-def in_scope(mapping: SectionMapping, document: ParsedDocument, scope: str) -> list[str]:
-    """Section ids to ask about: `flagged` (needing review or unmapped), or `all`."""
+def in_scope(rule_mapping: SectionMapping, document: ParsedDocument, scope: str) -> list[str]:
+    """Section ids to ask about, from the title-based mapping: `flagged` (needing review or
+    unmapped) or `all`. The title page and table of contents are structural and never asked."""
     kinds = {s.id: s.kind for s in document.sections}
     ids = []
-    for a in mapping.assignments:
+    for a in rule_mapping.assignments:
         if kinds.get(a.section_id) in (SectionKind.TOC, SectionKind.TITLE_PAGE, None):
             continue
-        if a.reviewer_override and scope != "all":
-            continue  # already decided by a reviewer
         if scope == "all" or a.needs_review or a.method == MappingMethod.UNMAPPED:
             ids.append(a.section_id)
     return ids
@@ -145,25 +149,32 @@ def _describe(
     return "\n".join(lines)
 
 
-def build_prompt(
-    document: ParsedDocument, mapping: SectionMapping, section_ids: list[str], template: M11Template
-) -> str:
+def section_blocks(
+    document: ParsedDocument, mapping: SectionMapping, section_ids: list[str]
+) -> dict[str, str]:
+    """What Claude is shown for each section, by id."""
     by_id = {s.id: s for s in document.sections}
     assignments = {a.section_id: a for a in mapping.assignments}
     children: dict[str, list[Section]] = {}
     for s in document.sections:
         if s.parent_id:
             children.setdefault(s.parent_id, []).append(s)
-    outline = "\n".join(f"{m.number} {m.title}" for m in template.sections)
-    blocks = [
-        _describe(
+    return {
+        sid: _describe(
             by_id[sid],
             assignments[sid],
             by_id.get(by_id[sid].parent_id or ""),
             children.get(sid, [])[:MAX_SUBSECTION_TITLES],
         )
         for sid in section_ids
-    ]
+    }
+
+
+def build_prompt(
+    document: ParsedDocument, mapping: SectionMapping, section_ids: list[str], template: M11Template
+) -> str:
+    outline = "\n".join(f"{m.number} {m.title}" for m in template.sections)
+    blocks = list(section_blocks(document, mapping, section_ids).values())
     return (
         f"<m11_template>\n{outline}\n</m11_template>\n\n{EXAMPLE}\n\n"
         f"<protocol_sections>\n" + "\n\n".join(blocks) + "\n</protocol_sections>\n\n"
@@ -172,7 +183,11 @@ def build_prompt(
 
 
 def _valid(
-    out: SuggestionOut, template: M11Template, assignment: SectionAssignment, doc_title: str
+    out: SuggestionOut,
+    template: M11Template,
+    assignment: SectionAssignment,
+    doc_title: str,
+    digest: str,
 ) -> MappingSuggestion:
     numbers = {m.number for m in template.sections}
     main = out.m11_number if out.m11_number in numbers and not out.not_protocol_content else None
@@ -195,6 +210,7 @@ def _valid(
             or (main is not None and main == assignment.m11_number and not also)
         ),
         notes=notes,
+        input_hash=digest,
     )
 
 
@@ -212,26 +228,40 @@ def _log(run_dir: Path, usage: LlmUsage) -> None:
 async def suggest_mappings(
     run_dir: Path,
     document: ParsedDocument,
-    mapping: SectionMapping,
+    rule_mapping: SectionMapping,
     section_ids: list[str],
     llm: StructuredLlm,
     model: str,
+    force: bool = False,
 ) -> MappingSuggestions:
-    """Ask Claude about `section_ids` (in batches), validate, store and return the suggestions."""
+    """Claude's suggestions for `section_ids`, stored. A section whose input is unchanged reuses
+    its stored suggestion (no model call) unless forced; the rest are asked in batches."""
     template = load_template()
-    known = {a.section_id: a for a in mapping.assignments}
+    known = {a.section_id: a for a in rule_mapping.assignments}
     titles = {s.id: s.title for s in document.sections}
     ids = [sid for sid in section_ids if sid in known and sid in titles]
     if not ids:
         raise SuggestionError("no sections to suggest mappings for")
-    batches = [ids[i : i + BATCH_SIZE] for i in range(0, len(ids), BATCH_SIZE)]
+    blocks = section_blocks(document, rule_mapping, ids)
+    digests = {
+        sid: input_hash(PROMPT_VERSION, model, SYSTEM, template.version, blocks[sid]) for sid in ids
+    }
+    previous = load_suggestions(run_dir)
+    stored = {s.section_id: s for s in (previous.suggestions if previous else [])}
+    reused = {
+        sid: stored[sid]
+        for sid in ids
+        if not force and sid in stored and stored[sid].input_hash == digests[sid]
+    }
+    ask = [sid for sid in ids if sid not in reused]
+    batches = [ask[i : i + BATCH_SIZE] for i in range(0, len(ask), BATCH_SIZE)]
     results = await asyncio.gather(
         *(
             llm.extract(
                 LlmRequest(
                     model=model,
                     system=SYSTEM,
-                    user_content=build_prompt(document, mapping, batch, template),
+                    user_content=build_prompt(document, rule_mapping, batch, template),
                     max_tokens=MAX_TOKENS,
                 ),
                 SuggestionsOut,
@@ -239,7 +269,7 @@ async def suggest_mappings(
             for batch in batches
         )
     )
-    suggestions: list[MappingSuggestion] = []
+    suggestions: list[MappingSuggestion] = list(reused.values())
     usage = LlmUsage(model=model)
     for batch, (output, call_usage) in zip(batches, results, strict=True):
         _log(run_dir, call_usage)
@@ -257,16 +287,26 @@ async def suggest_mappings(
             if out.section_id in wanted:
                 wanted.discard(out.section_id)
                 suggestions.append(
-                    _valid(out, template, known[out.section_id], titles[out.section_id])
+                    _valid(
+                        out,
+                        template,
+                        known[out.section_id],
+                        titles[out.section_id],
+                        digests[out.section_id],
+                    )
                 )
-    order = {sid: i for i, sid in enumerate(ids)}
+    # Suggestions for sections outside this request are kept (e.g. an earlier, wider scope).
+    kept = [s for sid, s in stored.items() if sid not in digests and sid in titles]
+    order = {s.id: i for i, s in enumerate(document.sections)}
     result = MappingSuggestions(
         generated_at=datetime.now(UTC),
         model=model,
         prompt_version=PROMPT_VERSION,
         usage=usage,
         requested=len(ids),
-        suggestions=sorted(suggestions, key=lambda s: order[s.section_id]),
+        asked=len(ask),
+        reused=len(reused),
+        suggestions=sorted([*suggestions, *kept], key=lambda s: order.get(s.section_id, 0)),
     )
     write_model(run_dir / SUGGESTIONS_FILE, result)
     return result

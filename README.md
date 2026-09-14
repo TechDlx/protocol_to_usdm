@@ -181,11 +181,16 @@ a different file with the same name is kept alongside as `name (2).pdf`.
      a section's mapping, **Also map here** keeps it and adds this M11 section. A section that
      covers two M11 sections (e.g. "Synopsis and Schedule of Evaluations") can be mapped to both,
      also from the section panel with **Also map to…**; both sets of agents then read it.
-   - **Suggest mappings with Claude…** (Sections → M11): Claude reads the flagged and unmapped
-     sections (or all of them) — titles, subsections and the start of the text — and suggests the
-     M11 section(s), with a confidence and a reason. Nothing changes until you **Accept** a
-     suggestion (logged as `"source": "suggestion"` in the audit); **Dismiss** hides it. About
-     $0.05 for 17 flagged sections of PALOMA-3 with `claude-sonnet-5`.
+   - **Mapping with Claude (default):** after the title-based mapping, Claude reads every section
+     (title, subsections and the start of its text) and its mapping is used, with its confidence
+     and reason shown. Sections where Claude has low confidence or disagrees with a confident title
+     match are flagged for review; the **Where Claude changed the title-based mapping** list and each
+     section's panel offer **Use title-based mapping**, and every manual choice still overrides
+     Claude. Answers are cached per section, so re-parsing only asks about changed sections. About
+     $0.34 and 50 s for PALOMA-3's 146 sections with `claude-sonnet-5`. Without an API key, or if the
+     call fails, the title-based mapping is used and the stage note says so. Set `"mapping_assist"`
+     in the run's `run_config.json` to `"flagged"` (only sections the title match flags or cannot
+     map) or `"off"`.
      Rows with an amber bar are flagged for review. Click a row for its text, the next-best M11
      candidates and the source page image.
    - **M11 coverage:** which M11 sections were found, found with low confidence, or not found.

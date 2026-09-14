@@ -21,6 +21,7 @@ class MappingMethod(StrEnum):
     UNMAPPED = "unmapped"
     EXCLUDED = "excluded"  # table of contents, or marked by a reviewer: not protocol content
     REVIEWER = "reviewer"  # mapped by a reviewer (section_overrides.json)
+    CLAUDE = "claude"  # mapped by Claude reading the section (section_suggestions.json)
 
 
 class Candidate(BaseModel):
@@ -51,6 +52,14 @@ class SectionAssignment(BaseModel):
     #: Further M11 sections a reviewer mapped this section to (a combined "Synopsis and Schedule
     #: of Activities" section covers 1.1 and 1.3); agents and coverage treat them like the first.
     also_m11: list[M11Ref] = Field(default_factory=list)
+    #: Claude's view of the section, when it was asked (its confidence and reason).
+    claude_confidence: float | None = None
+    claude_reason: str | None = None
+    #: The title-based mapping, kept when Claude's mapping replaced it.
+    rule_m11_number: str | None = None
+    rule_m11_title: str | None = None
+    rule_method: MappingMethod | None = None
+    rule_confidence: float | None = None
 
 
 class CoverageStatus(StrEnum):
@@ -166,20 +175,25 @@ class MappingSuggestion(BaseModel):
     excluded: bool = False  # not protocol content
     confidence: float = Field(ge=0, le=1)
     reason: str
-    current_m11_number: str | None  # the mapping when the suggestion was made
-    agrees: bool  # the suggestion is what the section was already mapped to
+    current_m11_number: str | None  # the title-based mapping when the suggestion was made
+    agrees: bool  # the suggestion is what the title-based mapping already was
     notes: list[str] = Field(default_factory=list)  # e.g. an invalid M11 number that was dropped
+    #: Everything Claude saw for this section; unchanged means the suggestion is reused.
+    input_hash: str = ""
 
 
 class MappingSuggestions(BaseModel):
     generated_at: datetime
     model: str
     prompt_version: str
-    usage: LlmUsage
+    usage: LlmUsage  # of the latest request (zero when every suggestion was reused)
     requested: int
+    asked: int = 0  # sections sent to Claude in the latest request
+    reused: int = 0  # sections whose stored suggestion was still current
     suggestions: list[MappingSuggestion]
 
 
 class SuggestRequest(BaseModel):
-    scope: str = Field(default="flagged", pattern="^(flagged|all|sections)$")
+    scope: str = Field(default="all", pattern="^(flagged|all|sections)$")
     section_ids: list[str] = Field(default_factory=list)  # with scope "sections"
+    force: bool = False  # ask again even for sections whose suggestion is current

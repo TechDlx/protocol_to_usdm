@@ -6,15 +6,23 @@ import threading
 from collections.abc import Callable
 from concurrent.futures import Future, ThreadPoolExecutor
 from datetime import UTC, datetime
+from pathlib import Path
 from typing import Any
 
+from backend.models.document import ParsedDocument
 from backend.models.extraction import AgentRun, AgentStatus
 from backend.models.run_config import RunConfig
 from backend.models.segmentation import SectionMapping
 from backend.models.study import RunState, RunStatus, StageName, StageState, StageStatus
 from backend.pipeline.agents.registry import AGENTS
 from backend.pipeline.extract import run_extraction
-from backend.pipeline.ingest import SECTION_MAPPING_FILE, load_parsed_document, parse, segment
+from backend.pipeline.ingest import (
+    SECTION_MAPPING_FILE,
+    assist_mapping,
+    load_parsed_document,
+    parse,
+    segment,
+)
 from backend.pipeline.llm import StructuredLlm
 from backend.pipeline.terminology.ct import CtResolver, get_ct_resolver
 from backend.pipeline.usdm_gen.stage import UsdmReport, check_ready, generate_usdm
@@ -170,6 +178,16 @@ class JobRunner:
             stage = StageName.SEGMENT
             self._set_stage(slug, run_id, stage, status=StageStatus.RUNNING, started_at=_now())
             mapping = segment(run_dir, document, config)
+            claude_note = ""
+            if config.mapping_assist != "off":
+                self._set_stage(
+                    slug,
+                    run_id,
+                    stage,
+                    detail="title-based mapping done; Claude is reading the sections",
+                )
+                claude_note = self._assist(run_dir, document, config)
+                mapping = segment(run_dir, document, config)
             review = sum(a.needs_review for a in mapping.assignments)
             self._set_stage(
                 slug,
@@ -177,7 +195,8 @@ class JobRunner:
                 stage,
                 status=StageStatus.DONE,
                 finished_at=_now(),
-                detail=f"{review} of {len(mapping.assignments)} sections flagged for review",
+                detail=f"{review} of {len(mapping.assignments)} sections flagged for review"
+                + (f"; {claude_note}" if claude_note else ""),
             )
 
             def finished(state: RunState) -> None:
@@ -188,6 +207,22 @@ class JobRunner:
             self._store.update_run(slug, run_id, finished)
         except Exception as exc:
             self._fail(slug, run_id, stage, exc)
+
+    def _assist(self, run_dir: Path, document: ParsedDocument, config: RunConfig) -> str:
+        """Claude's mapping; the title-based mapping stays in use when it cannot be had."""
+        if self._llm_factory is None:
+            return "title-based mapping only: ANTHROPIC_API_KEY is not configured"
+        try:
+            result = assist_mapping(run_dir, document, config, self._llm_factory())
+        except Exception as exc:  # the title-based mapping is still usable
+            log.exception("Claude mapping failed", extra={"run_dir": str(run_dir)})
+            return f"title-based mapping only: Claude mapping failed ({type(exc).__name__})"
+        if result is None:
+            return ""
+        return (
+            f"Claude mapped {result.requested} sections ({result.asked} asked, "
+            f"{result.reused} reused, ${result.usage.cost_usd:.2f})"
+        )
 
     def _extract(self, slug: str, run_id: str, sheets: list[str] | None, force: bool) -> None:
         stage = StageName.EXTRACT

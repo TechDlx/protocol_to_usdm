@@ -4,6 +4,8 @@ Only settings the implemented stages actually use are defined. The run configura
 the rest (models, CT versions, confidence threshold, concurrency...) as those stages arrive.
 """
 
+from typing import Literal
+
 from pydantic import BaseModel, Field
 
 from backend.pipeline.llm import DEFAULT_EXTRACTION_MODEL
@@ -19,6 +21,9 @@ class RunConfig(BaseModel):
     # 150 DPI keeps body text legible for vision models while a 125-page protocol stays ~50 MB.
     page_image_dpi: int = Field(default=150, ge=50, le=300)
     segmentation_review_threshold: float = Field(default=DEFAULT_REVIEW_THRESHOLD, ge=0, le=1)
+    # Claude reads the sections and its mapping replaces the title-based one: for every section,
+    # only for sections the title match flags or cannot map, or not at all.
+    mapping_assist: Literal["all", "flagged", "off"] = "all"
 
     extraction_model: str = DEFAULT_EXTRACTION_MODEL
     extraction_effort: str | None = None  # None = the model's default effort

@@ -32,6 +32,19 @@ def atomic_write_text(path: Path, text: str) -> None:
 _REPLACE_DELAYS = (0.01, 0.02, 0.05, 0.1, 0.2, 0.3, 0.5, 0.5, 0.8)
 
 
+def read_text_with_retry(path: Path) -> str:
+    """Read a file that another thread may be replacing: on Windows opening it can briefly fail
+    with WinError 5 or 32 while os.replace swaps it in."""
+    for delay in _REPLACE_DELAYS:
+        try:
+            return path.read_text(encoding="utf-8")
+        except PermissionError:
+            if os.name != "nt":
+                raise
+            time.sleep(delay)
+    return path.read_text(encoding="utf-8")
+
+
 def _replace_with_retry(src: str, dst: Path) -> None:
     for delay in _REPLACE_DELAYS:
         try:

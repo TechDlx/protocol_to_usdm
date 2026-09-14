@@ -37,6 +37,7 @@ from backend.pipeline.ingest import (
     PARSED_DOCUMENT_FILE,
     SECTION_MAPPING_FILE,
     load_parsed_document,
+    rule_mapping,
     segment,
 )
 from backend.pipeline.jobs import ExtractionNotReadyError, JobRunner, RunAlreadyActiveError
@@ -324,28 +325,29 @@ def remove_section_mapping(
 def create_mapping_suggestions(
     slug: str, run_id: str, body: SuggestRequest, store: Store, jobs: Jobs
 ) -> MappingSuggestions:
-    """Ask Claude to suggest M11 mappings for flagged sections, all sections, or the given ones.
-    Sends section titles and text excerpts to the Anthropic API (costs money); changes nothing
-    until a suggestion is accepted."""
+    """Run Claude's mapping again: for all sections, flagged ones or the given ids. Sections whose
+    input is unchanged reuse their stored suggestion unless `force`. Claude's mapping replaces the
+    title-based one; reviewer overrides stay on top. Costs money when sections are asked."""
     run_dir, document = _remap(store, jobs, slug, run_id)
-    mapping = _current_mapping(run_dir)
-    ids = body.section_ids if body.scope == "sections" else in_scope(mapping, document, body.scope)
+    config = RunConfig.model_validate_json((run_dir / RUN_CONFIG_FILE).read_text(encoding="utf-8"))
+    rule = rule_mapping(document, config)
+    ids = body.section_ids if body.scope == "sections" else in_scope(rule, document, body.scope)
     if not ids:
-        raise HTTPException(
-            status.HTTP_422_UNPROCESSABLE_CONTENT,
-            detail="no sections in scope: none are flagged for review or unmapped",
-        )
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_CONTENT, detail="no sections in scope")
     try:
         llm = jobs.llm()
     except ExtractionNotReadyError as exc:
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_CONTENT, detail=str(exc)) from None
-    config = RunConfig.model_validate_json((run_dir / RUN_CONFIG_FILE).read_text(encoding="utf-8"))
     try:
-        return asyncio.run(
-            suggest_mappings(run_dir, document, mapping, ids, llm, config.extraction_model)
+        result = asyncio.run(
+            suggest_mappings(
+                run_dir, document, rule, ids, llm, config.extraction_model, force=body.force
+            )
         )
     except SuggestionError as exc:
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_CONTENT, detail=str(exc)) from None
+    _resegment(store, slug, run_id, run_dir, document)
+    return result
 
 
 @router.get("/{run_id}/section-mapping/suggestions", response_model=MappingSuggestions)

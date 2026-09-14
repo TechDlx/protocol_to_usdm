@@ -150,3 +150,92 @@ def test_a_suggestion_matching_the_current_mapping_is_marked_as_agreeing(
         )
     )
     assert result.suggestions[0].agrees
+
+
+def test_stored_suggestions_are_reused_until_a_section_changes(document, tmp_path: Path) -> None:  # type: ignore[no-untyped-def]
+    llm = FakeLlm({"SuggestionsOut": responder})
+    mapping = map_sections(document)
+    ids = ["fm-sig", "sec-5.3"]
+    first = asyncio.run(suggest_mappings(tmp_path, document, mapping, ids, llm, "m"))
+    assert (first.asked, first.reused, len(llm.calls)) == (2, 0, 1)
+
+    again = asyncio.run(suggest_mappings(tmp_path, document, mapping, ids, llm, "m"))
+    assert (again.asked, again.reused, len(llm.calls)) == (0, 2, 1)
+    assert again.usage.cost_usd == 0 and len(again.suggestions) == 2
+
+    document.sections[3].text += "\nAdded in an amendment."
+    changed = asyncio.run(suggest_mappings(tmp_path, document, mapping, ids, llm, "m"))
+    assert (changed.asked, changed.reused, len(llm.calls)) == (1, 1, 2)
+
+    forced = asyncio.run(suggest_mappings(tmp_path, document, mapping, ids, llm, "m", force=True))
+    assert forced.asked == 2 and len(llm.calls) == 3
+
+
+def test_claude_mapping_replaces_the_title_based_one_and_keeps_it_visible(
+    document, tmp_path: Path
+) -> None:  # type: ignore[no-untyped-def]
+    llm = FakeLlm({"SuggestionsOut": responder})
+    rule = map_sections(document)
+    stored = asyncio.run(
+        suggest_mappings(tmp_path, document, rule, ["fm-sig", "sec-5.3"], llm, "m")
+    )
+    applied = map_sections(document, suggestions={s.section_id: s for s in stored.suggestions})
+
+    # "Signature Page" has a confident title match here, so Claude's exclusion waits for review.
+    sig, rule_sig = applied.assignment("fm-sig"), rule.assignment("fm-sig")
+    assert rule_sig.confidence >= rule.review_threshold
+    assert (sig.method, sig.m11_number) == (rule_sig.method, rule_sig.m11_number)
+    assert sig.needs_review and "Signature page." in (sig.claude_reason or "")
+    administration = applied.assignment("sec-5.3")
+    assert administration.method == MappingMethod.CLAUDE
+    assert (administration.m11_number, [r.m11_number for r in administration.also_m11]) == (
+        "6.3",
+        ["6.6"],
+    )
+    assert administration.rule_m11_number == rule.assignment("sec-5.3").m11_number
+    assert administration.confidence == 1.0 and not administration.needs_review
+    coverage = {c.m11_number: c for c in applied.coverage}
+    assert coverage["6.6"].section_ids == ["sec-5.3"]
+
+
+def test_disagreeing_with_a_confident_title_match_needs_review(document) -> None:  # type: ignore[no-untyped-def]
+    from backend.models.segmentation import MappingSuggestion
+
+    rule = map_sections(document)
+    confident = rule.assignment("sec-5")
+    assert confident.confidence >= rule.review_threshold
+    suggestion = MappingSuggestion(
+        section_id="sec-5",
+        doc_title="STUDY TREATMENTS",
+        m11_number="8",
+        m11_title="Trial Assessments and Procedures",
+        confidence=0.95,
+        reason="Wrong on purpose.",
+        current_m11_number=confident.m11_number,
+        agrees=False,
+    )
+    applied = map_sections(document, suggestions={"sec-5": suggestion}).assignment("sec-5")
+    assert applied.m11_number == "8" and applied.needs_review
+    assert applied.rule_m11_number == confident.m11_number
+
+
+def test_claude_cannot_silently_exclude_a_confidently_mapped_section(document) -> None:  # type: ignore[no-untyped-def]
+    from backend.models.segmentation import MappingSuggestion
+
+    rule = map_sections(document)
+    confident = rule.assignment("sec-5")
+    suggestion = MappingSuggestion(
+        section_id="sec-5",
+        doc_title="STUDY TREATMENTS",
+        m11_number=None,
+        m11_title=None,
+        excluded=True,
+        confidence=0.9,
+        reason="Looks administrative.",
+        current_m11_number=confident.m11_number,
+        agrees=False,
+    )
+    applied = map_sections(document, suggestions={"sec-5": suggestion}).assignment("sec-5")
+    assert applied.m11_number == confident.m11_number and applied.method == confident.method
+    assert applied.needs_review and applied.claude_reason
+    assert applied.claude_reason.startswith("Suggests this is not protocol content")

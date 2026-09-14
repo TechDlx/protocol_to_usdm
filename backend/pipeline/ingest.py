@@ -17,6 +17,7 @@ Command line (useful for the evaluation harness and for eyeballing a protocol):
 """
 
 import argparse
+import asyncio
 import hashlib
 import logging
 from dataclasses import dataclass
@@ -27,11 +28,13 @@ from pydantic import ValidationError
 
 from backend.models.document import ParsedDocument, SourceInfo
 from backend.models.run_config import RunConfig
-from backend.models.segmentation import SectionMapping
+from backend.models.segmentation import MappingSuggestions, SectionMapping
 from backend.pipeline.extractors.registry import get_extractor
+from backend.pipeline.llm import StructuredLlm
 from backend.pipeline.segmentation.boundaries import finalise_document, raw_document
 from backend.pipeline.segmentation.m11 import map_sections
 from backend.pipeline.segmentation.overrides import load_overrides
+from backend.pipeline.segmentation.suggest import in_scope, load_suggestions, suggest_mappings
 from backend.storage.fs import write_model
 
 log = logging.getLogger(__name__)
@@ -119,11 +122,20 @@ def parse(
     return document, False
 
 
+def rule_mapping(document: ParsedDocument, config: RunConfig) -> SectionMapping:
+    """The title-based mapping alone: what Claude is shown, and the fallback without Claude."""
+    return map_sections(document, review_threshold=config.segmentation_review_threshold)
+
+
 def segment(run_dir: Path, document: ParsedDocument, config: RunConfig) -> SectionMapping:
+    """The mapping every later stage reads: title-based, with Claude's stored mapping (unless
+    switched off) and the reviewer's overrides applied. Never calls the model."""
+    stored = load_suggestions(run_dir, document) if config.mapping_assist != "off" else None
     mapping = map_sections(
         document,
         review_threshold=config.segmentation_review_threshold,
         overrides=load_overrides(run_dir).overrides,
+        suggestions={s.section_id: s for s in stored.suggestions} if stored else None,
     )
     write_model(run_dir / SECTION_MAPPING_FILE, mapping)
     log.info(
@@ -137,6 +149,30 @@ def segment(run_dir: Path, document: ParsedDocument, config: RunConfig) -> Secti
         },
     )
     return mapping
+
+
+def assist_mapping(
+    run_dir: Path,
+    document: ParsedDocument,
+    config: RunConfig,
+    llm: StructuredLlm,
+    scope: str | None = None,
+    force: bool = False,
+) -> MappingSuggestions | None:
+    """Ask Claude to map the sections in scope (reusing current suggestions), then re-segment.
+    Returns None when mapping assistance is off."""
+    scope = scope or config.mapping_assist
+    if scope == "off":
+        return None
+    rule = rule_mapping(document, config)
+    ids = in_scope(rule, document, scope)
+    if not ids:
+        return None
+    result = asyncio.run(
+        suggest_mappings(run_dir, document, rule, ids, llm, config.extraction_model, force=force)
+    )
+    segment(run_dir, document, config)
+    return result
 
 
 def run_ingestion(

@@ -717,3 +717,35 @@ prompt's worked example is invented, not taken from a sample protocol.
 First live run (PALOMA-3, 17 flagged sections, claude-sonnet-5): 29 s, $0.05; 13 suggestions
 agreed with the computed mapping, 4 proposed a different M11 section.
 
+## D37 — Claude's mapping is the default; the title-based mapping is the fallback and the check
+
+Revises D36 at the user's request: rather than suggestions to accept one by one, Claude's mapping
+is applied by default and the reviewer corrects it. The mapping is built in layers:
+
+1. the title-based mapping (D8), always computed, free and deterministic;
+2. Claude's mapping for the sections it was asked about (run setting `mapping_assist`: `all` by
+   default, `flagged`, or `off`), with Claude's confidence as the mapping confidence and its reason
+   shown; the title-based mapping it replaced is kept on the assignment (`rule_*`);
+3. reviewer overrides (D33, D35), which always win; "Use title-based mapping" is one of them.
+
+Ingestion runs Claude after segmentation. Claude is shown the title-based mapping, not its own
+earlier answer, and each section's answer is stored with a hash of what Claude saw, so re-parsing
+asks only about sections whose text, structure or title-based mapping changed (PALOMA-3: first run
+146 sections, 49 s, $0.34; re-run 7 s, $0.00). Without an API key or when the call fails, the
+title-based mapping is used and the segmentation stage says so; parsing never fails because of it.
+
+Safeguards, since nothing is accepted by hand any more:
+
+- a section is flagged for review when Claude's confidence is below the review threshold, or when
+  Claude places a section elsewhere than a confident title match (adding further M11 sections to
+  it is not a disagreement);
+- Claude cannot exclude a section that has a confident title match: excluding hides its text from
+  every agent, so the title-based mapping stays and the section is flagged with Claude's opinion.
+  The first live run excluded "Document History", which M11 maps to 12.3; the prompt now states
+  that content with a place in M11 (amendment history 12.3, glossary 13, references 14,
+  responsibilities 11.2) is protocol content, and only pages with nothing of their own (signature
+  pages, tables of contents, lists of tables) are not.
+
+The evaluation harness applies Claude's mapping in the same way when a model is available, so it
+measures the default pipeline.
+

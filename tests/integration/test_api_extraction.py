@@ -1,4 +1,5 @@
 import json
+import re
 import time
 from collections.abc import Iterator
 from pathlib import Path
@@ -270,7 +271,7 @@ def test_a_section_mapped_to_two_m11_sections_feeds_both_agents_and_coverage(
     assert client.delete(f"{parsed_run}/section-mapping/{section}/also/4.1").status_code == 404
 
 
-def test_claude_suggests_mappings_that_a_reviewer_accepts(
+def test_claude_mapping_is_applied_and_a_reviewer_can_change_it(
     app_and_client, parsed_run: str, tmp_path: Path
 ) -> None:  # type: ignore[no-untyped-def]
     from backend.pipeline.segmentation.suggest import SuggestionOut, SuggestionsOut
@@ -307,22 +308,100 @@ def test_claude_suggests_mappings_that_a_reviewer_accepts(
     assert suggestion["current_m11_number"] == "5" and not suggestion["agrees"]
     assert made.json()["usage"]["cost_usd"] > 0
     assert client.get(f"{parsed_run}/section-mapping/suggestions").json() == made.json()
-    # Nothing changes until the reviewer accepts.
+    # Claude's mapping is applied at once; the title-based one is kept beside it.
     mapping = client.get(f"{parsed_run}/section-mapping").json()
-    assert (
-        next(a for a in mapping["assignments"] if a["section_id"] == "sec-2.2")["m11_number"] == "5"
-    )
+    applied = next(a for a in mapping["assignments"] if a["section_id"] == "sec-2.2")
+    assert (applied["m11_number"], applied["method"]) == ("4.1", "claude")
+    assert [r["m11_number"] for r in applied["also_m11"]] == ["5"]
+    assert (applied["rule_m11_number"], applied["rule_method"]) == ("5", "inherited")
+    assert applied["claude_reason"].startswith("Describes randomisation")
 
-    accepted = client.put(
-        f"{parsed_run}/section-mapping/sec-2.2", json={"m11_number": "4.1", "source": "suggestion"}
+    # Asking again for the same sections reuses the stored answer: no model call.
+    again = client.post(
+        f"{parsed_run}/section-mapping/suggestions",
+        json={"scope": "sections", "section_ids": ["sec-2.2"]},
+    ).json()
+    assert (again["asked"], again["reused"], again["usage"]["cost_usd"]) == (0, 1, 0)
+
+    # The reviewer prefers the title-based mapping: an ordinary override.
+    kept = client.put(
+        f"{parsed_run}/section-mapping/sec-2.2", json={"m11_number": "5", "source": "rule"}
     )
-    assert accepted.status_code == 200
+    assert kept.status_code == 200
+    final = next(a for a in kept.json()["assignments"] if a["section_id"] == "sec-2.2")
+    assert (final["m11_number"], final["method"]) == ("5", "reviewer")
     audit_path = next((tmp_path / "studies").glob("*/runs/*/section_mapping_audit.jsonl"))
-    assert (
-        json.loads(audit_path.read_text(encoding="utf-8").splitlines()[-1])["source"]
-        == "suggestion"
-    )
+    assert json.loads(audit_path.read_text(encoding="utf-8").splitlines()[-1])["source"] == "rule"
 
     app.state.jobs = JobRunner(app.state.store)  # no API key
     refused = client.post(f"{parsed_run}/section-mapping/suggestions", json={"scope": "all"})
     assert refused.status_code == 422 and "ANTHROPIC_API_KEY" in refused.json()["detail"]
+
+
+def test_parsing_maps_sections_with_claude_by_default(app_and_client, tmp_path: Path) -> None:  # type: ignore[no-untyped-def]
+    from backend.pipeline.segmentation.suggest import SuggestionOut, SuggestionsOut
+
+    app, client = app_and_client
+    asked: list[str] = []
+
+    def suggestions(request):  # type: ignore[no-untyped-def]
+        ids = re.findall(r'<section id="([^"]+)"', request.user_content)
+        asked.extend(ids)
+        return SuggestionsOut(
+            suggestions=[
+                SuggestionOut(
+                    section_id=i,
+                    m11_number="4.1" if i == "sec-2.2" else None,
+                    also_m11_numbers=[],
+                    not_protocol_content=False,
+                    confidence=0.9,
+                    reason="Randomisation belongs to the trial design."
+                    if i == "sec-2.2"
+                    else "Unsure.",
+                )
+                for i in ids
+            ]
+        )
+
+    app.state.jobs = JobRunner(
+        app.state.store,
+        llm_factory=lambda: FakeLlm({**synthetic_responders(), "SuggestionsOut": suggestions}),
+    )
+    slug = client.post("/api/studies", json={"name": "Claude mapped"}).json()["slug"]
+    pdf = synthetic_protocol.build(tmp_path / "c.pdf")
+    filename = client.post(
+        f"/api/studies/{slug}/sources",
+        files={"file": (pdf.name, pdf.read_bytes(), "application/pdf")},
+    ).json()["filename"]
+    run_id = client.post(
+        f"/api/studies/{slug}/runs", json={"source_filename": filename, "page_image_dpi": 50}
+    ).json()["run_id"]
+    base = f"/api/studies/{slug}/runs/{run_id}"
+    state = _wait(client, base)
+    assert state["status"] == "parsed"
+    assert "Claude mapped" in state["stages"]["segment"]["detail"]
+    assert "title-page" not in asked and "toc" not in asked and "sec-2.2" in asked
+
+    mapping = client.get(f"{base}/section-mapping").json()
+    by_id = {a["section_id"]: a for a in mapping["assignments"]}
+    assert (by_id["sec-2.2"]["m11_number"], by_id["sec-2.2"]["method"]) == ("4.1", "claude")
+    # A section Claude could not place keeps its title-based mapping, with Claude's note.
+    assert by_id["sec-1"]["method"] != "claude" and by_id["sec-1"]["claude_reason"] == "Unsure."
+
+    # Re-running ingestion does not ask Claude again: every section is unchanged.
+    calls = len(asked)
+    assert client.post(f"{base}/ingest").status_code == 202
+    state = _wait(client, base)
+    assert len(asked) == calls and "0 asked" in state["stages"]["segment"]["detail"]
+
+
+def test_parsing_without_claude_keeps_the_title_based_mapping(
+    app_and_client, parsed_run: str
+) -> None:  # type: ignore[no-untyped-def]
+    _, client = app_and_client
+    # The fixture's fake model has no answer for mapping: the stage still completes.
+    state = client.get(parsed_run).json()
+    assert state["status"] == "parsed"
+    assert "title-based mapping only" in state["stages"]["segment"]["detail"]
+    mapping = client.get(f"{parsed_run}/section-mapping").json()
+    assert all(a["method"] != "claude" for a in mapping["assignments"])

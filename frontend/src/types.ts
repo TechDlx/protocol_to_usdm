@@ -141,7 +141,8 @@ export type MappingMethod =
   | "inherited"
   | "unmapped"
   | "excluded"
-  | "reviewer";
+  | "reviewer"
+  | "claude";
 
 export interface M11Ref {
   m11_number: string;
@@ -162,8 +163,16 @@ export interface SectionAssignment {
   candidates: { m11_number: string; m11_title: string; score: number }[];
   needs_review: boolean;
   reviewer_override: boolean;
-  /** Further M11 sections a reviewer mapped this section to. */
+  /** Further M11 sections this section is mapped to (by Claude or a reviewer). */
   also_m11: M11Ref[];
+  /** Claude's confidence and reason, when Claude read the section. */
+  claude_confidence?: number | null;
+  claude_reason?: string | null;
+  /** The title-based mapping, when Claude's mapping replaced it. */
+  rule_m11_number?: string | null;
+  rule_m11_title?: string | null;
+  rule_method?: MappingMethod | null;
+  rule_confidence?: number | null;
 }
 
 export interface M11Coverage {
@@ -207,6 +216,8 @@ export interface MappingSuggestions {
   prompt_version: string;
   usage: LlmUsage;
   requested: number;
+  asked: number;
+  reused: number;
   suggestions: MappingSuggestion[];
 }
 
