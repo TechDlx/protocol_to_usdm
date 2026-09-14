@@ -4,7 +4,7 @@
 !.env.example
 
 # --- User data: every study folder is private and local ---
-#studies/
+studies/
 
 # --- Local caches (terminology SQLite, downloaded CT files) ---
 data/cache/
