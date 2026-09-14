@@ -138,7 +138,8 @@ export type MappingMethod =
   | "appendix_default"
   | "inherited"
   | "unmapped"
-  | "excluded";
+  | "excluded"
+  | "reviewer";
 
 export interface SectionAssignment {
   section_id: string;
@@ -153,6 +154,7 @@ export interface SectionAssignment {
   matched_text: string | null;
   candidates: { m11_number: string; m11_title: string; score: number }[];
   needs_review: boolean;
+  reviewer_override: boolean;
 }
 
 export interface M11Coverage {
@@ -172,6 +174,21 @@ export interface SectionMapping {
   review_threshold: number;
   assignments: SectionAssignment[];
   coverage: M11Coverage[];
+  ignored_overrides?: string[];
+}
+
+export interface M11TemplateSection {
+  number: string;
+  title: string;
+  level: number;
+  optional: boolean;
+}
+
+/** An extraction agent whose protocol sections changed since it last ran. */
+export interface AgentInputChange {
+  sheet: string;
+  added: string[];
+  removed: string[];
 }
 
 // ----- extraction (backend/models/extraction.py) ----------------------------------------------

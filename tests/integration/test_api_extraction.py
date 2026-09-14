@@ -1,3 +1,4 @@
+import json
 import time
 from collections.abc import Iterator
 from pathlib import Path
@@ -115,3 +116,55 @@ def test_agents_endpoint_lists_sheets(app_and_client) -> None:  # type: ignore[n
     from backend.pipeline.agents.registry import AGENTS
 
     assert sheets == set(AGENTS) and {"study", "estimands", "abbreviations"} <= sheets
+
+
+def test_reviewer_maps_a_section_and_extraction_sees_which_agents_changed(
+    app_and_client, parsed_run: str, tmp_path: Path
+) -> None:  # type: ignore[no-untyped-def]
+    _, client = app_and_client
+    client.post(f"{parsed_run}/extract", json={})
+    _wait(client, parsed_run)
+    assert client.get(f"{parsed_run}/extraction/input-changes").json() == []
+    template = {s["number"]: s for s in client.get("/api/m11/template").json()}
+    assert template["4.1"]["level"] == 2
+
+    section = "sec-2.2"  # inherits "5" from its parent; the arms agent reads 4.1
+    assert client.put(f"{parsed_run}/section-mapping/{section}", json={}).status_code == 422
+    bad = client.put(f"{parsed_run}/section-mapping/{section}", json={"m11_number": "99"})
+    assert bad.status_code == 422
+    unknown = client.put(f"{parsed_run}/section-mapping/nope", json={"m11_number": "4.1"})
+    assert unknown.status_code == 404
+
+    mapping = client.put(f"{parsed_run}/section-mapping/{section}", json={"m11_number": "4.1"})
+    assert mapping.status_code == 200, mapping.text
+    assignment = next(a for a in mapping.json()["assignments"] if a["section_id"] == section)
+    assert (assignment["m11_number"], assignment["method"]) == ("4.1", "reviewer")
+    coverage = {c["m11_number"]: c for c in mapping.json()["coverage"]}
+    assert coverage["4.1"]["status"] == "found" and coverage["4.1"]["section_ids"] == [section]
+    assert "1 mapped by a reviewer" in client.get(parsed_run).json()["stages"]["segment"]["detail"]
+
+    changes = {c["sheet"]: c for c in client.get(f"{parsed_run}/extraction/input-changes").json()}
+    assert changes["study_design_arms"]["added"] == [section]
+    assert any(section in c["removed"] for c in changes.values())  # the population agents
+
+    # Re-running ingestion keeps the reviewer's mapping.
+    assert client.post(f"{parsed_run}/ingest").status_code == 202
+    _wait(client, parsed_run)
+    kept = client.get(f"{parsed_run}/section-mapping").json()
+    assert (
+        next(a for a in kept["assignments"] if a["section_id"] == section)["method"] == "reviewer"
+    )
+
+    cleared = client.delete(f"{parsed_run}/section-mapping/{section}")
+    assert cleared.status_code == 200
+    back = next(a for a in cleared.json()["assignments"] if a["section_id"] == section)
+    assert back["method"] == "inherited" and not back["reviewer_override"]
+    assert client.get(f"{parsed_run}/extraction/input-changes").json() == []
+    assert client.delete(f"{parsed_run}/section-mapping/{section}").status_code == 404
+
+    audit_path = next((tmp_path / "studies").glob("*/runs/*/section_mapping_audit.jsonl"))
+    audit = [json.loads(line) for line in audit_path.read_text(encoding="utf-8").splitlines()]
+    assert [(e["action"], e["old"]["m11_number"], e["new"]["m11_number"]) for e in audit] == [
+        ("set", "5", "4.1"),
+        ("clear", "4.1", "5"),
+    ]

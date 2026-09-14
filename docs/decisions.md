@@ -643,3 +643,21 @@ review disabled): field-level accuracy 39.5%, precision 64.7%, recall 45.3%, F1 
 references 48% (schedule marks recall 56%), values 24%, text 24%; recall including out-of-scope
 reference content 18.6%.
 
+---
+
+## D33 — Reviewers can correct the section mapping; overrides survive re-segmentation
+
+Segmentation stays deterministic and always re-runs, so a reviewer's correction cannot be an edit
+of `section_mapping.json`. It is stored apart, in `section_overrides.json` (section id, the
+section's title at the time, M11 number or "not protocol content"), and applied inside
+`map_sections`: the overridden section gets method `reviewer` (or `excluded`), confidence 1.0 and
+no review flag, its subsections inherit from and are biased towards the reviewer's choice, and
+coverage reflects it. An override whose section disappeared or was re-titled by a re-parse is not
+applied and is reported, rather than landing on the wrong text. Every change is appended to
+`section_mapping_audit.jsonl` with the old and new mapping.
+
+The mapping cannot change while a job runs. Extraction is not re-run automatically (it costs
+money): `GET .../extraction/input-changes` compares the sections each agent would now read with
+those it read, the review panel names the affected agents after a change, and the Extraction tab
+lists them until extraction (resume) re-runs exactly those agents.
+

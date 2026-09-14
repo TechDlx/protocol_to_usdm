@@ -37,7 +37,7 @@ from backend.models.extraction import (
     ValueOrigin,
 )
 from backend.models.run_config import RunConfig
-from backend.models.segmentation import SectionMapping
+from backend.models.segmentation import AgentInputChange, SectionMapping
 from backend.models.study import StudyMeta
 from backend.pipeline.agents.base import SheetAgent
 from backend.pipeline.agents.common import (
@@ -357,3 +357,21 @@ def load_extraction(run_dir: Path) -> Extraction | None:
     if not path.is_file():
         return None
     return Extraction.model_validate_json(path.read_text(encoding="utf-8"))
+
+
+def changed_agent_inputs(
+    extraction: Extraction, document: ParsedDocument, mapping: SectionMapping
+) -> list[AgentInputChange]:
+    """Agents that would now read different protocol sections than in the extraction, e.g. after
+    a reviewer changed the section mapping. Running extraction (resume) re-runs exactly these."""
+    changes = []
+    for sheet, agent in AGENTS.items():
+        previous = extraction.agents.get(sheet)
+        if previous is None:
+            continue
+        now = agent.context(document, mapping).section_ids
+        added = [s for s in now if s not in previous.section_ids]
+        removed = [s for s in previous.section_ids if s not in now]
+        if added or removed:
+            changes.append(AgentInputChange(sheet=sheet, added=added, removed=removed))
+    return changes

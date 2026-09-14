@@ -9,15 +9,42 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
 from backend.api.studies import Store
+from backend.models.document import ParsedDocument
 from backend.models.run_config import RunConfig
-from backend.models.study import RunState
+from backend.models.segmentation import (
+    AgentInputChange,
+    M11TemplateSectionOut,
+    SectionMapping,
+    SectionOverrideRequest,
+)
+from backend.models.study import RunState, StageName
 from backend.pipeline.agents.registry import AGENTS
-from backend.pipeline.extract import EXTRACTION_FILE, PROVENANCE_FILE, REFERENCE_VALIDATION_FILE
+from backend.pipeline.extract import (
+    EXTRACTION_FILE,
+    PROVENANCE_FILE,
+    REFERENCE_VALIDATION_FILE,
+    changed_agent_inputs,
+    load_extraction,
+)
 from backend.pipeline.extractors.registry import UnknownExtractorError, get_extractor
-from backend.pipeline.ingest import PAGE_IMAGES_DIR, PARSED_DOCUMENT_FILE, SECTION_MAPPING_FILE
+from backend.pipeline.ingest import (
+    PAGE_IMAGES_DIR,
+    PARSED_DOCUMENT_FILE,
+    SECTION_MAPPING_FILE,
+    load_parsed_document,
+    segment,
+)
 from backend.pipeline.jobs import ExtractionNotReadyError, JobRunner, RunAlreadyActiveError
+from backend.pipeline.segmentation.m11 import load_template
+from backend.pipeline.segmentation.overrides import (
+    OverrideError,
+    audit_change,
+    clear_override,
+    set_override,
+)
 from backend.storage.errors import RunNotFoundError, SourceNotFoundError, StudyNotFoundError
 from backend.storage.fs import ensure_within
+from backend.storage.studies import RUN_CONFIG_FILE
 
 router = APIRouter(prefix="/api/studies/{slug}/runs", tags=["runs"])
 
@@ -150,6 +177,98 @@ def get_section_mapping(slug: str, run_id: str, store: Store) -> FileResponse:
     return _artefact(store, slug, run_id, SECTION_MAPPING_FILE)
 
 
+def _remap(store: Store, jobs: JobRunner, slug: str, run_id: str) -> tuple[Path, ParsedDocument]:
+    """Checks before a mapping change: the run is idle and parsed."""
+    run_dir = _run_dir(store, slug, run_id)
+    if jobs.is_active(slug, run_id):
+        raise HTTPException(
+            status.HTTP_409_CONFLICT,
+            detail="the run is processing; change the mapping when it ends",
+        )
+    document = load_parsed_document(run_dir)
+    if document is None:
+        raise HTTPException(status.HTTP_409_CONFLICT, detail="the protocol has not been parsed yet")
+    return run_dir, document
+
+
+def _resegment(
+    store: Store,
+    slug: str,
+    run_id: str,
+    run_dir: Path,
+    document: ParsedDocument,
+    action: str,
+    section_id: str,
+) -> SectionMapping:
+    """Re-map with the current overrides, audit the section's change, refresh the stage note."""
+    before_path = run_dir / SECTION_MAPPING_FILE
+    before = (
+        SectionMapping.model_validate_json(before_path.read_text(encoding="utf-8"))
+        if before_path.is_file()
+        else None
+    )
+    config = RunConfig.model_validate_json((run_dir / RUN_CONFIG_FILE).read_text(encoding="utf-8"))
+    mapping = segment(run_dir, document, config)
+    audit_change(run_dir, action, section_id, before, mapping)
+    flagged = sum(a.needs_review for a in mapping.assignments)
+    overridden = sum(a.reviewer_override for a in mapping.assignments)
+
+    def detail(state: RunState) -> None:
+        stage = state.stages.get(StageName.SEGMENT)
+        if stage is not None:
+            stage.detail = (
+                f"{flagged} of {len(mapping.assignments)} sections flagged for review, "
+                f"{overridden} mapped by a reviewer"
+            )
+
+    store.update_run(slug, run_id, detail)
+    return mapping
+
+
+@router.put("/{run_id}/section-mapping/{section_id}", response_model=SectionMapping)
+def override_section_mapping(
+    slug: str, run_id: str, section_id: str, body: SectionOverrideRequest, store: Store, jobs: Jobs
+) -> SectionMapping:
+    """Map a protocol section to an M11 section (or mark it as not protocol content) by hand.
+    Kept across re-segmentation; extraction picks it up on its next run."""
+    run_dir, document = _remap(store, jobs, slug, run_id)
+    try:
+        set_override(run_dir, document, section_id, body.m11_number, body.excluded)
+    except KeyError:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, detail="section not found") from None
+    except OverrideError as exc:
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_CONTENT, detail=str(exc)) from None
+    return _resegment(store, slug, run_id, run_dir, document, "set", section_id)
+
+
+@router.delete("/{run_id}/section-mapping/{section_id}", response_model=SectionMapping)
+def clear_section_mapping(
+    slug: str, run_id: str, section_id: str, store: Store, jobs: Jobs
+) -> SectionMapping:
+    """Return a section to the automatic mapping."""
+    run_dir, document = _remap(store, jobs, slug, run_id)
+    try:
+        clear_override(run_dir, section_id)
+    except KeyError:
+        raise HTTPException(
+            status.HTTP_404_NOT_FOUND, detail="this section has no reviewer mapping"
+        ) from None
+    return _resegment(store, slug, run_id, run_dir, document, "clear", section_id)
+
+
+@router.get("/{run_id}/extraction/input-changes", response_model=list[AgentInputChange])
+def extraction_input_changes(slug: str, run_id: str, store: Store) -> list[AgentInputChange]:
+    """Agents whose protocol sections changed since extraction (after a mapping change)."""
+    run_dir = _run_dir(store, slug, run_id)
+    extraction = load_extraction(run_dir)
+    document = load_parsed_document(run_dir)
+    mapping_path = run_dir / SECTION_MAPPING_FILE
+    if extraction is None or document is None or not mapping_path.is_file():
+        return []
+    mapping = SectionMapping.model_validate_json(mapping_path.read_text(encoding="utf-8"))
+    return changed_agent_inputs(extraction, document, mapping)
+
+
 @router.get("/{run_id}/pages/{filename}")
 def get_page_image(slug: str, run_id: str, filename: str, store: Store) -> FileResponse:
     if not _PAGE_IMAGE.fullmatch(filename):
@@ -162,6 +281,16 @@ def get_page_image(slug: str, run_id: str, filename: str, store: Store) -> FileR
 
 
 agents_router = APIRouter(prefix="/api/agents", tags=["agents"])
+m11_router = APIRouter(prefix="/api/m11", tags=["m11"])
+
+
+@m11_router.get("/template", response_model=list[M11TemplateSectionOut])
+def get_m11_template() -> list[M11TemplateSectionOut]:
+    """The ICH M11 sections a protocol section can be mapped to, in template order."""
+    return [
+        M11TemplateSectionOut(number=s.number, title=s.title, level=s.level, optional=s.optional)
+        for s in load_template().sections
+    ]
 
 
 class AgentInfo(BaseModel):

@@ -1,7 +1,9 @@
 import type {
+  AgentInputChange,
   AuditEntry,
   Codelist,
   Extraction,
+  M11TemplateSection,
   ParsedDocument,
   ReferenceValidation,
   ReviewOperation,
@@ -156,6 +158,24 @@ export const api = {
 
   getSectionMapping: (slug: string, runId: string) =>
     request<SectionMapping>(`${runUrl(slug, runId)}/section-mapping`),
+
+  getM11Template: () => request<M11TemplateSection[]>("/api/m11/template"),
+
+  /** Map a section by hand: an M11 number, or excluded (not protocol content). */
+  setSectionMapping: (slug: string, runId: string, sectionId: string, body: { m11_number?: string; excluded?: boolean }) =>
+    request<SectionMapping>(`${runUrl(slug, runId)}/section-mapping/${encodeURIComponent(sectionId)}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }),
+
+  clearSectionMapping: (slug: string, runId: string, sectionId: string) =>
+    request<SectionMapping>(`${runUrl(slug, runId)}/section-mapping/${encodeURIComponent(sectionId)}`, {
+      method: "DELETE",
+    }),
+
+  getExtractionInputChanges: (slug: string, runId: string) =>
+    request<AgentInputChange[]>(`${runUrl(slug, runId)}/extraction/input-changes`),
 
   // image_path is "page_images/page-0001.png"; the API serves the file name under /pages/.
   pageImageUrl: (slug: string, runId: string, imagePath: string) =>

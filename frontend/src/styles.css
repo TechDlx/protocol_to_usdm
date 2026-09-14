@@ -275,3 +275,11 @@ tr.error td { color: var(--danger-text); }
 tr.warning td { color: #8a5a00; }
 .strong-note { font-weight: 600; margin-top: 2px; }
 .entity-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 2px 12px; margin-top: 8px; }
+
+/* Manual section mapping */
+.mapping-editor { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.mapping-search { padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; font: inherit; }
+.mapping-options { list-style: none; margin: 0; padding: 0; max-height: 320px; overflow-y: auto; border: 1px solid var(--border); border-radius: 6px; }
+.mapping-option { display: block; width: 100%; text-align: left; background: none; border: 0; padding: 4px 6px; cursor: pointer; font: inherit; color: inherit; }
+.mapping-option:hover:not(:disabled) { background: #f0f5ff; }
+.mapping-option.current { background: #e6effc; font-weight: 600; }

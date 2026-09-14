@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { api } from "../api";
-import type { AgentRun, Extraction, ExtractedField, ReferenceValidation, RunDetail, SheetLayout } from "../types";
+import type { AgentInputChange, AgentRun, Extraction, ExtractedField, ReferenceValidation, RunDetail, SheetLayout } from "../types";
 import { cellRef, fieldOf, groupActive, sheetRows } from "./review/cells";
 
 interface ProvenanceEntry {
@@ -43,6 +43,7 @@ export default function ExtractionTab({ slug, runId, run, onStarted }: Props) {
   );
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [inputChanges, setInputChanges] = useState<AgentInputChange[]>([]);
 
   const running = run.status === "running";
   const extractStage = run.stages.extract;
@@ -52,7 +53,7 @@ export default function ExtractionTab({ slug, runId, run, onStarted }: Props) {
     let cancelled = false;
     (async () => {
       try {
-        const [ex, refs, prov, lays] = await Promise.all([
+        const [ex, refs, prov, lays, changes] = await Promise.all([
           api.getExtraction(slug, runId),
           api.getReferenceValidation(slug, runId),
           fetch(`/api/studies/${encodeURIComponent(slug)}/runs/${encodeURIComponent(runId)}/provenance`, {
@@ -61,8 +62,10 @@ export default function ExtractionTab({ slug, runId, run, onStarted }: Props) {
             (r) => r.json() as Promise<ProvenanceEntry[]>,
           ),
           api.getLayouts(),
+          api.getExtractionInputChanges(slug, runId),
         ]);
         if (cancelled) return;
+        setInputChanges(changes);
         setExtraction(ex);
         setLayouts(lays);
         setReferences(refs);
@@ -113,6 +116,22 @@ export default function ExtractionTab({ slug, runId, run, onStarted }: Props) {
         <span className="muted small">Calls the Claude API. Values are read-only here; edit and confirm them on the review page.</span>
       </div>
       {error && <div className="alert error">{error}</div>}
+      {inputChanges.length > 0 && !running && (
+        <div className="alert warn small">
+          The section mapping changed since extraction. Run extraction (resume) to update these agents; the others are
+          reused:{" "}
+          {inputChanges
+            .map((c) => {
+              const parts = [
+                c.added.length ? `${c.added.length} section(s) added` : "",
+                c.removed.length ? `${c.removed.length} removed` : "",
+              ].filter(Boolean);
+              return `${c.sheet} (${parts.join(", ")})`;
+            })
+            .join(", ")}
+          .
+        </div>
+      )}
 
       {agents.length > 0 && <AgentTable agents={agents} totalCost={totalCost} />}
 

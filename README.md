@@ -167,6 +167,11 @@ a different file with the same name is kept alongside as `name (2).pdf`.
 1. **Studies page:** create a study, upload a protocol PDF, press **Parse** on it.
 2. **Run inspector:** watch the two stages run, then review:
    - **Sections → M11:** every detected section with its ICH M11 mapping, confidence and method.
+     To correct a mapping, select the section and use a suggested candidate, **Map to M11
+     section…** (search the template by number or title) or **Not protocol content**; **Revert to
+     automatic** undoes it. Manual mappings are kept when segmentation re-runs and recorded in
+     `section_mapping_audit.jsonl`. After a change the panel names the extraction agents whose input
+     changed, and the Extraction tab lists them until **Run extraction (resume)** updates them.
      Rows with an amber bar are flagged for review. Click a row for its text, the next-best M11
      candidates and the source page image.
    - **M11 coverage:** which M11 sections were found, found with low confidence, or not found.

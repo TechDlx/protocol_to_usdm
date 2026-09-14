@@ -1,3 +1,6 @@
+from datetime import UTC, datetime
+from pathlib import Path
+
 import pytest
 
 from backend.models.document import (
@@ -9,7 +12,9 @@ from backend.models.document import (
     SectionKind,
     SourceInfo,
 )
-from backend.models.segmentation import MappingMethod
+from backend.models.run_config import RunConfig
+from backend.models.segmentation import MappingMethod, SectionOverride
+from backend.pipeline.ingest import segment
 from backend.pipeline.segmentation.m11 import (
     load_template,
     map_sections,
@@ -17,6 +22,7 @@ from backend.pipeline.segmentation.m11 import (
     sections_for,
     title_similarity,
 )
+from backend.pipeline.segmentation.overrides import OverrideError, clear_override, set_override
 
 
 def test_template_numbers_are_unique_and_every_parent_exists() -> None:
@@ -185,6 +191,84 @@ def test_coverage_marks_missing_sections(mapping_doc: ParsedDocument) -> None:
     coverage = {c.m11_number: c for c in map_sections(mapping_doc).coverage}
     assert coverage["6.3"].status == "found"
     assert coverage["5.2"].status == "missing"
+
+
+# ----- reviewer overrides ---------------------------------------------------------------------
+
+
+def _override(sid: str, title: str, m11: str | None, excluded: bool = False) -> SectionOverride:
+    return SectionOverride(
+        section_id=sid,
+        doc_title=title,
+        m11_number=m11,
+        excluded=excluded,
+        updated_at=datetime.now(UTC),
+    )
+
+
+def test_reviewer_override_maps_a_section_and_subsections_follow(
+    mapping_doc: ParsedDocument,
+) -> None:
+    m = map_sections(
+        mapping_doc, overrides={"sec-5.3": _override("sec-5.3", "Administration", "6.1")}
+    )
+    overridden = m.assignment("sec-5.3")
+    assert (overridden.m11_number, overridden.m11_title) == (
+        "6.1",
+        load_template().get("6.1").title,
+    )
+    assert overridden.method == MappingMethod.REVIEWER and overridden.reviewer_override
+    assert overridden.confidence == 1.0 and not overridden.needs_review
+    assert overridden.candidates  # the computed suggestions stay visible
+    child = m.assignment("sec-5.3.1")
+    assert (child.m11_number, child.method) == ("6.1", MappingMethod.INHERITED)
+    coverage = {c.m11_number: c for c in m.coverage}
+    assert coverage["6.1"].section_ids == ["sec-5.3"] and coverage["6.3"].status == "missing"
+    assert m.ignored_overrides == []
+
+
+def test_reviewer_can_exclude_a_section(mapping_doc: ParsedDocument) -> None:
+    title = "Intent-to-Treat Population (ITT)"
+    m = map_sections(
+        mapping_doc, overrides={"sec-9.2.1": _override("sec-9.2.1", title, None, True)}
+    )
+    excluded = m.assignment("sec-9.2.1")
+    assert excluded.method == MappingMethod.EXCLUDED and excluded.reviewer_override
+    assert "sec-9.2.1" not in sections_for(m, mapping_doc, ["10"])
+
+
+def test_overrides_that_no_longer_fit_the_document_are_ignored(mapping_doc: ParsedDocument) -> None:
+    m = map_sections(
+        mapping_doc,
+        overrides={
+            "gone": _override("gone", "Old Section", "6.1"),
+            "sec-5.3": _override("sec-5.3", "Dosing", "6.1"),  # the section was re-titled
+        },
+    )
+    assert m.assignment("sec-5.3").m11_number == "6.3"
+    assert len(m.ignored_overrides) == 2
+    assert any("title changed" in note for note in m.ignored_overrides)
+
+
+def test_overrides_are_validated_stored_and_kept_by_segmentation(
+    mapping_doc: ParsedDocument, tmp_path: Path
+) -> None:
+    with pytest.raises(KeyError):
+        set_override(tmp_path, mapping_doc, "nope", "6.1", excluded=False)
+    with pytest.raises(OverrideError, match="not a section of the M11 template"):
+        set_override(tmp_path, mapping_doc, "sec-5.3", "99.9", excluded=False)
+    with pytest.raises(OverrideError):
+        set_override(tmp_path, mapping_doc, "sec-5.3", "6.1", excluded=True)
+
+    set_override(tmp_path, mapping_doc, "sec-5.3", "6.1", excluded=False)
+    config = RunConfig(source_filename="x.pdf")
+    assert segment(tmp_path, mapping_doc, config).assignment("sec-5.3").m11_number == "6.1"
+    assert segment(tmp_path, mapping_doc, config).assignment("sec-5.3").reviewer_override
+
+    clear_override(tmp_path, "sec-5.3")
+    assert segment(tmp_path, mapping_doc, config).assignment("sec-5.3").m11_number == "6.3"
+    with pytest.raises(KeyError):
+        clear_override(tmp_path, "sec-5.3")
 
 
 # Normalised titles/aliases shared by more than one M11 section. Each entry was reviewed: M11

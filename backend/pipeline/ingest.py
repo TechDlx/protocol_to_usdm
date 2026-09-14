@@ -7,7 +7,8 @@ Outputs, all inside the run folder:
 
 Resumable: parsing is skipped when parsed_document.json already exists for the same source hash,
 backend, backend version and image DPI. Segmentation is cheap and deterministic, so it always
-re-runs; that keeps section_mapping.json in step with template or threshold changes.
+re-runs; that keeps section_mapping.json in step with template or threshold changes. A reviewer's
+overrides (section_overrides.json) are applied on every run, so re-segmenting never loses them.
 
 Command line (useful for the evaluation harness and for eyeballing a protocol):
     uv run python -m backend.pipeline.ingest <protocol.pdf> <output-dir>
@@ -27,6 +28,7 @@ from backend.models.run_config import RunConfig
 from backend.models.segmentation import SectionMapping
 from backend.pipeline.extractors.registry import get_extractor
 from backend.pipeline.segmentation.m11 import map_sections
+from backend.pipeline.segmentation.overrides import load_overrides
 from backend.storage.fs import write_model
 
 log = logging.getLogger(__name__)
@@ -109,13 +111,19 @@ def parse(
 
 
 def segment(run_dir: Path, document: ParsedDocument, config: RunConfig) -> SectionMapping:
-    mapping = map_sections(document, review_threshold=config.segmentation_review_threshold)
+    mapping = map_sections(
+        document,
+        review_threshold=config.segmentation_review_threshold,
+        overrides=load_overrides(run_dir).overrides,
+    )
     write_model(run_dir / SECTION_MAPPING_FILE, mapping)
     log.info(
         "segmentation complete",
         extra={
             "run_dir": str(run_dir),
             "needs_review": sum(a.needs_review for a in mapping.assignments),
+            "reviewer_overrides": sum(a.reviewer_override for a in mapping.assignments),
+            "ignored_overrides": len(mapping.ignored_overrides),
             "sections": len(mapping.assignments),
         },
     )

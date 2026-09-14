@@ -5,6 +5,7 @@ import { api } from "../api";
 import ExtractionTab from "../components/ExtractionTab";
 import type {
   M11Coverage,
+  M11TemplateSection,
   ParsedDocument,
   RunDetail,
   Section,
@@ -25,6 +26,7 @@ const METHOD_LABEL: Record<SectionAssignment["method"], string> = {
   inherited: "inherited",
   unmapped: "unmapped",
   excluded: "excluded",
+  reviewer: "reviewer",
 };
 
 const POLL_MS = 1000;
@@ -146,6 +148,14 @@ export default function RunInspectorPage() {
             <Stat label="Flagged for review" value={`${reviewCount} of ${mapping.assignments.length}`} warn={reviewCount > 0} />
             <Stat label="Parse time" value={`${doc.stats.elapsed_seconds.toFixed(1)} s`} />
           </div>
+          {(mapping.ignored_overrides ?? []).length > 0 && (
+            <div className="alert warn small">
+              Some manual mappings were not applied because the parsed document changed:
+              {mapping.ignored_overrides!.map((w) => (
+                <div key={w}>{w}</div>
+              ))}
+            </div>
+          )}
           {doc.warnings.length > 0 && (
             <div className="alert warn small">
               {doc.warnings.map((w) => (
@@ -170,6 +180,8 @@ export default function RunInspectorPage() {
               mapping={mapping}
               selected={selected}
               onSelect={setSelected}
+              locked={run?.status === "running" || run?.status === "generating"}
+              onMappingChanged={setMapping}
             />
           )}
           {tab === "coverage" && (
@@ -260,6 +272,8 @@ function SectionsTab(props: {
   mapping: SectionMapping;
   selected: string | null;
   onSelect: (id: string) => void;
+  locked: boolean;
+  onMappingChanged: (mapping: SectionMapping) => void;
 }) {
   const { doc, mapping, selected, onSelect } = props;
   const [reviewOnly, setReviewOnly] = useState(false);
@@ -336,6 +350,8 @@ function SectionDetail(props: {
   doc: ParsedDocument;
   section: Section;
   assignment: SectionAssignment | null;
+  locked: boolean;
+  onMappingChanged: (mapping: SectionMapping) => void;
 }) {
   const { slug, runId, doc, section, assignment: a } = props;
   const [full, setFull] = useState(false);
@@ -355,31 +371,14 @@ function SectionDetail(props: {
       </div>
 
       {a && (
-        <div className="card-section">
-          <h3>M11 mapping</h3>
-          {a.m11_number ? (
-            <div>
-              <span className="mono">{a.m11_number}</span> {a.m11_title}
-            </div>
-          ) : (
-            <div className="muted">No mapping</div>
-          )}
-          <div className="small muted">
-            {METHOD_LABEL[a.method]}
-            {a.matched_text ? ` via “${a.matched_text}”` : ""} · confidence {a.confidence.toFixed(2)}
-            {a.needs_review && <span className="error-text"> · needs review</span>}
-          </div>
-          {a.candidates.length > 0 && (
-            <ul className="list small">
-              {a.candidates.map((c) => (
-                <li key={c.m11_number} className="row-inline">
-                  <span className="mono">{c.m11_number}</span> {c.m11_title}
-                  <span className="muted"> {c.score.toFixed(2)}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+        <MappingPanel
+          key={section.id}
+          slug={slug}
+          runId={runId}
+          assignment={a}
+          locked={props.locked}
+          onMappingChanged={props.onMappingChanged}
+        />
       )}
 
       <div className="card-section">
@@ -405,6 +404,185 @@ function SectionDetail(props: {
           </div>
           <img className="page-img" src={api.pageImageUrl(slug, runId, pageInfo.image_path)} alt={`Page ${page}`} />
         </div>
+      )}
+    </div>
+  );
+}
+
+// ----- manual mapping ------------------------------------------------------------------------
+
+let templateRequest: Promise<M11TemplateSection[]> | null = null;
+function m11Template(): Promise<M11TemplateSection[]> {
+  templateRequest ??= api.getM11Template().catch((e: unknown) => {
+    templateRequest = null;
+    throw e;
+  });
+  return templateRequest;
+}
+
+function MappingPanel(props: {
+  slug: string;
+  runId: string;
+  assignment: SectionAssignment;
+  locked: boolean;
+  onMappingChanged: (mapping: SectionMapping) => void;
+}) {
+  const { slug, runId, assignment: a, locked } = props;
+  const [editing, setEditing] = useState(false);
+  const [template, setTemplate] = useState<M11TemplateSection[]>([]);
+  const [query, setQuery] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [saved, setSaved] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!editing || template.length) return;
+    m11Template()
+      .then(setTemplate)
+      .catch((e: unknown) => setError(e instanceof Error ? e.message : String(e)));
+  }, [editing, template.length]);
+
+  const matches = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return template;
+    return template.filter((t) => t.number.toLowerCase().startsWith(q) || t.title.toLowerCase().includes(q));
+  }, [template, query]);
+
+  async function save(change: () => Promise<SectionMapping>, message: string) {
+    setBusy(true);
+    setError(null);
+    try {
+      props.onMappingChanged(await change());
+      setEditing(false);
+      setQuery("");
+      const changes = await api.getExtractionInputChanges(slug, runId).catch(() => []);
+      const affected = changes
+        .filter((c) => c.added.includes(a.section_id) || c.removed.includes(a.section_id))
+        .map((c) => c.sheet);
+      setSaved(
+        affected.length
+          ? `${message} Agents whose input changed: ${affected.join(", ")}; run extraction (resume) on the Extraction tab to update them.`
+          : `${message} No extraction agent's input changed (no agent reads this section's M11 sections, or extraction has not run).`,
+      );
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  const mapTo = (number: string, title: string) =>
+    void save(
+      () => api.setSectionMapping(slug, runId, a.section_id, { m11_number: number }),
+      `Mapped to ${number} ${title}.`,
+    );
+  const disabled = locked || busy;
+
+  return (
+    <div className="card-section">
+      <h3>M11 mapping</h3>
+      {a.m11_number ? (
+        <div>
+          <span className="mono">{a.m11_number}</span> {a.m11_title}
+        </div>
+      ) : (
+        <div className="muted">{a.method === "excluded" ? "Not protocol content" : "No mapping"}</div>
+      )}
+      <div className="small muted">
+        {a.reviewer_override ? (
+          <span className="chip found">mapped by reviewer</span>
+        ) : (
+          <>
+            {METHOD_LABEL[a.method]}
+            {a.matched_text ? ` via "${a.matched_text}"` : ""} · confidence {a.confidence.toFixed(2)}
+          </>
+        )}
+        {a.needs_review && <span className="error-text"> · needs review</span>}
+      </div>
+
+      {a.candidates.some((c) => c.score > 0) && (
+        <ul className="list small">
+          {a.candidates.filter((c) => c.score > 0).map((c) => (
+            <li key={c.m11_number} className="row-inline">
+              <span className="mono">{c.m11_number}</span> {c.m11_title}
+              <span className="muted"> {c.score.toFixed(2)}</span>
+              {c.m11_number !== a.m11_number && (
+                <button className="btn small" disabled={disabled} onClick={() => mapTo(c.m11_number, c.m11_title)}>
+                  Use
+                </button>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <div className="row-inline">
+        {!editing && (
+          <button className="btn small" disabled={disabled} onClick={() => setEditing(true)}>
+            Map to M11 section…
+          </button>
+        )}
+        {a.method !== "excluded" && (
+          <button
+            className="btn small"
+            disabled={disabled}
+            onClick={() =>
+              void save(
+                () => api.setSectionMapping(slug, runId, a.section_id, { excluded: true }),
+                "Marked as not protocol content; no agent will read it.",
+              )
+            }
+          >
+            Not protocol content
+          </button>
+        )}
+        {a.reviewer_override && (
+          <button
+            className="btn small"
+            disabled={disabled}
+            onClick={() =>
+              void save(() => api.clearSectionMapping(slug, runId, a.section_id), "Returned to the automatic mapping.")
+            }
+          >
+            Revert to automatic
+          </button>
+        )}
+      </div>
+      {locked && <div className="small muted">The run is processing; the mapping can be changed when it ends.</div>}
+
+      {editing && (
+        <div className="mapping-editor">
+          <input
+            autoFocus
+            className="mapping-search"
+            placeholder="Search M11 sections by number or title"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <ul className="mapping-options small">
+            {matches.map((t) => (
+              <li key={t.number}>
+                <button
+                  className={`mapping-option${t.number === a.m11_number ? " current" : ""}`}
+                  style={{ paddingLeft: `${6 + (t.level - 1) * 14}px` }}
+                  disabled={disabled}
+                  onClick={() => mapTo(t.number, t.title)}
+                >
+                  <span className="mono">{t.number}</span> {t.title}
+                  {t.optional && <span className="muted"> (optional)</span>}
+                </button>
+              </li>
+            ))}
+            {template.length > 0 && matches.length === 0 && <li className="muted">No M11 section matches.</li>}
+          </ul>
+          <button className="btn small" onClick={() => setEditing(false)}>
+            Cancel
+          </button>
+        </div>
+      )}
+      {error && <div className="alert error small">{error}</div>}
+      {saved && !error && (
+        <div className="alert ok small">{saved}</div>
       )}
     </div>
   );

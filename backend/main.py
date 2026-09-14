@@ -70,6 +70,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(studies.router)
     app.include_router(runs.router)
     app.include_router(runs.agents_router)
+    app.include_router(runs.m11_router)
     app.include_router(review.router)
     app.include_router(review.terminology_router)
     app.include_router(review.workbook_router)

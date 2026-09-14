@@ -12,6 +12,11 @@ Structure then adjusts the result: a candidate under the parent's M11 section ge
 jump to a different M11 chapter than the parent's needs strong evidence, otherwise the section
 inherits the parent's mapping.
 
+A reviewer can override any section's mapping (or mark it as not protocol content). Overrides are
+applied while mapping, so subsections inherit from and are biased towards the reviewer's choice,
+and coverage reflects it; an override whose section no longer exists or has a different title is
+ignored and reported.
+
 Mappings below the review threshold are flagged, never silently accepted. Sections with no
 acceptable match inherit their parent's mapping at reduced confidence, so an agent asking for
 "everything about the trial population" still receives unconventionally titled subsections.
@@ -34,6 +39,7 @@ from backend.models.segmentation import (
     MappingMethod,
     SectionAssignment,
     SectionMapping,
+    SectionOverride,
 )
 
 TEMPLATE_PATH = Path(__file__).with_name("m11_template.yaml")
@@ -211,8 +217,10 @@ def map_sections(
     document: ParsedDocument,
     template: M11Template | None = None,
     review_threshold: float = DEFAULT_REVIEW_THRESHOLD,
+    overrides: dict[str, SectionOverride] | None = None,
 ) -> SectionMapping:
     template = template or load_template()
+    overrides = overrides or {}
     scorer = _Scorer(template)
     soa_sections = {t.section_id for t in document.tables if t.is_soa_candidate and t.section_id}
     by_id = {s.id: s for s in document.sections}
@@ -220,11 +228,26 @@ def map_sections(
     native_ratio = _m11_native_ratio(document, template, scorer.vocab)
     native = native_ratio >= 0.6
 
+    ignored = [
+        f"{o.section_id} ({o.doc_title}): the section is no longer in the parsed document"
+        for o in overrides.values()
+        if o.section_id not in by_id
+    ]
     assignments: dict[str, SectionAssignment] = {}
     for section in document.sections:
         parent = assignments.get(section.parent_id) if section.parent_id else None
-        assignments[section.id] = _assign(
+        computed = _assign(
             section, parent, scorer, template, native, section.id in soa_sections, review_threshold
+        )
+        override = overrides.get(section.id)
+        if override is not None and override.doc_title != section.title:
+            ignored.append(
+                f"{section.id}: the section's title changed from '{override.doc_title}' to "
+                f"'{section.title}'; the reviewer's mapping was not applied"
+            )
+            override = None
+        assignments[section.id] = (
+            _overridden(computed, override, template) if override is not None else computed
         )
 
     ordered = [assignments[s.id] for s in document.sections]
@@ -237,6 +260,29 @@ def map_sections(
         review_threshold=review_threshold,
         assignments=ordered,
         coverage=_coverage(template, ordered, by_id, review_threshold),
+        ignored_overrides=ignored,
+    )
+
+
+def _overridden(
+    computed: SectionAssignment, override: SectionOverride, template: M11Template
+) -> SectionAssignment:
+    """The reviewer's mapping, keeping the computed candidates for reference."""
+    m11 = (
+        None
+        if override.excluded or override.m11_number is None
+        else template.get(override.m11_number)
+    )
+    return computed.model_copy(
+        update={
+            "m11_number": m11.number if m11 else None,
+            "m11_title": m11.title if m11 else None,
+            "confidence": 1.0,
+            "method": MappingMethod.EXCLUDED if m11 is None else MappingMethod.REVIEWER,
+            "matched_text": None,
+            "needs_review": False,
+            "reviewer_override": True,
+        }
     )
 
 
