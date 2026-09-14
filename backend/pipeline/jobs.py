@@ -53,6 +53,12 @@ class JobRunner:
         self._active: dict[tuple[str, str], Future[None]] = {}
         self._lock = threading.Lock()
 
+    def llm(self) -> StructuredLlm:
+        """A model client for requests made outside a background job (mapping suggestions)."""
+        if self._llm_factory is None:
+            raise ExtractionNotReadyError("ANTHROPIC_API_KEY is not configured")
+        return self._llm_factory()
+
     def is_active(self, slug: str, run_id: str) -> bool:
         with self._lock:
             future = self._active.get((slug, run_id))

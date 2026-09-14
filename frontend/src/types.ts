@@ -186,6 +186,30 @@ export interface SectionMapping {
   ignored_overrides?: string[];
 }
 
+/** Claude's suggested mapping for one section (backend/pipeline/segmentation/suggest.py). */
+export interface MappingSuggestion {
+  section_id: string;
+  doc_title: string;
+  m11_number: string | null;
+  m11_title: string | null;
+  also_m11_numbers: string[];
+  excluded: boolean;
+  confidence: number;
+  reason: string;
+  current_m11_number: string | null;
+  agrees: boolean;
+  notes: string[];
+}
+
+export interface MappingSuggestions {
+  generated_at: string;
+  model: string;
+  prompt_version: string;
+  usage: LlmUsage;
+  requested: number;
+  suggestions: MappingSuggestion[];
+}
+
 export interface M11TemplateSection {
   number: string;
   title: string;

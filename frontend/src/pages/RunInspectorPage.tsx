@@ -1,11 +1,13 @@
 import { Fragment, useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 
-import { api } from "../api";
+import { api, ApiError } from "../api";
 import ExtractionTab from "../components/ExtractionTab";
 import type {
   M11Coverage,
   M11TemplateSection,
+  MappingSuggestion,
+  MappingSuggestions,
   ParsedDocument,
   RunDetail,
   Section,
@@ -281,8 +283,21 @@ function SectionsTab(props: {
   onMappingChanged: (mapping: SectionMapping) => void;
   onDocumentChanged: () => Promise<void>;
 }) {
-  const { doc, mapping, selected, onSelect } = props;
+  const { slug, runId, doc, mapping, selected, onSelect } = props;
   const [reviewOnly, setReviewOnly] = useState(false);
+  const [suggestions, setSuggestions] = useState<MappingSuggestions | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    api
+      .getMappingSuggestions(slug, runId)
+      .then((s) => !cancelled && setSuggestions(s))
+      .catch((e: unknown) => {
+        if (!(e instanceof ApiError && e.status === 404)) console.warn(e);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [slug, runId]);
   const byId = useMemo(() => new Map(mapping.assignments.map((a) => [a.section_id, a])), [mapping]);
   const rows = doc.sections.filter((s) => !reviewOnly || byId.get(s.id)?.needs_review);
   const current = doc.sections.find((s) => s.id === selected) ?? null;
@@ -290,6 +305,17 @@ function SectionsTab(props: {
   return (
     <div className="split">
       <div className="split-main panel">
+        <SuggestionsPanel
+          slug={slug}
+          runId={runId}
+          doc={doc}
+          mapping={mapping}
+          suggestions={suggestions}
+          locked={props.locked}
+          onSuggestions={setSuggestions}
+          onMappingChanged={props.onMappingChanged}
+          onSelect={onSelect}
+        />
         <label className="small filter">
           <input type="checkbox" checked={reviewOnly} onChange={(e) => setReviewOnly(e.target.checked)} /> Show only
           sections flagged for review
@@ -347,7 +373,12 @@ function SectionsTab(props: {
       </div>
       <aside className="split-side panel">
         {current ? (
-          <SectionDetail {...props} section={current} assignment={byId.get(current.id) ?? null} />
+          <SectionDetail
+            {...props}
+            section={current}
+            assignment={byId.get(current.id) ?? null}
+            suggestion={suggestions?.suggestions.find((s) => s.section_id === current.id) ?? null}
+          />
         ) : (
           <p className="muted">Select a section to see its text, mapping candidates and source pages.</p>
         )}
@@ -365,6 +396,7 @@ function SectionDetail(props: {
   locked: boolean;
   onMappingChanged: (mapping: SectionMapping) => void;
   onDocumentChanged: () => Promise<void>;
+  suggestion: MappingSuggestion | null;
 }) {
   const { slug, runId, doc, section, assignment: a } = props;
   const [full, setFull] = useState(false);
@@ -399,6 +431,7 @@ function SectionDetail(props: {
           slug={slug}
           runId={runId}
           assignment={a}
+          suggestion={props.suggestion}
           locked={props.locked}
           onMappingChanged={props.onMappingChanged}
         />
@@ -544,6 +577,210 @@ function PagesPanel(props: {
   );
 }
 
+// ----- mapping suggestions from Claude -------------------------------------------------------
+
+/** Whether the section's mapping already is what the suggestion proposes. */
+function suggestionApplied(s: MappingSuggestion, a: SectionAssignment | undefined): boolean {
+  if (!a) return false;
+  if (s.excluded) return a.method === "excluded";
+  const also = new Set(a.also_m11.map((r) => r.m11_number));
+  return a.m11_number === s.m11_number && s.also_m11_numbers.every((n) => also.has(n));
+}
+
+function suggestedText(s: MappingSuggestion): string {
+  if (s.excluded) return "not protocol content";
+  if (!s.m11_number) return "no valid M11 section";
+  return [`${s.m11_number} ${s.m11_title ?? ""}`.trim(), ...s.also_m11_numbers.map((n) => `also ${n}`)].join(", ");
+}
+
+/** Apply a suggestion through the ordinary (audited) mapping endpoints. Returns the new mapping. */
+async function acceptSuggestion(
+  slug: string,
+  runId: string,
+  s: MappingSuggestion,
+  current: SectionAssignment | undefined,
+): Promise<SectionMapping | null> {
+  let latest: SectionMapping | null = null;
+  if (s.excluded) {
+    return api.setSectionMapping(slug, runId, s.section_id, { excluded: true, source: "suggestion" });
+  }
+  if (!s.m11_number) return null;
+  if (s.m11_number !== current?.m11_number || current?.method === "excluded") {
+    latest = await api.setSectionMapping(slug, runId, s.section_id, { m11_number: s.m11_number, source: "suggestion" });
+  }
+  const after = latest ? latest.assignments.find((x) => x.section_id === s.section_id) : current;
+  const have = new Set((after?.also_m11 ?? []).map((r) => r.m11_number));
+  for (const n of s.also_m11_numbers) {
+    if (!have.has(n) && n !== s.m11_number) {
+      latest = await api.addSectionMapping(slug, runId, s.section_id, n, "suggestion");
+    }
+  }
+  return latest;
+}
+
+function SuggestionsPanel(props: {
+  slug: string;
+  runId: string;
+  doc: ParsedDocument;
+  mapping: SectionMapping;
+  suggestions: MappingSuggestions | null;
+  locked: boolean;
+  onSuggestions: (s: MappingSuggestions) => void;
+  onMappingChanged: (mapping: SectionMapping) => void;
+  onSelect: (id: string) => void;
+}) {
+  const { slug, runId, mapping, suggestions } = props;
+  const [scope, setScope] = useState<"flagged" | "all">("flagged");
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [note, setNote] = useState<string | null>(null);
+  const [showAll, setShowAll] = useState(false);
+  const [dismissed, setDismissed] = useState<Set<string>>(new Set());
+  const byId = useMemo(() => new Map(mapping.assignments.map((a) => [a.section_id, a])), [mapping]);
+  const titles = useMemo(() => new Map(props.doc.sections.map((s) => [s.id, s])), [props.doc]);
+
+  const flaggedCount = mapping.assignments.filter(
+    (a) => !a.reviewer_override && (a.needs_review || a.method === "unmapped") && !["title-page", "toc"].includes(a.section_id),
+  ).length;
+
+  async function ask() {
+    const count = scope === "flagged" ? `${flaggedCount} flagged or unmapped` : `all ${mapping.assignments.length}`;
+    const ok = window.confirm(
+      `Ask Claude to suggest M11 mappings for ${count} sections?\n\n` +
+        "Section titles and the start of each section's text are sent to the Anthropic API. " +
+        "This costs a few cents (more for all sections). Nothing changes until you accept a suggestion.",
+    );
+    if (!ok) return;
+    setBusy(true);
+    setError(null);
+    setNote(null);
+    try {
+      props.onSuggestions(await api.suggestMappings(slug, runId, scope));
+      setDismissed(new Set());
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function accept(s: MappingSuggestion) {
+    setBusy(true);
+    setError(null);
+    try {
+      const updated = await acceptSuggestion(slug, runId, s, byId.get(s.section_id));
+      if (updated) props.onMappingChanged(updated);
+      setNote(await withAffectedAgents(slug, runId, s.section_id, `Accepted for "${s.doc_title}": ${suggestedText(s)}.`));
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  const items = (suggestions?.suggestions ?? []).filter((s) => !dismissed.has(s.section_id));
+  const open = items.filter((s) => !s.agrees && !suggestionApplied(s, byId.get(s.section_id)));
+  const shown = showAll ? items : open;
+
+  return (
+    <div className="suggestions">
+      <div className="row-inline small">
+        <button className="btn small" disabled={props.locked || busy} onClick={() => void ask()}>
+          {busy && !suggestions ? "Asking Claude…" : "Suggest mappings with Claude…"}
+        </button>
+        <select value={scope} disabled={busy} onChange={(e) => setScope(e.target.value as "flagged" | "all")}>
+          <option value="flagged">flagged and unmapped sections ({flaggedCount})</option>
+          <option value="all">all sections ({mapping.assignments.length})</option>
+        </select>
+        {busy && <span className="muted">working…</span>}
+      </div>
+      {error && <div className="alert error small">{error}</div>}
+      {note && <div className="alert ok small">{note}</div>}
+      {suggestions && (
+        <details open className="small">
+          <summary>
+            Claude's suggestions: {open.length} differ from the current mapping ({items.length} suggestions,{" "}
+            {suggestions.model}, {new Date(suggestions.generated_at).toLocaleString()}, $
+            {suggestions.usage.cost_usd.toFixed(3)})
+          </summary>
+          <label className="filter">
+            <input type="checkbox" checked={showAll} onChange={(e) => setShowAll(e.target.checked)} /> Also show
+            suggestions that match the current mapping
+          </label>
+          {shown.length === 0 ? (
+            <p className="muted">Nothing to review: every suggestion matches the current mapping.</p>
+          ) : (
+            <table className="grid static">
+              <thead>
+                <tr>
+                  <th>Protocol section</th>
+                  <th>Current</th>
+                  <th>Suggested</th>
+                  <th>Confidence</th>
+                  <th>Why</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {shown.map((s) => {
+                  const a = byId.get(s.section_id);
+                  const applied = suggestionApplied(s, a);
+                  const section = titles.get(s.section_id);
+                  return (
+                    <tr key={s.section_id}>
+                      <td>
+                        <button className="link" onClick={() => props.onSelect(s.section_id)}>
+                          <span className="mono muted">{section?.number ?? ""}</span> {s.doc_title}
+                        </button>
+                      </td>
+                      <td>
+                        {a?.m11_number ? `${a.m11_number} ${a.m11_title ?? ""}` : a?.method === "excluded" ? "not protocol content" : "unmapped"}
+                        {(a?.also_m11 ?? []).map((r) => `, also ${r.m11_number}`).join("")}
+                      </td>
+                      <td>
+                        {suggestedText(s)}
+                        {s.notes.map((n) => (
+                          <div key={n} className="muted">
+                            {n}
+                          </div>
+                        ))}
+                      </td>
+                      <td>{s.confidence.toFixed(2)}</td>
+                      <td className="muted">{s.reason}</td>
+                      <td className="nowrap">
+                        {applied ? (
+                          <span className="chip found">applied</span>
+                        ) : (
+                          <>
+                            <button
+                              className="btn small"
+                              disabled={props.locked || busy || (!s.excluded && !s.m11_number)}
+                              onClick={() => void accept(s)}
+                            >
+                              Accept
+                            </button>{" "}
+                            <button
+                              className="btn small"
+                              disabled={busy}
+                              onClick={() => setDismissed(new Set([...dismissed, s.section_id]))}
+                            >
+                              Dismiss
+                            </button>
+                          </>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          )}
+        </details>
+      )}
+    </div>
+  );
+}
+
 // ----- manual mapping ------------------------------------------------------------------------
 
 /** The saved-message, followed by the extraction agents whose input this section's change altered. */
@@ -570,10 +807,11 @@ function MappingPanel(props: {
   slug: string;
   runId: string;
   assignment: SectionAssignment;
+  suggestion: MappingSuggestion | null;
   locked: boolean;
   onMappingChanged: (mapping: SectionMapping) => void;
 }) {
-  const { slug, runId, assignment: a, locked } = props;
+  const { slug, runId, assignment: a, locked, suggestion } = props;
   // "main" replaces the section's mapping; "also" adds a further M11 section.
   const [editing, setEditing] = useState<"main" | "also" | null>(null);
   const [template, setTemplate] = useState<M11TemplateSection[]>([]);
@@ -632,6 +870,24 @@ function MappingPanel(props: {
         </div>
       ) : (
         <div className="muted">{a.method === "excluded" ? "Not protocol content" : "No mapping"}</div>
+      )}
+      {suggestion && !suggestion.agrees && !suggestionApplied(suggestion, a) && (
+        <div className="alert warn small">
+          Claude suggests <strong>{suggestedText(suggestion)}</strong> ({suggestion.confidence.toFixed(2)}):{" "}
+          {suggestion.reason}{" "}
+          <button
+            className="btn small"
+            disabled={locked || busy || (!suggestion.excluded && !suggestion.m11_number)}
+            onClick={() =>
+              void save(
+                async () => (await acceptSuggestion(slug, runId, suggestion, a)) ?? Promise.reject(new Error("nothing to apply")),
+                `Accepted Claude's suggestion: ${suggestedText(suggestion)}.`,
+              )
+            }
+          >
+            Accept
+          </button>
+        </div>
       )}
       {a.also_m11.map((r) => (
         <div key={r.m11_number} className="row-inline small">

@@ -5,6 +5,8 @@ from enum import StrEnum
 
 from pydantic import BaseModel, Field
 
+from backend.models.extraction import LlmUsage
+
 SECTION_MAPPING_SCHEMA_VERSION = 1
 
 
@@ -109,10 +111,12 @@ class SectionOverrides(BaseModel):
 class SectionOverrideRequest(BaseModel):
     m11_number: str | None = None
     excluded: bool = False
+    source: str | None = Field(default=None, max_length=40)  # e.g. "suggestion", for the audit
 
 
 class AlsoMapRequest(BaseModel):
     m11_number: str
+    source: str | None = Field(default=None, max_length=40)
 
 
 class M11TemplateSectionOut(BaseModel):
@@ -149,3 +153,33 @@ class SectionBoundaries(BaseModel):
 
 class SectionStartRequest(BaseModel):
     start_page: int = Field(ge=1)
+
+
+class MappingSuggestion(BaseModel):
+    """Claude's suggested mapping for one section, validated against the M11 template."""
+
+    section_id: str
+    doc_title: str
+    m11_number: str | None  # None when excluded, or when the model named no valid M11 section
+    m11_title: str | None
+    also_m11_numbers: list[str] = Field(default_factory=list)
+    excluded: bool = False  # not protocol content
+    confidence: float = Field(ge=0, le=1)
+    reason: str
+    current_m11_number: str | None  # the mapping when the suggestion was made
+    agrees: bool  # the suggestion is what the section was already mapped to
+    notes: list[str] = Field(default_factory=list)  # e.g. an invalid M11 number that was dropped
+
+
+class MappingSuggestions(BaseModel):
+    generated_at: datetime
+    model: str
+    prompt_version: str
+    usage: LlmUsage
+    requested: int
+    suggestions: list[MappingSuggestion]
+
+
+class SuggestRequest(BaseModel):
+    scope: str = Field(default="flagged", pattern="^(flagged|all|sections)$")
+    section_ids: list[str] = Field(default_factory=list)  # with scope "sections"

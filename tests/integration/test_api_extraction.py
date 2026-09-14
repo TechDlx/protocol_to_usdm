@@ -268,3 +268,61 @@ def test_a_section_mapped_to_two_m11_sections_feeds_both_agents_and_coverage(
     assert assignment["also_m11"] == [] and not assignment["reviewer_override"]
     assert client.get(f"{parsed_run}/extraction/input-changes").json() == []
     assert client.delete(f"{parsed_run}/section-mapping/{section}/also/4.1").status_code == 404
+
+
+def test_claude_suggests_mappings_that_a_reviewer_accepts(
+    app_and_client, parsed_run: str, tmp_path: Path
+) -> None:  # type: ignore[no-untyped-def]
+    from backend.pipeline.segmentation.suggest import SuggestionOut, SuggestionsOut
+
+    app, client = app_and_client
+
+    def suggestions(request):  # type: ignore[no-untyped-def]
+        assert 'id="sec-2.2"' in request.user_content and "<m11_template>" in request.user_content
+        return SuggestionsOut(
+            suggestions=[
+                SuggestionOut(
+                    section_id="sec-2.2",
+                    m11_number="4.1",
+                    also_m11_numbers=["5"],
+                    not_protocol_content=False,
+                    confidence=0.8,
+                    reason="Describes randomisation, part of the trial design.",
+                )
+            ]
+        )
+
+    app.state.jobs = JobRunner(
+        app.state.store,
+        llm_factory=lambda: FakeLlm({**synthetic_responders(), "SuggestionsOut": suggestions}),
+    )
+    assert client.get(f"{parsed_run}/section-mapping/suggestions").status_code == 404
+    made = client.post(
+        f"{parsed_run}/section-mapping/suggestions",
+        json={"scope": "sections", "section_ids": ["sec-2.2"]},
+    )
+    assert made.status_code == 200, made.text
+    suggestion = made.json()["suggestions"][0]
+    assert (suggestion["m11_number"], suggestion["also_m11_numbers"]) == ("4.1", ["5"])
+    assert suggestion["current_m11_number"] == "5" and not suggestion["agrees"]
+    assert made.json()["usage"]["cost_usd"] > 0
+    assert client.get(f"{parsed_run}/section-mapping/suggestions").json() == made.json()
+    # Nothing changes until the reviewer accepts.
+    mapping = client.get(f"{parsed_run}/section-mapping").json()
+    assert (
+        next(a for a in mapping["assignments"] if a["section_id"] == "sec-2.2")["m11_number"] == "5"
+    )
+
+    accepted = client.put(
+        f"{parsed_run}/section-mapping/sec-2.2", json={"m11_number": "4.1", "source": "suggestion"}
+    )
+    assert accepted.status_code == 200
+    audit_path = next((tmp_path / "studies").glob("*/runs/*/section_mapping_audit.jsonl"))
+    assert (
+        json.loads(audit_path.read_text(encoding="utf-8").splitlines()[-1])["source"]
+        == "suggestion"
+    )
+
+    app.state.jobs = JobRunner(app.state.store)  # no API key
+    refused = client.post(f"{parsed_run}/section-mapping/suggestions", json={"scope": "all"})
+    assert refused.status_code == 422 and "ANTHROPIC_API_KEY" in refused.json()["detail"]

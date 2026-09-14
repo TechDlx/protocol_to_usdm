@@ -4,6 +4,7 @@ import type {
   Codelist,
   Extraction,
   M11TemplateSection,
+  MappingSuggestions,
   ParsedDocument,
   ReferenceValidation,
   ReviewOperation,
@@ -162,7 +163,12 @@ export const api = {
   getM11Template: () => request<M11TemplateSection[]>("/api/m11/template"),
 
   /** Map a section by hand: an M11 number, or excluded (not protocol content). */
-  setSectionMapping: (slug: string, runId: string, sectionId: string, body: { m11_number?: string; excluded?: boolean }) =>
+  setSectionMapping: (
+    slug: string,
+    runId: string,
+    sectionId: string,
+    body: { m11_number?: string; excluded?: boolean; source?: string },
+  ) =>
     request<SectionMapping>(`${runUrl(slug, runId)}/section-mapping/${encodeURIComponent(sectionId)}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -170,12 +176,23 @@ export const api = {
     }),
 
   /** Map a section to a further M11 section as well, keeping its current mapping. */
-  addSectionMapping: (slug: string, runId: string, sectionId: string, m11Number: string) =>
+  addSectionMapping: (slug: string, runId: string, sectionId: string, m11Number: string, source?: string) =>
     request<SectionMapping>(`${runUrl(slug, runId)}/section-mapping/${encodeURIComponent(sectionId)}/also`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ m11_number: m11Number }),
+      body: JSON.stringify({ m11_number: m11Number, source }),
     }),
+
+  /** Ask Claude for mapping suggestions (costs money; changes nothing until accepted). */
+  suggestMappings: (slug: string, runId: string, scope: "flagged" | "all", sectionIds: string[] = []) =>
+    request<MappingSuggestions>(`${runUrl(slug, runId)}/section-mapping/suggestions`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ scope, section_ids: sectionIds }),
+    }),
+
+  getMappingSuggestions: (slug: string, runId: string) =>
+    request<MappingSuggestions>(`${runUrl(slug, runId)}/section-mapping/suggestions`),
 
   removeSectionMapping: (slug: string, runId: string, sectionId: string, m11Number: string) =>
     request<SectionMapping>(

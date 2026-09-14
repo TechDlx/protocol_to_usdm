@@ -286,3 +286,6 @@ tr.warning td { color: #8a5a00; }
 .page-input { width: 5em; padding: 2px 4px; border: 1px solid var(--border); border-radius: 4px; font: inherit; }
 .picker-option { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 4px 6px; border-bottom: 1px solid var(--border); }
 .picker-option:last-child { border-bottom: 0; }
+.suggestions { margin-bottom: 10px; display: flex; flex-direction: column; gap: 6px; }
+.suggestions select { font: inherit; padding: 2px 4px; }
+.suggestions details summary { cursor: pointer; }

@@ -697,3 +697,23 @@ The M11 coverage tab offers the fix where the gap is seen: on a missing or low-c
 picker lists the protocol sections (those whose computed candidates include that M11 section
 first) with "Map here" (replace) and "Also map here" (add), and says which agents' input changed.
 
+## D36 — Claude can suggest section mappings; a reviewer accepts each one
+
+The computed mapping (D8) stays deterministic and free, and remains the default. On request,
+Claude is asked about the sections a reviewer would otherwise work through by hand (those flagged
+for review or unmapped, or every section): it sees the M11 template, each section's title,
+number, pages, parent, subsection titles, current mapping and the first 700 characters of its text,
+and returns per section an M11 number, further M11 numbers for combined sections, or "not protocol
+content", with a confidence and a one-sentence reason. Requests are batched (30 sections), use the
+run's extraction model, and every call is logged with tokens and cost like extraction.
+
+Suggestions are advice, not mapping: they are validated against the template (invalid numbers are
+dropped and noted), stored in `section_suggestions.json`, and shown beside the current mapping with
+Accept and Dismiss. Accepting uses the ordinary override endpoints, so it is audited, survives
+re-segmentation and flags the affected extraction agents like any manual change; the audit entry
+records `"source": "suggestion"`. Suggestions for sections that were re-parsed away are hidden. The
+prompt's worked example is invented, not taken from a sample protocol.
+
+First live run (PALOMA-3, 17 flagged sections, claude-sonnet-5): 29 s, $0.05; 13 suggestions
+agreed with the computed mapping, 4 proposed a different M11 section.
+

@@ -53,6 +53,7 @@ def _audit(
     doc_title: str,
     before: SectionAssignment | None,
     after: SectionAssignment | None,
+    source: str | None = None,
 ) -> None:
     append_audit(
         run_dir,
@@ -60,6 +61,7 @@ def _audit(
             "action": action,
             "section_id": section_id,
             "doc_title": doc_title,
+            "source": source or "reviewer",
             "old": _describe(before),
             "new": _describe(after),
         },
@@ -164,6 +166,7 @@ def audit_change(
     section_id: str,
     before: SectionMapping | None,
     after: SectionMapping,
+    source: str | None = None,
 ) -> None:
     old = (
         next((a for a in before.assignments if a.section_id == section_id), None)
@@ -171,4 +174,4 @@ def audit_change(
         else None
     )
     new = after.assignment(section_id)
-    _audit(run_dir, action, section_id, new.doc_title, old, new)
+    _audit(run_dir, action, section_id, new.doc_title, old, new, source)

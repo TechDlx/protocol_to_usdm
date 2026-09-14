@@ -1,5 +1,6 @@
 """Run routes: create a run for a source PDF, track its stages, and read its artefacts."""
 
+import asyncio
 import re
 from pathlib import Path
 from typing import Annotated
@@ -15,9 +16,11 @@ from backend.models.segmentation import (
     AgentInputChange,
     AlsoMapRequest,
     M11TemplateSectionOut,
+    MappingSuggestions,
     SectionMapping,
     SectionOverrideRequest,
     SectionStartRequest,
+    SuggestRequest,
 )
 from backend.models.study import RunState, StageName
 from backend.pipeline.agents.registry import AGENTS
@@ -53,6 +56,12 @@ from backend.pipeline.segmentation.overrides import (
     clear_override,
     remove_also,
     set_override,
+)
+from backend.pipeline.segmentation.suggest import (
+    SuggestionError,
+    in_scope,
+    load_suggestions,
+    suggest_mappings,
 )
 from backend.pipeline.terminology.ct import get_ct_resolver
 from backend.storage.errors import RunNotFoundError, SourceNotFoundError, StudyNotFoundError
@@ -210,7 +219,7 @@ def _resegment(
     run_id: str,
     run_dir: Path,
     document: ParsedDocument,
-    audit: tuple[str, str] | None = None,
+    audit: tuple[str, str, str | None] | None = None,
 ) -> SectionMapping:
     """Re-map with the current corrections, refresh the stage note, and for a mapping change
     (action, section id) audit the section's old and new mapping."""
@@ -223,7 +232,7 @@ def _resegment(
     config = RunConfig.model_validate_json((run_dir / RUN_CONFIG_FILE).read_text(encoding="utf-8"))
     mapping = segment(run_dir, document, config)
     if audit is not None:
-        audit_change(run_dir, audit[0], audit[1], before, mapping)
+        audit_change(run_dir, audit[0], audit[1], before, mapping, audit[2])
     flagged = sum(a.needs_review for a in mapping.assignments)
     overridden = sum(a.reviewer_override for a in mapping.assignments)
 
@@ -252,7 +261,7 @@ def override_section_mapping(
         raise HTTPException(status.HTTP_404_NOT_FOUND, detail="section not found") from None
     except OverrideError as exc:
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_CONTENT, detail=str(exc)) from None
-    return _resegment(store, slug, run_id, run_dir, document, ("set", section_id))
+    return _resegment(store, slug, run_id, run_dir, document, ("set", section_id, body.source))
 
 
 @router.delete("/{run_id}/section-mapping/{section_id}", response_model=SectionMapping)
@@ -267,7 +276,7 @@ def clear_section_mapping(
         raise HTTPException(
             status.HTTP_404_NOT_FOUND, detail="this section has no reviewer mapping"
         ) from None
-    return _resegment(store, slug, run_id, run_dir, document, ("clear", section_id))
+    return _resegment(store, slug, run_id, run_dir, document, ("clear", section_id, None))
 
 
 def _current_mapping(run_dir: Path) -> SectionMapping:
@@ -291,7 +300,7 @@ def add_section_mapping(
         raise HTTPException(status.HTTP_404_NOT_FOUND, detail="section not found") from None
     except OverrideError as exc:
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_CONTENT, detail=str(exc)) from None
-    return _resegment(store, slug, run_id, run_dir, document, ("also_add", section_id))
+    return _resegment(store, slug, run_id, run_dir, document, ("also_add", section_id, body.source))
 
 
 @router.delete(
@@ -308,7 +317,44 @@ def remove_section_mapping(
         raise HTTPException(
             status.HTTP_404_NOT_FOUND, detail=f"this section is not also mapped to {m11_number}"
         ) from None
-    return _resegment(store, slug, run_id, run_dir, document, ("also_remove", section_id))
+    return _resegment(store, slug, run_id, run_dir, document, ("also_remove", section_id, None))
+
+
+@router.post("/{run_id}/section-mapping/suggestions", response_model=MappingSuggestions)
+def create_mapping_suggestions(
+    slug: str, run_id: str, body: SuggestRequest, store: Store, jobs: Jobs
+) -> MappingSuggestions:
+    """Ask Claude to suggest M11 mappings for flagged sections, all sections, or the given ones.
+    Sends section titles and text excerpts to the Anthropic API (costs money); changes nothing
+    until a suggestion is accepted."""
+    run_dir, document = _remap(store, jobs, slug, run_id)
+    mapping = _current_mapping(run_dir)
+    ids = body.section_ids if body.scope == "sections" else in_scope(mapping, document, body.scope)
+    if not ids:
+        raise HTTPException(
+            status.HTTP_422_UNPROCESSABLE_CONTENT,
+            detail="no sections in scope: none are flagged for review or unmapped",
+        )
+    try:
+        llm = jobs.llm()
+    except ExtractionNotReadyError as exc:
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_CONTENT, detail=str(exc)) from None
+    config = RunConfig.model_validate_json((run_dir / RUN_CONFIG_FILE).read_text(encoding="utf-8"))
+    try:
+        return asyncio.run(
+            suggest_mappings(run_dir, document, mapping, ids, llm, config.extraction_model)
+        )
+    except SuggestionError as exc:
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_CONTENT, detail=str(exc)) from None
+
+
+@router.get("/{run_id}/section-mapping/suggestions", response_model=MappingSuggestions)
+def get_mapping_suggestions(slug: str, run_id: str, store: Store) -> MappingSuggestions:
+    run_dir = _run_dir(store, slug, run_id)
+    suggestions = load_suggestions(run_dir, load_parsed_document(run_dir))
+    if suggestions is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, detail="no suggestions yet")
+    return suggestions
 
 
 def _pages_of(document: ParsedDocument, section_id: str) -> dict[str, object]:
