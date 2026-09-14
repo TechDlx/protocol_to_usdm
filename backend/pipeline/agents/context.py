@@ -24,8 +24,9 @@ UNVERIFIED_QUOTE_CAP = 0.3  # a quote that cannot be found may be a hallucinatio
 NO_QUOTE_CAP = 0.6  # a value with no supporting quote at all
 # Bump when quote verification or model-output normalisation rules change: stored agent outputs
 # are re-verified for free. 2: tables searchable, whitespace-tolerant. 3: literal unicode escapes
-# in model output decoded.
-VERIFICATION_VERSION = "3"
+# in model output decoded. 4: markdown cell separators in quotes ignored; a cited table id counts as
+# its section.
+VERIFICATION_VERSION = "4"
 
 
 @dataclass
@@ -179,7 +180,9 @@ def locate_quote(
     is accepted only for longer quotes, starting at a word boundary, and with exactly the same
     numbers and negations: "aged 65 or older" never verifies against "aged 18 or older".
     """
-    needle = _norm(quote)
+    # Quotes copied from a markdown table carry its "|" cell separators; the searchable table text
+    # joins cells with spaces.
+    needle = _norm(quote.replace("|", " "))
     if not needle:
         return None
     haystack, breaks = _pages_and_text(section, tables)
@@ -212,6 +215,10 @@ def provenance_for(cited: Cited, context: AgentContext, note: str | None = None)
     """
     confidence = max(0.0, min(float(cited.confidence), 1.0))
     by_id = {s.id: s for s in context.sections}
+    table = context.tables.get(cited.section_id or "")
+    if table is not None and table.section_id in by_id:
+        # The model cited the [[TABLE id]] rather than its section: same place.
+        cited = cited.model_copy(update={"section_id": table.section_id})
     if not cited.quote:
         return Provenance(
             origin=ValueOrigin.EXTRACTED,

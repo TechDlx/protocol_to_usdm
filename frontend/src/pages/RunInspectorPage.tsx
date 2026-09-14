@@ -28,6 +28,8 @@ const METHOD_LABEL: Record<SectionAssignment["method"], string> = {
 };
 
 const POLL_MS = 1000;
+// While nothing is running, keep checking slowly: a run can be started from another tab or the API.
+const IDLE_POLL_MS = 10000;
 
 const TAB_LABEL: Record<Tab, string> = {
   sections: "Sections → M11",
@@ -60,29 +62,40 @@ export default function RunInspectorPage() {
     setMapping(m);
   }, [slug, runId]);
 
-  // Poll the run while it is processing; load the artefacts once parsed.
+  // Poll the run: every second while it is processing, every ten seconds otherwise, and at once when
+  // the window regains focus. Parsed artefacts are (re)loaded only when parsing finished anew;
+  // the Extraction tab reloads its data when the extract stage's finish time changes.
   useEffect(() => {
     let cancelled = false;
     let timer: ReturnType<typeof setTimeout> | undefined;
+    let loadedSegment: string | null | undefined;
     const tick = async () => {
+      if (timer) clearTimeout(timer);
       try {
         const state = await api.getRun(slug, runId);
         if (cancelled) return;
         setRun(state);
         setError(null);
-        if (state.status === "running") {
-          timer = setTimeout(tick, POLL_MS);
-        } else if (state.stages.segment?.status === "done") {
+        const segment = state.stages.segment;
+        if (state.status !== "running" && segment?.status === "done" && segment.finished_at !== loadedSegment) {
           // Load whenever parsing finished, even if a later stage (extraction) failed.
+          loadedSegment = segment.finished_at;
           await loadArtefacts();
         }
+        const active = state.status === "running" || state.status === "generating";
+        if (!cancelled) timer = setTimeout(tick, active ? POLL_MS : IDLE_POLL_MS);
       } catch (e) {
-        if (!cancelled) setError(e instanceof Error ? e.message : String(e));
+        if (cancelled) return;
+        setError(e instanceof Error ? e.message : String(e));
+        timer = setTimeout(tick, IDLE_POLL_MS);
       }
     };
+    const onFocus = () => void tick();
+    window.addEventListener("focus", onFocus);
     void tick();
     return () => {
       cancelled = true;
+      window.removeEventListener("focus", onFocus);
       if (timer) clearTimeout(timer);
     };
   }, [slug, runId, loadArtefacts, pollKey]);
@@ -121,7 +134,7 @@ export default function RunInspectorPage() {
       </div>
 
       {error && <div className="alert error">{error}</div>}
-      {run && <StageBar run={run} />}
+      {run && <StageBar run={run} slug={slug} />}
 
       {doc && mapping && (
         <>
@@ -187,11 +200,13 @@ export default function RunInspectorPage() {
   );
 }
 
-function StageBar({ run }: { run: RunDetail }) {
+function StageBar({ run, slug }: { run: RunDetail; slug: string }) {
   const stages = [
     ["ingest", "1. Parse PDF"],
     ["segment", "2. Map to ICH M11"],
     ["extract", "3. Extract"],
+    ["workbook", "4. Workbook"],
+    ["usdm", "5. USDM + validation"],
   ] as const;
   return (
     <div className="stage-bar">
@@ -204,6 +219,11 @@ function StageBar({ run }: { run: RunDetail }) {
             <strong>{label}</strong> <span className="small">{s?.status ?? "pending"}</span>
             {s?.detail && <div className="small muted">{s.detail}</div>}
             {s?.error && <div className="small error-text">{s.error}</div>}
+            {key === "usdm" && s && (
+              <Link className="small" to={`/studies/${slug}/runs/${run.run_id}/results`}>
+                Open results →
+              </Link>
+            )}
           </div>
         );
       })}

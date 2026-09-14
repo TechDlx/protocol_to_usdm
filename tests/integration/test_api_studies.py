@@ -80,3 +80,8 @@ def test_health_reports_key_presence_without_values(client: TestClient) -> None:
     body = client.get("/api/health").json()
     assert body["status"] == "ok"
     assert set(body) == {"status", "anthropic_key_configured", "cdisc_key_configured"}
+
+
+def test_api_json_responses_are_not_cached(client: TestClient) -> None:
+    assert client.get("/api/health").headers["cache-control"] == "no-store"
+    assert client.get("/api/studies").headers["cache-control"] == "no-store"

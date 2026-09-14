@@ -62,7 +62,20 @@ def test_agents_run_and_outputs_are_written(parsed) -> None:  # type: ignore[no-
     for name in (EXTRACTION_FILE, PROVENANCE_FILE, REFERENCE_VALIDATION_FILE, RUN_LOG_FILE):
         assert (run_dir / name).is_file(), name
     log_lines = (run_dir / RUN_LOG_FILE).read_text(encoding="utf-8").splitlines()
-    assert {json.loads(line)["sheet"] for line in log_lines} == {"study", "eligibility_criteria"}
+    assert {json.loads(line)["sheet"] for line in log_lines} == {
+        "study",
+        "eligibility_criteria",
+        "identifiers",
+        "study_design",
+        "populations",
+        "objectives_endpoints",
+        "indications",
+        "abbreviations",
+        "schedule",
+    }
+    # Sheets the synthetic protocol has no section for finish empty instead of failing.
+    assert extraction.agents["amendments"].status == AgentStatus.DONE
+    assert extraction.sheets.amendments == []
     assert all(json.loads(line)["cost_usd"] > 0 for line in log_lines)
 
 
@@ -127,7 +140,17 @@ def test_rerun_skips_unchanged_agents_without_calling_the_model(parsed) -> None:
 
     forced = FakeLlm(synthetic_responders())
     _extract(parsed, forced, force=True)
-    assert sorted(name for name, _ in forced.calls) == ["EligibilityOut", "StudyOut"]
+    assert sorted(name for name, _ in forced.calls) == [
+        "AbbreviationsOut",
+        "EligibilityOut",
+        "IdentifiersOut",
+        "IndicationsOut",
+        "ObjectivesOut",
+        "PopulationsOut",
+        "ScheduleOut",
+        "StudyDesignOut",
+        "StudyOut",
+    ]
 
 
 def test_one_failing_agent_does_not_corrupt_others_or_reuse_stale_output(parsed) -> None:  # type: ignore[no-untyped-def]

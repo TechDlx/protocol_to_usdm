@@ -1,0 +1,6233 @@
+{
+  "generated_at": "2026-09-14T00:28:55.988719Z",
+  "git_commit": "b4e5321",
+  "git_dirty": true,
+  "reference": "goldstandard/cdisc_pilot/CDISC_Pilot_Study.xlsx",
+  "reference_sha256": "566a1894ae55384727a517e78c0dc1b97919a3251bdfe9da6c1efb05c14ac2a1",
+  "generated": "goldstandard/runs/cdisc-pilot/workbook/unreviewed.xlsx",
+  "generated_sha256": "dc8961c77f8d966c37ee67fab18e879677add1c9958e9f636b67012172e2d771",
+  "source": "Stage A on CDISC_Pilot_Study.pdf, review disabled",
+  "ct_version": "2026-03-27",
+  "extraction": {
+    "model": "claude-sonnet-5",
+    "agents": "2 done, 12 skipped",
+    "model calls this run": 0,
+    "reprocessed from stored output": 0,
+    "cost this run (USD)": 0,
+    "cost of the stored outputs (USD)": 0.8608,
+    "failed agents": ""
+  },
+  "overall": {
+    "gold": 1089.0,
+    "generated": 762.0,
+    "matched": 493.0,
+    "slots": 1247.0,
+    "precision": 0.647,
+    "recall": 0.4527,
+    "f1": 0.5327,
+    "accuracy": 0.3953
+  },
+  "identifiers": {
+    "gold": 184.0,
+    "generated": 134.0,
+    "matched": 65.0,
+    "slots": 253.0,
+    "precision": 0.4851,
+    "recall": 0.3533,
+    "f1": 0.4088,
+    "accuracy": 0.2569
+  },
+  "tiers": {
+    "code": {
+      "gold": 149.0,
+      "generated": 125.0,
+      "matched": 105.0,
+      "slots": 169.0,
+      "precision": 0.84,
+      "recall": 0.7047,
+      "f1": 0.7664,
+      "accuracy": 0.6213
+    },
+    "reference": {
+      "gold": 447.0,
+      "generated": 342.0,
+      "matched": 256.0,
+      "slots": 533.0,
+      "precision": 0.7485,
+      "recall": 0.5727,
+      "f1": 0.6489,
+      "accuracy": 0.4803
+    },
+    "value": {
+      "gold": 138.0,
+      "generated": 58.0,
+      "matched": 38.0,
+      "slots": 158.0,
+      "precision": 0.6552,
+      "recall": 0.2754,
+      "f1": 0.3878,
+      "accuracy": 0.2405
+    },
+    "text": {
+      "gold": 355.0,
+      "generated": 237.0,
+      "matched": 94.0,
+      "slots": 387.0,
+      "precision": 0.3966,
+      "recall": 0.2648,
+      "f1": 0.3176,
+      "accuracy": 0.2429
+    },
+    "identifier": {
+      "gold": 184.0,
+      "generated": 134.0,
+      "matched": 65.0,
+      "slots": 253.0,
+      "precision": 0.4851,
+      "recall": 0.3533,
+      "f1": 0.4088,
+      "accuracy": 0.2569
+    }
+  },
+  "sheets": [
+    {
+      "sheet": "study",
+      "key": "study",
+      "tally": {
+        "gold": 8.0,
+        "generated": 2.0,
+        "matched": 1.0,
+        "slots": 8.0,
+        "precision": 0.5,
+        "recall": 0.125,
+        "f1": 0.2,
+        "accuracy": 0.125
+      },
+      "identifiers": {
+        "gold": 1.0,
+        "generated": 1.0,
+        "matched": 0.0,
+        "slots": 2.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null,
+        "accuracy": 0.0
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 1,
+          "generated_rows": 1,
+          "aligned_rows": 1,
+          "tally": {
+            "gold": 8.0,
+            "generated": 2.0,
+            "matched": 1.0,
+            "slots": 8.0,
+            "precision": 0.5,
+            "recall": 0.125,
+            "f1": 0.2,
+            "accuracy": 0.125
+          },
+          "identifiers": {
+            "gold": 1.0,
+            "generated": 1.0,
+            "matched": 0.0,
+            "slots": 2.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": null,
+            "accuracy": 0.0
+          },
+          "columns": [
+            {
+              "header": "name",
+              "tier": "identifier",
+              "tally": {
+                "gold": 1.0,
+                "generated": 1.0,
+                "matched": 0.0,
+                "slots": 2.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "description",
+              "tier": "text",
+              "tally": {
+                "gold": 0.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 0.0,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null
+              }
+            },
+            {
+              "header": "label",
+              "tier": "text",
+              "tally": {
+                "gold": 0.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 0.0,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null
+              }
+            },
+            {
+              "header": "studyVersion",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "studyAcronym",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "studyRationale",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 1.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "briefTitle",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "officialTitle",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 1.0,
+                "matched": 1.0,
+                "slots": 1.0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "accuracy": 1.0
+              }
+            },
+            {
+              "header": "publicTitle",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "scientificTitle",
+              "tier": "text",
+              "tally": {
+                "gold": 0.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 0.0,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null
+              }
+            },
+            {
+              "header": "protocolVersion",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "protocolStatus",
+              "tier": "code",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "CDISC PILOT - LZZT",
+              "column": "studyVersion",
+              "outcome": "missing",
+              "gold": "2",
+              "generated": ""
+            },
+            {
+              "row": "CDISC PILOT - LZZT",
+              "column": "studyAcronym",
+              "outcome": "missing",
+              "gold": "LZZT",
+              "generated": ""
+            },
+            {
+              "row": "CDISC PILOT - LZZT",
+              "column": "studyRationale",
+              "outcome": "mismatch",
+              "gold": "The discontinuation rate associated with this oral dosing regimen was 58.6% in previous studies, and alternative clinical strategies have been sought to improve tolerance for the compound. To that end, development of a Transdermal Therapeutic System (TTS) has been initiated.",
+              "generated": "Relative to the oral formulation, the transdermal formulation eliminates high concentrations of xanomeline in the gastrointestinal (GI) tract and presystemic (first-pass) metabolism."
+            },
+            {
+              "row": "CDISC PILOT - LZZT",
+              "column": "briefTitle",
+              "outcome": "missing",
+              "gold": "Xanomeline (LY246708)",
+              "generated": ""
+            },
+            {
+              "row": "CDISC PILOT - LZZT",
+              "column": "publicTitle",
+              "outcome": "missing",
+              "gold": "Safety and Efficacy of the Xanomeline Transdermal Therapeutic System (TTS) in Patients with Mild to Moderate Alzheimer's Disease",
+              "generated": ""
+            },
+            {
+              "row": "CDISC PILOT - LZZT",
+              "column": "protocolVersion",
+              "outcome": "missing",
+              "gold": "2",
+              "generated": ""
+            },
+            {
+              "row": "CDISC PILOT - LZZT",
+              "column": "protocolStatus",
+              "outcome": "missing",
+              "gold": "final",
+              "generated": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "study (dates)",
+      "key": "dates",
+      "tally": {
+        "gold": 18.0,
+        "generated": 0.0,
+        "matched": 0.0,
+        "slots": 18.0,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "accuracy": 0.0
+      },
+      "identifiers": {
+        "gold": 3.0,
+        "generated": 0.0,
+        "matched": 0.0,
+        "slots": 3.0,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "accuracy": 0.0
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 3,
+          "generated_rows": 0,
+          "aligned_rows": 0,
+          "tally": {
+            "gold": 18.0,
+            "generated": 0.0,
+            "matched": 0.0,
+            "slots": 18.0,
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "accuracy": 0.0
+          },
+          "identifiers": {
+            "gold": 3.0,
+            "generated": 0.0,
+            "matched": 0.0,
+            "slots": 3.0,
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "accuracy": 0.0
+          },
+          "columns": [
+            {
+              "header": "category",
+              "tier": "value",
+              "tally": {
+                "gold": 3.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 3.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "name",
+              "tier": "identifier",
+              "tally": {
+                "gold": 3.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 3.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "description",
+              "tier": "text",
+              "tally": {
+                "gold": 3.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 3.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "label",
+              "tier": "text",
+              "tally": {
+                "gold": 3.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 3.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "type",
+              "tier": "code",
+              "tally": {
+                "gold": 3.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 3.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "date",
+              "tier": "value",
+              "tally": {
+                "gold": 3.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 3.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "scopes",
+              "tier": "value",
+              "tally": {
+                "gold": 3.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 3.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "D_APPROVE",
+              "column": "category",
+              "outcome": "missing",
+              "gold": "study_version",
+              "generated": ""
+            },
+            {
+              "row": "D_APPROVE",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Design approval date",
+              "generated": ""
+            },
+            {
+              "row": "D_APPROVE",
+              "column": "label",
+              "outcome": "missing",
+              "gold": "Design Approval",
+              "generated": ""
+            },
+            {
+              "row": "D_APPROVE",
+              "column": "type",
+              "outcome": "missing",
+              "gold": "Approval Date",
+              "generated": ""
+            },
+            {
+              "row": "D_APPROVE",
+              "column": "date",
+              "outcome": "missing",
+              "gold": "2006-06-01",
+              "generated": ""
+            },
+            {
+              "row": "D_APPROVE",
+              "column": "scopes",
+              "outcome": "missing",
+              "gold": "Global",
+              "generated": ""
+            },
+            {
+              "row": "P_APPROVE",
+              "column": "category",
+              "outcome": "missing",
+              "gold": "protocol_document",
+              "generated": ""
+            },
+            {
+              "row": "P_APPROVE",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Protocol document approval date",
+              "generated": ""
+            },
+            {
+              "row": "P_APPROVE",
+              "column": "label",
+              "outcome": "missing",
+              "gold": "Protocol Approval",
+              "generated": ""
+            },
+            {
+              "row": "P_APPROVE",
+              "column": "type",
+              "outcome": "missing",
+              "gold": "Effective Date",
+              "generated": ""
+            },
+            {
+              "row": "P_APPROVE",
+              "column": "date",
+              "outcome": "missing",
+              "gold": "2006-07-01",
+              "generated": ""
+            },
+            {
+              "row": "P_APPROVE",
+              "column": "scopes",
+              "outcome": "missing",
+              "gold": "Region:Europe",
+              "generated": ""
+            },
+            {
+              "row": "AMEND_DATE_1",
+              "column": "category",
+              "outcome": "missing",
+              "gold": "amendment",
+              "generated": ""
+            },
+            {
+              "row": "AMEND_DATE_1",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Amendment approval date",
+              "generated": ""
+            },
+            {
+              "row": "AMEND_DATE_1",
+              "column": "label",
+              "outcome": "missing",
+              "gold": "Protocol Approval",
+              "generated": ""
+            },
+            {
+              "row": "AMEND_DATE_1",
+              "column": "type",
+              "outcome": "missing",
+              "gold": "Effective Date",
+              "generated": ""
+            },
+            {
+              "row": "AMEND_DATE_1",
+              "column": "date",
+              "outcome": "missing",
+              "gold": "2006-06-01",
+              "generated": ""
+            },
+            {
+              "row": "AMEND_DATE_1",
+              "column": "scopes",
+              "outcome": "missing",
+              "gold": "Global",
+              "generated": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "studyOrganizations",
+      "key": "organizations",
+      "tally": {
+        "gold": 15.0,
+        "generated": 2.0,
+        "matched": 1.0,
+        "slots": 15.0,
+        "precision": 0.5,
+        "recall": 0.0667,
+        "f1": 0.1177,
+        "accuracy": 0.0667
+      },
+      "identifiers": {
+        "gold": 3.0,
+        "generated": 1.0,
+        "matched": 0.0,
+        "slots": 4.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null,
+        "accuracy": 0.0
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 3,
+          "generated_rows": 1,
+          "aligned_rows": 1,
+          "tally": {
+            "gold": 15.0,
+            "generated": 2.0,
+            "matched": 1.0,
+            "slots": 15.0,
+            "precision": 0.5,
+            "recall": 0.0667,
+            "f1": 0.1177,
+            "accuracy": 0.0667
+          },
+          "identifiers": {
+            "gold": 3.0,
+            "generated": 1.0,
+            "matched": 0.0,
+            "slots": 4.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": null,
+            "accuracy": 0.0
+          },
+          "columns": [
+            {
+              "header": "identifierScheme",
+              "tier": "text",
+              "tally": {
+                "gold": 3.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 3.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "identifier",
+              "tier": "text",
+              "tally": {
+                "gold": 3.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 3.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "name",
+              "tier": "identifier",
+              "tally": {
+                "gold": 3.0,
+                "generated": 1.0,
+                "matched": 0.0,
+                "slots": 4.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "label",
+              "tier": "text",
+              "tally": {
+                "gold": 3.0,
+                "generated": 1.0,
+                "matched": 0.0,
+                "slots": 3.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "type",
+              "tier": "code",
+              "tally": {
+                "gold": 3.0,
+                "generated": 1.0,
+                "matched": 1.0,
+                "slots": 3.0,
+                "precision": 1.0,
+                "recall": 0.3333,
+                "f1": 0.5,
+                "accuracy": 0.3333
+              }
+            },
+            {
+              "header": "organisationAddress",
+              "tier": "text",
+              "tally": {
+                "gold": 3.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 3.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "LILLY",
+              "column": "identifierScheme",
+              "outcome": "missing",
+              "gold": "DUNS",
+              "generated": ""
+            },
+            {
+              "row": "LILLY",
+              "column": "identifier",
+              "outcome": "missing",
+              "gold": "00-642-1325",
+              "generated": ""
+            },
+            {
+              "row": "LILLY",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Eli Lilly",
+              "generated": "Eli Lilly and Company"
+            },
+            {
+              "row": "LILLY",
+              "column": "organisationAddress",
+              "outcome": "missing",
+              "gold": "Lilly Corporate Ctr|| Indianapolis | IN | 4628 | USA",
+              "generated": ""
+            },
+            {
+              "row": "CT-GOV",
+              "column": "identifierScheme",
+              "outcome": "missing",
+              "gold": "USGOV",
+              "generated": ""
+            },
+            {
+              "row": "CT-GOV",
+              "column": "identifier",
+              "outcome": "missing",
+              "gold": "CT-GOV",
+              "generated": ""
+            },
+            {
+              "row": "CT-GOV",
+              "column": "label",
+              "outcome": "missing",
+              "gold": "ClinicalTrials.gov",
+              "generated": ""
+            },
+            {
+              "row": "CT-GOV",
+              "column": "type",
+              "outcome": "missing",
+              "gold": "Clinical Study Registry",
+              "generated": ""
+            },
+            {
+              "row": "CT-GOV",
+              "column": "organisationAddress",
+              "outcome": "missing",
+              "gold": "National Library of Medicine, 8600 Rockville Pike,Bethesda, MD, 20894, USA",
+              "generated": ""
+            },
+            {
+              "row": "SITE_ORG_1",
+              "column": "identifierScheme",
+              "outcome": "missing",
+              "gold": "DUNS",
+              "generated": ""
+            },
+            {
+              "row": "SITE_ORG_1",
+              "column": "identifier",
+              "outcome": "missing",
+              "gold": "123456789",
+              "generated": ""
+            },
+            {
+              "row": "SITE_ORG_1",
+              "column": "label",
+              "outcome": "missing",
+              "gold": "Big Hospital",
+              "generated": ""
+            },
+            {
+              "row": "SITE_ORG_1",
+              "column": "type",
+              "outcome": "missing",
+              "gold": "Healthcare Facility",
+              "generated": ""
+            },
+            {
+              "row": "SITE_ORG_1",
+              "column": "organisationAddress",
+              "outcome": "missing",
+              "gold": "line|district|city|state|postal_code|GBR",
+              "generated": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "studyIdentifiers",
+      "key": "identifiers",
+      "tally": {
+        "gold": 4.0,
+        "generated": 2.0,
+        "matched": 2.0,
+        "slots": 4.0,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6667,
+        "accuracy": 0.5
+      },
+      "identifiers": {
+        "gold": 0.0,
+        "generated": 0.0,
+        "matched": 0.0,
+        "slots": 0.0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "accuracy": null
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 2,
+          "generated_rows": 1,
+          "aligned_rows": 1,
+          "tally": {
+            "gold": 4.0,
+            "generated": 2.0,
+            "matched": 2.0,
+            "slots": 4.0,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6667,
+            "accuracy": 0.5
+          },
+          "identifiers": {
+            "gold": 0.0,
+            "generated": 0.0,
+            "matched": 0.0,
+            "slots": 0.0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "accuracy": null
+          },
+          "columns": [
+            {
+              "header": "studyIdentifier",
+              "tier": "text",
+              "tally": {
+                "gold": 2.0,
+                "generated": 1.0,
+                "matched": 1.0,
+                "slots": 2.0,
+                "precision": 1.0,
+                "recall": 0.5,
+                "f1": 0.6667,
+                "accuracy": 0.5
+              }
+            },
+            {
+              "header": "organization",
+              "tier": "reference",
+              "tally": {
+                "gold": 2.0,
+                "generated": 1.0,
+                "matched": 1.0,
+                "slots": 2.0,
+                "precision": 1.0,
+                "recall": 0.5,
+                "f1": 0.6667,
+                "accuracy": 0.5
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "NCT12345678",
+              "column": "studyIdentifier",
+              "outcome": "missing",
+              "gold": "NCT12345678",
+              "generated": ""
+            },
+            {
+              "row": "NCT12345678",
+              "column": "organization",
+              "outcome": "missing",
+              "gold": "CT-GOV",
+              "generated": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "studyDesign",
+      "key": "study_design",
+      "tally": {
+        "gold": 12.0,
+        "generated": 10.0,
+        "matched": 7.0,
+        "slots": 13.0,
+        "precision": 0.7,
+        "recall": 0.5833,
+        "f1": 0.6363,
+        "accuracy": 0.5385
+      },
+      "identifiers": {
+        "gold": 1.0,
+        "generated": 1.0,
+        "matched": 1.0,
+        "slots": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 1,
+          "generated_rows": 1,
+          "aligned_rows": 1,
+          "tally": {
+            "gold": 12.0,
+            "generated": 10.0,
+            "matched": 7.0,
+            "slots": 13.0,
+            "precision": 0.7,
+            "recall": 0.5833,
+            "f1": 0.6363,
+            "accuracy": 0.5385
+          },
+          "identifiers": {
+            "gold": 1.0,
+            "generated": 1.0,
+            "matched": 1.0,
+            "slots": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "accuracy": 1.0
+          },
+          "columns": [
+            {
+              "header": "studyDesignName",
+              "tier": "identifier",
+              "tally": {
+                "gold": 1.0,
+                "generated": 1.0,
+                "matched": 1.0,
+                "slots": 1.0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "accuracy": 1.0
+              }
+            },
+            {
+              "header": "studyDesignDescription",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 1.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "label",
+              "tier": "text",
+              "tally": {
+                "gold": 0.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 0.0,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null
+              }
+            },
+            {
+              "header": "studyDesignRationale",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 1.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "studyDesignBlindingScheme",
+              "tier": "code",
+              "tally": {
+                "gold": 1.0,
+                "generated": 1.0,
+                "matched": 1.0,
+                "slots": 1.0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "accuracy": 1.0
+              }
+            },
+            {
+              "header": "trialIntentTypes",
+              "tier": "code",
+              "tally": {
+                "gold": 1.0,
+                "generated": 1.0,
+                "matched": 1.0,
+                "slots": 1.0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "accuracy": 1.0
+              }
+            },
+            {
+              "header": "trialSubTypes",
+              "tier": "code",
+              "tally": {
+                "gold": 3.0,
+                "generated": 3.0,
+                "matched": 3.0,
+                "slots": 3.0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "accuracy": 1.0
+              }
+            },
+            {
+              "header": "interventionModel",
+              "tier": "code",
+              "tally": {
+                "gold": 1.0,
+                "generated": 1.0,
+                "matched": 1.0,
+                "slots": 1.0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "accuracy": 1.0
+              }
+            },
+            {
+              "header": "characteristics",
+              "tier": "code",
+              "tally": {
+                "gold": 2.0,
+                "generated": 1.0,
+                "matched": 0.0,
+                "slots": 3.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "studyType",
+              "tier": "code",
+              "tally": {
+                "gold": 1.0,
+                "generated": 1.0,
+                "matched": 1.0,
+                "slots": 1.0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "accuracy": 1.0
+              }
+            },
+            {
+              "header": "studyPhase",
+              "tier": "code",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "Study Design 1",
+              "column": "studyDesignDescription",
+              "outcome": "mismatch",
+              "gold": "The main design for the study",
+              "generated": "Patients with probable mild to moderate AD will be studied in a randomized, double-blind, parallel (3 arm), placebo-controlled trial of 26 weeks duration."
+            },
+            {
+              "row": "Study Design 1",
+              "column": "studyDesignRationale",
+              "outcome": "mismatch",
+              "gold": "The discontinuation rate associated with this oral dosing regimen was 58.6% in previous studies, and alternative clinical strategies have been sought to improve tolerance for the compound. To that end, development of a Transdermal Therapeutic System (TTS) has been initiated.",
+              "generated": "The parallel dosing regimen maximizes the ability to make direct comparisons between the treatment groups. The use of placebo allows for a blinded, thus minimally biased, study."
+            },
+            {
+              "row": "Study Design 1",
+              "column": "characteristics",
+              "outcome": "mismatch",
+              "gold": "EXTENSION, ADAPTIVE",
+              "generated": "Randomized Controlled Clinical Trial"
+            },
+            {
+              "row": "Study Design 1",
+              "column": "studyPhase",
+              "outcome": "missing",
+              "gold": "Phase II Trial",
+              "generated": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "studyDesignArms",
+      "key": "study_design_arms",
+      "tally": {
+        "gold": 15.0,
+        "generated": 15.0,
+        "matched": 5.0,
+        "slots": 17.0,
+        "precision": 0.3333,
+        "recall": 0.3333,
+        "f1": 0.3333,
+        "accuracy": 0.2941
+      },
+      "identifiers": {
+        "gold": 3.0,
+        "generated": 3.0,
+        "matched": 1.0,
+        "slots": 5.0,
+        "precision": 0.3333,
+        "recall": 0.3333,
+        "f1": 0.3333,
+        "accuracy": 0.2
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 3,
+          "generated_rows": 3,
+          "aligned_rows": 3,
+          "tally": {
+            "gold": 15.0,
+            "generated": 15.0,
+            "matched": 5.0,
+            "slots": 17.0,
+            "precision": 0.3333,
+            "recall": 0.3333,
+            "f1": 0.3333,
+            "accuracy": 0.2941
+          },
+          "identifiers": {
+            "gold": 3.0,
+            "generated": 3.0,
+            "matched": 1.0,
+            "slots": 5.0,
+            "precision": 0.3333,
+            "recall": 0.3333,
+            "f1": 0.3333,
+            "accuracy": 0.2
+          },
+          "columns": [
+            {
+              "header": "name",
+              "tier": "identifier",
+              "tally": {
+                "gold": 3.0,
+                "generated": 3.0,
+                "matched": 1.0,
+                "slots": 5.0,
+                "precision": 0.3333,
+                "recall": 0.3333,
+                "f1": 0.3333,
+                "accuracy": 0.2
+              }
+            },
+            {
+              "header": "description",
+              "tier": "text",
+              "tally": {
+                "gold": 3.0,
+                "generated": 3.0,
+                "matched": 0.0,
+                "slots": 3.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "label",
+              "tier": "text",
+              "tally": {
+                "gold": 3.0,
+                "generated": 3.0,
+                "matched": 1.0,
+                "slots": 3.0,
+                "precision": 0.3333,
+                "recall": 0.3333,
+                "f1": 0.3333,
+                "accuracy": 0.3333
+              }
+            },
+            {
+              "header": "type",
+              "tier": "code",
+              "tally": {
+                "gold": 3.0,
+                "generated": 3.0,
+                "matched": 1.0,
+                "slots": 5.0,
+                "precision": 0.3333,
+                "recall": 0.3333,
+                "f1": 0.3333,
+                "accuracy": 0.2
+              }
+            },
+            {
+              "header": "dataOriginDescription",
+              "tier": "text",
+              "tally": {
+                "gold": 3.0,
+                "generated": 3.0,
+                "matched": 0.0,
+                "slots": 3.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "dataOriginType",
+              "tier": "code",
+              "tally": {
+                "gold": 3.0,
+                "generated": 3.0,
+                "matched": 3.0,
+                "slots": 3.0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "accuracy": 1.0
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "Placebo",
+              "column": "description",
+              "outcome": "mismatch",
+              "gold": "Placebo",
+              "generated": "Patients randomized to placebo TTS"
+            },
+            {
+              "row": "Placebo",
+              "column": "dataOriginDescription",
+              "outcome": "mismatch",
+              "gold": "Data collected from subjects",
+              "generated": "Data collected from randomized participants in this trial"
+            },
+            {
+              "row": "Xanomeline Low Dose",
+              "column": "description",
+              "outcome": "mismatch",
+              "gold": "Active Substance",
+              "generated": "Patients randomized to low-dose xanomeline TTS (50 cm2 Formulation E, 54 mg)"
+            },
+            {
+              "row": "Xanomeline Low Dose",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Xanomeline Low Dose",
+              "generated": "Low-dose xanomeline (50 cm2 TTS, 54 mg)"
+            },
+            {
+              "row": "Xanomeline Low Dose",
+              "column": "type",
+              "outcome": "mismatch",
+              "gold": "Active Comparator Arm",
+              "generated": "Investigational Arm"
+            },
+            {
+              "row": "Xanomeline Low Dose",
+              "column": "dataOriginDescription",
+              "outcome": "mismatch",
+              "gold": "Data collected from subjects",
+              "generated": "Data collected from randomized participants in this trial"
+            },
+            {
+              "row": "Xanomeline High Dose",
+              "column": "description",
+              "outcome": "mismatch",
+              "gold": "Active Substance",
+              "generated": "Patients randomized to high-dose xanomeline TTS (75 cm2 Formulation E, 81 mg), starting at 50 cm2"
+            },
+            {
+              "row": "Xanomeline High Dose",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Xanomeline High Dose",
+              "generated": "High-dose xanomeline (75 cm2 TTS, 81 mg)"
+            },
+            {
+              "row": "Xanomeline High Dose",
+              "column": "type",
+              "outcome": "mismatch",
+              "gold": "Active Comparator Arm",
+              "generated": "Investigational Arm"
+            },
+            {
+              "row": "Xanomeline High Dose",
+              "column": "dataOriginDescription",
+              "outcome": "mismatch",
+              "gold": "Data collected from subjects",
+              "generated": "Data collected from randomized participants in this trial"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "studyDesignEpochs",
+      "key": "epochs",
+      "tally": {
+        "gold": 15.0,
+        "generated": 6.0,
+        "matched": 5.0,
+        "slots": 15.0,
+        "precision": 0.8333,
+        "recall": 0.3333,
+        "f1": 0.4762,
+        "accuracy": 0.3333
+      },
+      "identifiers": {
+        "gold": 5.0,
+        "generated": 3.0,
+        "matched": 2.0,
+        "slots": 6.0,
+        "precision": 0.6667,
+        "recall": 0.4,
+        "f1": 0.5,
+        "accuracy": 0.3333
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 5,
+          "generated_rows": 3,
+          "aligned_rows": 3,
+          "tally": {
+            "gold": 15.0,
+            "generated": 6.0,
+            "matched": 5.0,
+            "slots": 15.0,
+            "precision": 0.8333,
+            "recall": 0.3333,
+            "f1": 0.4762,
+            "accuracy": 0.3333
+          },
+          "identifiers": {
+            "gold": 5.0,
+            "generated": 3.0,
+            "matched": 2.0,
+            "slots": 6.0,
+            "precision": 0.6667,
+            "recall": 0.4,
+            "f1": 0.5,
+            "accuracy": 0.3333
+          },
+          "columns": [
+            {
+              "header": "name",
+              "tier": "identifier",
+              "tally": {
+                "gold": 5.0,
+                "generated": 3.0,
+                "matched": 2.0,
+                "slots": 6.0,
+                "precision": 0.6667,
+                "recall": 0.4,
+                "f1": 0.5,
+                "accuracy": 0.3333
+              }
+            },
+            {
+              "header": "description",
+              "tier": "text",
+              "tally": {
+                "gold": 5.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 5.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "label",
+              "tier": "text",
+              "tally": {
+                "gold": 5.0,
+                "generated": 3.0,
+                "matched": 2.0,
+                "slots": 5.0,
+                "precision": 0.6667,
+                "recall": 0.4,
+                "f1": 0.5,
+                "accuracy": 0.4
+              }
+            },
+            {
+              "header": "type",
+              "tier": "code",
+              "tally": {
+                "gold": 5.0,
+                "generated": 3.0,
+                "matched": 3.0,
+                "slots": 5.0,
+                "precision": 1.0,
+                "recall": 0.6,
+                "f1": 0.75,
+                "accuracy": 0.6
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "Screening",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Screening Epoch",
+              "generated": ""
+            },
+            {
+              "row": "Treatment 2",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Treatment Epoch",
+              "generated": ""
+            },
+            {
+              "row": "Treatment 2",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Treatment Two",
+              "generated": "Treatment"
+            },
+            {
+              "row": "Follow-Up",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Follow-up Epoch",
+              "generated": ""
+            },
+            {
+              "row": "Treatment 1",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Treatment Epoch",
+              "generated": ""
+            },
+            {
+              "row": "Treatment 1",
+              "column": "label",
+              "outcome": "missing",
+              "gold": "Treatment One",
+              "generated": ""
+            },
+            {
+              "row": "Treatment 1",
+              "column": "type",
+              "outcome": "missing",
+              "gold": "TREATMENT",
+              "generated": ""
+            },
+            {
+              "row": "Treatment 3",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Treatment Epoch",
+              "generated": ""
+            },
+            {
+              "row": "Treatment 3",
+              "column": "label",
+              "outcome": "missing",
+              "gold": "Treatment Three",
+              "generated": ""
+            },
+            {
+              "row": "Treatment 3",
+              "column": "type",
+              "outcome": "missing",
+              "gold": "TREATMENT",
+              "generated": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "studyDesignElements",
+      "key": "elements",
+      "tally": {
+        "gold": 23.0,
+        "generated": 10.0,
+        "matched": 2.0,
+        "slots": 23.0,
+        "precision": 0.2,
+        "recall": 0.087,
+        "f1": 0.1213,
+        "accuracy": 0.087
+      },
+      "identifiers": {
+        "gold": 7.0,
+        "generated": 5.0,
+        "matched": 0.0,
+        "slots": 12.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null,
+        "accuracy": 0.0
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 7,
+          "generated_rows": 5,
+          "aligned_rows": 5,
+          "tally": {
+            "gold": 23.0,
+            "generated": 10.0,
+            "matched": 2.0,
+            "slots": 23.0,
+            "precision": 0.2,
+            "recall": 0.087,
+            "f1": 0.1213,
+            "accuracy": 0.087
+          },
+          "identifiers": {
+            "gold": 7.0,
+            "generated": 5.0,
+            "matched": 0.0,
+            "slots": 12.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": null,
+            "accuracy": 0.0
+          },
+          "columns": [
+            {
+              "header": "name",
+              "tier": "identifier",
+              "tally": {
+                "gold": 7.0,
+                "generated": 5.0,
+                "matched": 0.0,
+                "slots": 12.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "description",
+              "tier": "text",
+              "tally": {
+                "gold": 7.0,
+                "generated": 5.0,
+                "matched": 0.0,
+                "slots": 7.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "label",
+              "tier": "text",
+              "tally": {
+                "gold": 7.0,
+                "generated": 5.0,
+                "matched": 2.0,
+                "slots": 7.0,
+                "precision": 0.4,
+                "recall": 0.2857,
+                "f1": 0.3333,
+                "accuracy": 0.2857
+              }
+            },
+            {
+              "header": "transitionStartRule",
+              "tier": "text",
+              "tally": {
+                "gold": 7.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 7.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "transitionEndRule",
+              "tier": "text",
+              "tally": {
+                "gold": 2.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 2.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "EL1",
+              "column": "description",
+              "outcome": "mismatch",
+              "gold": "Screening Element",
+              "generated": "All arms during Screening"
+            },
+            {
+              "row": "EL1",
+              "column": "transitionStartRule",
+              "outcome": "missing",
+              "gold": "Informed consent",
+              "generated": ""
+            },
+            {
+              "row": "EL1",
+              "column": "transitionEndRule",
+              "outcome": "missing",
+              "gold": "Completion of all screening activities and no more than 2 weeks from informed consent",
+              "generated": ""
+            },
+            {
+              "row": "EL2",
+              "column": "description",
+              "outcome": "mismatch",
+              "gold": "Placebo TTS (adhesive patches)",
+              "generated": "Placebo during Treatment"
+            },
+            {
+              "row": "EL2",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Placebo",
+              "generated": "Placebo (Treatment)"
+            },
+            {
+              "row": "EL2",
+              "column": "transitionStartRule",
+              "outcome": "missing",
+              "gold": "Administration of first dose",
+              "generated": ""
+            },
+            {
+              "row": "EL3",
+              "column": "description",
+              "outcome": "mismatch",
+              "gold": "Xanomeline TTS (adhesive patches) 50 cm2, 54 mg",
+              "generated": "Low-dose xanomeline (50 cm2 TTS 54 mg) during Treatment"
+            },
+            {
+              "row": "EL3",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Low",
+              "generated": "Low-dose xanomeline (50 cm2 TTS, 54 mg) (Treatment)"
+            },
+            {
+              "row": "EL3",
+              "column": "transitionStartRule",
+              "outcome": "missing",
+              "gold": "Administration of first dose",
+              "generated": ""
+            },
+            {
+              "row": "EL6",
+              "column": "description",
+              "outcome": "mismatch",
+              "gold": "Xanomeline TTS (adhesive patches) 50 cm2, 54 mg",
+              "generated": "High-dose xanomeline (75 cm2 TTS 81 mg) during Treatment"
+            },
+            {
+              "row": "EL6",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "High - End",
+              "generated": "High-dose xanomeline (75 cm2 TTS, 81 mg) (Treatment)"
+            },
+            {
+              "row": "EL6",
+              "column": "transitionStartRule",
+              "outcome": "missing",
+              "gold": "Administration of first dose (from patches supplied at Visit 12)",
+              "generated": ""
+            },
+            {
+              "row": "EL7",
+              "column": "description",
+              "outcome": "mismatch",
+              "gold": "Follow Up Element",
+              "generated": "All arms during Follow-up"
+            },
+            {
+              "row": "EL7",
+              "column": "transitionStartRule",
+              "outcome": "missing",
+              "gold": "End of last scheduled visit on study (including early termination)",
+              "generated": ""
+            },
+            {
+              "row": "EL7",
+              "column": "transitionEndRule",
+              "outcome": "missing",
+              "gold": "Completion of all specified followup activities (which vary on a patient-by-patient basis)",
+              "generated": ""
+            },
+            {
+              "row": "EL4",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Xanomeline TTS (adhesive patches) 50 cm2, 54 mg",
+              "generated": ""
+            },
+            {
+              "row": "EL4",
+              "column": "label",
+              "outcome": "missing",
+              "gold": "High - Start",
+              "generated": ""
+            },
+            {
+              "row": "EL4",
+              "column": "transitionStartRule",
+              "outcome": "missing",
+              "gold": "Randomized",
+              "generated": ""
+            },
+            {
+              "row": "EL5",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Xanomeline TTS (adhesive patches) 50 cm2, 54 mg + 25 cm2, 27 mg",
+              "generated": ""
+            },
+            {
+              "row": "EL5",
+              "column": "label",
+              "outcome": "missing",
+              "gold": "High - Middle",
+              "generated": ""
+            },
+            {
+              "row": "EL5",
+              "column": "transitionStartRule",
+              "outcome": "missing",
+              "gold": "Administration of first dose (from patches supplied at Visit 4)",
+              "generated": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "studyDesign grid",
+      "key": "study_cells",
+      "tally": {
+        "gold": 45.0,
+        "generated": 27.0,
+        "matched": 26.0,
+        "slots": 46.0,
+        "precision": 0.963,
+        "recall": 0.5778,
+        "f1": 0.7222,
+        "accuracy": 0.5652
+      },
+      "identifiers": {
+        "gold": 0.0,
+        "generated": 0.0,
+        "matched": 0.0,
+        "slots": 0.0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "accuracy": null
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 15,
+          "generated_rows": 9,
+          "aligned_rows": 9,
+          "tally": {
+            "gold": 45.0,
+            "generated": 27.0,
+            "matched": 26.0,
+            "slots": 46.0,
+            "precision": 0.963,
+            "recall": 0.5778,
+            "f1": 0.7222,
+            "accuracy": 0.5652
+          },
+          "identifiers": {
+            "gold": 0.0,
+            "generated": 0.0,
+            "matched": 0.0,
+            "slots": 0.0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "accuracy": null
+          },
+          "columns": [
+            {
+              "header": "arm",
+              "tier": "reference",
+              "tally": {
+                "gold": 15.0,
+                "generated": 9.0,
+                "matched": 9.0,
+                "slots": 15.0,
+                "precision": 1.0,
+                "recall": 0.6,
+                "f1": 0.75,
+                "accuracy": 0.6
+              }
+            },
+            {
+              "header": "epoch",
+              "tier": "reference",
+              "tally": {
+                "gold": 15.0,
+                "generated": 9.0,
+                "matched": 9.0,
+                "slots": 15.0,
+                "precision": 1.0,
+                "recall": 0.6,
+                "f1": 0.75,
+                "accuracy": 0.6
+              }
+            },
+            {
+              "header": "elements",
+              "tier": "reference",
+              "tally": {
+                "gold": 15.0,
+                "generated": 9.0,
+                "matched": 8.0,
+                "slots": 16.0,
+                "precision": 0.8889,
+                "recall": 0.5333,
+                "f1": 0.6666,
+                "accuracy": 0.5
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "Xanomeline High Dose",
+              "column": "elements",
+              "outcome": "mismatch",
+              "gold": "EL5",
+              "generated": "High-dose xanomeline (75 cm2 - Treatment"
+            },
+            {
+              "row": "Placebo",
+              "column": "arm",
+              "outcome": "missing",
+              "gold": "Placebo",
+              "generated": ""
+            },
+            {
+              "row": "Placebo",
+              "column": "epoch",
+              "outcome": "missing",
+              "gold": "Treatment 1",
+              "generated": ""
+            },
+            {
+              "row": "Placebo",
+              "column": "elements",
+              "outcome": "missing",
+              "gold": "EL2",
+              "generated": ""
+            },
+            {
+              "row": "Placebo",
+              "column": "arm",
+              "outcome": "missing",
+              "gold": "Placebo",
+              "generated": ""
+            },
+            {
+              "row": "Placebo",
+              "column": "epoch",
+              "outcome": "missing",
+              "gold": "Treatment 3",
+              "generated": ""
+            },
+            {
+              "row": "Placebo",
+              "column": "elements",
+              "outcome": "missing",
+              "gold": "EL2",
+              "generated": ""
+            },
+            {
+              "row": "Xanomeline Low Dose",
+              "column": "arm",
+              "outcome": "missing",
+              "gold": "Xanomeline Low Dose",
+              "generated": ""
+            },
+            {
+              "row": "Xanomeline Low Dose",
+              "column": "epoch",
+              "outcome": "missing",
+              "gold": "Treatment 1",
+              "generated": ""
+            },
+            {
+              "row": "Xanomeline Low Dose",
+              "column": "elements",
+              "outcome": "missing",
+              "gold": "EL3",
+              "generated": ""
+            },
+            {
+              "row": "Xanomeline Low Dose",
+              "column": "arm",
+              "outcome": "missing",
+              "gold": "Xanomeline Low Dose",
+              "generated": ""
+            },
+            {
+              "row": "Xanomeline Low Dose",
+              "column": "epoch",
+              "outcome": "missing",
+              "gold": "Treatment 3",
+              "generated": ""
+            },
+            {
+              "row": "Xanomeline Low Dose",
+              "column": "elements",
+              "outcome": "missing",
+              "gold": "EL3",
+              "generated": ""
+            },
+            {
+              "row": "Xanomeline High Dose",
+              "column": "arm",
+              "outcome": "missing",
+              "gold": "Xanomeline High Dose",
+              "generated": ""
+            },
+            {
+              "row": "Xanomeline High Dose",
+              "column": "epoch",
+              "outcome": "missing",
+              "gold": "Treatment 1",
+              "generated": ""
+            },
+            {
+              "row": "Xanomeline High Dose",
+              "column": "elements",
+              "outcome": "missing",
+              "gold": "EL4",
+              "generated": ""
+            },
+            {
+              "row": "Xanomeline High Dose",
+              "column": "arm",
+              "outcome": "missing",
+              "gold": "Xanomeline High Dose",
+              "generated": ""
+            },
+            {
+              "row": "Xanomeline High Dose",
+              "column": "epoch",
+              "outcome": "missing",
+              "gold": "Treatment 3",
+              "generated": ""
+            },
+            {
+              "row": "Xanomeline High Dose",
+              "column": "elements",
+              "outcome": "missing",
+              "gold": "EL6",
+              "generated": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "studyDesignPopulations",
+      "key": "populations",
+      "tally": {
+        "gold": 7.0,
+        "generated": 6.0,
+        "matched": 4.0,
+        "slots": 8.0,
+        "precision": 0.6667,
+        "recall": 0.5714,
+        "f1": 0.6154,
+        "accuracy": 0.5
+      },
+      "identifiers": {
+        "gold": 1.0,
+        "generated": 1.0,
+        "matched": 1.0,
+        "slots": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 1,
+          "generated_rows": 1,
+          "aligned_rows": 1,
+          "tally": {
+            "gold": 7.0,
+            "generated": 6.0,
+            "matched": 4.0,
+            "slots": 8.0,
+            "precision": 0.6667,
+            "recall": 0.5714,
+            "f1": 0.6154,
+            "accuracy": 0.5
+          },
+          "identifiers": {
+            "gold": 1.0,
+            "generated": 1.0,
+            "matched": 1.0,
+            "slots": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "accuracy": 1.0
+          },
+          "columns": [
+            {
+              "header": "level",
+              "tier": "value",
+              "tally": {
+                "gold": 1.0,
+                "generated": 1.0,
+                "matched": 1.0,
+                "slots": 1.0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "accuracy": 1.0
+              }
+            },
+            {
+              "header": "name",
+              "tier": "identifier",
+              "tally": {
+                "gold": 1.0,
+                "generated": 1.0,
+                "matched": 1.0,
+                "slots": 1.0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "accuracy": 1.0
+              }
+            },
+            {
+              "header": "description",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 1.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "label",
+              "tier": "text",
+              "tally": {
+                "gold": 0.0,
+                "generated": 1.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": 0.0,
+                "recall": null,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "plannedCompletionNumber",
+              "tier": "value",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "plannedEnrollmentNumber",
+              "tier": "value",
+              "tally": {
+                "gold": 1.0,
+                "generated": 1.0,
+                "matched": 1.0,
+                "slots": 1.0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "accuracy": 1.0
+              }
+            },
+            {
+              "header": "plannedAge",
+              "tier": "value",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "plannedSexOfParticipants",
+              "tier": "code",
+              "tally": {
+                "gold": 1.0,
+                "generated": 1.0,
+                "matched": 1.0,
+                "slots": 1.0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "accuracy": 1.0
+              }
+            },
+            {
+              "header": "includesHealthySubjects",
+              "tier": "value",
+              "tally": {
+                "gold": 1.0,
+                "generated": 1.0,
+                "matched": 1.0,
+                "slots": 1.0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "accuracy": 1.0
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "POP1",
+              "column": "description",
+              "outcome": "mismatch",
+              "gold": "Patients with Probable Mild to Moderate Alzheimer's Disease",
+              "generated": "Males and postmenopausal females at least 50 years of age with a diagnosis of probable mild to moderate Alzheimer's disease."
+            },
+            {
+              "row": "POP1",
+              "column": "label",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Patients with probable mild to moderate AD"
+            },
+            {
+              "row": "POP1",
+              "column": "plannedCompletionNumber",
+              "outcome": "missing",
+              "gold": "300",
+              "generated": ""
+            },
+            {
+              "row": "POP1",
+              "column": "plannedAge",
+              "outcome": "missing",
+              "gold": "50..100 years",
+              "generated": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "studyDesignEligibilityCriteria",
+      "key": "eligibility_criteria",
+      "tally": {
+        "gold": 124.0,
+        "generated": 124.0,
+        "matched": 93.0,
+        "slots": 124.0,
+        "precision": 0.75,
+        "recall": 0.75,
+        "f1": 0.75,
+        "accuracy": 0.75
+      },
+      "identifiers": {
+        "gold": 31.0,
+        "generated": 31.0,
+        "matched": 31.0,
+        "slots": 31.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 31,
+          "generated_rows": 31,
+          "aligned_rows": 31,
+          "tally": {
+            "gold": 124.0,
+            "generated": 124.0,
+            "matched": 93.0,
+            "slots": 124.0,
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75,
+            "accuracy": 0.75
+          },
+          "identifiers": {
+            "gold": 31.0,
+            "generated": 31.0,
+            "matched": 31.0,
+            "slots": 31.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "accuracy": 1.0
+          },
+          "columns": [
+            {
+              "header": "category",
+              "tier": "code",
+              "tally": {
+                "gold": 31.0,
+                "generated": 31.0,
+                "matched": 31.0,
+                "slots": 31.0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "accuracy": 1.0
+              }
+            },
+            {
+              "header": "identifier",
+              "tier": "text",
+              "tally": {
+                "gold": 31.0,
+                "generated": 31.0,
+                "matched": 31.0,
+                "slots": 31.0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "accuracy": 1.0
+              }
+            },
+            {
+              "header": "name",
+              "tier": "identifier",
+              "tally": {
+                "gold": 31.0,
+                "generated": 31.0,
+                "matched": 31.0,
+                "slots": 31.0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "accuracy": 1.0
+              }
+            },
+            {
+              "header": "description",
+              "tier": "text",
+              "tally": {
+                "gold": 0.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 0.0,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null
+              }
+            },
+            {
+              "header": "label",
+              "tier": "text",
+              "tally": {
+                "gold": 31.0,
+                "generated": 31.0,
+                "matched": 1.0,
+                "slots": 31.0,
+                "precision": 0.0323,
+                "recall": 0.0323,
+                "f1": 0.0323,
+                "accuracy": 0.0323
+              }
+            },
+            {
+              "header": "text",
+              "tier": "text",
+              "tally": {
+                "gold": 31.0,
+                "generated": 31.0,
+                "matched": 30.0,
+                "slots": 31.0,
+                "precision": 0.9677,
+                "recall": 0.9677,
+                "f1": 0.9677,
+                "accuracy": 0.9677
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "IN01",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Age greater than 50",
+              "generated": "Age and sex criteria"
+            },
+            {
+              "row": "IN02",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Diagnosis of Alzheimer's",
+              "generated": "Probable AD diagnosis (NINCDS/ADRDA)"
+            },
+            {
+              "row": "IN03",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "MMSE Score",
+              "generated": "MMSE score 10 to 23"
+            },
+            {
+              "row": "IN04",
+              "column": "text",
+              "outcome": "mismatch",
+              "gold": "<p><usdm:tag name=\"Activity2\"/>  score of ≤4 (Attachment LZZT.8).</p>",
+              "generated": "<p>Hachinski Ischemic Scale score of ≤ 4 (Attachment LZZT.8).</p>"
+            },
+            {
+              "row": "IN05",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "CNS imaging comptaible with Alzheimer's",
+              "generated": "CNS imaging compatible with AD"
+            },
+            {
+              "row": "IN06",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Informed consent criteria",
+              "generated": "Informed consent obtained"
+            },
+            {
+              "row": "IN07",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Geographic proximity criteria",
+              "generated": "Geographic proximity to site"
+            },
+            {
+              "row": "IN08",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Reliable caregiver criteria",
+              "generated": "Reliable caregiver requirement"
+            },
+            {
+              "row": "EX01",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Previous study criteria",
+              "generated": "Prior study participation with xanomeline"
+            },
+            {
+              "row": "EX02",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Other Alzheimer's therapy criteria",
+              "generated": "Recent investigational or AD therapeutic use"
+            },
+            {
+              "row": "EX03",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Serious illness criteria",
+              "generated": "Recent serious illness requiring hospitalization"
+            },
+            {
+              "row": "EX04",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Serious neurolocal conditions criteria",
+              "generated": "Serious neurological conditions"
+            },
+            {
+              "row": "EX05",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Depression criteria",
+              "generated": "Recent depressive episode (DSM-IV)"
+            },
+            {
+              "row": "EX06",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Schizophrenia, Bipolar, Ethanol or psychoactive abuse criteria",
+              "generated": "History of psychiatric/substance disorders"
+            },
+            {
+              "row": "EX07",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Syncope criteria",
+              "generated": "History of syncope"
+            },
+            {
+              "row": "EX08",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "ECG Criteria",
+              "generated": "ECG abnormalities at screening"
+            },
+            {
+              "row": "EX09",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Cardiovascular criteria",
+              "generated": "History of serious cardiovascular disorder"
+            },
+            {
+              "row": "EX10",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Gastrointensinal criteria",
+              "generated": "History of serious gastrointestinal disorder"
+            },
+            {
+              "row": "EX11",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Endocrine criteria",
+              "generated": "History of serious endocrine disorder"
+            },
+            {
+              "row": "EX12",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Resporatory criteria",
+              "generated": "History of serious respiratory disorder"
+            },
+            {
+              "row": "EX13",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Genitourinary criteria",
+              "generated": "History of serious genitourinary disorder"
+            },
+            {
+              "row": "EX14",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Rheumatologic criteria",
+              "generated": "History of serious rheumatologic disorder"
+            },
+            {
+              "row": "EX15",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "HIV criteria",
+              "generated": "History of HIV"
+            },
+            {
+              "row": "EX16",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Neurosyphilis, Meningitis,Encephalitis criteria",
+              "generated": "History of serious infectious disease"
+            },
+            {
+              "row": "EX17",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Malignant disease criteria",
+              "generated": "History of malignant disease"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "studyDesignOE",
+      "key": "objectives_endpoints",
+      "tally": {
+        "gold": 49.0,
+        "generated": 38.0,
+        "matched": 16.0,
+        "slots": 64.0,
+        "precision": 0.4211,
+        "recall": 0.3265,
+        "f1": 0.3678,
+        "accuracy": 0.25
+      },
+      "identifiers": {
+        "gold": 17.0,
+        "generated": 10.0,
+        "matched": 7.0,
+        "slots": 20.0,
+        "precision": 0.7,
+        "recall": 0.4118,
+        "f1": 0.5185,
+        "accuracy": 0.35
+      },
+      "units": [
+        {
+          "unit": "objective",
+          "gold_rows": 6,
+          "generated_rows": 6,
+          "aligned_rows": 6,
+          "tally": {
+            "gold": 15.0,
+            "generated": 18.0,
+            "matched": 8.0,
+            "slots": 22.0,
+            "precision": 0.4444,
+            "recall": 0.5333,
+            "f1": 0.4848,
+            "accuracy": 0.3636
+          },
+          "identifiers": {
+            "gold": 6.0,
+            "generated": 6.0,
+            "matched": 6.0,
+            "slots": 6.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "accuracy": 1.0
+          },
+          "columns": [
+            {
+              "header": "objectiveName",
+              "tier": "identifier",
+              "tally": {
+                "gold": 6.0,
+                "generated": 6.0,
+                "matched": 6.0,
+                "slots": 6.0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "accuracy": 1.0
+              }
+            },
+            {
+              "header": "objectiveDescription",
+              "tier": "text",
+              "tally": {
+                "gold": 3.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 3.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "objectiveLabel",
+              "tier": "text",
+              "tally": {
+                "gold": 0.0,
+                "generated": 6.0,
+                "matched": 0.0,
+                "slots": 6.0,
+                "precision": 0.0,
+                "recall": null,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "objectiveText",
+              "tier": "text",
+              "tally": {
+                "gold": 6.0,
+                "generated": 6.0,
+                "matched": 3.0,
+                "slots": 6.0,
+                "precision": 0.5,
+                "recall": 0.5,
+                "f1": 0.5,
+                "accuracy": 0.5
+              }
+            },
+            {
+              "header": "objectiveLevel",
+              "tier": "code",
+              "tally": {
+                "gold": 6.0,
+                "generated": 6.0,
+                "matched": 5.0,
+                "slots": 7.0,
+                "precision": 0.8333,
+                "recall": 0.8333,
+                "f1": 0.8333,
+                "accuracy": 0.7143
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "OBJ1",
+              "column": "objectiveDescription",
+              "outcome": "missing",
+              "gold": "Main objective",
+              "generated": ""
+            },
+            {
+              "row": "OBJ1",
+              "column": "objectiveLabel",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "ADAS-Cog/CIBIC+ dose relationship"
+            },
+            {
+              "row": "OBJ2",
+              "column": "objectiveDescription",
+              "outcome": "missing",
+              "gold": "Safety",
+              "generated": ""
+            },
+            {
+              "row": "OBJ2",
+              "column": "objectiveLabel",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Safety profile"
+            },
+            {
+              "row": "OBJ3",
+              "column": "objectiveDescription",
+              "outcome": "missing",
+              "gold": "Behaviour",
+              "generated": ""
+            },
+            {
+              "row": "OBJ3",
+              "column": "objectiveLabel",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Behavior improvement"
+            },
+            {
+              "row": "OBJ3",
+              "column": "objectiveText",
+              "outcome": "mismatch",
+              "gold": "To assess the dose-dependent improvement in behavior. Improved scores on the Revised Neuropsychiatric Inventory (NPI-X) will indicate improvement in these\nareas.",
+              "generated": "To assess the dose-dependent improvement in behavior."
+            },
+            {
+              "row": "OBJ4",
+              "column": "objectiveLabel",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Activities of daily living"
+            },
+            {
+              "row": "OBJ4",
+              "column": "objectiveText",
+              "outcome": "mismatch",
+              "gold": "To assess the dose-dependent improvements in activities of daily living. Improved scores on the Disability Assessment for Dementia (DAD) will indicate improvement in these areas (see Attachment LZZT.5).",
+              "generated": "To assess the dose-dependent improvements in activities of daily living."
+            },
+            {
+              "row": "OBJ5",
+              "column": "objectiveLabel",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Extended cognition assessment"
+            },
+            {
+              "row": "OBJ5",
+              "column": "objectiveText",
+              "outcome": "mismatch",
+              "gold": "To assess the dose-dependent improvements in an extended assessment of cognition that integrates attention/concentration tasks. The Alzheimer's Disease Assessment Scale-14 item Cognitive Subscale, hereafter referred to as ADAS-Cog (14), will be used for this assessment (see Attachment LZZT.2).",
+              "generated": "To assess the dose-dependent improvements in an extended assessment of cognition that integrates attention/concentration tasks."
+            },
+            {
+              "row": "OBJ6",
+              "column": "objectiveLabel",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Apo E genotype response"
+            },
+            {
+              "row": "OBJ6",
+              "column": "objectiveLevel",
+              "outcome": "mismatch",
+              "gold": "Trial Secondary Objective",
+              "generated": "Trial Exploratory Objective"
+            }
+          ]
+        },
+        {
+          "unit": "endpoint",
+          "gold_rows": 11,
+          "generated_rows": 4,
+          "aligned_rows": 4,
+          "tally": {
+            "gold": 34.0,
+            "generated": 20.0,
+            "matched": 8.0,
+            "slots": 42.0,
+            "precision": 0.4,
+            "recall": 0.2353,
+            "f1": 0.2963,
+            "accuracy": 0.1905
+          },
+          "identifiers": {
+            "gold": 11.0,
+            "generated": 4.0,
+            "matched": 1.0,
+            "slots": 14.0,
+            "precision": 0.25,
+            "recall": 0.0909,
+            "f1": 0.1333,
+            "accuracy": 0.0714
+          },
+          "columns": [
+            {
+              "header": "endpointName",
+              "tier": "identifier",
+              "tally": {
+                "gold": 11.0,
+                "generated": 4.0,
+                "matched": 1.0,
+                "slots": 14.0,
+                "precision": 0.25,
+                "recall": 0.0909,
+                "f1": 0.1333,
+                "accuracy": 0.0714
+              }
+            },
+            {
+              "header": "endpointDescription",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "endpointLabel",
+              "tier": "text",
+              "tally": {
+                "gold": 0.0,
+                "generated": 4.0,
+                "matched": 0.0,
+                "slots": 4.0,
+                "precision": 0.0,
+                "recall": null,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "endpointText",
+              "tier": "text",
+              "tally": {
+                "gold": 11.0,
+                "generated": 4.0,
+                "matched": 0.0,
+                "slots": 11.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "endpointPurpose",
+              "tier": "text",
+              "tally": {
+                "gold": 0.0,
+                "generated": 4.0,
+                "matched": 0.0,
+                "slots": 4.0,
+                "precision": 0.0,
+                "recall": null,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "endpointLevel",
+              "tier": "code",
+              "tally": {
+                "gold": 11.0,
+                "generated": 4.0,
+                "matched": 4.0,
+                "slots": 11.0,
+                "precision": 1.0,
+                "recall": 0.3636,
+                "f1": 0.5333,
+                "accuracy": 0.3636
+              }
+            },
+            {
+              "header": "(parent)",
+              "tier": "reference",
+              "tally": {
+                "gold": 11.0,
+                "generated": 4.0,
+                "matched": 4.0,
+                "slots": 11.0,
+                "precision": 1.0,
+                "recall": 0.3636,
+                "f1": 0.5333,
+                "accuracy": 0.3636
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "END1",
+              "column": "endpointLabel",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "ADAS-Cog and CIBIC+ change"
+            },
+            {
+              "row": "END1",
+              "column": "endpointText",
+              "outcome": "mismatch",
+              "gold": "Alzheimer's Disease Assessment Scale - Cognitive Subscale, total of 11 items [ADAS-Cog (11)] at Week 24",
+              "generated": "the change in both ADAS-Cog (see Attachment LZZT.2) and CIBIC+ (see Attachment LZZT.3) scores"
+            },
+            {
+              "row": "END1",
+              "column": "endpointPurpose",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Efficacy"
+            },
+            {
+              "row": "END8",
+              "column": "endpointLabel",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "NPI-X score improvement"
+            },
+            {
+              "row": "END8",
+              "column": "endpointText",
+              "outcome": "mismatch",
+              "gold": "Mean Revised Neuropsychiatric Inventory (NPI-X) from Week 4 to Week 24",
+              "generated": "Improved scores on the Revised Neuropsychiatric Inventory (NPI-X) will indicate improvement in these areas (see Attachment LZZT.4)."
+            },
+            {
+              "row": "END8",
+              "column": "endpointPurpose",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Efficacy"
+            },
+            {
+              "row": "END9",
+              "column": "endpointLabel",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "DAD score improvement"
+            },
+            {
+              "row": "END9",
+              "column": "endpointText",
+              "outcome": "mismatch",
+              "gold": "*** To be determined from protocol ***",
+              "generated": "Improved scores on the Disability Assessment for Dementia (DAD) will indicate improvement in these areas (see Attachment LZZT.5)."
+            },
+            {
+              "row": "END9",
+              "column": "endpointPurpose",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Efficacy"
+            },
+            {
+              "row": "END10",
+              "column": "endpointLabel",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "ADAS-Cog (14) assessment"
+            },
+            {
+              "row": "END10",
+              "column": "endpointText",
+              "outcome": "mismatch",
+              "gold": "*** To be determined from protocol ***",
+              "generated": "The Alzheimer’s Disease Assessment Scale-14 item Cognitive Subscale, hereafter referred to as ADAS-Cog (14), will be used for this assessment (see Attachment LZZT.2)."
+            },
+            {
+              "row": "END10",
+              "column": "endpointPurpose",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Efficacy"
+            },
+            {
+              "row": "END2",
+              "column": "endpointText",
+              "outcome": "missing",
+              "gold": "Video-referenced Clinician’s Interview-based Impression of Change (CIBIC+) at Week 24",
+              "generated": ""
+            },
+            {
+              "row": "END2",
+              "column": "endpointLevel",
+              "outcome": "missing",
+              "gold": "Primary Endpoint",
+              "generated": ""
+            },
+            {
+              "row": "END2",
+              "column": "(parent)",
+              "outcome": "missing",
+              "gold": "OBJ1",
+              "generated": ""
+            },
+            {
+              "row": "END3",
+              "column": "endpointText",
+              "outcome": "missing",
+              "gold": "Adverse events",
+              "generated": ""
+            },
+            {
+              "row": "END3",
+              "column": "endpointLevel",
+              "outcome": "missing",
+              "gold": "Primary Endpoint",
+              "generated": ""
+            },
+            {
+              "row": "END3",
+              "column": "(parent)",
+              "outcome": "missing",
+              "gold": "OBJ2",
+              "generated": ""
+            },
+            {
+              "row": "END4",
+              "column": "endpointText",
+              "outcome": "missing",
+              "gold": "Vital signs (weight, standing and supine blood pressure, heart rate)",
+              "generated": ""
+            },
+            {
+              "row": "END4",
+              "column": "endpointLevel",
+              "outcome": "missing",
+              "gold": "Primary Endpoint",
+              "generated": ""
+            },
+            {
+              "row": "END4",
+              "column": "(parent)",
+              "outcome": "missing",
+              "gold": "OBJ2",
+              "generated": ""
+            },
+            {
+              "row": "END5",
+              "column": "endpointDescription",
+              "outcome": "missing",
+              "gold": "The change from baseline laboratory value will be  calculated as the difference between the baseline lab value and the endpoint value (i.e., the value at the specified visit) or the end of treatment observation",
+              "generated": ""
+            },
+            {
+              "row": "END5",
+              "column": "endpointText",
+              "outcome": "missing",
+              "gold": "Laboratory evaluations (Change from Baseline)",
+              "generated": ""
+            },
+            {
+              "row": "END5",
+              "column": "endpointLevel",
+              "outcome": "missing",
+              "gold": "Primary Endpoint",
+              "generated": ""
+            },
+            {
+              "row": "END5",
+              "column": "(parent)",
+              "outcome": "missing",
+              "gold": "OBJ2",
+              "generated": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "studyDesignEstimands",
+      "key": "estimands",
+      "tally": {
+        "gold": 9.0,
+        "generated": 0.0,
+        "matched": 0.0,
+        "slots": 9.0,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "accuracy": 0.0
+      },
+      "identifiers": {
+        "gold": 2.0,
+        "generated": 0.0,
+        "matched": 0.0,
+        "slots": 2.0,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "accuracy": 0.0
+      },
+      "units": [
+        {
+          "unit": "estimand",
+          "gold_rows": 1,
+          "generated_rows": 0,
+          "aligned_rows": 0,
+          "tally": {
+            "gold": 5.0,
+            "generated": 0.0,
+            "matched": 0.0,
+            "slots": 5.0,
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "accuracy": 0.0
+          },
+          "identifiers": {
+            "gold": 1.0,
+            "generated": 0.0,
+            "matched": 0.0,
+            "slots": 1.0,
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "accuracy": 0.0
+          },
+          "columns": [
+            {
+              "header": "xref",
+              "tier": "identifier",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "summaryMeasure",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "populationDescription",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "populationSubset",
+              "tier": "reference",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "treatmentXref",
+              "tier": "reference",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "endpointXref",
+              "tier": "reference",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "EST1",
+              "column": "summaryMeasure",
+              "outcome": "missing",
+              "gold": "Group mean changes from baseline in the primary efficacy parameters",
+              "generated": ""
+            },
+            {
+              "row": "EST1",
+              "column": "populationDescription",
+              "outcome": "missing",
+              "gold": "Patients with Mild to Moderate Alzheimer’s Disease.",
+              "generated": ""
+            },
+            {
+              "row": "EST1",
+              "column": "populationSubset",
+              "outcome": "missing",
+              "gold": "POP1",
+              "generated": ""
+            },
+            {
+              "row": "EST1",
+              "column": "treatmentXref",
+              "outcome": "missing",
+              "gold": "XINONILINE",
+              "generated": ""
+            },
+            {
+              "row": "EST1",
+              "column": "endpointXref",
+              "outcome": "missing",
+              "gold": "END1",
+              "generated": ""
+            }
+          ]
+        },
+        {
+          "unit": "row",
+          "gold_rows": 1,
+          "generated_rows": 0,
+          "aligned_rows": 0,
+          "tally": {
+            "gold": 4.0,
+            "generated": 0.0,
+            "matched": 0.0,
+            "slots": 4.0,
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "accuracy": 0.0
+          },
+          "identifiers": {
+            "gold": 1.0,
+            "generated": 0.0,
+            "matched": 0.0,
+            "slots": 1.0,
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "accuracy": 0.0
+          },
+          "columns": [
+            {
+              "header": "intercurrentEventName",
+              "tier": "identifier",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "intercurrentEventDescription",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "intercurrentEventStrategy",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "intercurrentEventText",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "(parent)",
+              "tier": "reference",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "DISTRUPTION",
+              "column": "intercurrentEventDescription",
+              "outcome": "missing",
+              "gold": "The disruption of treatment to the subject",
+              "generated": ""
+            },
+            {
+              "row": "DISTRUPTION",
+              "column": "intercurrentEventStrategy",
+              "outcome": "missing",
+              "gold": "Treatment Policy – Continue to measure effect of treatment assignment regardless of interruption.",
+              "generated": ""
+            },
+            {
+              "row": "DISTRUPTION",
+              "column": "intercurrentEventText",
+              "outcome": "missing",
+              "gold": "Temporary Treatment Interruption",
+              "generated": ""
+            },
+            {
+              "row": "DISTRUPTION",
+              "column": "(parent)",
+              "outcome": "missing",
+              "gold": "EST1",
+              "generated": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "studyInterventions",
+      "key": "interventions",
+      "tally": {
+        "gold": 25.0,
+        "generated": 41.0,
+        "matched": 6.0,
+        "slots": 55.0,
+        "precision": 0.1463,
+        "recall": 0.24,
+        "f1": 0.1818,
+        "accuracy": 0.1091
+      },
+      "identifiers": {
+        "gold": 3.0,
+        "generated": 6.0,
+        "matched": 0.0,
+        "slots": 9.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null,
+        "accuracy": 0.0
+      },
+      "units": [
+        {
+          "unit": "intervention",
+          "gold_rows": 1,
+          "generated_rows": 2,
+          "aligned_rows": 1,
+          "tally": {
+            "gold": 5.0,
+            "generated": 8.0,
+            "matched": 2.0,
+            "slots": 9.0,
+            "precision": 0.25,
+            "recall": 0.4,
+            "f1": 0.3077,
+            "accuracy": 0.2222
+          },
+          "identifiers": {
+            "gold": 1.0,
+            "generated": 2.0,
+            "matched": 0.0,
+            "slots": 3.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": null,
+            "accuracy": 0.0
+          },
+          "columns": [
+            {
+              "header": "name",
+              "tier": "identifier",
+              "tally": {
+                "gold": 1.0,
+                "generated": 2.0,
+                "matched": 0.0,
+                "slots": 3.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "description",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 2.0,
+                "matched": 0.0,
+                "slots": 2.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "label",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 2.0,
+                "matched": 0.0,
+                "slots": 2.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "role",
+              "tier": "code",
+              "tally": {
+                "gold": 1.0,
+                "generated": 2.0,
+                "matched": 1.0,
+                "slots": 2.0,
+                "precision": 0.5,
+                "recall": 1.0,
+                "f1": 0.6667,
+                "accuracy": 0.5
+              }
+            },
+            {
+              "header": "type",
+              "tier": "code",
+              "tally": {
+                "gold": 1.0,
+                "generated": 2.0,
+                "matched": 1.0,
+                "slots": 2.0,
+                "precision": 0.5,
+                "recall": 1.0,
+                "f1": 0.6667,
+                "accuracy": 0.5
+              }
+            },
+            {
+              "header": "minimumResponseDuration",
+              "tier": "value",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "XINONILINE",
+              "column": "description",
+              "outcome": "mismatch",
+              "gold": "Xinomiline",
+              "generated": "Xanomeline transdermal therapeutic system (TTS) adhesive patches, 50 cm² (54 mg) and 25 cm² (27 mg), applied together"
+            },
+            {
+              "row": "XINONILINE",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Xinomiline",
+              "generated": "Xanomeline TTS"
+            },
+            {
+              "row": "XINONILINE",
+              "column": "minimumResponseDuration",
+              "outcome": "missing",
+              "gold": "1 Day",
+              "generated": ""
+            },
+            {
+              "row": "Placebo TTS",
+              "column": "description",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Placebo transdermal therapeutic system patches identical in appearance to xanomeline TTS"
+            },
+            {
+              "row": "Placebo TTS",
+              "column": "label",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Placebo TTS"
+            },
+            {
+              "row": "Placebo TTS",
+              "column": "role",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Placebo"
+            },
+            {
+              "row": "Placebo TTS",
+              "column": "type",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Pharmacologic Substance"
+            }
+          ]
+        },
+        {
+          "unit": "administration",
+          "gold_rows": 2,
+          "generated_rows": 4,
+          "aligned_rows": 1,
+          "tally": {
+            "gold": 20.0,
+            "generated": 33.0,
+            "matched": 4.0,
+            "slots": 46.0,
+            "precision": 0.1212,
+            "recall": 0.2,
+            "f1": 0.1509,
+            "accuracy": 0.087
+          },
+          "identifiers": {
+            "gold": 2.0,
+            "generated": 4.0,
+            "matched": 0.0,
+            "slots": 6.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": null,
+            "accuracy": 0.0
+          },
+          "columns": [
+            {
+              "header": "administrationName",
+              "tier": "identifier",
+              "tally": {
+                "gold": 2.0,
+                "generated": 4.0,
+                "matched": 0.0,
+                "slots": 6.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "administrationDescription",
+              "tier": "text",
+              "tally": {
+                "gold": 2.0,
+                "generated": 4.0,
+                "matched": 0.0,
+                "slots": 5.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "administrationLabel",
+              "tier": "text",
+              "tally": {
+                "gold": 2.0,
+                "generated": 4.0,
+                "matched": 0.0,
+                "slots": 5.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "administrationRoute",
+              "tier": "code",
+              "tally": {
+                "gold": 2.0,
+                "generated": 4.0,
+                "matched": 0.0,
+                "slots": 6.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "administrationDose",
+              "tier": "value",
+              "tally": {
+                "gold": 2.0,
+                "generated": 2.0,
+                "matched": 1.0,
+                "slots": 3.0,
+                "precision": 0.5,
+                "recall": 0.5,
+                "f1": 0.5,
+                "accuracy": 0.3333
+              }
+            },
+            {
+              "header": "administrationFrequency",
+              "tier": "code",
+              "tally": {
+                "gold": 2.0,
+                "generated": 4.0,
+                "matched": 1.0,
+                "slots": 5.0,
+                "precision": 0.25,
+                "recall": 0.5,
+                "f1": 0.3333,
+                "accuracy": 0.2
+              }
+            },
+            {
+              "header": "administrationDurationDescription",
+              "tier": "text",
+              "tally": {
+                "gold": 2.0,
+                "generated": 4.0,
+                "matched": 0.0,
+                "slots": 5.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "administrationDurationWillVary",
+              "tier": "value",
+              "tally": {
+                "gold": 2.0,
+                "generated": 4.0,
+                "matched": 1.0,
+                "slots": 5.0,
+                "precision": 0.25,
+                "recall": 0.5,
+                "f1": 0.3333,
+                "accuracy": 0.2
+              }
+            },
+            {
+              "header": "administrationDurationWillVaryReason",
+              "tier": "text",
+              "tally": {
+                "gold": 2.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 2.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "administrationDurationQuantity",
+              "tier": "value",
+              "tally": {
+                "gold": 2.0,
+                "generated": 3.0,
+                "matched": 0.0,
+                "slots": 5.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "(parent)",
+              "tier": "reference",
+              "tally": {
+                "gold": 2.0,
+                "generated": 4.0,
+                "matched": 1.0,
+                "slots": 5.0,
+                "precision": 0.25,
+                "recall": 0.5,
+                "f1": 0.3333,
+                "accuracy": 0.2
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "PATCH_50",
+              "column": "administrationDescription",
+              "outcome": "mismatch",
+              "gold": "50 cm2 Patch",
+              "generated": "One 50 cm² xanomeline TTS patch delivering 54 mg xanomeline, applied transdermally each morning"
+            },
+            {
+              "row": "PATCH_50",
+              "column": "administrationLabel",
+              "outcome": "mismatch",
+              "gold": "54mg",
+              "generated": "Xanomeline TTS 54 mg patch (50 cm²)"
+            },
+            {
+              "row": "PATCH_50",
+              "column": "administrationRoute",
+              "outcome": "mismatch",
+              "gold": "ORAL",
+              "generated": "Transdermal Route of Administration"
+            },
+            {
+              "row": "PATCH_50",
+              "column": "administrationDurationDescription",
+              "outcome": "mismatch",
+              "gold": "24 weeks",
+              "generated": "26 weeks of transdermal therapy"
+            },
+            {
+              "row": "PATCH_50",
+              "column": "administrationDurationWillVaryReason",
+              "outcome": "missing",
+              "gold": "Need reason",
+              "generated": ""
+            },
+            {
+              "row": "PATCH_50",
+              "column": "administrationDurationQuantity",
+              "outcome": "mismatch",
+              "gold": "24 weeks",
+              "generated": "26 WEEKS"
+            },
+            {
+              "row": "PATCH_75",
+              "column": "administrationDescription",
+              "outcome": "missing",
+              "gold": "75 cm2 Patch",
+              "generated": ""
+            },
+            {
+              "row": "PATCH_75",
+              "column": "administrationLabel",
+              "outcome": "missing",
+              "gold": "81mg",
+              "generated": ""
+            },
+            {
+              "row": "PATCH_75",
+              "column": "administrationRoute",
+              "outcome": "missing",
+              "gold": "ORAL",
+              "generated": ""
+            },
+            {
+              "row": "PATCH_75",
+              "column": "administrationDose",
+              "outcome": "missing",
+              "gold": "81mg",
+              "generated": ""
+            },
+            {
+              "row": "PATCH_75",
+              "column": "administrationFrequency",
+              "outcome": "missing",
+              "gold": "QD",
+              "generated": ""
+            },
+            {
+              "row": "PATCH_75",
+              "column": "administrationDurationDescription",
+              "outcome": "missing",
+              "gold": "24 weeks",
+              "generated": ""
+            },
+            {
+              "row": "PATCH_75",
+              "column": "administrationDurationWillVary",
+              "outcome": "missing",
+              "gold": "N",
+              "generated": ""
+            },
+            {
+              "row": "PATCH_75",
+              "column": "administrationDurationWillVaryReason",
+              "outcome": "missing",
+              "gold": "Need reason",
+              "generated": ""
+            },
+            {
+              "row": "PATCH_75",
+              "column": "administrationDurationQuantity",
+              "outcome": "missing",
+              "gold": "24 weeks",
+              "generated": ""
+            },
+            {
+              "row": "PATCH_75",
+              "column": "(parent)",
+              "outcome": "missing",
+              "gold": "XINONILINE",
+              "generated": ""
+            },
+            {
+              "row": "Xanomeline TTS 27 mg patch (25 cm²)",
+              "column": "administrationDescription",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "One 25 cm² xanomeline TTS patch delivering 27 mg xanomeline, applied transdermally each morning"
+            },
+            {
+              "row": "Xanomeline TTS 27 mg patch (25 cm²)",
+              "column": "administrationLabel",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Xanomeline TTS 27 mg patch (25 cm²)"
+            },
+            {
+              "row": "Xanomeline TTS 27 mg patch (25 cm²)",
+              "column": "administrationRoute",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Transdermal Route of Administration"
+            },
+            {
+              "row": "Xanomeline TTS 27 mg patch (25 cm²)",
+              "column": "administrationDose",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "27 mg"
+            },
+            {
+              "row": "Xanomeline TTS 27 mg patch (25 cm²)",
+              "column": "administrationFrequency",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Daily"
+            },
+            {
+              "row": "Xanomeline TTS 27 mg patch (25 cm²)",
+              "column": "administrationDurationDescription",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "26 weeks of transdermal therapy"
+            },
+            {
+              "row": "Xanomeline TTS 27 mg patch (25 cm²)",
+              "column": "administrationDurationWillVary",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "N"
+            },
+            {
+              "row": "Xanomeline TTS 27 mg patch (25 cm²)",
+              "column": "administrationDurationQuantity",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "26 WEEKS"
+            },
+            {
+              "row": "Xanomeline TTS 27 mg patch (25 cm²)",
+              "column": "(parent)",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Xanomeline TTS"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "studyDesignIndications",
+      "key": "indications",
+      "tally": {
+        "gold": 4.0,
+        "generated": 3.0,
+        "matched": 0.0,
+        "slots": 5.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null,
+        "accuracy": 0.0
+      },
+      "identifiers": {
+        "gold": 2.0,
+        "generated": 1.0,
+        "matched": 1.0,
+        "slots": 2.0,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6667,
+        "accuracy": 0.5
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 2,
+          "generated_rows": 1,
+          "aligned_rows": 1,
+          "tally": {
+            "gold": 4.0,
+            "generated": 3.0,
+            "matched": 0.0,
+            "slots": 5.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": null,
+            "accuracy": 0.0
+          },
+          "identifiers": {
+            "gold": 2.0,
+            "generated": 1.0,
+            "matched": 1.0,
+            "slots": 2.0,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6667,
+            "accuracy": 0.5
+          },
+          "columns": [
+            {
+              "header": "name",
+              "tier": "identifier",
+              "tally": {
+                "gold": 2.0,
+                "generated": 1.0,
+                "matched": 1.0,
+                "slots": 2.0,
+                "precision": 1.0,
+                "recall": 0.5,
+                "f1": 0.6667,
+                "accuracy": 0.5
+              }
+            },
+            {
+              "header": "description",
+              "tier": "text",
+              "tally": {
+                "gold": 2.0,
+                "generated": 1.0,
+                "matched": 0.0,
+                "slots": 2.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "label",
+              "tier": "text",
+              "tally": {
+                "gold": 2.0,
+                "generated": 1.0,
+                "matched": 0.0,
+                "slots": 2.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "isRareDisease",
+              "tier": "value",
+              "tally": {
+                "gold": 0.0,
+                "generated": 1.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": 0.0,
+                "recall": null,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "IND1",
+              "column": "description",
+              "outcome": "mismatch",
+              "gold": "Alzheimer's disease",
+              "generated": "Probable mild to moderate Alzheimer's disease as defined by NINCDS/ADRDA guidelines, with MMSE score of 10 to 23"
+            },
+            {
+              "row": "IND1",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Alzheimer's disease",
+              "generated": "Mild to Moderate Alzheimer's Disease"
+            },
+            {
+              "row": "IND1",
+              "column": "isRareDisease",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "N"
+            },
+            {
+              "row": "IND2",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Alzheimer's disease",
+              "generated": ""
+            },
+            {
+              "row": "IND2",
+              "column": "label",
+              "outcome": "missing",
+              "gold": "Alzheimer's disease",
+              "generated": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "studyAmendments",
+      "key": "amendments",
+      "tally": {
+        "gold": 9.0,
+        "generated": 0.0,
+        "matched": 0.0,
+        "slots": 9.0,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "accuracy": 0.0
+      },
+      "identifiers": {
+        "gold": 1.0,
+        "generated": 0.0,
+        "matched": 0.0,
+        "slots": 1.0,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "accuracy": 0.0
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 1,
+          "generated_rows": 0,
+          "aligned_rows": 0,
+          "tally": {
+            "gold": 9.0,
+            "generated": 0.0,
+            "matched": 0.0,
+            "slots": 9.0,
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "accuracy": 0.0
+          },
+          "identifiers": {
+            "gold": 1.0,
+            "generated": 0.0,
+            "matched": 0.0,
+            "slots": 1.0,
+            "precision": null,
+            "recall": 0.0,
+            "f1": null,
+            "accuracy": 0.0
+          },
+          "columns": [
+            {
+              "header": "name",
+              "tier": "identifier",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "description",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "label",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "number",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "summary",
+              "tier": "text",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "primaryReason",
+              "tier": "code",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "secondaryReasons",
+              "tier": "code",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "geographicScope",
+              "tier": "value",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "enrollment",
+              "tier": "value",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "date",
+              "tier": "reference",
+              "tally": {
+                "gold": 1.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "AMEND_1",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "The first amendment",
+              "generated": ""
+            },
+            {
+              "row": "AMEND_1",
+              "column": "label",
+              "outcome": "missing",
+              "gold": "Amendment 1",
+              "generated": ""
+            },
+            {
+              "row": "AMEND_1",
+              "column": "number",
+              "outcome": "missing",
+              "gold": "1",
+              "generated": ""
+            },
+            {
+              "row": "AMEND_1",
+              "column": "summary",
+              "outcome": "missing",
+              "gold": "Updated inclusion criteria",
+              "generated": ""
+            },
+            {
+              "row": "AMEND_1",
+              "column": "primaryReason",
+              "outcome": "missing",
+              "gold": "IRB/IEC Feedback",
+              "generated": ""
+            },
+            {
+              "row": "AMEND_1",
+              "column": "secondaryReasons",
+              "outcome": "missing",
+              "gold": "Other=Fix typographical errors",
+              "generated": ""
+            },
+            {
+              "row": "AMEND_1",
+              "column": "geographicScope",
+              "outcome": "missing",
+              "gold": "Global",
+              "generated": ""
+            },
+            {
+              "row": "AMEND_1",
+              "column": "enrollment",
+              "outcome": "missing",
+              "gold": "Region: Europe=15",
+              "generated": ""
+            },
+            {
+              "row": "AMEND_1",
+              "column": "date",
+              "outcome": "missing",
+              "gold": "AMEND_DATE_1",
+              "generated": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "studyDesignEncounters",
+      "key": "encounters",
+      "tally": {
+        "gold": 80.0,
+        "generated": 67.0,
+        "matched": 45.0,
+        "slots": 90.0,
+        "precision": 0.6716,
+        "recall": 0.5625,
+        "f1": 0.6122,
+        "accuracy": 0.5
+      },
+      "identifiers": {
+        "gold": 12.0,
+        "generated": 14.0,
+        "matched": 0.0,
+        "slots": 26.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null,
+        "accuracy": 0.0
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 12,
+          "generated_rows": 14,
+          "aligned_rows": 12,
+          "tally": {
+            "gold": 80.0,
+            "generated": 67.0,
+            "matched": 45.0,
+            "slots": 90.0,
+            "precision": 0.6716,
+            "recall": 0.5625,
+            "f1": 0.6122,
+            "accuracy": 0.5
+          },
+          "identifiers": {
+            "gold": 12.0,
+            "generated": 14.0,
+            "matched": 0.0,
+            "slots": 26.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": null,
+            "accuracy": 0.0
+          },
+          "columns": [
+            {
+              "header": "name",
+              "tier": "identifier",
+              "tally": {
+                "gold": 12.0,
+                "generated": 14.0,
+                "matched": 0.0,
+                "slots": 26.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "description",
+              "tier": "text",
+              "tally": {
+                "gold": 12.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 12.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "label",
+              "tier": "text",
+              "tally": {
+                "gold": 12.0,
+                "generated": 14.0,
+                "matched": 0.0,
+                "slots": 14.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "type",
+              "tier": "code",
+              "tally": {
+                "gold": 12.0,
+                "generated": 14.0,
+                "matched": 12.0,
+                "slots": 14.0,
+                "precision": 0.8571,
+                "recall": 1.0,
+                "f1": 0.9231,
+                "accuracy": 0.8571
+              }
+            },
+            {
+              "header": "environmentalSetting",
+              "tier": "code",
+              "tally": {
+                "gold": 12.0,
+                "generated": 14.0,
+                "matched": 12.0,
+                "slots": 14.0,
+                "precision": 0.8571,
+                "recall": 1.0,
+                "f1": 0.9231,
+                "accuracy": 0.8571
+              }
+            },
+            {
+              "header": "contactModes",
+              "tier": "code",
+              "tally": {
+                "gold": 16.0,
+                "generated": 14.0,
+                "matched": 12.0,
+                "slots": 18.0,
+                "precision": 0.8571,
+                "recall": 0.75,
+                "f1": 0.8,
+                "accuracy": 0.6667
+              }
+            },
+            {
+              "header": "transitionStartRule",
+              "tier": "text",
+              "tally": {
+                "gold": 2.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 2.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "transitionEndRule",
+              "tier": "text",
+              "tally": {
+                "gold": 4.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 4.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "window",
+              "tier": "reference",
+              "tally": {
+                "gold": 10.0,
+                "generated": 11.0,
+                "matched": 9.0,
+                "slots": 12.0,
+                "precision": 0.8182,
+                "recall": 0.9,
+                "f1": 0.8572,
+                "accuracy": 0.75
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "E1",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Screening encounter",
+              "generated": ""
+            },
+            {
+              "row": "E1",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Screening 1",
+              "generated": "Visit 1 (Week -2)"
+            },
+            {
+              "row": "E1",
+              "column": "transitionStartRule",
+              "outcome": "missing",
+              "gold": "Subject identifier",
+              "generated": ""
+            },
+            {
+              "row": "E1",
+              "column": "transitionEndRule",
+              "outcome": "missing",
+              "gold": "completion of screening activities",
+              "generated": ""
+            },
+            {
+              "row": "E1",
+              "column": "window",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Visit 1 (Week -2) timing"
+            },
+            {
+              "row": "E2",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Screening encounter - Ambulatory ECG Placement",
+              "generated": ""
+            },
+            {
+              "row": "E2",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Screening 2",
+              "generated": "Visit 2 (Week -.3)"
+            },
+            {
+              "row": "E2",
+              "column": "transitionEndRule",
+              "outcome": "missing",
+              "gold": "subject leaves clinic after connection of ambulatory ECG machine",
+              "generated": ""
+            },
+            {
+              "row": "E2",
+              "column": "window",
+              "outcome": "missing",
+              "gold": "TIM2",
+              "generated": ""
+            },
+            {
+              "row": "E3",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Baseline encounter - Ambulatory ECG Removal",
+              "generated": ""
+            },
+            {
+              "row": "E3",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Baseline",
+              "generated": "Visit 3 (Week 0)"
+            },
+            {
+              "row": "E3",
+              "column": "transitionStartRule",
+              "outcome": "missing",
+              "gold": "subject has connection of ambulatory ECG machine removed",
+              "generated": ""
+            },
+            {
+              "row": "E3",
+              "column": "transitionEndRule",
+              "outcome": "missing",
+              "gold": "Radomized",
+              "generated": ""
+            },
+            {
+              "row": "E3",
+              "column": "window",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Visit 3 (Week 0) timing"
+            },
+            {
+              "row": "E4",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Day 14",
+              "generated": ""
+            },
+            {
+              "row": "E4",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 2",
+              "generated": "Visit 4 (Week 2)"
+            },
+            {
+              "row": "E5",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Day 28",
+              "generated": ""
+            },
+            {
+              "row": "E5",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 4",
+              "generated": "Visit 5 (Week 4)"
+            },
+            {
+              "row": "E7",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Day 42",
+              "generated": ""
+            },
+            {
+              "row": "E7",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 6",
+              "generated": "Visit 7 (Week 6)"
+            },
+            {
+              "row": "E8",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Day 56",
+              "generated": ""
+            },
+            {
+              "row": "E8",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 8",
+              "generated": "Visit 8 (Week 8)"
+            },
+            {
+              "row": "E8",
+              "column": "contactModes",
+              "outcome": "mismatch",
+              "gold": "In Person, Telephone Call",
+              "generated": "In Person"
+            },
+            {
+              "row": "E9",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Day 84",
+              "generated": ""
+            },
+            {
+              "row": "E9",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 12",
+              "generated": "Visit 9 (Week 12)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "timelines",
+      "key": "timelines",
+      "tally": {
+        "gold": 12.0,
+        "generated": 4.0,
+        "matched": 1.0,
+        "slots": 13.0,
+        "precision": 0.25,
+        "recall": 0.0833,
+        "f1": 0.125,
+        "accuracy": 0.0769
+      },
+      "identifiers": {
+        "gold": 8.0,
+        "generated": 2.0,
+        "matched": 1.0,
+        "slots": 9.0,
+        "precision": 0.5,
+        "recall": 0.125,
+        "f1": 0.2,
+        "accuracy": 0.1111
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 4,
+          "generated_rows": 1,
+          "aligned_rows": 1,
+          "tally": {
+            "gold": 12.0,
+            "generated": 4.0,
+            "matched": 1.0,
+            "slots": 13.0,
+            "precision": 0.25,
+            "recall": 0.0833,
+            "f1": 0.125,
+            "accuracy": 0.0769
+          },
+          "identifiers": {
+            "gold": 8.0,
+            "generated": 2.0,
+            "matched": 1.0,
+            "slots": 9.0,
+            "precision": 0.5,
+            "recall": 0.125,
+            "f1": 0.2,
+            "accuracy": 0.1111
+          },
+          "columns": [
+            {
+              "header": "name",
+              "tier": "identifier",
+              "tally": {
+                "gold": 4.0,
+                "generated": 1.0,
+                "matched": 1.0,
+                "slots": 4.0,
+                "precision": 1.0,
+                "recall": 0.25,
+                "f1": 0.4,
+                "accuracy": 0.25
+              }
+            },
+            {
+              "header": "sheet",
+              "tier": "identifier",
+              "tally": {
+                "gold": 4.0,
+                "generated": 1.0,
+                "matched": 0.0,
+                "slots": 5.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "mainTimeline",
+              "tier": "value",
+              "tally": {
+                "gold": 4.0,
+                "generated": 1.0,
+                "matched": 1.0,
+                "slots": 4.0,
+                "precision": 1.0,
+                "recall": 0.25,
+                "f1": 0.4,
+                "accuracy": 0.25
+              }
+            },
+            {
+              "header": "description",
+              "tier": "text",
+              "tally": {
+                "gold": 4.0,
+                "generated": 1.0,
+                "matched": 0.0,
+                "slots": 4.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "label",
+              "tier": "text",
+              "tally": {
+                "gold": 0.0,
+                "generated": 1.0,
+                "matched": 0.0,
+                "slots": 1.0,
+                "precision": 0.0,
+                "recall": null,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "condition",
+              "tier": "text",
+              "tally": {
+                "gold": 4.0,
+                "generated": 1.0,
+                "matched": 0.0,
+                "slots": 4.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "Main Timeline",
+              "column": "description",
+              "outcome": "mismatch",
+              "gold": "This is the main timeline for the study design.",
+              "generated": "Main schedule of visits and procedures for the study, from Screening through Retrieval"
+            },
+            {
+              "row": "Main Timeline",
+              "column": "label",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Schedule of Events for Protocol H2Q-MC-LZZT(c)"
+            },
+            {
+              "row": "Main Timeline",
+              "column": "condition",
+              "outcome": "mismatch",
+              "gold": "Potential subject identified",
+              "generated": "Participant enters the study"
+            },
+            {
+              "row": "Adverse Event Timeline",
+              "column": "mainTimeline",
+              "outcome": "missing",
+              "gold": "N",
+              "generated": ""
+            },
+            {
+              "row": "Adverse Event Timeline",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "This is the adverse event timeline",
+              "generated": ""
+            },
+            {
+              "row": "Adverse Event Timeline",
+              "column": "condition",
+              "outcome": "missing",
+              "gold": "Subject suffers an adverse event",
+              "generated": ""
+            },
+            {
+              "row": "Early Termination Timeline",
+              "column": "mainTimeline",
+              "outcome": "missing",
+              "gold": "N",
+              "generated": ""
+            },
+            {
+              "row": "Early Termination Timeline",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "This is the early termination processing",
+              "generated": ""
+            },
+            {
+              "row": "Early Termination Timeline",
+              "column": "condition",
+              "outcome": "missing",
+              "gold": "Subject terminates the study early",
+              "generated": ""
+            },
+            {
+              "row": "Vital Sign Blood Pressure Timeline",
+              "column": "mainTimeline",
+              "outcome": "missing",
+              "gold": "N",
+              "generated": ""
+            },
+            {
+              "row": "Vital Sign Blood Pressure Timeline",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "BP Profile",
+              "generated": ""
+            },
+            {
+              "row": "Vital Sign Blood Pressure Timeline",
+              "column": "condition",
+              "outcome": "missing",
+              "gold": "Automatic execution",
+              "generated": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "timeline columns",
+      "key": "timepoints",
+      "tally": {
+        "gold": 128.0,
+        "generated": 84.0,
+        "matched": 51.0,
+        "slots": 149.0,
+        "precision": 0.6071,
+        "recall": 0.3984,
+        "f1": 0.4811,
+        "accuracy": 0.3423
+      },
+      "identifiers": {
+        "gold": 24.0,
+        "generated": 14.0,
+        "matched": 0.0,
+        "slots": 38.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null,
+        "accuracy": 0.0
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 24,
+          "generated_rows": 14,
+          "aligned_rows": 12,
+          "tally": {
+            "gold": 128.0,
+            "generated": 84.0,
+            "matched": 51.0,
+            "slots": 149.0,
+            "precision": 0.6071,
+            "recall": 0.3984,
+            "f1": 0.4811,
+            "accuracy": 0.3423
+          },
+          "identifiers": {
+            "gold": 24.0,
+            "generated": 14.0,
+            "matched": 0.0,
+            "slots": 38.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": null,
+            "accuracy": 0.0
+          },
+          "columns": [
+            {
+              "header": "timeline",
+              "tier": "reference",
+              "tally": {
+                "gold": 24.0,
+                "generated": 14.0,
+                "matched": 12.0,
+                "slots": 26.0,
+                "precision": 0.8571,
+                "recall": 0.5,
+                "f1": 0.6316,
+                "accuracy": 0.4615
+              }
+            },
+            {
+              "header": "name",
+              "tier": "identifier",
+              "tally": {
+                "gold": 24.0,
+                "generated": 14.0,
+                "matched": 0.0,
+                "slots": 38.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "description",
+              "tier": "text",
+              "tally": {
+                "gold": 0.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 0.0,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null
+              }
+            },
+            {
+              "header": "label",
+              "tier": "text",
+              "tally": {
+                "gold": 24.0,
+                "generated": 14.0,
+                "matched": 0.0,
+                "slots": 26.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "type",
+              "tier": "value",
+              "tally": {
+                "gold": 24.0,
+                "generated": 14.0,
+                "matched": 12.0,
+                "slots": 26.0,
+                "precision": 0.8571,
+                "recall": 0.5,
+                "f1": 0.6316,
+                "accuracy": 0.4615
+              }
+            },
+            {
+              "header": "default",
+              "tier": "reference",
+              "tally": {
+                "gold": 24.0,
+                "generated": 14.0,
+                "matched": 7.0,
+                "slots": 31.0,
+                "precision": 0.5,
+                "recall": 0.2917,
+                "f1": 0.3684,
+                "accuracy": 0.2258
+              }
+            },
+            {
+              "header": "condition",
+              "tier": "text",
+              "tally": {
+                "gold": 0.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 0.0,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null
+              }
+            },
+            {
+              "header": "epoch",
+              "tier": "reference",
+              "tally": {
+                "gold": 16.0,
+                "generated": 14.0,
+                "matched": 8.0,
+                "slots": 22.0,
+                "precision": 0.5714,
+                "recall": 0.5,
+                "f1": 0.5333,
+                "accuracy": 0.3636
+              }
+            },
+            {
+              "header": "encounter",
+              "tier": "reference",
+              "tally": {
+                "gold": 16.0,
+                "generated": 14.0,
+                "matched": 12.0,
+                "slots": 18.0,
+                "precision": 0.8571,
+                "recall": 0.75,
+                "f1": 0.8,
+                "accuracy": 0.6667
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "SCREEN1",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Screen One",
+              "generated": "Visit 1 (Week -2)"
+            },
+            {
+              "row": "SCREEN2",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Screen Two",
+              "generated": "Visit 2 (Week -.3)"
+            },
+            {
+              "row": "DOSE",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Dose",
+              "generated": "Visit 3 (Week 0)"
+            },
+            {
+              "row": "DOSE",
+              "column": "epoch",
+              "outcome": "mismatch",
+              "gold": "Treatment 1",
+              "generated": "Treatment"
+            },
+            {
+              "row": "WK2",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 2",
+              "generated": "Visit 4 (Week 2)"
+            },
+            {
+              "row": "WK2",
+              "column": "epoch",
+              "outcome": "mismatch",
+              "gold": "Treatment 1",
+              "generated": "Treatment"
+            },
+            {
+              "row": "WK4",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 4",
+              "generated": "Visit 5 (Week 4)"
+            },
+            {
+              "row": "WK6",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 6",
+              "generated": "Visit 7 (Week 6)"
+            },
+            {
+              "row": "WK8",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 8",
+              "generated": "Visit 8 (Week 8)"
+            },
+            {
+              "row": "WK8",
+              "column": "default",
+              "outcome": "mismatch",
+              "gold": "WK8N",
+              "generated": "Visit 9 (Week 12)"
+            },
+            {
+              "row": "WK12",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 12",
+              "generated": "Visit 9 (Week 12)"
+            },
+            {
+              "row": "WK12",
+              "column": "default",
+              "outcome": "mismatch",
+              "gold": "WK12N",
+              "generated": "Visit 10 (Week 16)"
+            },
+            {
+              "row": "WK16",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 16",
+              "generated": "Visit 10 (Week 16)"
+            },
+            {
+              "row": "WK16",
+              "column": "default",
+              "outcome": "mismatch",
+              "gold": "WK16N",
+              "generated": "Visit 11 (Week 20)"
+            },
+            {
+              "row": "WK20",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 20",
+              "generated": "Visit 11 (Week 20)"
+            },
+            {
+              "row": "WK20",
+              "column": "default",
+              "outcome": "mismatch",
+              "gold": "WK20N",
+              "generated": "Visit 12 (Week 24)"
+            },
+            {
+              "row": "WK24",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 24",
+              "generated": "Visit 12 (Week 24)"
+            },
+            {
+              "row": "WK24",
+              "column": "epoch",
+              "outcome": "mismatch",
+              "gold": "Treatment 3",
+              "generated": "Treatment"
+            },
+            {
+              "row": "WK26",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 26",
+              "generated": "Visit 13 (Week 26)"
+            },
+            {
+              "row": "WK26",
+              "column": "default",
+              "outcome": "mismatch",
+              "gold": "(EXIT)",
+              "generated": "Early Termination (ET)"
+            },
+            {
+              "row": "WK26",
+              "column": "epoch",
+              "outcome": "mismatch",
+              "gold": "Follow-Up",
+              "generated": "Treatment"
+            },
+            {
+              "row": "WK8N",
+              "column": "timeline",
+              "outcome": "missing",
+              "gold": "Main Timeline",
+              "generated": ""
+            },
+            {
+              "row": "WK8N",
+              "column": "label",
+              "outcome": "missing",
+              "gold": "Week NPI",
+              "generated": ""
+            },
+            {
+              "row": "WK8N",
+              "column": "type",
+              "outcome": "missing",
+              "gold": "Activity",
+              "generated": ""
+            },
+            {
+              "row": "WK8N",
+              "column": "default",
+              "outcome": "missing",
+              "gold": "WK12",
+              "generated": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "studyDesignTiming",
+      "key": "timings",
+      "tally": {
+        "gold": 174.0,
+        "generated": 66.0,
+        "matched": 50.0,
+        "slots": 180.0,
+        "precision": 0.7576,
+        "recall": 0.2874,
+        "f1": 0.4167,
+        "accuracy": 0.2778
+      },
+      "identifiers": {
+        "gold": 24.0,
+        "generated": 11.0,
+        "matched": 0.0,
+        "slots": 35.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null,
+        "accuracy": 0.0
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 24,
+          "generated_rows": 11,
+          "aligned_rows": 10,
+          "tally": {
+            "gold": 174.0,
+            "generated": 66.0,
+            "matched": 50.0,
+            "slots": 180.0,
+            "precision": 0.7576,
+            "recall": 0.2874,
+            "f1": 0.4167,
+            "accuracy": 0.2778
+          },
+          "identifiers": {
+            "gold": 24.0,
+            "generated": 11.0,
+            "matched": 0.0,
+            "slots": 35.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": null,
+            "accuracy": 0.0
+          },
+          "columns": [
+            {
+              "header": "name",
+              "tier": "identifier",
+              "tally": {
+                "gold": 24.0,
+                "generated": 11.0,
+                "matched": 0.0,
+                "slots": 35.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "description",
+              "tier": "text",
+              "tally": {
+                "gold": 24.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 24.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "label",
+              "tier": "text",
+              "tally": {
+                "gold": 24.0,
+                "generated": 11.0,
+                "matched": 0.0,
+                "slots": 25.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "type",
+              "tier": "code",
+              "tally": {
+                "gold": 24.0,
+                "generated": 11.0,
+                "matched": 10.0,
+                "slots": 25.0,
+                "precision": 0.9091,
+                "recall": 0.4167,
+                "f1": 0.5715,
+                "accuracy": 0.4
+              }
+            },
+            {
+              "header": "from",
+              "tier": "reference",
+              "tally": {
+                "gold": 24.0,
+                "generated": 11.0,
+                "matched": 10.0,
+                "slots": 25.0,
+                "precision": 0.9091,
+                "recall": 0.4167,
+                "f1": 0.5715,
+                "accuracy": 0.4
+              }
+            },
+            {
+              "header": "to",
+              "tier": "reference",
+              "tally": {
+                "gold": 24.0,
+                "generated": 11.0,
+                "matched": 10.0,
+                "slots": 25.0,
+                "precision": 0.9091,
+                "recall": 0.4167,
+                "f1": 0.5715,
+                "accuracy": 0.4
+              }
+            },
+            {
+              "header": "timingValue",
+              "tier": "value",
+              "tally": {
+                "gold": 24.0,
+                "generated": 11.0,
+                "matched": 10.0,
+                "slots": 25.0,
+                "precision": 0.9091,
+                "recall": 0.4167,
+                "f1": 0.5715,
+                "accuracy": 0.4
+              }
+            },
+            {
+              "header": "toFrom",
+              "tier": "value",
+              "tally": {
+                "gold": 20.0,
+                "generated": 11.0,
+                "matched": 10.0,
+                "slots": 21.0,
+                "precision": 0.9091,
+                "recall": 0.5,
+                "f1": 0.6452,
+                "accuracy": 0.4762
+              }
+            },
+            {
+              "header": "window",
+              "tier": "value",
+              "tally": {
+                "gold": 10.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 10.0,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "TIM1",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Screening timing",
+              "generated": ""
+            },
+            {
+              "row": "TIM1",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Screening",
+              "generated": "Visit 1 (Week -2)"
+            },
+            {
+              "row": "TIM4",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Week 2 timing",
+              "generated": ""
+            },
+            {
+              "row": "TIM4",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 2",
+              "generated": "Visit 4 (Week 2)"
+            },
+            {
+              "row": "TIM4",
+              "column": "window",
+              "outcome": "missing",
+              "gold": "-3..3 days",
+              "generated": ""
+            },
+            {
+              "row": "TIM5",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Week 4 timing",
+              "generated": ""
+            },
+            {
+              "row": "TIM5",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 4",
+              "generated": "Visit 5 (Week 4)"
+            },
+            {
+              "row": "TIM5",
+              "column": "window",
+              "outcome": "missing",
+              "gold": "-3..3 days",
+              "generated": ""
+            },
+            {
+              "row": "TIM6",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Week 6 timing",
+              "generated": ""
+            },
+            {
+              "row": "TIM6",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 6",
+              "generated": "Visit 7 (Week 6)"
+            },
+            {
+              "row": "TIM6",
+              "column": "window",
+              "outcome": "missing",
+              "gold": "-3..3 days",
+              "generated": ""
+            },
+            {
+              "row": "TIM7",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Week 8 timing",
+              "generated": ""
+            },
+            {
+              "row": "TIM7",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 8",
+              "generated": "Visit 8 (Week 8)"
+            },
+            {
+              "row": "TIM7",
+              "column": "window",
+              "outcome": "missing",
+              "gold": "-3..3 days",
+              "generated": ""
+            },
+            {
+              "row": "TIM9",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Week 12 timing",
+              "generated": ""
+            },
+            {
+              "row": "TIM9",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 12",
+              "generated": "Visit 9 (Week 12)"
+            },
+            {
+              "row": "TIM9",
+              "column": "window",
+              "outcome": "missing",
+              "gold": "-4..4 days",
+              "generated": ""
+            },
+            {
+              "row": "TIM11",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Week 16 timing",
+              "generated": ""
+            },
+            {
+              "row": "TIM11",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 16",
+              "generated": "Visit 10 (Week 16)"
+            },
+            {
+              "row": "TIM11",
+              "column": "window",
+              "outcome": "missing",
+              "gold": "-4..4 days",
+              "generated": ""
+            },
+            {
+              "row": "TIM13",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Week 20 timing",
+              "generated": ""
+            },
+            {
+              "row": "TIM13",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 20",
+              "generated": "Visit 11 (Week 20)"
+            },
+            {
+              "row": "TIM13",
+              "column": "window",
+              "outcome": "missing",
+              "gold": "-4..4 days",
+              "generated": ""
+            },
+            {
+              "row": "TIM15",
+              "column": "description",
+              "outcome": "missing",
+              "gold": "Week 24 timing",
+              "generated": ""
+            },
+            {
+              "row": "TIM15",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Week 24",
+              "generated": "Visit 12 (Week 24)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "studyDesignActivities",
+      "key": "activities",
+      "tally": {
+        "gold": 36.0,
+        "generated": 30.0,
+        "matched": 22.0,
+        "slots": 36.0,
+        "precision": 0.7333,
+        "recall": 0.6111,
+        "f1": 0.6666,
+        "accuracy": 0.6111
+      },
+      "identifiers": {
+        "gold": 36.0,
+        "generated": 30.0,
+        "matched": 20.0,
+        "slots": 46.0,
+        "precision": 0.6667,
+        "recall": 0.5556,
+        "f1": 0.6061,
+        "accuracy": 0.4348
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 36,
+          "generated_rows": 30,
+          "aligned_rows": 30,
+          "tally": {
+            "gold": 36.0,
+            "generated": 30.0,
+            "matched": 22.0,
+            "slots": 36.0,
+            "precision": 0.7333,
+            "recall": 0.6111,
+            "f1": 0.6666,
+            "accuracy": 0.6111
+          },
+          "identifiers": {
+            "gold": 36.0,
+            "generated": 30.0,
+            "matched": 20.0,
+            "slots": 46.0,
+            "precision": 0.6667,
+            "recall": 0.5556,
+            "f1": 0.6061,
+            "accuracy": 0.4348
+          },
+          "columns": [
+            {
+              "header": "name",
+              "tier": "identifier",
+              "tally": {
+                "gold": 36.0,
+                "generated": 30.0,
+                "matched": 20.0,
+                "slots": 46.0,
+                "precision": 0.6667,
+                "recall": 0.5556,
+                "f1": 0.6061,
+                "accuracy": 0.4348
+              }
+            },
+            {
+              "header": "description",
+              "tier": "text",
+              "tally": {
+                "gold": 0.0,
+                "generated": 0.0,
+                "matched": 0.0,
+                "slots": 0.0,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null
+              }
+            },
+            {
+              "header": "label",
+              "tier": "text",
+              "tally": {
+                "gold": 36.0,
+                "generated": 30.0,
+                "matched": 22.0,
+                "slots": 36.0,
+                "precision": 0.7333,
+                "recall": 0.6111,
+                "f1": 0.6666,
+                "accuracy": 0.6111
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "Hachinski",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Hachinski Ischemic Scale",
+              "generated": "Hachinski ≤4"
+            },
+            {
+              "row": "MMSE",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "MMSE",
+              "generated": "MMSE 10-23"
+            },
+            {
+              "row": "CT scan",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "CT scan",
+              "generated": "CT Scan (if not within last year and patient passes all other screens)"
+            },
+            {
+              "row": "Hematology",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Hematology",
+              "generated": "Laboratory (Chem/Hemat):"
+            },
+            {
+              "row": "Uninalysis",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Uninalysis",
+              "generated": "Laboratory (Urinalysis)"
+            },
+            {
+              "row": "Study drug",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Study drug record , Medications dispensed, Medications returned",
+              "generated": "Study drug record"
+            },
+            {
+              "row": "Vital Signs Supine",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Vital signs while supine",
+              "generated": "Medications dispensed"
+            },
+            {
+              "row": "Vital Signs Standing",
+              "column": "label",
+              "outcome": "mismatch",
+              "gold": "Vital signs while standing",
+              "generated": "Medications returned"
+            },
+            {
+              "row": "Inclusion/exclusion criteria",
+              "column": "label",
+              "outcome": "missing",
+              "gold": "Inclusion and exclusion criteria",
+              "generated": ""
+            },
+            {
+              "row": "Demographics",
+              "column": "label",
+              "outcome": "missing",
+              "gold": "Demographics",
+              "generated": ""
+            },
+            {
+              "row": "Chemistry",
+              "column": "label",
+              "outcome": "missing",
+              "gold": "Chemistry",
+              "generated": ""
+            },
+            {
+              "row": "Check adverse events",
+              "column": "label",
+              "outcome": "missing",
+              "gold": "Check adverse events",
+              "generated": ""
+            },
+            {
+              "row": "Supine",
+              "column": "label",
+              "outcome": "missing",
+              "gold": "Subject supine",
+              "generated": ""
+            },
+            {
+              "row": "Stand",
+              "column": "label",
+              "outcome": "missing",
+              "gold": "Subject Standing",
+              "generated": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "timeline rows",
+      "key": "schedule",
+      "tally": {
+        "gold": 277.0,
+        "generated": 225.0,
+        "matched": 156.0,
+        "slots": 346.0,
+        "precision": 0.6933,
+        "recall": 0.5632,
+        "f1": 0.6215,
+        "accuracy": 0.4509
+      },
+      "identifiers": {
+        "gold": 0.0,
+        "generated": 0.0,
+        "matched": 0.0,
+        "slots": 0.0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "accuracy": null
+      },
+      "units": [
+        {
+          "unit": "",
+          "gold_rows": 50,
+          "generated_rows": 30,
+          "aligned_rows": 27,
+          "tally": {
+            "gold": 277.0,
+            "generated": 225.0,
+            "matched": 156.0,
+            "slots": 346.0,
+            "precision": 0.6933,
+            "recall": 0.5632,
+            "f1": 0.6215,
+            "accuracy": 0.4509
+          },
+          "identifiers": {
+            "gold": 0.0,
+            "generated": 0.0,
+            "matched": 0.0,
+            "slots": 0.0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "accuracy": null
+          },
+          "columns": [
+            {
+              "header": "timeline",
+              "tier": "reference",
+              "tally": {
+                "gold": 50.0,
+                "generated": 30.0,
+                "matched": 27.0,
+                "slots": 53.0,
+                "precision": 0.9,
+                "recall": 0.54,
+                "f1": 0.675,
+                "accuracy": 0.5094
+              }
+            },
+            {
+              "header": "activity",
+              "tier": "reference",
+              "tally": {
+                "gold": 50.0,
+                "generated": 30.0,
+                "matched": 27.0,
+                "slots": 53.0,
+                "precision": 0.9,
+                "recall": 0.54,
+                "f1": 0.675,
+                "accuracy": 0.5094
+              }
+            },
+            {
+              "header": "biomedicalConcepts",
+              "tier": "value",
+              "tally": {
+                "gold": 33.0,
+                "generated": 8.0,
+                "matched": 0.0,
+                "slots": 41.0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": null,
+                "accuracy": 0.0
+              }
+            },
+            {
+              "header": "scheduledAt",
+              "tier": "reference",
+              "tally": {
+                "gold": 144.0,
+                "generated": 157.0,
+                "matched": 102.0,
+                "slots": 199.0,
+                "precision": 0.6497,
+                "recall": 0.7083,
+                "f1": 0.6777,
+                "accuracy": 0.5126
+              }
+            }
+          ],
+          "differences": [
+            {
+              "row": "Informed consent",
+              "column": "biomedicalConcepts",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Informed Consent Obtained"
+            },
+            {
+              "row": "Physical examination",
+              "column": "scheduledAt",
+              "outcome": "mismatch",
+              "gold": "SCREEN1, WK26",
+              "generated": "Visit 1 (Week -2), Visit 13 (Week 26), Early Termination (ET)"
+            },
+            {
+              "row": "Chest X-ray",
+              "column": "biomedicalConcepts",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Chest X-Ray"
+            },
+            {
+              "row": "Vital signs / Temperature",
+              "column": "biomedicalConcepts",
+              "outcome": "mismatch",
+              "gold": "Body temperature, Body Weight, Body Height",
+              "generated": "Diastolic Blood Pressure, Heart Rate"
+            },
+            {
+              "row": "Vital signs / Temperature",
+              "column": "scheduledAt",
+              "outcome": "mismatch",
+              "gold": "SCREEN1, SCREEN2, DOSE, WK2, WK4, WK6, WK8, WK12, WK16, WK20, WK24, WK26",
+              "generated": "Visit 1 (Week -2), Visit 2 (Week -.3), Visit 3 (Week 0), Visit 4 (Week 2), Visit 5 (Week 4), Visit 7 (Week 6), Visit 8 (Week 8), Visit 9 (Week 12), Visit 10 (Week 16), Visit 11 (Week 20), Visit 12 (Week 24), Visit 13 (Week 26), Early Termination (ET), Retrieval (RT)"
+            },
+            {
+              "row": "ECG",
+              "column": "scheduledAt",
+              "outcome": "mismatch",
+              "gold": "SCREEN1, WK2, WK4, WK6, WK8, WK12, WK16, WK20, WK24, WK26",
+              "generated": "Visit 1 (Week -2), Visit 4 (Week 2), Visit 5 (Week 4), Visit 7 (Week 6), Visit 8 (Week 8), Visit 9 (Week 12), Visit 10 (Week 16), Visit 11 (Week 20), Visit 12 (Week 24), Visit 13 (Week 26), Early Termination (ET)"
+            },
+            {
+              "row": "Concomitant medications",
+              "column": "scheduledAt",
+              "outcome": "mismatch",
+              "gold": "SCREEN1, DOSE, WK2, WK4, WK6, WK8, WK12, WK16, WK20, WK24, WK26",
+              "generated": "Visit 1 (Week -2), Visit 3 (Week 0), Visit 4 (Week 2), Visit 5 (Week 4), Visit 7 (Week 6), Visit 8 (Week 8), Visit 9 (Week 12), Visit 10 (Week 16), Visit 11 (Week 20), Visit 12 (Week 24), Visit 13 (Week 26), Early Termination (ET), Retrieval (RT)"
+            },
+            {
+              "row": "Hematology",
+              "column": "scheduledAt",
+              "outcome": "mismatch",
+              "gold": "SCREEN1, WK2, WK4, WK6, WK8, WK12, WK16, WK20, WK24, WK26",
+              "generated": "Visit 1 (Week -2), Visit 4 (Week 2), Visit 5 (Week 4), Visit 7 (Week 6), Visit 8 (Week 8), Visit 9 (Week 12), Visit 10 (Week 16), Visit 11 (Week 20), Visit 12 (Week 24), Visit 13 (Week 26), Early Termination (ET)"
+            },
+            {
+              "row": "Uninalysis",
+              "column": "biomedicalConcepts",
+              "outcome": "extra",
+              "gold": "",
+              "generated": "Specific Gravity in Urine, pH concentration in Urine, Urobilinogen Concentration in Urine"
+            },
+            {
+              "row": "Uninalysis",
+              "column": "scheduledAt",
+              "outcome": "mismatch",
+              "gold": "SCREEN1, WK2, WK12, WK24",
+              "generated": "Visit 1 (Week -2), Visit 4 (Week 2), Visit 9 (Week 12), Visit 12 (Week 24), Early Termination (ET)"
+            },
+            {
+              "row": "Plasma Specimen (Xanomeline)",
+              "column": "scheduledAt",
+              "outcome": "mismatch",
+              "gold": "DOSE, WK2, WK4, WK6, WK12, WK20",
+              "generated": "Visit 3 (Week 0), Visit 4 (Week 2), Visit 5 (Week 4), Visit 7 (Week 6), Visit 9 (Week 12), Visit 11 (Week 20), Early Termination (ET)"
+            },
+            {
+              "row": "Hemoglobin A1C",
+              "column": "biomedicalConcepts",
+              "outcome": "mismatch",
+              "gold": "HbA1c",
+              "generated": "Hemoglobin A1C Concentration in Blood"
+            },
+            {
+              "row": "Study drug",
+              "column": "scheduledAt",
+              "outcome": "mismatch",
+              "gold": "DOSE, WK2, WK4, WK6, WK8, WK12, WK16, WK20, WK24, WK26",
+              "generated": "Visit 3 (Week 0), Visit 4 (Week 2), Visit 5 (Week 4), Visit 7 (Week 6), Visit 8 (Week 8), Visit 9 (Week 12), Visit 10 (Week 16), Visit 11 (Week 20), Visit 12 (Week 24), Visit 13 (Week 26), Early Termination (ET)"
+            },
+            {
+              "row": "TTS Acceptability Survey",
+              "column": "scheduledAt",
+              "outcome": "mismatch",
+              "gold": "WK26",
+              "generated": "Visit 13 (Week 26), Early Termination (ET)"
+            },
+            {
+              "row": "ADAS-Cog",
+              "column": "scheduledAt",
+              "outcome": "mismatch",
+              "gold": "SCREEN1, DOSE, WK8, WK16, WK24",
+              "generated": "Visit 3 (Week 0), Visit 8 (Week 8), Visit 10 (Week 16), Visit 12 (Week 24), Early Termination (ET), Retrieval (RT)"
+            },
+            {
+              "row": "CIBIC+",
+              "column": "scheduledAt",
+              "outcome": "mismatch",
+              "gold": "SCREEN1, DOSE, WK8, WK16, WK24",
+              "generated": "Visit 3 (Week 0), Visit 8 (Week 8), Visit 10 (Week 16), Visit 12 (Week 24), Early Termination (ET), Retrieval (RT)"
+            },
+            {
+              "row": "DAD",
+              "column": "scheduledAt",
+              "outcome": "mismatch",
+              "gold": "SCREEN1, DOSE, WK8, WK16, WK24",
+              "generated": "Visit 3 (Week 0), Visit 8 (Week 8), Visit 10 (Week 16), Visit 12 (Week 24), Early Termination (ET), Retrieval (RT)"
+            },
+            {
+              "row": "NPI-X",
+              "column": "scheduledAt",
+              "outcome": "mismatch",
+              "gold": "SCREEN1, DOSE, WK2, WK4, WK6, WK8, WK8N, WK12, WK12N, WK16, WK16N, WK20, WK20N, WK24, WK26",
+              "generated": "Visit 3 (Week 0), Visit 4 (Week 2), Visit 5 (Week 4), Visit 7 (Week 6), Visit 8 (Week 8), Visit 9 (Week 12), Visit 10 (Week 16), Visit 11 (Week 20), Visit 12 (Week 24), Visit 13 (Week 26), Early Termination (ET), Retrieval (RT)"
+            },
+            {
+              "row": "Inclusion/exclusion criteria",
+              "column": "timeline",
+              "outcome": "missing",
+              "gold": "Main Timeline",
+              "generated": ""
+            },
+            {
+              "row": "Inclusion/exclusion criteria",
+              "column": "activity",
+              "outcome": "missing",
+              "gold": "Inclusion/exclusion criteria",
+              "generated": ""
+            },
+            {
+              "row": "Inclusion/exclusion criteria",
+              "column": "scheduledAt",
+              "outcome": "missing",
+              "gold": "SCREEN1",
+              "generated": ""
+            },
+            {
+              "row": "Demographics",
+              "column": "timeline",
+              "outcome": "missing",
+              "gold": "Main Timeline",
+              "generated": ""
+            },
+            {
+              "row": "Demographics",
+              "column": "activity",
+              "outcome": "missing",
+              "gold": "Demographics",
+              "generated": ""
+            },
+            {
+              "row": "Demographics",
+              "column": "biomedicalConcepts",
+              "outcome": "missing",
+              "gold": "Sex, Race, Date of Birth",
+              "generated": ""
+            },
+            {
+              "row": "Demographics",
+              "column": "scheduledAt",
+              "outcome": "missing",
+              "gold": "SCREEN1",
+              "generated": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "not_in_reference": [
+    "abbreviations"
+  ],
+  "out_of_scope": {
+    "m11Format": 790,
+    "lillyFormat": 462,
+    "documentContent": 163,
+    "dictionaries": 33,
+    "studyDesignConditions": 18,
+    "studyDesignProcedures": 16,
+    "roles": 14,
+    "amendmentChanges": 12,
+    "configuration": 12,
+    "studyDesignSites": 10,
+    "amendmentImpact": 8,
+    "studyReferences": 6,
+    "studyDesignEligibilityCriteria: dictionary": 4,
+    "studyOrganizations: description": 3,
+    "mainTimeline: procedures and sub-timelines": 2,
+    "vsBloodPressure: procedures and sub-timelines": 2,
+    "studyDesignIndications: codes": 2,
+    "study: businessTherapeuticAreas": 1,
+    "studyDesign: therapeuticAreas": 1,
+    "studyDesign: masking": 1,
+    "earlyTerminationTimeline: procedures and sub-timelines": 1,
+    "studyInterventions: codes": 1,
+    "studyInterventions: pharmacologicalClass": 1,
+    "studyInterventions: productDesignation": 1,
+    "studyAmendments: template": 1
+  },
+  "settings": {
+    "text_match": 0.85,
+    "min_alignment": 0.45,
+    "position_weight": 0.15
+  },
+  "recall_including_out_of_scope": 0.1858
+}

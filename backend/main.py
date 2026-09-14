@@ -7,10 +7,10 @@ An app factory (rather than a module-level `app`) keeps imports side-effect free
 """
 
 import logging
-from collections.abc import AsyncIterator
+from collections.abc import AsyncIterator, Awaitable, Callable
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.api import review, runs, studies
@@ -53,11 +53,26 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+
+    @app.middleware("http")
+    async def no_store_json(
+        request: Request, call_next: Callable[[Request], Awaitable[Response]]
+    ) -> Response:
+        # Run state, extraction and review change underneath an open page (a run started in
+        # another tab or through the API); a cached response would show stale sheets.
+        response = await call_next(request)
+        if request.url.path.startswith("/api/") and response.headers.get(
+            "content-type", ""
+        ).startswith("application/json"):
+            response.headers.setdefault("Cache-Control", "no-store")
+        return response
+
     app.include_router(studies.router)
     app.include_router(runs.router)
     app.include_router(runs.agents_router)
     app.include_router(review.router)
     app.include_router(review.terminology_router)
+    app.include_router(review.workbook_router)
 
     @app.get("/api/health")
     def health() -> dict[str, object]:

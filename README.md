@@ -23,11 +23,11 @@ The workbook format reference is [docs/usdm_workbook_spec.md](docs/usdm_workbook
 | 2 | PDF ingestion + ICH M11 segmentation, run inspector page | done |
 | 3 | Extraction agents (study, arms, eligibility) + terminology + provenance | done |
 | 4 | Review UI | done |
-| 5 | Remaining non-SoA agents | next |
-| 6 | SoA / timeline agent + SoA grid | |
-| 7 | Workbook writer + reference validation (Stage B) | |
-| 8 | USDM generation + validation + Results page (Stage C) | |
-| 9 | Evaluation harness | |
+| 5 | Remaining non-SoA agents | done |
+| 6 | SoA / timeline agent + SoA grid | done |
+| 7 | Workbook writer + reference validation (Stage B) | done |
+| 8 | USDM generation + validation + Results page (Stage C) | done |
+| 9 | Evaluation harness | done |
 
 ---
 
@@ -151,6 +151,10 @@ studies/                                  # gitignored; override with STUDIES_RO
             ├── reviewed.json             # the review working copy (revision, status, edited sheets)
             ├── review_audit.jsonl        # append-only: every review change with cell, old, new
             ├── review_archive/           # reviews discarded by "Restart from latest extraction"
+            ├── workbook/<study>.xlsx     # the USDM workbook written from the confirmed review
+            ├── workbook_report.json      # review revision, sha256, rows per sheet, warnings
+            ├── usdm/<study>.json         # USDM v4 JSON imported from the workbook
+            ├── usdm_report.json          # import issues, rule findings, CORE status, entity counts
             └── ...                       # later stages add their artefacts here
 ```
 
@@ -197,10 +201,63 @@ a different file with the same name is kept alongside as `name (2).pdf`.
 Parsing is resumable: **Re-run (resume)** reuses `parsed_document.json` when the source PDF, backend,
 backend version and DPI are unchanged, and only re-runs segmentation. **Force re-parse** starts over.
 
+**Sheets extracted (Phase 5):** study and governance dates, organizations and identifiers, study
+design, arms, populations, eligibility criteria, objectives and endpoints, estimands, interventions,
+indications, amendments and abbreviations: one agent each (identifiers and organizations share one).
+**Schedule of activities (Phase 6):** the schedule agent reads the SoA page images and tables;
+epochs, encounters, timelines, timepoints, timings, activities and marks are built from what it
+reads, and an assessments agent supplies CDISC Biomedical Concepts (exact catalogue matches only).
+On the review page the **Schedule grid** tab shows each timeline as a matrix; click a cell to add or
+remove an activity at a timepoint, or a name to see its source page. Elements and arm-epoch cells
+are generated as a documented default (every arm through every epoch) for review. Some cells need
+information protocols rarely print, such as a sponsor's DUNS number, and stay empty for the
+reviewer. Estimands, amendments and abbreviations are left empty when the protocol has none. Phrases
+that refer to another sheet (an estimand's endpoint, an amendment's date) are linked to names
+automatically when the match is clear, and otherwise listed on the Extraction tab for review. On the
+review page, list cells (such as trial sub types) add or remove terms, amendment reasons accept
+`Other=<reason>`, and reference cells offer the names that exist on the other sheets.
+
+**USDM workbook (Phase 7):** once a review is confirmed with no blocking issues, the review page's
+**USDM workbook** panel writes the workbook (`workbook/<study>.xlsx` in the run folder, with
+`workbook_report.json`) and offers it for download. It is written by code from the reviewed values,
+laid out as usdm4-excel's importer expects; the same review always produces the identical file.
+Both sample protocols' workbooks import into usdm4-excel with no errors.
+
+**USDM JSON and validation (Phase 8):** from the workbook panel, open **USDM JSON & validation**
+and use **Generate USDM**. The workbook is brought up to date with the confirmed review, imported by
+usdm4-excel into USDM v4 JSON (`usdm/<study>.json`, about half a minute), and checked with the
+usdm4 rule library. The Results page shows import errors, rule findings grouped by rule (each
+explained as *fix in review*, *expected* for parts the pipeline does not produce yet, or *check*),
+the CDISC CORE status and entity counts, with downloads for the JSON, the validation report and the
+workbook. CDISC CORE runs only when its cache has been built with CDISC Library access; otherwise
+the page says it was not run.
+
+**Evaluation (Phase 9):** `goldstandard/eval.py` runs Stage A on the CDISC Pilot protocol with
+review disabled, writes the workbook straight from the extraction, and compares it cell by cell
+with the CDISC Pilot reference workbook:
+
+```bash
+python -m uv run python goldstandard/eval.py                     # Stage A (resumable) + score
+python -m uv run python goldstandard/eval.py --run-dir studies/<study>/runs/<run-id>
+python -m uv run python goldstandard/eval.py --workbook some.xlsx # score any workbook as it is
+python -m uv run python goldstandard/eval.py --force             # re-run every agent (paid)
+```
+
+Rows are aligned by content first and entity names compared by what they point at, then each cell
+is scored by tier (C-codes, references, normalised values, fuzzy prose). The report gives
+field-level accuracy, precision and recall overall, per tier and per sheet, sample differences,
+and the reference content outside the pipeline's scope. Each run writes
+`goldstandard/results/<UTC time>_<commit>.json` and `.md` (tracked, so accuracy can be followed
+across commits; the Markdown shows the change since the previous result). The Stage A workspace is
+`goldstandard/runs/` (not committed). The first result, on the unreviewed Pilot extraction:
+accuracy 39.5%, precision 64.7%, recall 45.3% (docs/decisions.md D30–D32 explain the method and
+why the reference is not a perfect answer key).
+
 Extraction is resumable too: an agent whose inputs are unchanged is not sent to the model again.
 When only deterministic post-processing changed (quote verification, terminology, naming), records
 are rebuilt from the stored model output at no cost. Typical cost with `claude-sonnet-5`: about
-$0.25 per protocol for the three agents implemented so far.
+$0.90–1.10 per protocol for all fourteen agents (CDISC Pilot about $0.87, PALOMA-3 about $1.10);
+the schedule agent, which reads page images, is about a quarter of that.
 
 The same stage runs from the command line, which is handy for trying a protocol without the UI:
 
@@ -229,12 +286,16 @@ backend/
     llm.py             Claude structured-output client with usage and cost accounting
     jobs.py            background execution; status written to run_state.json
     review/            review working copy, operations, audit trail, validation, source highlight
-    workbook/          workbook sheet layouts (the Stage B writer arrives in Phase 7)
-    usdm_gen/          later phases
+    workbook/          sheet layouts, cell formats, Stage B writer and gate
+    usdm_gen/          Stage C: workbook import to USDM JSON, rule validation, CORE when available
+    evaluation/        reference comparison: workbook reader, alignment, tiered scoring, report
 frontend/              React + Vite + TypeScript
 docs/                  workbook spec + design decisions
 goldstandard/
   cdisc_pilot/         CDISC Pilot (LZZT) protocol PDF + reference workbook + reference USDM JSON
+  eval.py              evaluation harness entry point
+  results/             timestamped evaluation results (tracked)
+  runs/                evaluation Stage A workspace (gitignored)
   sample/              additional protocols for manual testing
 tests/                 unit/, integration/, fixtures/
 ```

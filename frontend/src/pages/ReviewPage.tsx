@@ -3,9 +3,14 @@ import { Link, useParams, useSearchParams } from "react-router-dom";
 
 import { api } from "../api";
 import CellPanel from "../components/review/CellPanel";
+import ScheduleGrid from "../components/review/ScheduleGrid";
+import WorkbookPanel from "../components/review/WorkbookPanel";
 import SheetGrid, { type Selection } from "../components/review/SheetGrid";
 import { cellKey, useReview } from "../components/review/useReview";
 import type { AuditEntry, ReviewIssue, ReviewSheetKey } from "../types";
+
+/** The schedule-of-activities matrix: a view over the timepoints and schedule sheets. */
+const GRID_KEY = "schedule-grid";
 
 export default function ReviewPage() {
   const { slug = "", runId = "" } = useParams();
@@ -17,6 +22,7 @@ export default function ReviewPage() {
   const [audit, setAudit] = useState<AuditEntry[] | null>(null);
 
   const sheetKey = (searchParams.get("sheet") as ReviewSheetKey | null) ?? "study";
+  const showGrid = sheetKey === GRID_KEY;
   const layout = state?.layouts.find((l) => l.key === sheetKey) ?? state?.layouts[0];
 
   // Ctrl+S saves the draft.
@@ -145,14 +151,18 @@ export default function ReviewPage() {
           Confirmed {doc.confirmed_at ? new Date(doc.confirmed_at).toLocaleString() : ""}. Any further edit reopens the review as a draft.
         </div>
       )}
+      <WorkbookPanel slug={slug} runId={runId} confirmed={doc.status === "confirmed"} revision={doc.revision} />
 
       {audit && <AuditTable entries={audit} />}
 
       <div className="tabs">
+        <button className={`tab${showGrid ? " active" : ""}`} onClick={() => selectSheet(GRID_KEY)}>
+          Schedule grid <span className="mono muted small">timelines</span>
+        </button>
         {state.layouts.map((l) => {
           const c = counts.get(l.key);
           return (
-            <button key={l.key} className={`tab${l.key === layout.key ? " active" : ""}`} onClick={() => selectSheet(l.key)}>
+            <button key={l.key} className={`tab${!showGrid && l.key === layout.key ? " active" : ""}`} onClick={() => selectSheet(l.key)}>
               {l.title}
               <span className="mono muted small">{l.workbook_sheet}</span>
               {c?.blocking ? <span className="rv-count blocking">{c.blocking}</span> : null}
@@ -164,16 +174,22 @@ export default function ReviewPage() {
 
       <div className="rv-layout">
         <div className="rv-main">
-          <Legend />
-          <SheetGrid
-            layout={layout}
-            state={state}
-            pending={pending}
-            selection={selection}
-            onSelect={setSelection}
-            onEdit={(sel, value) => review.queueSet({ op: "set", sheet: sel.sheet, row_id: sel.rowId, field: sel.field, value })}
-            onRun={(ops) => void review.run(ops)}
-          />
+          {showGrid ? (
+            <ScheduleGrid state={state} selection={selection} onSelect={setSelection} onRun={(ops) => void review.run(ops)} />
+          ) : (
+            <>
+              <Legend />
+              <SheetGrid
+                layout={layout}
+                state={state}
+                pending={pending}
+                selection={selection}
+                onSelect={setSelection}
+                onEdit={(sel, value) => review.queueSet({ op: "set", sheet: sel.sheet, row_id: sel.rowId, field: sel.field, value })}
+                onRun={(ops) => void review.run(ops)}
+              />
+            </>
+          )}
         </div>
 
         <aside className="rv-side">

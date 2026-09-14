@@ -17,6 +17,7 @@ from backend.pipeline.extract import run_extraction
 from backend.pipeline.ingest import SECTION_MAPPING_FILE, load_parsed_document, parse, segment
 from backend.pipeline.llm import StructuredLlm
 from backend.pipeline.terminology.ct import CtResolver, get_ct_resolver
+from backend.pipeline.usdm_gen.stage import UsdmReport, check_ready, generate_usdm
 from backend.storage.fs import write_model
 from backend.storage.studies import RUN_CONFIG_FILE, StudyStore
 
@@ -95,6 +96,16 @@ class JobRunner:
                 state.agents[sheet] = AgentRun(sheet=sheet, status=AgentStatus.QUEUED)
 
         self._submit(slug, run_id, queued, lambda: self._extract(slug, run_id, sheets, force))
+
+    def start_usdm(self, slug: str, run_id: str, force: bool = False) -> None:
+        """Stage C in the background: import the workbook (about 20 s) and validate the JSON."""
+        check_ready(self._store.run_dir(slug, run_id), slug)
+
+        def queued(state: RunState) -> None:
+            state.status = RunStatus.GENERATING
+            state.stages[StageName.USDM] = StageState()
+
+        self._submit(slug, run_id, queued, lambda: self._usdm(slug, run_id, force))
 
     def shutdown(self) -> None:
         self._pool.shutdown(wait=False, cancel_futures=True)
@@ -234,6 +245,47 @@ class JobRunner:
             self._store.update_run(slug, run_id, finished)
         except Exception as exc:
             self._fail(slug, run_id, stage, exc)
+
+    def _usdm(self, slug: str, run_id: str, force: bool) -> None:
+        stage = StageName.USDM
+        try:
+            run_dir = self._store.run_dir(slug, run_id)
+            self._set_stage(slug, run_id, stage, status=StageStatus.RUNNING, started_at=_now())
+            report = generate_usdm(run_dir, slug, force=force)
+            produced = report.file is not None
+            self._set_stage(
+                slug,
+                run_id,
+                stage,
+                status=(
+                    StageStatus.FAILED
+                    if not produced
+                    else StageStatus.SKIPPED
+                    if report.reused
+                    else StageStatus.DONE
+                ),
+                finished_at=_now(),
+                detail=_usdm_detail(report),
+                error=None if produced else "the workbook import produced no USDM; see the results",
+            )
+
+            def finished(state: RunState) -> None:
+                state.status = RunStatus.COMPLETED if produced else RunStatus.FAILED
+
+            self._store.update_run(slug, run_id, finished)
+        except Exception as exc:
+            self._fail(slug, run_id, stage, exc)
+
+
+def _usdm_detail(report: UsdmReport) -> str:
+    rules = report.rules
+    parts = [
+        f"{len(report.import_errors)} import error(s)",
+        f"{rules.failed} of {rules.rules} rules failed, {rules.findings} finding(s) "
+        f"({rules.expected_findings} expected)",
+        f"CORE {'ran' if report.core.ran else 'not run'}",
+    ]
+    return ", ".join(parts)
 
 
 def _summarise(agents: dict[str, AgentRun]) -> tuple[str, int, int]:

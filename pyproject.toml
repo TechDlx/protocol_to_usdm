@@ -51,7 +51,7 @@ select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
 
 [tool.ruff.lint.per-file-ignores]
 # Agent prompts and worked examples are content; wrapping them would change what the model reads.
-"backend/pipeline/agents/{common,study,arms,eligibility}.py" = ["E501"]
+"backend/pipeline/agents/*.py" = ["E501"]
 
 [tool.mypy]
 python_version = "3.12"
@@ -59,8 +59,9 @@ strict = true
 packages = ["backend"]
 
 [[tool.mypy.overrides]]
-module = ["usdm4.*", "usdm4_excel.*", "fitz.*", "pymupdf.*", "openpyxl.*", "slugify.*"]
+module = ["usdm4.*", "usdm4_excel.*", "simple_error_log.*", "fitz.*", "pymupdf.*", "openpyxl.*", "slugify.*"]
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["slow: imports a written workbook with usdm4-excel (about 20 s each)"]

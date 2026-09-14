@@ -356,3 +356,290 @@ usdm4-excel importer and the CDISC Pilot gold workbook rather than the README's 
   criterion, matching the gold workbook and the intermediate record 1:1.
 - Sheets for later phases are not shown yet; the SoA grid arrives with the SoA agent (Phase 6).
   Columns not extracted yet (notes, dictionary, therapeutic areas) are shown greyed so letters match.
+
+---
+
+## D17 — Phase 5 sheets, and what is deliberately left out
+
+Nine more agents, one per workbook area, each reading only its M11 sections:
+
+| Agent | Workbook sheet(s) | Notes |
+|---|---|---|
+| identifiers | studyOrganizations, studyIdentifiers | one agent: identifiers point at their issuing organization |
+| study_design | studyDesign (key/value block) | the epoch × arm grid below it needs epochs/elements: Phase 6 |
+| populations | studyDesignPopulations | main population plus separately enrolled cohorts |
+| objectives_endpoints | studyDesignOE | one row per endpoint |
+| estimands | studyDesignEstimands | one row per intercurrent event; empty for protocols without estimands |
+| interventions | studyInterventions | one row per administration |
+| indications | studyDesignIndications | |
+| amendments | studyAmendments | empty when there is no amendment history |
+| abbreviations | abbreviations | empty when there is no list |
+
+Not extracted (yet): `studyProducts` (dose forms, product designation), `amendmentImpact` /
+`amendmentChanges`, `studyReferences`, `studyDesignSites`, `roles`, `studyDesignConditions`,
+`studyDesignCharacteristics`, dictionaries. Indication and intervention codes (SNOMED, ICD-10,
+UNII, MedDRA) are left empty: no licensed dictionary ships with the keyless setup, and the model
+must not invent codes. Organizations' identifier scheme and identifier are required by USDM and are
+rarely printed for sponsors, so they stay empty for the reviewer; only the public registries
+(ClinicalTrials.gov, EudraCT, CTIS, ISRCTN) get a generated identifier, their web address, marked as
+generated. Sheets whose protocol section is missing (amendments, estimands, abbreviations) finish
+as empty sheets rather than failed agents.
+
+## D18 — Layouts drive validation, references, provenance and the UI
+
+`backend/pipeline/workbook/layout.py` is the single description of every sheet, and everything else
+reads it: review validation, the reference graph, cross-sheet linking, provenance.json, the review
+grid and the Extraction tab (`GET /api/workbook/layouts`). A column declares:
+
+- `format` — boolean, quantity, range, count, date, geographic scope, enrollment. Checks mirror the
+  usdm4-excel parsers (including unit lookup by C-code, preferred term or submission value, no
+  synonyms; plural unit words only in ranges). Agents write these formats themselves from the numbers
+  and units the model reports, using CDISC unit submission values ("18..75 YEARS", "125 mg").
+  Decimals the importer truncates are a warning.
+- `multi` — comma-separated terminology (trial intent types, sub types, characteristics, planned sex,
+  amendment secondary reasons); exact only when every item is exact.
+- `other_allowed` — amendment reasons accept `Other=<reason>`, resolved against the "Other" term.
+- `choices` — small fixed vocabularies that are not CDISC CT (population level, date category).
+- `group` / `leading_group` — two-level sheets (objective → endpoints, intervention →
+  administrations, estimand → intercurrent events) are one workbook row per lower-level item, with
+  the upper level's columns filled only on its first row, exactly as the importer reads them. Group
+  columns are required only where the group starts; the first row must start one; empty rows block.
+- `entity` / `ref` — names and references (below).
+
+## D19 — References are typed and case-sensitive; linked deterministically across agents
+
+usdm4 keys cross-references by class and exact name, so the reference graph now does the same:
+names must be unique within an entity kind (an arm and an intervention may both be called
+"Placebo"), and a reference must match a name of an allowed kind exactly. This replaces D1's
+conservative single study-wide namespace, which would have blocked legitimate reviews.
+
+Agents run independently and in parallel, so an agent cannot know another sheet's generated names.
+Where a sheet refers to another (estimand → population, intervention, endpoint; amendment → governance
+date), the agent records the protocol's phrase, and `identifiers/linking.py` replaces it with a name
+whenever the model is assembled: only for extracted values, only on a clear best match (token-set /
+partial fuzzy score ≥ 70 and 5 points ahead of the runner-up, partial matching only against texts at
+least as long as the phrase), keeping the quote as provenance and capping confidence at the match
+score. Unmatched phrases stay visible, are listed on the Extraction tab, and block review until a
+reviewer picks a name from the reference picker. Agent dependencies (running estimands after the
+sheets they refer to) were rejected: they would serialise the pipeline and make an estimand re-run
+whenever an endpoint's wording changed.
+
+## D20 — Review row ids are numbered per sheet
+
+Row ids are `<prefix>-<n>` with a counter per prefix (`arm-1`, `crit-12`), never reused after a delete.
+Reviews created in Phase 4 continue from their old global counter, so no id repeats.
+
+---
+
+## D21 — The schedule agent reads page images; USDM structure is built deterministically
+
+Schedules of activities are the least reliable tables to parse (merged and spanning headers,
+arrows, footnote letters, rotated pages; every SoA table in both sample protocols is flagged
+`needs_vision`). The schedule agent therefore receives the page images of the M11 1.3 sections (at
+most 12 pages, 150 dpi) alongside the parsed text, and the image hashes are part of its input hash.
+It reports only what a reader sees: epochs, visit columns with their stated planned time and
+window, activity rows with the columns they are marked in, and which tables are separate
+timelines. From that, code builds the USDM structure:
+
+- one timeline per schedule, the main one on sheet `main-timeline`, others `timeline-2`, ...;
+- one encounter per main-timeline visit; one timepoint (scheduled activity instance) per column of
+  every timeline, chained by default to the next column and `(Exit)` after the last; a column of a
+  secondary timeline points at the encounter of the main visit it happens at;
+- timings relative to the timeline's anchor visit: the anchor is a Fixed Reference, a visit with a
+  stated planned time is Before/After it by that whole amount, with its window; visits without a
+  fixed time (screening "within N days", end of treatment, repeating cycles) get no timing and a
+  warning rather than an invented offset;
+- USDM requires an entry condition for each timeline and protocols rarely state one, so a generic,
+  visibly generated sentence is used unless the protocol gives one.
+
+Quotes (column headings, row names) are verified like any other; the marks inherit the row's
+provenance with the model's own marks confidence, noted as read from the page images.
+
+## D22 — The schedule is reviewed as sheets and as a grid
+
+The workbook stores a timeline as a matrix (timepoints across, activities down, X marks). Review
+keeps one representation for editing, validation and audit: three table views that map onto the
+timeline sheets one to one: **timelines** (the sheet-level rows), **timepoints** (one row per
+column) and **schedule** (one row per activity row, with `scheduledAt` listing the timepoints it is
+marked at). The **Schedule grid** tab draws the matrix from those views; clicking a cell edits the
+row's `scheduledAt` list, so a mark change is an ordinary audited `set` with old and new lists.
+Reference columns may hold several names (`multi`) and fixed literals such as `(Exit)`; pickers
+only offer names from the same timeline. The Phase 7 writer lays the views out as the importer's
+matrix. Not modelled yet: parent activity groups (kept as the activity description), footnote
+conditions (`studyDesignConditions`), procedures, and decision instances.
+
+## D23 — Biomedical Concepts only from exact catalogue matches
+
+The assessments agent reads the assessment chapter and the laboratory appendix and lists each
+assessment's measured parameters as printed. At assembly a schedule row is matched to an assessment
+by name (word matching, score at least 90 and clearly ahead), and each parameter is looked up in
+usdm4's bundled catalogue. Only exact matches become concepts: the concept's name, or a synonym
+that belongs to that concept alone ("WBC" names both blood and urine leukocytes, so it matches
+neither). Trial-summary "(TS)" and retired concepts are never scheduled. Parameters that are not in
+the catalogue are listed in the value's note; an activity whose own name is a concept (e.g.
+"Weight") gets it when no assessment matches. Review warns, without blocking, when a reviewer
+enters a name that is not a concept: the importer then creates a concept surrogate, which is valid
+USDM without a definition.
+
+The linking score used for cross-sheet references was changed at the same time from
+character-level partial matching to word matching, which scored "Medical History" against
+"Clinical Chemistry" at 76.
+
+## D24 — Elements and study cells are a documented default
+
+USDM's study design needs an element for every arm in every epoch; protocols rarely define them.
+At assembly, when arms and epochs both exist: one shared element per non-treatment epoch and one
+element per arm per treatment-type epoch (by the epoch's CDISC term), with the arm-by-epoch cells
+pointing at them. Every value is marked generated with a note, so crossover or unequal designs are
+corrected in review (the **Arm-epoch cells** sheet).
+
+---
+
+## D25 — Stage B writes only from a confirmed, clean review
+
+`POST .../workbook` writes `workbook/<slug>.xlsx` and `workbook_report.json` only when the review is
+confirmed and re-validating it finds no blocking issue (required values, exact terminology,
+importer-readable formats, a clean reference graph). Otherwise it answers 409 with the reasons and
+issues; nothing is written from unreviewed extraction. The report records the review revision the
+workbook came from, its sha256, the CT version and the rows written per sheet; asking again for an
+unchanged revision reuses the file. The output is byte-identical for identical content: document
+properties and zip entry times are pinned to the review's confirmation time, so the sha256 is a
+meaningful fingerprint for evaluation and audit.
+
+## D26 — The workbook follows what usdm4-excel's importer reads, verified by importing it
+
+The writer mirrors the importer and usdm4-excel's own exporter rather than the README tables:
+the `study` sheet with the legacy dates table, the `studyDesign` key/value block with
+`mainTimeline`/`otherTimelines` and the arm-by-epoch element grid, and one sheet per timeline
+(meta rows, timepoint heading rows in column C, activity table from row 10 with X marks and
+`BC: ...` cells). Acceptance is an import with `usdm4_excel.USDM4Excel().from_excel()`: the unit
+test round-trips the synthetic protocol, and both sample protocols, once their blocking cells were
+filled, import with **0 errors** (the CDISC Pilot gold workbook also imports with 0).
+
+Importing our first workbooks exposed importer requirements that USDM itself does not have, now
+reflected in review:
+
+- `studyAmendments.enrollment`, `studyDesignEncounters.environmentalSetting` / `contactModes`,
+  `study.protocolStatus`, `studyDesign.studyType` / `studyPhase` are required: the importer
+  rejects empty cells. Encounters get a visible generated default ("Clinic", "In Person") for the
+  reviewer to change for telephone or home visits; the others have no honest default.
+- Secondary amendment reasons are joined with "," without spaces: the reader splits without
+  trimming, so " IRB/IEC Feedback" is not found in the codelist.
+- Eligibility criterion text is read as XHTML: it is escaped and wrapped in `<p>`, so "< 1.5" is
+  not "repaired".
+- Interventions are written to `studyInterventions`; `studyDesignInterventions` is deprecated.
+- Controlled-terminology cells are written as the resolution's preferred term (the importer does
+  not match CT synonyms); dates as text `yyyy-mm-dd 00:00:00`, the form its date reader parses.
+
+Remaining import warnings are expected: timepoints without a stated planned time have no timing
+(D21), and optional sheets the pipeline does not produce yet are reported as absent.
+
+---
+
+## D27 — Stage C imports the reviewed workbook with usdm4-excel and never edits the JSON
+
+`POST .../usdm` first brings the workbook up to date with the confirmed review (the Stage B gate
+and reuse rules apply), then runs in the background (run status `generating`): usdm4-excel imports
+`workbook/<slug>.xlsx`, the Wrapper is serialised to `usdm/<slug>.json`, and the JSON is validated.
+The JSON is exactly what the CDISC reference tooling makes of the workbook; any correction belongs
+in the review, where it is audited, not in a JSON patch. `usdm_report.json` records the workbook
+sha256 and review revision it came from, import errors and warnings, rule outcomes and findings,
+the CORE status, entity counts per `instanceType`, and timings. It is reused while the workbook is
+unchanged. `GET .../usdm` adds `stale` reasons when the workbook or the review has moved on since.
+While a Stage C job runs, the workbook cannot be rewritten underneath it (409).
+
+## D28 — Validation: usdm4 rule library always, CDISC CORE only when its cache is ready
+
+The usdm4 DDF rule library (213 rules) runs offline in about 3 seconds and is always run. CDISC CORE
+needs a cache of rules, JSONata functions, schemas and a CT index downloaded with CDISC Library API
+access; without it (the current setup, D-keyless terminology) the report says CORE did not run and
+lists what is missing, instead of failing the stage. When the cache is present CORE runs and its
+per-rule counts are reported; a CORE failure is recorded without losing the rule results.
+
+## D29 — Every known rule finding is explained as "expected" or "fix in review"
+
+Rule findings are grouped by rule on the Results page. Findings the pipeline is known to produce
+carry a note (`FINDING_NOTES` in `usdm_gen/stage.py`):
+
+- **expected**: parts of USDM not extracted yet (study roles and their organisations: DDF00172,
+  DDF00192, DDF00201; procedures DDF00101; timeline planned duration DDF00153; administrable
+  products DDF00185) or importer behaviour (anchor timing related to itself DDF00031, duplicate
+  ids DDF00083, catalogue BC synonyms equal to the label DDF00236). The CDISC Pilot reference
+  workbook gets several of the same findings.
+- **fix in review**: the reviewed values break a USDM expectation, and the note names the sheet and
+  the change (one primary objective, a planned age range with both ends, dose/route/frequency,
+  duration text or quantity, at most one randomisation characteristic, ...).
+
+Anything else is shown as **check**. Two findings were pipeline defects and are fixed at the
+source: planned sex "Both" is now written as "Female, Male" (DDF00188), and a timeline's anchor
+timing never carries a window (DDF00025). Every timeline now gets one Fixed Reference timing: when
+the model marks no anchor, the first timepoint is used and flagged for review (DDF00009); planned
+times are only built relative to an anchor the protocol names.
+
+Measured on the sample protocols after re-processing (no model calls) and filling blocking cells
+with test values: both import with **0 errors**; CDISC Pilot fails 12 of 213 rules with 14 findings
+(9 expected, 5 fix in review), PALOMA-3 fails 15 with 27 findings (21 expected, 6 fix in review),
+none unexplained. The CDISC Pilot reference JSON fails 17 rules with 42 findings.
+
+---
+
+## D30 — Evaluation scores the unreviewed workbook against the CDISC Pilot reference
+
+`goldstandard/eval.py` measures what the pipeline produces before any human correction: it runs
+Stage A on the CDISC Pilot protocol in a workspace run folder (`goldstandard/runs/cdisc-pilot/`,
+gitignored), writes the workbook straight from `extraction.json` with the Stage B writer (the only
+place a workbook is written without a confirmed review, and never into a study folder), reads it
+and the reference workbook back with one reader, and scores them. Stage A is resumable as in any
+run, so re-scoring after a code change costs nothing unless prompts or model inputs changed;
+`--force` re-runs every agent. `--run-dir` scores an existing run's extraction and `--workbook`
+scores any workbook as it is (the reference scored against itself is 100%, a test).
+
+Results are written to `goldstandard/results/<UTC time>_<commit>[-dirty].json` and `.md`, tracked
+in git, and each Markdown report shows the change since the previous result. The report records
+the commit, the extraction model, agent statuses and cost, and the sha256 of both workbooks.
+
+## D31 — Rows are aligned before cells are compared; names are compared by what they point at
+
+The pipeline and the reference author order rows differently and name entities differently (the
+reference uses `E1`, `TIM1`, `SCREEN1`; the pipeline generates names from the protocol), so
+comparing cells by position or references by spelling would measure naming, not extraction.
+
+- Both workbooks are read into the review layouts (study and design key/value blocks, the dates
+  table, the arm-by-epoch grid, timeline sheets as timelines, timepoints and schedule rows).
+  Two-level sheets are split into one table per level with a parent reference.
+- Rows are paired by the similarity of the columns filled on both sides, with a small preference
+  for the same relative position. Sequences (epochs, encounters, timepoints, timings) use an
+  order-preserving alignment; schedule rows pair only within the same timeline and activity.
+  Texts whose numbers differ ("Week 16" and "Week 20") are unlikely pairs. References to rows of
+  the same table (a timepoint's default) are left out of alignment, being circular. Two passes let
+  references to later sheets inform the earlier ones.
+- Entity names are mapped through the pairs, and references are compared after mapping. The
+  entity's own name is an identifier generated by code: reported, not in the headline.
+
+## D32 — Tiered cell scoring; every multi-value item is a field
+
+Following the Phase 0 decision, each column is scored by tier: **code** (terminology resolved to
+C-codes on both sides, so a submission value, preferred term, synonym or C-code match, and
+"Female, Male" equals "Both"), **reference** (mapped names), **value** (numbers, units and plurals,
+booleans, dates normalised), **text** (fuzzy similarity of at least 0.85 after markup is
+stripped; an extra sentence is a mismatch). Semantic (model-judged) comparison of prose is not
+used: it would make the score cost money and vary between runs.
+
+A field is a filled cell, or one item of a multi-valued cell, so each schedule mark counts. Per
+table and sheet: precision = matched / generated fields, recall = matched / reference fields,
+accuracy = matched / fields filled on either side. Reference content outside the pipeline's scope
+(document template sheets, dictionaries, conditions, procedures, roles, sites, columns the layouts
+do not model) is counted and reported, with a second recall that includes it.
+
+The reference workbook is not a perfect answer key: some values are invented for the DDF example
+(amendments, estimands, organisations, "*** To be determined from protocol ***" endpoints), some
+differ by authoring choice (arms typed Active Comparator where the pipeline keeps Investigational,
+per the Phase 0 answer; half-visits for NPI-X), so the ceiling is below 100%. The scores are for
+tracking change across commits, not an absolute measure. Prompts must not be tuned to the
+reference (extraction quality rules).
+
+First result (commit b4e5321 plus uncommitted Phase 5–9 work, Pilot extraction from 2026-09-13,
+review disabled): field-level accuracy 39.5%, precision 64.7%, recall 45.3%, F1 53.3%; codes 62%,
+references 48% (schedule marks recall 56%), values 24%, text 24%; recall including out-of-scope
+reference content 18.6%.
+

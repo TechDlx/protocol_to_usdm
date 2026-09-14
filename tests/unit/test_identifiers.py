@@ -86,16 +86,24 @@ def test_clean_graph_is_valid() -> None:
     assert result.valid and result.entities == 3 and result.issues == []
 
 
-def test_duplicate_names_across_sheets_are_reported() -> None:
+def test_duplicate_names_within_a_kind_are_reported() -> None:
     result = validate_references(
-        ExtractionSheets(
-            study_design_arms=[_arm("IN01")], eligibility_criteria=[_criterion("in01")]
-        )
+        ExtractionSheets(study_design_arms=[_arm("Placebo"), _arm("Placebo")])
     )
     assert not result.valid
     (issue,) = result.issues
     assert issue.kind == ReferenceIssueKind.DUPLICATE_NAME
-    assert len(issue.locations) == 2
+    assert len(issue.locations) == 2 and len(issue.anchors) == 2
+
+
+def test_same_name_in_different_kinds_is_allowed() -> None:
+    # usdm4 keys cross-references by class and name: an arm and a criterion may share a name.
+    result = validate_references(
+        ExtractionSheets(
+            study_design_arms=[_arm("IN01")], eligibility_criteria=[_criterion("IN01")]
+        )
+    )
+    assert result.valid
 
 
 def test_missing_names_are_reported() -> None:
@@ -103,11 +111,16 @@ def test_missing_names_are_reported() -> None:
     assert [i.kind for i in result.issues] == [ReferenceIssueKind.MISSING_NAME]
 
 
-def test_dangling_reference_is_reported() -> None:
-    graph = build_graph(ExtractionSheets(study_design_arms=[_arm("A")]))
-    graph.reference("A", "studyDesign.arms")
-    graph.reference("Missing Arm", "studyDesign.arms")
+def test_dangling_reference_is_reported_and_names_are_case_sensitive() -> None:
+    graph = build_graph(ExtractionSheets(study_design_arms=[_arm("Arm A")]))
+    graph.reference(("StudyArm",), "Arm A", "studyDesign arms")
+    graph.reference(("StudyArm",), "Missing Arm", "studyDesign arms")
+    graph.reference(("StudyArm",), "arm a", "studyDesign arms")
+    graph.reference(("Endpoint",), "Arm A", "estimand endpointXref")
     result = graph.validate()
     assert [(i.kind, i.name) for i in result.issues] == [
-        (ReferenceIssueKind.DANGLING_REFERENCE, "Missing Arm")
+        (ReferenceIssueKind.DANGLING_REFERENCE, "Missing Arm"),
+        (ReferenceIssueKind.DANGLING_REFERENCE, "arm a"),
+        (ReferenceIssueKind.DANGLING_REFERENCE, "Arm A"),
     ]
+    assert "did you mean 'Arm A'" in result.issues[1].message

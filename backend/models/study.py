@@ -34,8 +34,8 @@ class RunStatus(StrEnum):
     PARSED = "parsed"  # ingestion + segmentation done; extraction not yet run
     AWAITING_REVIEW = "awaiting_review"
     REVIEWED = "reviewed"  # review confirmed; ready for workbook generation
-    GENERATING = "generating"
-    COMPLETED = "completed"
+    GENERATING = "generating"  # Stage C: importing the workbook and validating the USDM JSON
+    COMPLETED = "completed"  # USDM JSON generated and validated
     FAILED = "failed"
 
 
@@ -43,6 +43,8 @@ class StageName(StrEnum):
     INGEST = "ingest"  # PDF -> parsed_document.json + page_images/
     SEGMENT = "segment"  # parsed document -> section_mapping.json
     EXTRACT = "extract"  # agents -> extraction.json, provenance.json, reference_validation.json
+    WORKBOOK = "workbook"  # confirmed review -> workbook/<slug>.xlsx, workbook_report.json
+    USDM = "usdm"  # workbook -> usdm/<slug>.json, usdm_report.json (import + validation)
 
 
 class StageStatus(StrEnum):

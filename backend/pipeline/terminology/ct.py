@@ -17,13 +17,16 @@ import re
 import threading
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import usdm4
 from rapidfuzz import fuzz
 from usdm4.ct.cdisc.library import Library as CdiscCtLibrary
 
 from backend.models.extraction import TermCandidate, TerminologyResolution, TerminologyStatus
+
+if TYPE_CHECKING:
+    from backend.pipeline.terminology.bc import BcResolver
 
 FUZZY_THRESHOLD = 80.0
 MAX_CANDIDATES = 5
@@ -42,12 +45,66 @@ class CtField:
     attribute: str
 
 
-# The CT fields used by the implemented extraction agents.
+# The CT fields used by the extraction agents.
 STUDY_PROTOCOL_STATUS = CtField("StudyProtocolVersion", "protocolStatus")
 GOVERNANCE_DATE_TYPE = CtField("GovernanceDate", "type")
 ARM_TYPE = CtField("StudyArm", "type")
 ARM_DATA_ORIGIN_TYPE = CtField("StudyArm", "dataOriginType")
 ELIGIBILITY_CATEGORY = CtField("EligibilityCriterion", "category")
+ORGANIZATION_TYPE = CtField("Organization", "type")
+STUDY_TYPE = CtField("StudyDesign", "studyType")
+STUDY_PHASE = CtField("StudyDesign", "studyPhase")
+INTERVENTION_MODEL = CtField("StudyDesign", "interventionModel")
+DESIGN_CHARACTERISTICS = CtField("StudyDesign", "characteristics")
+BLINDING_SCHEMA = CtField("InterventionalStudyDesign", "blindingSchema")
+TRIAL_INTENT_TYPES = CtField("InterventionalStudyDesign", "intentTypes")
+TRIAL_SUB_TYPES = CtField("InterventionalStudyDesign", "subTypes")
+PLANNED_SEX = CtField("StudyDesignPopulation", "plannedSex")
+OBJECTIVE_LEVEL = CtField("Objective", "level")
+ENDPOINT_LEVEL = CtField("Endpoint", "level")
+INTERVENTION_ROLE = CtField("StudyIntervention", "role")
+INTERVENTION_TYPE = CtField("StudyIntervention", "type")
+ROUTE = CtField("Administration", "route")
+FREQUENCY = CtField("Administration", "frequency")
+AMENDMENT_REASON = CtField("StudyAmendmentReason", "code")
+UNIT = CtField("Quantity", "unit")
+EPOCH_TYPE = CtField("StudyEpoch", "type")
+ENCOUNTER_TYPE = CtField("Encounter", "type")
+ENCOUNTER_SETTINGS = CtField("Encounter", "environmentalSettings")
+CONTACT_MODES = CtField("Encounter", "contactModes")
+TIMING_TYPE = CtField("Timing", "type")
+
+#: Separator of multi-valued terminology cells (no term of those codelists contains a comma).
+MULTI_SEPARATOR = ","
+
+
+def combine(results: list[TerminologyResolution | None]) -> TerminologyResolution | None:
+    """One resolution for a multi-valued cell.
+
+    Exact only when every item is exact; then `code`, `submission_value` and `preferred_term` hold
+    the items' values joined by ", ". Otherwise no code is given and the candidates are those of the
+    first item that did not match.
+    """
+    resolved = [r for r in results if r is not None]
+    if not resolved:
+        return None
+    failing = next((r for r in resolved if r.status != TerminologyStatus.EXACT), None)
+    first = resolved[0]
+    if failing is None:
+        return first.model_copy(
+            update={
+                "code": ", ".join(r.code or "" for r in resolved),
+                "submission_value": ", ".join(r.submission_value or "" for r in resolved),
+                "preferred_term": ", ".join(r.preferred_term or "" for r in resolved),
+                "matched_on": first.matched_on if len(resolved) == 1 else "multiple",
+            }
+        )
+    worst = (
+        TerminologyStatus.UNRESOLVED
+        if any(r.status == TerminologyStatus.UNRESOLVED for r in resolved)
+        else TerminologyStatus.FUZZY
+    )
+    return failing.model_copy(update={"status": worst, "code": None, "matched_on": None})
 
 
 class CodelistNotConfiguredError(LookupError):
@@ -58,6 +115,16 @@ class CtResolver:
     def __init__(self) -> None:
         self._library = CdiscCtLibrary(str(Path(usdm4.__file__).parent))
         self._library.load()
+        self._bcs: BcResolver | None = None
+
+    @property
+    def bcs(self) -> "BcResolver":
+        """Biomedical Concept resolution, loaded on first use (it shares this CT library)."""
+        if self._bcs is None:
+            from backend.pipeline.terminology.bc import BcResolver
+
+            self._bcs = BcResolver(self._library, self.version)
+        return self._bcs
 
     @property
     def version(self) -> str:
@@ -113,6 +180,22 @@ class CtResolver:
             candidates=candidates,
             **base,
         )
+
+    def resolve_many(self, phrases: str | None, field: CtField) -> TerminologyResolution | None:
+        """Resolve a comma-separated list of phrases, as in multi-valued workbook cells."""
+        items = [p.strip() for p in (phrases or "").split(MULTI_SEPARATOR) if p.strip()]
+        return combine([self.resolve(item, field) for item in items])
+
+    def unit(self, phrase: str) -> dict[str, Any] | None:
+        """A unit term exactly as usdm4's importer finds one: C-code, preferred term or submission
+        value, case-insensitive, no synonyms."""
+        needle = phrase.strip().upper()
+        terms: list[dict[str, Any]] = self.codelist(UNIT).get("terms") or []
+        for key in ("conceptId", "preferredTerm", "submissionValue"):
+            for term in terms:
+                if (term.get(key) or "").upper() == needle:
+                    return term
+        return None
 
     def by_code(self, code: str, field: CtField) -> TerminologyResolution | None:
         """A reviewer's explicit choice: the term with this C-code in the field's codelist."""

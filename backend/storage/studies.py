@@ -261,11 +261,11 @@ class StudyStore:
             return state
 
     def mark_interrupted_runs(self) -> int:
-        """A run left RUNNING on disk was interrupted by a server stop; say so instead of lying."""
+        """A run left active on disk was interrupted by a server stop; say so instead of lying."""
         count = 0
         for study in self.list_studies():
             for run in study.runs:
-                if run.status != RunStatus.RUNNING:
+                if run.status not in (RunStatus.RUNNING, RunStatus.GENERATING):
                     continue
 
                 def fail(state: RunState) -> None:

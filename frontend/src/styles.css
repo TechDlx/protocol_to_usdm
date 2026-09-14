@@ -223,3 +223,55 @@ table.grid tr.candidate { background: #fff8e6; }
 .rv-issue-list li.warning { color: #8a5a00; }
 .rv-audit { margin-bottom: 12px; max-height: 320px; overflow: auto; }
 .rv-audit-value { max-width: 280px; overflow-wrap: anywhere; }
+
+/* Phase 5: many sheets, two-level sheets */
+.review .tabs, .extraction .tabs { flex-wrap: wrap; }
+tr.group-start > td { border-top: 2px solid #9aa6b5 !important; }
+.rv-panel select.rv-search { background: #fff; }
+.rv-checklist { display: flex; flex-direction: column; gap: 2px; max-height: 280px; overflow: auto; width: 100%; }
+.rv-checklist label { display: flex; gap: 6px; align-items: center; }
+
+/* Phase 6: schedule grid */
+.soa { display: flex; flex-direction: column; gap: 14px; }
+.soa-timeline h3 { text-transform: none; letter-spacing: 0; font-size: 0.95rem; color: var(--text); }
+.soa-wrap { overflow: auto; max-height: calc(100vh - 300px); background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); }
+table.soa-grid { border-collapse: collapse; font-size: 0.8rem; }
+table.soa-grid th, table.soa-grid td { border: 1px solid #d5dae1; padding: 3px 6px; }
+table.soa-grid thead th { position: sticky; background: #eef1f5; z-index: 2; }
+table.soa-grid thead tr:first-child th { top: 0; }
+table.soa-grid thead tr:nth-child(2) th { top: 24px; }
+.soa-corner { left: 0; position: sticky; z-index: 3 !important; text-align: left; }
+.soa-epoch { text-align: center; font-weight: 600; color: var(--muted); }
+.soa-tp { min-width: 64px; max-width: 120px; font-weight: 500; vertical-align: bottom; }
+.soa-tp.selected { outline: 2px solid var(--primary); outline-offset: -2px; }
+.soa-activity { position: sticky; left: 0; background: #fff; text-align: left; font-weight: 400; min-width: 220px; max-width: 320px; z-index: 1; }
+.soa-activity.low { background: #fff4de; }
+.soa-activity.blocking { background: #fde8e8; }
+.soa-activity.edited { background: #e3f0ff; }
+.soa-bc { display: block; font-size: 0.7rem; color: var(--muted); }
+.soa-cell { text-align: center; cursor: pointer; min-width: 40px; }
+.soa-cell:hover { background: #f0f5ff; }
+.soa-cell.marked { font-weight: 700; color: var(--primary); }
+table.soa-grid tr.selected th.soa-activity { outline: 2px solid var(--primary); outline-offset: -2px; }
+
+/* Phase 7: workbook panel */
+.wb-panel { margin-bottom: 12px; display: flex; flex-direction: column; gap: 6px; }
+.wb-title { margin: 0; }
+.wb-panel details summary { cursor: pointer; color: var(--muted); }
+
+
+/* Phase 8: USDM results */
+.results .panel { margin-bottom: 12px; }
+.results .panel h3 { margin: 0 0 6px; }
+.results details summary { cursor: pointer; }
+.stat.ok { border-color: #9fd3b1; }
+.chip.finding-review { background: #fff4de; color: #8a5a00; }
+.chip.finding-other { background: var(--danger-bg); color: var(--danger-text); }
+.chip.finding-expected { background: #eceff3; color: var(--muted); }
+table.findings td { vertical-align: top; }
+tr.clickable { cursor: pointer; }
+tr.clickable:hover { background: #f5f8fc; }
+tr.error td { color: var(--danger-text); }
+tr.warning td { color: #8a5a00; }
+.strong-note { font-weight: 600; margin-top: 2px; }
+.entity-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 2px 12px; margin-top: 8px; }
