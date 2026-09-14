@@ -57,8 +57,9 @@ export default function SheetGrid({ layout, state, pending, selection, onSelect,
         onClick={() => onSelect(here)}
         onDoubleClick={() => {
           onSelect(here);
-          // Terminology, reference and fixed-choice cells are chosen in the side panel.
-          if (!column.ct_klass && column.ref.length === 0 && column.choices.length === 0) setEditing(here);
+          // Every cell can be typed in place. Terminology, reference and fixed-choice cells also have
+          // pickers in the side panel; a typed value is resolved and validated on the server either way.
+          setEditing(here);
         }}
       >
         {cellIssues.length > 0 && !queued && <span className={`rv-marker ${blocking ? "blocking" : "warning"}`} aria-hidden />}

@@ -80,6 +80,7 @@ export default function CellPanel({ slug, runId, state, layout, selection, pendi
           value={value}
           options={entityNames(state.document.sheets, state.layouts, column.ref, scopeOf(record))}
           what={column.ref.join(" or ")}
+          sources={sourceSheets(state.layouts, column.ref)}
           onChoose={(text) =>
             onRun([{ op: "set", sheet: selection.sheet, row_id: selection.rowId, field: selection.field, value: text }])
           }
@@ -94,6 +95,7 @@ export default function CellPanel({ slug, runId, state, layout, selection, pendi
               : column.choices
           }
           what={column.ref.length > 0 ? `a ${column.ref.join(" or ")} name` : "a value"}
+          sources={column.ref.length > 0 ? sourceSheets(state.layouts, column.ref) : []}
           onChoose={(choice) =>
             onRun([{ op: "set", sheet: selection.sheet, row_id: selection.rowId, field: selection.field, value: choice }])
           }
@@ -183,26 +185,78 @@ function ValueEditor({ value, multiline, onSave }: { value: string | null; multi
   );
 }
 
-function ChoiceEditor(props: { value: string | null; options: string[]; what: string; onChoose: (value: string | null) => void }) {
-  const { value, options, what, onChoose } = props;
+function ChoiceEditor(props: {
+  value: string | null;
+  options: string[];
+  what: string;
+  sources: string[];
+  onChoose: (value: string | null) => void;
+}) {
+  const { value, options, what, sources, onChoose } = props;
   const listed = value === null || options.includes(value);
   return (
     <div className="card-section">
       <h3>Value</h3>
-      <select className="rv-search" value={value ?? ""} onChange={(e) => onChoose(e.target.value === "" ? null : e.target.value)}>
-        <option value="">(empty)</option>
-        {!listed && <option value={value!}>{value} (not a valid choice)</option>}
-        {options.map((o) => (
-          <option key={o} value={o}>
-            {o}
-          </option>
-        ))}
-      </select>
-      <span className="muted small">
-        Choose {what}.{options.length === 0 ? " None exist yet on the other sheets." : ""}
-      </span>
+      {options.length > 0 && (
+        <select className="rv-search" value={value ?? ""} onChange={(e) => onChoose(e.target.value === "" ? null : e.target.value)}>
+          <option value="">(empty)</option>
+          {!listed && <option value={value!}>{value} (not a valid choice)</option>}
+          {options.map((o) => (
+            <option key={o} value={o}>
+              {o}
+            </option>
+          ))}
+        </select>
+      )}
+      <NoOptionsNote count={options.length} what={what} sources={sources} />
+      <TypedValue value={value} label={options.length > 0 ? "Or type a value" : "Type a value"} onApply={onChoose} />
     </div>
   );
+}
+
+/** Where a reference picker's names come from, and what to do when there are none. */
+function NoOptionsNote({ count, what, sources }: { count: number; what: string; sources: string[] }) {
+  const where = sources.length ? ` on ${sources.join(" or ")}` : " on the other sheets";
+  return count > 0 ? (
+    <span className="muted small">Choose {what}. Names come from{where}.</span>
+  ) : (
+    <span className="muted small">
+      Nothing to choose yet: there are no rows{where}. Add the row there first, then choose it here, or type the name
+      below. A name that matches no row stays a blocking issue.
+    </span>
+  );
+}
+
+/** A free-text value for cells whose picker lacks the right option; validated on the server. */
+function TypedValue({ value, label, onApply }: { value: string | null; label: string; onApply: (value: string | null) => void }) {
+  const [draft, setDraft] = useState(value ?? "");
+  useEffect(() => setDraft(value ?? ""), [value]);
+  const dirty = draft.trim() !== (value ?? "");
+  const apply = () => onApply(draft.trim() === "" ? null : draft.trim());
+  return (
+    <div className="row-inline small">
+      <input
+        className="rv-search"
+        aria-label={label}
+        placeholder={label}
+        value={draft}
+        onChange={(e) => setDraft(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" && dirty) apply();
+        }}
+      />
+      <button className="btn small primary" disabled={!dirty} onClick={apply}>
+        Apply
+      </button>
+    </div>
+  );
+}
+
+function sourceSheets(layouts: SheetLayout[], kinds: string[]): string[] {
+  const titles = layouts
+    .filter((layout) => layout.columns.some((c) => c.entity && kinds.includes(c.entity)))
+    .map((layout) => `${layout.title} (${layout.workbook_sheet})`);
+  return [...new Set(titles)];
 }
 
 const OTHER = "other";
@@ -213,8 +267,14 @@ function scopeOf(record: Record<string, unknown>): Record<string, string | null>
   return timeline ? { timeline: timeline.value } : {};
 }
 
-function MultiRefEditor(props: { value: string | null; options: string[]; what: string; onChoose: (value: string | null) => void }) {
-  const { value, options, what, onChoose } = props;
+function MultiRefEditor(props: {
+  value: string | null;
+  options: string[];
+  what: string;
+  sources: string[];
+  onChoose: (value: string | null) => void;
+}) {
+  const { value, options, what, sources, onChoose } = props;
   const chosen = new Set(
     (value ?? "")
       .split(",")
@@ -245,7 +305,8 @@ function MultiRefEditor(props: { value: string | null; options: string[]; what: 
           </label>
         ))}
       </div>
-      {options.length === 0 && <span className="muted small">None exist yet on the other sheets.</span>}
+      <NoOptionsNote count={options.length} what={what} sources={sources} />
+      <TypedValue value={value} label="Or type names, comma-separated" onApply={onChoose} />
     </div>
   );
 }
