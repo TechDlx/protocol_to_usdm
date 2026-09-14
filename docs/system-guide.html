@@ -1,0 +1,2876 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Protocol to USDM System Guide</title>
+<meta name="description" content="How the Protocol to USDM application turns a clinical protocol PDF into reviewed, validated USDM v4 JSON.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+:root {
+  --paper: #f4f6f7;
+  --surface: #ffffff;
+  --sunk: #eaeef1;
+  --ink: #16212b;
+  --ink-2: #4b5967;
+  --ink-3: #6d7b88;
+  --line: #d3dbe1;
+  --line-soft: #e3e8ec;
+  --accent: #0b6477;
+  --accent-soft: #dcecef;
+  --rule: #2d6a4f;
+  --rule-bg: #e3f0ea;
+  --llm: #6a4baf;
+  --llm-bg: #ece6f7;
+  --human: #8f5400;
+  --human-bg: #f7ecd9;
+  --oq: #a4262c;
+  --oq-bg: #f8e3e3;
+  --code-bg: #eef2f4;
+  --shadow: 0 1px 2px rgba(22, 33, 43, 0.06);
+  --sans: "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --serif: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", "Cascadia Mono", Consolas, "SFMono-Regular", monospace;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f161c;
+    --surface: #151e26;
+    --sunk: #1b2630;
+    --ink: #e3eaf0;
+    --ink-2: #a9b6c2;
+    --ink-3: #8593a0;
+    --line: #2a3945;
+    --line-soft: #22303a;
+    --accent: #6cc0d1;
+    --accent-soft: #173640;
+    --rule: #7fcfa3;
+    --rule-bg: #16332a;
+    --llm: #bba5f2;
+    --llm-bg: #2a2342;
+    --human: #eab25c;
+    --human-bg: #3a2c16;
+    --oq: #f19297;
+    --oq-bg: #3d1f22;
+    --code-bg: #1b2630;
+    --shadow: none;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #0f161c;
+  --surface: #151e26;
+  --sunk: #1b2630;
+  --ink: #e3eaf0;
+  --ink-2: #a9b6c2;
+  --ink-3: #8593a0;
+  --line: #2a3945;
+  --line-soft: #22303a;
+  --accent: #6cc0d1;
+  --accent-soft: #173640;
+  --rule: #7fcfa3;
+  --rule-bg: #16332a;
+  --llm: #bba5f2;
+  --llm-bg: #2a2342;
+  --human: #eab25c;
+  --human-bg: #3a2c16;
+  --oq: #f19297;
+  --oq-bg: #3d1f22;
+  --code-bg: #1b2630;
+  --shadow: none;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 1.25rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+.skip {
+  position: absolute; left: -999px; top: 0;
+  background: var(--accent); color: var(--surface); padding: 0.5rem 0.75rem; font-family: var(--sans);
+}
+.skip:focus { left: 1rem; top: 1rem; z-index: 10; }
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px;
+}
+
+/* ----- shell ------------------------------------------------------------------------------- */
+
+.shell {
+  display: grid;
+  grid-template-columns: 17rem minmax(0, 1fr);
+  gap: 3rem;
+  max-width: 88rem;
+  margin: 0 auto;
+  padding-inline: 2rem;
+}
+
+.rail { position: relative; }
+.toc {
+  position: sticky; top: 0;
+  max-height: 100vh; overflow-y: auto;
+  padding-block: 2rem 3rem;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  line-height: 1.35;
+}
+.toc > summary {
+  list-style: none; cursor: default;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-3); padding-bottom: 0.75rem; border-bottom: 1px solid var(--line);
+}
+.toc > summary::-webkit-details-marker { display: none; }
+.toc-list, .toc-sub { list-style: none; margin: 0; padding: 0; }
+.toc-list { display: grid; gap: 0.1rem; margin-top: 0.75rem; }
+.toc-list > li > a { font-weight: 600; }
+.toc-sub { margin: 0.15rem 0 0.5rem; }
+.toc-sub a { font-size: 0.8125rem; color: var(--ink-2); padding-left: 2.1rem; }
+.toc a {
+  display: flex; gap: 0.5rem; align-items: baseline;
+  padding: 0.28rem 0.5rem; border-radius: 4px;
+  color: var(--ink); text-decoration: none;
+  border-left: 2px solid transparent;
+}
+.toc-sub a { padding-left: 1.1rem; }
+.toc a:hover { background: var(--sunk); }
+.toc a.active { border-left-color: var(--accent); background: var(--accent-soft); color: var(--ink); }
+.tnum { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-3); min-width: 1.6rem; font-variant-numeric: tabular-nums; }
+
+main { min-width: 0; padding-block: 2rem 4rem; }
+
+/* ----- document header ----------------------------------------------------------------------- */
+
+.doc-head {
+  max-width: 64rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 2.5rem;
+}
+.eyebrow {
+  font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.04em;
+  color: var(--accent); margin: 0 0 0.9rem;
+}
+.doc-head h1 {
+  font-family: var(--sans); font-weight: 700;
+  font-size: clamp(2.1rem, 4.2vw, 3.1rem); line-height: 1.04; letter-spacing: -0.02em;
+  margin: 0; text-wrap: balance;
+}
+.doc-head h1 span { display: block; font-weight: 500; color: var(--ink-2); }
+.doc-sub { font-size: 1.15rem; color: var(--ink-2); max-width: 44rem; margin: 1rem 0 1.75rem; }
+
+.doc-control {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
+  margin: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line);
+  background: var(--surface); font-family: var(--sans); font-size: 0.875rem;
+}
+.doc-control > div { padding: 0.65rem 0.85rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.doc-control dt { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+.doc-control dd { margin: 0.2rem 0 0; }
+.doc-control dd strong { font-weight: 600; }
+
+.conventions { font-size: 0.95rem; color: var(--ink-2); max-width: 52rem; margin: 1.25rem 0 0; }
+
+.toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+.toolbar button {
+  font-family: var(--sans); font-size: 0.8125rem; font-weight: 500;
+  background: var(--surface); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 5px; padding: 0.4rem 0.8rem; cursor: pointer;
+}
+.toolbar button:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ----- article --------------------------------------------------------------------------------- */
+
+.doc { max-width: 64rem; }
+.doc > p, .doc > ul, .doc > ol, .detail > p, .detail > ul, .detail > ol { max-width: 48rem; }
+
+.doc h2, .doc h3, .doc h4 { font-family: var(--sans); text-wrap: balance; color: var(--ink); }
+.doc h2 {
+  display: flex; gap: 0.9rem; align-items: baseline;
+  font-size: 1.9rem; font-weight: 700; letter-spacing: -0.015em; line-height: 1.15;
+  margin: 4rem 0 1rem; padding-top: 1.25rem; border-top: 1px solid var(--line);
+}
+.doc h2:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.doc h3 {
+  display: flex; gap: 0.75rem; align-items: baseline;
+  font-size: 1.35rem; font-weight: 650; line-height: 1.25; margin: 3rem 0 0.75rem;
+}
+.doc h4 {
+  display: flex; gap: 0.65rem; align-items: baseline;
+  font-size: 1.08rem; font-weight: 600; margin: 2.25rem 0 0.5rem;
+}
+.num { font-family: var(--mono); font-weight: 500; color: var(--accent); font-size: 0.72em; font-variant-numeric: tabular-nums; }
+
+.doc p { margin: 0.8rem 0; }
+.doc ul, .doc ol { padding-left: 1.35rem; }
+.doc li { margin: 0.3rem 0; }
+.doc li > p { margin: 0.3rem 0; }
+.doc strong { font-weight: 600; }
+
+.lead { font-size: 1.12rem; }
+
+.brief {
+  font-size: 1.09rem; line-height: 1.6;
+  margin: 0.5rem 0 1rem !important;
+  padding-left: 1rem; border-left: 3px solid var(--accent);
+}
+.brief-label {
+  display: block; font-family: var(--sans); font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.15rem;
+}
+
+code {
+  font-family: var(--mono); font-size: 0.82em;
+  background: var(--code-bg); border-radius: 3px; padding: 0.08em 0.3em;
+  overflow-wrap: anywhere;
+}
+.code-wrap { overflow-x: auto; margin: 1rem 0; max-width: 100%; }
+pre.code {
+  margin: 0; padding: 0.9rem 1rem; background: var(--code-bg); border: 1px solid var(--line-soft);
+  border-radius: 6px; font-size: 0.85rem; line-height: 1.5;
+}
+pre.code code { background: none; padding: 0; font-size: inherit; overflow-wrap: normal; }
+
+/* ----- in detail ------------------------------------------------------------------------------ */
+
+details.detail {
+  margin: 1rem 0 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+details.detail > summary {
+  display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap;
+  cursor: pointer; list-style: none;
+  padding: 0.6rem 1rem; font-family: var(--sans);
+  border-radius: 6px;
+}
+details.detail > summary::-webkit-details-marker { display: none; }
+details.detail > summary::before {
+  content: ""; width: 0.45rem; height: 0.45rem; flex: none;
+  border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent);
+  transform: rotate(-45deg) translateY(-1px); transition: transform 0.15s ease;
+}
+details.detail[open] > summary::before { transform: rotate(45deg) translateY(-3px); }
+details.detail > summary:hover { background: var(--sunk); }
+details.detail[open] > summary { border-bottom: 1px solid var(--line); border-radius: 6px 6px 0 0; }
+.sum-label { font-weight: 600; font-size: 0.9rem; color: var(--ink); }
+.sum-hint { font-size: 0.8rem; color: var(--ink-3); }
+details.detail > :not(summary) { margin-left: 1.25rem; margin-right: 1.25rem; }
+details.detail > :not(summary):first-of-type { margin-top: 1rem; }
+details.detail > :last-child { margin-bottom: 1.25rem; }
+@media (prefers-reduced-motion: reduce) { details.detail > summary::before { transition: none; } }
+
+/* ----- tags, open questions ------------------------------------------------------------------ */
+
+.tag {
+  display: inline-block; font-family: var(--sans); font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.05em; text-transform: uppercase; line-height: 1;
+  padding: 0.22em 0.5em 0.2em; border-radius: 3px; border: 1px solid currentColor;
+  vertical-align: 0.12em; white-space: nowrap;
+}
+.tag.rule { color: var(--rule); background: var(--rule-bg); }
+.tag.llm { color: var(--llm); background: var(--llm-bg); }
+.tag.human { color: var(--human); background: var(--human-bg); }
+
+.oq {
+  display: inline-block; font-family: var(--sans); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--oq); background: var(--oq-bg);
+  padding: 0.2em 0.5em; border-radius: 3px; margin-right: 0.35rem; vertical-align: 0.1em;
+}
+
+/* ----- tables --------------------------------------------------------------------------------- */
+
+.table-wrap { overflow-x: auto; margin: 1.1rem 0 1.4rem; max-width: 100%; }
+table {
+  border-collapse: collapse; width: 100%;
+  font-family: var(--sans); font-size: 0.855rem; line-height: 1.42;
+  font-variant-numeric: tabular-nums;
+}
+th, td { text-align: left; vertical-align: top; padding: 0.5rem 0.65rem; border-bottom: 1px solid var(--line-soft); }
+th {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-3); border-bottom: 1.5px solid var(--line); white-space: nowrap;
+}
+tbody tr:hover td { background: var(--sunk); }
+td code { font-size: 0.8em; }
+td:first-child { min-width: 9rem; }
+
+/* ----- figures -------------------------------------------------------------------------------- */
+
+figure { margin: 1.5rem 0 0.5rem; }
+.diagram {
+  overflow-x: auto; max-width: 100%;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 6px;
+  padding: 1.25rem;
+}
+details.detail .diagram { background: var(--paper); }
+pre.mermaid {
+  margin: 0; font-family: var(--mono); font-size: 0.78rem; white-space: pre; color: var(--ink-2);
+  display: flex; justify-content: center; min-width: min-content;
+}
+pre.mermaid svg { max-width: none; height: auto; }
+figcaption { font-family: var(--sans); font-size: 0.875rem; color: var(--ink-2); margin-top: 0.55rem; max-width: 48rem; }
+figcaption strong { color: var(--ink); }
+.howto { font-size: 0.97rem; color: var(--ink-2); }
+.howto-label {
+  font-family: var(--sans); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-3); margin-right: 0.5rem;
+}
+
+.doc-foot {
+  max-width: 64rem; margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line);
+  font-family: var(--sans); font-size: 0.8rem; color: var(--ink-3);
+}
+
+/* ----- narrow screens ------------------------------------------------------------------------- */
+
+@media (max-width: 960px) {
+  .shell { grid-template-columns: minmax(0, 1fr); gap: 0; padding-inline: 1rem; }
+  .toc {
+    position: static; max-height: none; padding-block: 1rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .toc > summary { cursor: pointer; border-bottom: 0; padding-bottom: 0.75rem; }
+  .toc > summary::after { content: " ▾"; }
+  .toc[open] > summary::after { content: " ▴"; }
+  .doc h2 { font-size: 1.55rem; }
+  .doc h3 { font-size: 1.2rem; }
+  details.detail > :not(summary) { margin-left: 0.85rem; margin-right: 0.85rem; }
+  .diagram { padding: 0.75rem; }
+}
+
+/* ----- print ---------------------------------------------------------------------------------- */
+
+@media print {
+  @page { margin: 16mm 14mm; }
+  :root { --paper: #fff; --surface: #fff; --sunk: #fff; --ink: #000; --ink-2: #222; --ink-3: #444; --line: #bbb; --line-soft: #ddd; --accent: #0b4f5e; --code-bg: #f1f1f1; }
+  body { font-size: 10.5pt; line-height: 1.45; background: #fff; }
+  .rail, .toolbar, .skip { display: none !important; }
+  .shell { display: block; padding: 0; max-width: none; }
+  main { padding: 0; }
+  .doc, .doc-head, .doc-foot { max-width: none; }
+  .doc > p, .detail > p, .doc > ul, .detail > ul { max-width: none; }
+  .doc h2 { break-before: page; border-top: 0; margin-top: 0; }
+  .doc h2, .doc h3, .doc h4 { break-after: avoid; }
+  figure, .diagram, table, tr, .brief { break-inside: avoid; }
+  details.detail { border: 0; box-shadow: none; }
+  details.detail > summary { padding-left: 0; border-bottom: 1px solid #bbb; }
+  details.detail > summary::before { display: none; }
+  details.detail > :not(summary) { margin-left: 0; margin-right: 0; }
+  .table-wrap, .diagram, .code-wrap { overflow: visible; }
+  .diagram { border: 1px solid #ccc; }
+  a { color: inherit; text-decoration: none; }
+  tbody tr:hover td { background: none; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="shell">
+  <aside class="rail" aria-label="Contents">
+    <details class="toc" id="toc" open>
+      <summary>Contents</summary>
+      <ol class="toc-list"><li><a href="#1-executive-summary"><span class="tnum">1</span>Executive summary</a></li><li><a href="#2-system-architecture-overview"><span class="tnum">2</span>System architecture overview</a></li><li><a href="#3-end-to-end-request-lifecycle"><span class="tnum">3</span>End-to-end request lifecycle</a></li><li><a href="#4-component-deep-dives"><span class="tnum">4</span>Component deep dives</a><ol class="toc-sub"><li><a href="#4-1-frontend"><span class="tnum">4.1</span>Frontend</a></li><li><a href="#4-2-backend-and-api"><span class="tnum">4.2</span>Backend and API</a></li><li><a href="#4-3-orchestrator"><span class="tnum">4.3</span>Orchestrator</a></li><li><a href="#4-4-document-parsing-layer"><span class="tnum">4.4</span>Document parsing layer</a></li><li><a href="#4-5-section-mapping-to-ich-m11"><span class="tnum">4.5</span>Section mapping to ICH M11</a></li><li><a href="#4-6-extraction-layer"><span class="tnum">4.6</span>Extraction layer</a></li><li><a href="#4-7-the-agents"><span class="tnum">4.7</span>The agents</a></li><li><a href="#4-8-human-review-layer"><span class="tnum">4.8</span>Human review layer</a></li><li><a href="#4-9-usdm-mapping-layer"><span class="tnum">4.9</span>USDM mapping layer</a></li><li><a href="#4-10-validation-layer"><span class="tnum">4.10</span>Validation layer</a></li><li><a href="#4-11-persistence-layer"><span class="tnum">4.11</span>Persistence layer</a></li><li><a href="#4-12-evaluation-harness"><span class="tnum">4.12</span>Evaluation harness</a></li></ol></li><li><a href="#5-data-model-and-usdm-field-mapping-reference"><span class="tnum">5</span>Data model and USDM field mapping reference</a></li><li><a href="#6-error-handling-retries-and-failure-modes"><span class="tnum">6</span>Error handling, retries and failure modes</a></li><li><a href="#7-configuration-environment-and-deployment"><span class="tnum">7</span>Configuration, environment and deployment</a></li><li><a href="#8-known-limitations-and-open-questions"><span class="tnum">8</span>Known limitations and open questions</a></li><li><a href="#9-glossary"><span class="tnum">9</span>Glossary</a></li></ol>
+    </details>
+  </aside>
+  <main id="content">
+    <header class="doc-head">
+      <p class="eyebrow">Technical documentation · protocol_to_usdm</p>
+      <h1>Protocol to USDM <span>System Guide</span></h1>
+      <p class="doc-sub">How a clinical protocol PDF becomes reviewed, validated CDISC USDM v4 JSON, from upload to export.</p>
+      <dl class="doc-control"><div><dt>Repository</dt><dd><code>protocol_to_usdm</code>, branch <code>update_08</code></dd></div><div><dt>Code baseline</dt><dd>commit <code>fb50c70</code> (2026-09-14), working tree clean</dd></div><div><dt>Scope</dt><dd><code>backend/</code>, <code>frontend/src/</code>, <code>goldstandard/eval.py</code>, <code>docs/decisions.md</code></dd></div><div><dt>Audience</dt><dd>engineers joining the project; clinical data managers who must trust the output</dd></div><div><dt>Method</dt><dd>every statement was checked against the code at the baseline commit; gaps are marked <strong>OPEN QUESTION</strong></dd></div></dl>
+      <p class="conventions"><strong>Reading conventions.</strong> Code references use <code>path/to/file.py:function</code> (or <code>Class.method</code>). Each step is tagged with who decides: <span class="tag rule">Code</span> deterministic code, <span class="tag llm">LLM</span> a Claude model call, <span class="tag human">Human</span> a person in the web app. Decision numbers such as D25 refer to <code>docs/decisions.md</code>.</p>
+      <div class="toolbar" role="toolbar" aria-label="Document controls">
+        <button type="button" id="expand-all">Expand all details</button>
+        <button type="button" id="collapse-all">Collapse all</button>
+        <button type="button" id="print-doc">Print or save as PDF</button>
+      </div>
+    </header>
+    <article class="doc">
+<h2 id="1-executive-summary"><span class="num">1</span><span class="htext">Executive summary</span></h2>
+<p class="lead"><strong>What goes in.</strong> A clinical trial protocol as a PDF with a text layer, uploaded into a <em>study</em> in a local web application.</p>
+<p><strong>What comes out.</strong> Three files per run:</p>
+<ul>
+<li>a <strong>USDM v4 JSON</strong> file. USDM (the CDISC Unified Study Definitions Model) is the machine-readable form of a study's design, schedule, population, objectives and interventions;</li>
+<li>the <strong>USDM Excel workbook</strong> it was built from, in the format the CDISC-community importer <code>usdm4-excel</code> reads;</li>
+<li>a <strong>validation report</strong>: importer errors, results of the usdm4 rule library (213 rules), and CDISC CORE results when CORE is available.</li>
+</ul>
+<p><strong>How it works, in five steps.</strong></p>
+<ol>
+<li><strong>Read the PDF</strong> <span class="tag rule">Code</span>. Software extracts the text, headings, tables and an image of every page. No AI is involved, and the PDF does not leave the machine at this step.</li>
+<li><strong>Sort the protocol into ICH M11 chapters</strong> <span class="tag rule">Code</span> <span class="tag llm">LLM</span> <span class="tag human">Human</span>. Each protocol section is matched to the international M11 protocol template, first by its title and then by Claude reading the section. Uncertain matches are flagged, and a reviewer can correct any of them.</li>
+<li><strong>Extract</strong> <span class="tag llm">LLM</span> <span class="tag rule">Code</span>. Fourteen AI <em>agents</em> each read only the chapters relevant to one part of the study, such as eligibility criteria or the schedule of activities. Every value comes with a verbatim quote. Software then checks that the quote really is in the protocol, finds its page, and looks up CDISC controlled terminology. The AI never assigns a code or an identifier.</li>
+<li><strong>Review</strong> <span class="tag human">Human</span>. A person works through every sheet in the browser. Values with low confidence, a quote that could not be found, or a term that is not an exact CDISC match are flagged. Blocking problems must be fixed before the review can be confirmed, and every edit is written to an append-only audit trail.</li>
+<li><strong>Generate and validate</strong> <span class="tag rule">Code</span>. Software with no AI involved writes the workbook from the confirmed review only. <code>usdm4-excel</code> converts it to USDM JSON, and the <code>usdm4</code> rule library validates the result.</li>
+</ol>
+<p><strong>Why a data manager can rely on it.</strong></p>
+<ul>
+<li><strong>No unreviewed output.</strong> The final files are never produced from unreviewed AI output: the workbook is written only from a confirmed review with zero blocking issues (<code>backend/pipeline/workbook/stage.py:generate_workbook</code>, D25).</li>
+<li><strong>Provenance for every value.</strong> Each extracted value carries its source section, page, verbatim quote, the model's confidence, and whether the quote was verified in the text (<code>backend/models/extraction.py:Provenance</code>).</li>
+<li><strong>Codes only from exact matches.</strong> Controlled-terminology codes come only from exact matches against the CDISC CT bundled with <code>usdm4</code>. The CT version is pinned per run (<code>backend/pipeline/terminology/ct.py:CtResolver</code>, <code>backend/pipeline/jobs.py:JobRunner._extract</code>).</li>
+<li><strong>Three audit trails.</strong> Model calls are logged in <code>run.log</code>, section-mapping changes in <code>section_mapping_audit.jsonl</code>, and review edits in <code>review_audit.jsonl</code>.</li>
+<li><strong>Measured accuracy.</strong> Unreviewed output was scored against the CDISC Pilot reference workbook: <strong>precision 64.7%, recall 45.3%, F1 53.3%</strong> (<code>goldstandard/results/20260914T002855Z_b4e5321-dirty.md</code>). Unreviewed output is a draft, which is why review is mandatory. This baseline was recorded before reviewer mapping and Claude mapping were added (commits <code>2859350</code>–<code>fb50c70</code>) and has not been re-measured since.</li>
+</ul>
+<p><strong>What it is not.</strong> It is a single-user local application with no login, not validated for GxP use (Phase 0 decision, <code>backend/pipeline/review/service.py:LOCAL_ACTOR</code>). It performs no OCR, so a scanned PDF without a text layer yields no usable text.</p>
+<h2 id="2-system-architecture-overview"><span class="num">2</span><span class="htext">System architecture overview</span></h2>
+<p class="brief"><span class="brief-label">In brief</span> The application runs on one computer. The web page in the browser talks to a Python server, which starts long tasks (parsing, extraction, USDM generation) in background threads. All data is kept as ordinary files in a <code>studies/</code> folder; there is no database. The only outside service used in normal operation is the Anthropic API, for Claude. CDISC terminology, the Biomedical Concept catalogue and the validation rules ship inside the <code>usdm4</code> Python package, so no CDISC Library account is needed.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<figure><div class="diagram"><pre class="mermaid">flowchart TB
+  user([&quot;Reviewer in a web browser&quot;])
+  subgraph host[&quot;Local machine&quot;]
+    ui[&quot;Frontend SPA&lt;br/&gt;React 19 · Vite dev server :5173&quot;]
+    api[&quot;Backend API&lt;br/&gt;FastAPI · uvicorn :8000&quot;]
+    jobs[&quot;JobRunner&lt;br/&gt;thread pool, 2 workers&quot;]
+    pipe[&quot;Pipeline modules&lt;br/&gt;parse · map · extract · review · workbook · USDM&quot;]
+    fs[(&quot;studies/ folder&lt;br/&gt;JSON · PNG · XLSX · JSONL&quot;)]
+    libs[&quot;usdm4 + usdm4-excel&lt;br/&gt;bundled CT, BC catalogue, DDF rules&quot;]
+  end
+  claude[&quot;Anthropic API&lt;br/&gt;Claude, default claude-sonnet-5&quot;]
+  cdisc[&quot;CDISC Library API&lt;br/&gt;optional&quot;]
+  user --&gt;|&quot;http://localhost:5173&quot;| ui
+  ui --&gt;|&quot;fetch /api/* via Vite proxy&quot;| api
+  api --&gt;|&quot;start background stage&quot;| jobs
+  api --&gt;|&quot;synchronous: mapping edits,&lt;br/&gt;review, workbook&quot;| pipe
+  jobs --&gt; pipe
+  pipe --&gt;|&quot;atomic file writes&quot;| fs
+  pipe --&gt; libs
+  pipe --&gt;|&quot;structured output, streamed&quot;| claude
+  libs -.-&gt;|&quot;only to build the CORE cache&quot;| cdisc
+</pre></div><figcaption><strong>Figure 1 — Container view.</strong> The browser, the two local servers, the file store and the two external services.</figcaption></figure>
+<p class="howto"><span class="howto-label">How to read it</span> boxes are running processes or libraries, the cylinder is the file store, and arrows show who calls whom. The dashed arrow is optional: the application runs fully without CDISC Library access (D3). Everything inside &quot;Local machine&quot; runs in a single Python process except the Vite dev server.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Container</th>
+<th>Technology (from <code>pyproject.toml</code>, <code>frontend/package.json</code>)</th>
+<th>Entry point</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frontend</td>
+<td>React 19, react-router-dom 7, TypeScript 7, Vite 8; no state library</td>
+<td><code>frontend/src/main.tsx</code></td>
+</tr>
+<tr>
+<td>Backend API</td>
+<td>FastAPI ≥0.115, uvicorn, Pydantic v2, pydantic-settings</td>
+<td><code>backend/main.py:create_app</code> (app factory)</td>
+</tr>
+<tr>
+<td>Background jobs</td>
+<td><code>concurrent.futures.ThreadPoolExecutor(max_workers=2)</code>; <code>asyncio.run</code> per job</td>
+<td><code>backend/pipeline/jobs.py:JobRunner</code></td>
+</tr>
+<tr>
+<td>PDF parsing</td>
+<td>PyMuPDF ≥1.24, rapidfuzz, python-slugify</td>
+<td><code>backend/pipeline/extractors/pymupdf_extractor.py:PyMuPdfExtractor</code></td>
+</tr>
+<tr>
+<td>LLM client</td>
+<td><code>anthropic</code> SDK ≥0.40 (<code>AsyncAnthropic</code>, streaming, <code>output_format</code>)</td>
+<td><code>backend/pipeline/llm.py:AnthropicLlm</code></td>
+</tr>
+<tr>
+<td>Terminology</td>
+<td><code>usdm4</code> bundled CDISC CT and BC caches</td>
+<td><code>backend/pipeline/terminology/ct.py:get_ct_resolver</code></td>
+</tr>
+<tr>
+<td>Workbook</td>
+<td>openpyxl ≥3.1</td>
+<td><code>backend/pipeline/workbook/writer.py:write_workbook</code></td>
+</tr>
+<tr>
+<td>USDM import and rules</td>
+<td><code>usdm4-excel</code> ≥0.10.0, <code>usdm4</code> ≥0.29.0</td>
+<td><code>backend/pipeline/usdm_gen/stage.py:generate_usdm</code></td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>local filesystem, atomic JSON writes</td>
+<td><code>backend/storage/studies.py:StudyStore</code></td>
+</tr>
+<tr>
+<td>Evaluation CLI</td>
+<td>same pipeline, run outside the web app</td>
+<td><code>goldstandard/eval.py</code> → <code>backend/pipeline/evaluation/cli.py</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Process model.</strong> <code>create_app</code> builds one <code>StudyStore</code>, one <code>JobRunner</code> and, when <code>ANTHROPIC_API_KEY</code> is set, an LLM factory that creates an <code>AnthropicLlm</code> per job. On startup (<code>lifespan</code>) it calls <code>StudyStore.mark_interrupted_runs</code>, which marks runs left in <code>running</code>/<code>generating</code> as failed. On shutdown it calls <code>JobRunner.shutdown</code> (queued jobs are cancelled). Requests are handled by FastAPI's sync-handler thread pool; background stages run in the <code>JobRunner</code> pool.</p>
+<p><strong>Declared but unused dependencies.</strong> <code>tenacity</code> and <code>httpx</code> are listed in <code>pyproject.toml</code> but not imported anywhere under <code>backend/</code>; retries come from the Anthropic SDK (section 6).</p>
+</details>
+<h2 id="3-end-to-end-request-lifecycle"><span class="num">3</span><span class="htext">End-to-end request lifecycle</span></h2>
+<p class="brief"><span class="brief-label">In brief</span> A reviewer creates a study and uploads the PDF. Creating a <em>run</em> starts parsing and section mapping automatically in the background. The reviewer inspects the mapping, starts extraction, reviews and confirms the extracted sheets, and finally generates the USDM JSON from the Results page. The page checks the server for progress every second while something is running; there is no live push channel.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<figure><div class="diagram"><pre class="mermaid">flowchart LR
+  up[&quot;Upload PDF&lt;br/&gt;StudyStore.add_source&quot;]:::rule --&gt; run[&quot;Create run&lt;br/&gt;StudyStore.create_run&quot;]:::rule
+  run --&gt; parse[&quot;Parse PDF&lt;br/&gt;PyMuPdfExtractor.extract&quot;]:::rule
+  parse --&gt; bound[&quot;Apply start-page corrections&lt;br/&gt;finalise_document&quot;]:::rule
+  bound --&gt; title[&quot;Title-based M11 mapping&lt;br/&gt;map_sections&quot;]:::rule
+  title --&gt; claude[&quot;Claude M11 mapping&lt;br/&gt;suggest_mappings&quot;]:::llm
+  claude --&gt; fix[&quot;Reviewer mapping corrections&lt;br/&gt;optional, audited&quot;]:::human
+  fix --&gt; agents[&quot;14 extraction agents&lt;br/&gt;run_extraction&quot;]:::llm
+  agents --&gt; verify[&quot;Quote verification, CT,&lt;br/&gt;names · to_records&quot;]:::rule
+  verify --&gt; assemble[&quot;Assembly: links, BCs,&lt;br/&gt;elements · assemble&quot;]:::rule
+  classDef rule fill:#e3f0ea,stroke:#2d6a4f,color:#16212b
+  classDef llm fill:#ece6f7,stroke:#6a4baf,color:#16212b
+  classDef human fill:#f7ecd9,stroke:#9a5b00,color:#16212b
+</pre></div><figcaption><strong>Figure 2a — Pipeline, part 1 (Stage A).</strong> From upload to the assembled intermediate model <code>extraction.json</code>.</figcaption></figure>
+<figure><div class="diagram"><pre class="mermaid">flowchart LR
+  open[&quot;Open review&lt;br/&gt;copy of extraction.json&quot;]:::rule --&gt; edit[&quot;Edit, accept, add rows&lt;br/&gt;review/operations&quot;]:::human
+  edit --&gt; gate{&quot;Blocking&lt;br/&gt;issues?&quot;}
+  gate --&gt;|&quot;yes&quot;| edit
+  gate --&gt;|&quot;none&quot;| confirm[&quot;Confirm review&lt;br/&gt;review/confirm&quot;]:::human
+  confirm --&gt; xlsx[&quot;Write workbook&lt;br/&gt;generate_workbook&quot;]:::rule
+  xlsx --&gt; imp[&quot;Import workbook&lt;br/&gt;USDM4Excel.from_excel&quot;]:::rule
+  imp --&gt; rules[&quot;usdm4 rule library&lt;br/&gt;USDM4.validate&quot;]:::rule
+  rules --&gt; core[&quot;CDISC CORE&lt;br/&gt;only if cache ready&quot;]:::rule
+  core --&gt; out[&quot;Download USDM JSON&lt;br/&gt;and usdm_report.json&quot;]:::human
+  classDef rule fill:#e3f0ea,stroke:#2d6a4f,color:#16212b
+  classDef llm fill:#ece6f7,stroke:#6a4baf,color:#16212b
+  classDef human fill:#f7ecd9,stroke:#9a5b00,color:#16212b
+</pre></div><figcaption><strong>Figure 2b — Pipeline, part 2 (review, Stage B, Stage C).</strong> From review to the exported USDM JSON.</figcaption></figure>
+<p class="howto"><span class="howto-label">How to read them</span> read left to right. Green nodes are deterministic code, violet nodes call Claude, amber nodes need a person. The loop in 2b is the review gate: confirmation stays disabled while any blocking issue exists (<code>frontend/src/pages/ReviewPage.tsx</code>, <code>canConfirm</code>), and the server re-checks on confirm (<code>ReviewService.confirm</code>) and again before writing the workbook (<code>generate_workbook</code>).</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Step</th>
+<th>Trigger</th>
+<th>Code</th>
+<th>Writes (inside the run folder unless noted)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Create study</td>
+<td><code>POST /api/studies</code></td>
+<td><code>StudyStore.create_study</code></td>
+<td><code>studies/&lt;slug&gt;/study.json</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Upload PDF</td>
+<td><code>POST /api/studies/{slug}/sources</code></td>
+<td><code>StudyStore.add_source</code></td>
+<td><code>source/&lt;file&gt;.pdf</code>, updated <code>study.json</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Create run (starts step 4)</td>
+<td><code>POST /api/studies/{slug}/runs</code></td>
+<td><code>create_run</code> → <code>JobRunner.start_ingestion</code></td>
+<td><code>run_config.json</code>, <code>run_state.json</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Parse</td>
+<td>background</td>
+<td><code>JobRunner._ingest</code> → <code>ingest.parse</code></td>
+<td><code>page_images/</code>, <code>parsed_document.json</code> (+ <code>.raw.json</code> once boundaries exist)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Title-based mapping</td>
+<td>background</td>
+<td><code>ingest.segment</code> → <code>m11.map_sections</code></td>
+<td><code>section_mapping.json</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Claude mapping</td>
+<td>background, unless <code>mapping_assist = off</code></td>
+<td><code>JobRunner._assist</code> → <code>ingest.assist_mapping</code></td>
+<td><code>section_suggestions.json</code>, <code>run.log</code>, <code>section_mapping.json</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Mapping corrections</td>
+<td>Sections → M11 tab</td>
+<td><code>runs.py</code> override and start-page routes</td>
+<td><code>section_overrides.json</code>, <code>section_boundaries.json</code>, <code>section_mapping_audit.jsonl</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Extraction</td>
+<td><code>POST .../extract</code></td>
+<td><code>JobRunner._extract</code> → <code>extract.run_extraction</code></td>
+<td><code>extraction/&lt;sheet&gt;.json</code>, <code>run.log</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Assembly</td>
+<td>end of step 8</td>
+<td><code>extract.assemble</code></td>
+<td><code>extraction.json</code>, <code>provenance.json</code>, <code>reference_validation.json</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Review</td>
+<td>Review page</td>
+<td><code>ReviewService.open</code> / <code>apply</code></td>
+<td><code>reviewed.json</code>, <code>review_audit.jsonl</code></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Confirm</td>
+<td><code>POST .../review/confirm</code></td>
+<td><code>ReviewService.confirm</code></td>
+<td><code>reviewed.json</code> (status confirmed)</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Workbook</td>
+<td><code>POST .../workbook</code> (synchronous) or step 13</td>
+<td><code>workbook/stage.py:generate_workbook</code></td>
+<td><code>workbook/&lt;slug&gt;.xlsx</code>, <code>workbook_report.json</code></td>
+</tr>
+<tr>
+<td>13</td>
+<td>USDM</td>
+<td><code>POST .../usdm</code></td>
+<td><code>_write_workbook</code> then <code>JobRunner._usdm</code> → <code>generate_usdm</code></td>
+<td><code>usdm/&lt;slug&gt;.json</code>, <code>usdm_report.json</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Download</td>
+<td>Results page links</td>
+<td><code>download_usdm</code>, <code>download_usdm_report</code>, <code>download_workbook</code></td>
+<td>none</td>
+</tr>
+</tbody>
+</table></div>
+<figure><div class="diagram"><pre class="mermaid">sequenceDiagram
+  autonumber
+  actor U as Reviewer
+  participant UI as React UI
+  participant API as FastAPI
+  participant J as JobRunner
+  participant AG as Agents
+  participant C as Claude API
+  participant FS as Run folder
+  U-&gt;&gt;UI: Upload PDF and start a run
+  UI-&gt;&gt;API: POST sources, then POST runs
+  API-&gt;&gt;FS: source PDF, run_config.json, run_state.json
+  API-&gt;&gt;J: start_ingestion
+  API--&gt;&gt;UI: 201 RunState
+  J-&gt;&gt;FS: parsed_document.json, page images, section_mapping.json
+  J-&gt;&gt;C: mapping batches of 30 sections
+  C--&gt;&gt;J: SuggestionsOut
+  J-&gt;&gt;FS: section_suggestions.json, status parsed
+  loop every 1 s while running, every 10 s when idle
+    UI-&gt;&gt;API: GET run
+    API-&gt;&gt;FS: read run_state.json
+    API--&gt;&gt;UI: RunState with stages and agents
+  end
+  U-&gt;&gt;UI: Start extraction
+  UI-&gt;&gt;API: POST extract
+  API-&gt;&gt;J: start_extraction
+  API--&gt;&gt;UI: 202 RunState
+  J-&gt;&gt;AG: run_extraction with asyncio.gather
+  par at most concurrency_limit calls at once
+    AG-&gt;&gt;C: messages.stream with output_format
+    C--&gt;&gt;AG: schema-validated output and usage
+  end
+  AG-&gt;&gt;FS: extraction per sheet, run.log
+  J-&gt;&gt;FS: extraction.json, provenance.json, status awaiting_review
+  U-&gt;&gt;UI: Edit cells, then Confirm
+  UI-&gt;&gt;API: POST review operations, POST review confirm
+  API-&gt;&gt;FS: reviewed.json, review_audit.jsonl
+  U-&gt;&gt;UI: Generate USDM on the Results page
+  UI-&gt;&gt;API: POST usdm
+  API-&gt;&gt;FS: workbook xlsx and workbook_report.json, written synchronously
+  API-&gt;&gt;J: start_usdm
+  API--&gt;&gt;UI: 202 RunState
+  J-&gt;&gt;FS: usdm JSON, usdm_report.json, status completed
+  UI-&gt;&gt;API: GET usdm, then download links
+</pre></div><figcaption><strong>Figure 3 — Request sequence.</strong> One run from upload to download.</figcaption></figure>
+<p class="howto"><span class="howto-label">How to read it</span> time flows downwards. Solid arrows are requests or writes; dashed arrows are responses. The &quot;Run folder&quot; lifeline stands in for a database: every state change is a file write (section 4.11). The <code>loop</code> block is the polling in <code>RunInspectorPage.tsx</code> and <code>ResultsPage.tsx</code> (<code>POLL_MS = 1000</code>, <code>IDLE_POLL_MS = 10000</code>, plus an immediate poll when the window regains focus). The <code>par</code> block is the semaphore-bounded fan-out in <code>extract.run_extraction</code>.</p>
+<p><strong>Nothing advances by itself after parsing.</strong> Extraction, review, confirmation and USDM generation each need an explicit action. Mapping corrections do not re-run extraction; the Extraction tab lists the affected agents (<code>GET .../extraction/input-changes</code>), and <strong>Run extraction (resume)</strong> re-runs exactly those because their <code>input_hash</code> changed.</p>
+</details>
+<h2 id="4-component-deep-dives"><span class="num">4</span><span class="htext">Component deep dives</span></h2>
+<h3 id="4-1-frontend"><span class="num">4.1</span><span class="htext">Frontend</span></h3>
+<p class="brief"><span class="brief-label">In brief</span> The frontend is a four-page web app. The <em>Studies</em> page creates studies, uploads PDFs and starts runs. The <em>Run inspector</em> shows parsing and mapping and starts extraction. The <em>Review</em> page edits the extracted data sheet by sheet, and the <em>Results</em> page generates and downloads the USDM. It asks the server for updates on a timer and saves review edits automatically after a short pause.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<p><strong>Routes</strong> (<code>frontend/src/main.tsx</code>, <code>BrowserRouter</code>):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Page</th>
+<th>Main components</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td><code>pages/StudiesPage.tsx</code></td>
+<td><code>NewStudyForm</code>, <code>StudyCard</code> (upload with progress, create run, links to runs and results)</td>
+</tr>
+<tr>
+<td><code>/studies/:slug/runs/:runId</code></td>
+<td><code>pages/RunInspectorPage.tsx</code></td>
+<td><code>StageBar</code>; tabs selected by <code>?tab=</code>: <code>sections</code> (<code>SectionsTab</code>, <code>SectionDetail</code>, <code>PagesPanel</code>, <code>ClaudeMappingPanel</code>, <code>MappingPanel</code>), <code>coverage</code> (<code>CoverageTab</code>, <code>SectionPicker</code>), <code>tables</code> (<code>TablesTab</code>), <code>extraction</code> (<code>components/ExtractionTab.tsx</code>)</td>
+</tr>
+<tr>
+<td><code>/studies/:slug/runs/:runId/review</code></td>
+<td><code>pages/ReviewPage.tsx</code></td>
+<td><code>SheetGrid</code>, <code>ScheduleGrid</code>, <code>CellPanel</code> (<code>TerminologyPicker</code>, <code>SourcePreview</code>), <code>WorkbookPanel</code>, <code>AuditTable</code></td>
+</tr>
+<tr>
+<td><code>/studies/:slug/runs/:runId/results</code></td>
+<td><code>pages/ResultsPage.tsx</code></td>
+<td><code>Summary</code>, <code>ImportIssues</code>, <code>Findings</code> (grouped by rule), <code>Core</code>, <code>Entities</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>State management.</strong> Component state only (<code>useState</code>, <code>useMemo</code>, <code>useCallback</code>); there is no Redux, Zustand or React context. The one custom hook is <code>components/review/useReview.ts:useReview</code>, which holds the <code>ReviewState</code>, a queue of unsaved <code>set</code> operations and saving status.</p>
+<p><strong>Talking to the backend.</strong> <code>frontend/src/api.ts:request</code> wraps <code>fetch</code> with <code>cache: &quot;no-store&quot;</code> and turns FastAPI's <code>{detail}</code> bodies into <code>ApiError</code> messages. Relative <code>/api/*</code> URLs go through the Vite dev proxy (<code>frontend/vite.config.ts</code>, target <code>API_TARGET</code> or <code>http://127.0.0.1:8000</code>). Types mirror the Pydantic models by hand in <code>frontend/src/types.ts</code>; nothing is generated from OpenAPI.</p>
+<p><strong>Polling rather than streaming.</strong> <code>RunInspectorPage</code> and <code>ResultsPage</code> poll <code>GET /runs/{id}</code> every 1 s while the run is <code>running</code> or <code>generating</code>, every 10 s otherwise, and immediately on window focus. The parsed document and mapping are re-fetched only when the segment stage's <code>finished_at</code> changes. There are no WebSockets or server-sent events. Long synchronous calls (Claude re-mapping, workbook writing) simply wait for their HTTP response.</p>
+<p><strong>Editing and saving.</strong></p>
+<ul>
+<li><strong>Review edits.</strong> Value edits are queued and saved together after 1.5 s (<code>AUTOSAVE_MS</code>). Structural operations (add, delete or move a row, accept a flagged value, pick a term) save at once together with anything queued. Each save sends <code>base_revision</code>. On <code>409</code> the fresh state is loaded and queued edits are kept rather than lost. A <code>beforeunload</code> handler warns about unsaved edits.</li>
+<li><strong>Source preview.</strong> <code>CellPanel.SourcePreview</code> loads <code>GET .../source-highlight?page=&amp;quote=</code>, a PNG rendered from the original PDF with the quote highlighted.</li>
+<li><strong>Mapping edits.</strong> The Sections → M11 and Coverage tabs call the override, also-map and start-page endpoints. After a change they show which extraction agents are affected (<code>withAffectedAgents</code>).</li>
+<li><strong>Confirmations.</strong> Actions that cost money (extraction, re-running Claude mapping) ask for <code>window.confirm</code> first and say that text is sent to the Anthropic API.</li>
+</ul>
+<p><strong>Stale UI copy.</strong> The confirm dialog in <code>ReviewPage.tsx</code> still says &quot;Workbook and USDM generation arrive in later phases&quot;, although both exist.</p>
+</details>
+<h3 id="4-2-backend-and-api"><span class="num">4.2</span><span class="htext">Backend and API</span></h3>
+<p class="brief"><span class="brief-label">In brief</span> The backend is a FastAPI application that exposes about 45 endpoints for studies, runs, section mapping, review, terminology look-ups, workbook and USDM. Endpoints that start long work return at once with <code>202 Accepted</code> and the work continues in the background. Most other endpoints read or change files in the run folder directly. Errors come back as <code>404</code> (not found), <code>409</code> (wrong state: busy, not confirmed, revision conflict) or <code>422</code> (invalid input).</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<p><strong>Application setup</strong> (<code>backend/main.py:create_app</code>):</p>
+<ul>
+<li><strong>Logging.</strong> <code>configure_logging</code> installs JSON-lines logging with secret redaction (<code>backend/logging_setup.py</code>).</li>
+<li><strong>CORS.</strong> Allowed only for <code>http://localhost:5173</code> and <code>http://127.0.0.1:5173</code>.</li>
+<li><strong>Caching.</strong> A middleware adds <code>Cache-Control: no-store</code> to every <code>/api/</code> JSON response.</li>
+<li><strong>Routers.</strong> <code>studies.router</code>, <code>runs.router</code>, <code>runs.agents_router</code>, <code>runs.m11_router</code>, <code>review.router</code>, <code>review.terminology_router</code>, <code>review.workbook_router</code>.</li>
+<li><strong>Health.</strong> <code>GET /api/health</code> reports whether each API key is configured, never the key itself.</li>
+</ul>
+<p><strong>Endpoints.</strong> Paths below <code>.../runs/{run_id}</code> are abbreviated <code>…</code>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Method and path</th>
+<th>Handler</th>
+<th>Behaviour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET /api/studies</code> · <code>POST /api/studies</code> · <code>GET /api/studies/{slug}</code></td>
+<td><code>studies.py:list_studies</code>, <code>create_study</code>, <code>get_study</code></td>
+<td>study metadata and runs from disk</td>
+</tr>
+<tr>
+<td><code>POST /api/studies/{slug}/sources</code></td>
+<td><code>studies.py:upload_source</code></td>
+<td>multipart upload; <code>422</code> if not a PDF, encrypted, empty or over <code>MAX_UPLOAD_MB</code></td>
+</tr>
+<tr>
+<td><code>GET /api/studies/{slug}/sources/{filename}</code></td>
+<td><code>studies.py:get_source</code></td>
+<td>the PDF</td>
+</tr>
+<tr>
+<td><code>GET /api/studies/{slug}/runs</code> · <code>POST</code> · <code>GET …</code></td>
+<td><code>runs.py:list_runs</code>, <code>create_run</code>, <code>get_run</code></td>
+<td><code>create_run</code> writes <code>run_config.json</code> and starts ingestion</td>
+</tr>
+<tr>
+<td><code>POST …/ingest?force=</code></td>
+<td><code>runs.py:rerun_ingestion</code></td>
+<td><code>202</code>; resume or force parsing and mapping; <code>409</code> if busy</td>
+</tr>
+<tr>
+<td><code>POST …/extract</code> <code>{sheets?, force}</code></td>
+<td><code>runs.py:start_extraction</code></td>
+<td><code>202</code>; <code>422</code> without API key or before parsing</td>
+</tr>
+<tr>
+<td><code>GET …/document</code>, <code>/section-mapping</code>, <code>/extraction</code>, <code>/provenance</code>, <code>/reference-validation</code></td>
+<td><code>runs.py:_artefact</code></td>
+<td>raw JSON files; <code>404</code> until produced</td>
+</tr>
+<tr>
+<td><code>PUT</code> · <code>DELETE …/section-mapping/{section_id}</code></td>
+<td><code>override_section_mapping</code>, <code>clear_section_mapping</code></td>
+<td>reviewer mapping or exclusion; audited</td>
+</tr>
+<tr>
+<td><code>POST …/section-mapping/{section_id}/also</code> · <code>DELETE …/also/{m11_number}</code></td>
+<td><code>add_section_mapping</code>, <code>remove_section_mapping</code></td>
+<td>further M11 sections for one protocol section</td>
+</tr>
+<tr>
+<td><code>POST</code> · <code>GET …/section-mapping/suggestions</code></td>
+<td><code>create_mapping_suggestions</code>, <code>get_mapping_suggestions</code></td>
+<td>re-run Claude mapping <strong>synchronously</strong> (scope, force)</td>
+</tr>
+<tr>
+<td><code>PUT</code> · <code>DELETE …/sections/{section_id}/start-page</code></td>
+<td><code>set_section_start_page</code>, <code>clear_section_start_page</code></td>
+<td>move a section's first page</td>
+</tr>
+<tr>
+<td><code>GET …/extraction/input-changes</code></td>
+<td><code>extraction_input_changes</code></td>
+<td>agents whose input differs from their last extraction</td>
+</tr>
+<tr>
+<td><code>GET …/pages/{filename}</code></td>
+<td><code>get_page_image</code></td>
+<td>page PNG; filename must match <code>page-NNNN.png</code></td>
+</tr>
+<tr>
+<td><code>GET /api/agents</code> · <code>GET /api/m11/template</code></td>
+<td><code>list_agents</code>, <code>get_m11_template</code></td>
+<td>agent registry, M11 template outline</td>
+</tr>
+<tr>
+<td><code>GET …/review</code> · <code>POST …/review/operations</code> · <code>/confirm</code> · <code>/restart</code> · <code>GET …/review/audit</code></td>
+<td><code>review.py</code></td>
+<td>review state and validation; optimistic locking by revision</td>
+</tr>
+<tr>
+<td><code>GET …/source-highlight?page=&amp;quote=</code></td>
+<td><code>review.py:source_highlight</code></td>
+<td>PNG crop with the quote highlighted</td>
+</tr>
+<tr>
+<td><code>POST …/workbook?force=</code> · <code>GET …/workbook</code> · <code>GET …/workbook/download</code></td>
+<td><code>create_workbook</code>, <code>get_workbook_report</code>, <code>download_workbook</code></td>
+<td>Stage B, synchronous; <code>409</code> with reasons and issues if the gate fails</td>
+</tr>
+<tr>
+<td><code>POST …/usdm?force=</code> · <code>GET …/usdm</code> · <code>/usdm/download</code> · <code>/usdm/report/download</code></td>
+<td><code>create_usdm</code>, <code>get_usdm</code>, …</td>
+<td>Stage C in the background; <code>GET</code> adds <code>stale</code> reasons</td>
+</tr>
+<tr>
+<td><code>GET /api/terminology/codelist</code> · <code>POST /resolve</code> · <code>GET /biomedical-concepts</code> · <code>POST /resolve-biomedical-concept</code></td>
+<td><code>review.py</code> terminology router</td>
+<td>codelist search and phrase resolution for the review UI</td>
+</tr>
+<tr>
+<td><code>GET /api/workbook/layouts</code></td>
+<td><code>get_layouts</code></td>
+<td>sheet and column layouts that drive the review grid</td>
+</tr>
+<tr>
+<td><code>GET /api/health</code></td>
+<td><code>main.py:health</code></td>
+<td>key presence flags</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Input safety.</strong></p>
+<ul>
+<li><strong>Paths.</strong> Study slugs and run ids are regex-validated (<code>SLUG_RE</code>, <code>RUN_ID_RE</code>), and every resolved path is checked with <code>backend/storage/fs.py:ensure_within</code>.</li>
+<li><strong>Uploads.</strong> Filenames are sanitised (<code>sanitize_pdf_filename</code>). The upload is streamed to a temporary file, must start with <code>%PDF-</code>, is size-limited and must open in PyMuPDF without a password.</li>
+<li><strong>Prompt text.</strong> Every prompt tells the model that protocol text is data, not instructions.</li>
+</ul>
+</details>
+<h3 id="4-3-orchestrator"><span class="num">4.3</span><span class="htext">Orchestrator</span></h3>
+<p class="brief"><span class="brief-label">In brief</span> A small job runner decides what runs in the background. It allows one active job per run and two jobs at a time across the whole application. Each stage records its progress, timings, a short summary and any error in <code>run_state.json</code>, which the web page polls. Stages are <em>resumable</em>: work whose inputs have not changed is skipped rather than repeated. There is no automatic scheduling: every stage starts because a user (or the API) asked for it.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<p><strong><code>backend/pipeline/jobs.py:JobRunner</code>.</strong></p>
+<ul>
+<li><strong><code>_submit</code>.</strong> Under a lock, it refuses a second job for the same <code>(slug, run_id)</code> with <code>RunAlreadyActiveError</code>, which the API turns into <code>409</code>. It writes the queued state and submits the work to a <code>ThreadPoolExecutor(max_workers=2, thread_name_prefix=&quot;pipeline&quot;)</code>.</li>
+<li><strong><code>start_ingestion</code> → <code>_ingest</code>.</strong> Sets status <code>running</code>, resets <code>ingest</code> and <code>segment</code> to pending, then:
+<ol>
+<li><code>parse</code> (stage <code>ingest</code>: DONE, or SKIPPED when the cached parse is current).</li>
+<li><code>segment</code> (title-based mapping plus any stored Claude and reviewer layers).</li>
+<li>When <code>mapping_assist != &quot;off&quot;</code>: <code>_assist</code>, then <code>segment</code> again. <code>_assist</code> never raises. A missing key or any exception becomes a stage note such as &quot;title-based mapping only: Claude mapping failed (APIStatusError)&quot;.</li>
+<li>Status becomes <code>awaiting_review</code> if an earlier extraction is DONE, otherwise <code>parsed</code>.</li>
+</ol>
+</li>
+<li><strong><code>start_extraction</code> → <code>_extract</code>.</strong>
+<ul>
+<li><strong>Pre-checks, all <code>422</code>.</strong> Known sheet keys, an LLM factory (API key) and a parsed document with a mapping.</li>
+<li><strong>CT pin.</strong> The first extraction writes <code>resolver.version</code> to <code>run_config.ct_version</code>. A later extraction with a different installed CT version is refused (&quot;start a new run to use the new release&quot;).</li>
+<li><strong>Progress.</strong> An <code>on_update</code> callback copies each <code>AgentRun</code> into <code>run_state.json</code> as agents progress.</li>
+<li><strong>Result.</strong> The stage is FAILED if any agent failed, otherwise DONE. The run is <code>awaiting_review</code> if at least one sheet produced records, otherwise <code>failed</code>.</li>
+</ul>
+</li>
+<li><strong><code>start_usdm</code> → <code>_usdm</code>.</strong> <code>check_ready</code> requires a written workbook. Status <code>generating</code>, then <code>completed</code> when JSON was produced (stage SKIPPED when reused), otherwise <code>failed</code>.</li>
+<li><strong><code>_fail</code>.</strong> Logs the exception with stack trace, sets the run <code>failed</code> and the stage <code>failed</code> with <code>&quot;ExceptionType: message&quot;</code>.</li>
+<li><strong><code>llm()</code>.</strong> Hands a model client to synchronous request handlers (Claude re-mapping); raises <code>ExtractionNotReadyError</code> without a key.</li>
+</ul>
+<p><strong>Inside a job.</strong> Each worker thread runs its async pipeline with <code>asyncio.run</code> (<code>run_extraction</code>, <code>suggest_mappings</code>). Concurrency within extraction is an <code>asyncio.Semaphore(config.concurrency_limit)</code> (default 5, range 1–32). Claude mapping sends all batches at once with <code>asyncio.gather</code> and no semaphore. PALOMA-3's 146 sections make 5 concurrent requests.</p>
+<p><strong>What runs outside the job runner.</strong> Mapping edits, Claude re-mapping (<code>POST …/section-mapping/suggestions</code>), review operations and workbook writing run in the request thread. Mapping edits are refused with <code>409</code> while a job is active (<code>runs.py:_remap</code>), and so is <code>POST …/workbook</code> (the USDM import reads that file). Review operations are <strong>not</strong> blocked by an active job; <code>review.py:_set_run_status</code> only avoids overwriting <code>running</code>/<code>generating</code>.</p>
+<figure><div class="diagram"><pre class="mermaid">stateDiagram-v2
+  [*] --&gt; created: POST runs
+  created --&gt; running: start_ingestion
+  running --&gt; parsed: mapping done, no extraction yet
+  running --&gt; awaiting_review: extraction produced records
+  running --&gt; failed: stage exception or no sheet produced
+  parsed --&gt; running: POST extract or POST ingest
+  awaiting_review --&gt; running: re-run ingest or extract
+  awaiting_review --&gt; reviewed: POST review confirm
+  reviewed --&gt; awaiting_review: edit after confirm or restart review
+  reviewed --&gt; generating: POST usdm
+  generating --&gt; completed: USDM JSON written
+  generating --&gt; failed: import produced nothing or exception
+  completed --&gt; awaiting_review: edit reopens review
+  completed --&gt; generating: POST usdm again
+  failed --&gt; running: resume ingest or extract
+  failed --&gt; generating: POST usdm
+</pre></div><figcaption><strong>Figure 4 — Run state machine.</strong> Values of <code>RunState.status</code> (<code>backend/models/study.py:RunStatus</code>).</figcaption></figure>
+<p class="howto"><span class="howto-label">How to read it</span> each arrow is a transition the code performs, labelled with its trigger. A server restart while a run is <code>running</code> or <code>generating</code> moves it to <code>failed</code> (<code>StudyStore.mark_interrupted_runs</code>). Most endpoints check that the required <strong>files</strong> exist rather than the run status. Re-running extraction is possible from <code>reviewed</code> or <code>completed</code>, for example, and marks the review <code>stale</code> (section 4.8).</p>
+<figure><div class="diagram"><pre class="mermaid">stateDiagram-v2
+  [*] --&gt; queued
+  queued --&gt; skipped: same input_hash, stored output reused or reprocessed
+  queued --&gt; done: no sections but empty_when_missing
+  queued --&gt; failed: no relevant sections
+  queued --&gt; running: acquired semaphore
+  running --&gt; done: output validated and post-processed
+  running --&gt; failed: API error after retries, refusal, truncation
+  skipped --&gt; [*]
+  done --&gt; [*]
+  failed --&gt; [*]
+</pre></div><figcaption><strong>Figure 5 — Agent state machine.</strong> Values of <code>AgentRun.status</code> (<code>backend/models/extraction.py:AgentStatus</code>). Stage states (<code>StageStatus</code>) use pending → running → done, skipped or failed.</figcaption></figure>
+</details>
+<h3 id="4-4-document-parsing-layer"><span class="num">4.4</span><span class="htext">Document parsing layer</span></h3>
+<p class="brief"><span class="brief-label">In brief</span> Parsing turns the PDF into a structured document: pages, sections with their text, and tables. It runs entirely on the local machine with PyMuPDF. It finds headings from font size, bold text and numbering, and checks them against the PDF's bookmarks. It removes repeated page headers and footers, detects the table of contents, extracts tables and scores them for &quot;is this a Schedule of Activities&quot;. It also saves an image of every page, used later by the schedule agent and by reviewers. There is no OCR.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<p><strong>Libraries.</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Library</th>
+<th>Used for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PyMuPDF (<code>pymupdf</code>)</td>
+<td>text spans with font, size and bbox; <code>page.find_tables()</code>; <code>doc.get_toc()</code> bookmarks; page rendering (<code>get_pixmap</code>); highlight crops for review</td>
+<td><code>extractors/layout.py:extract_rows</code>, <code>extractors/tables.py:extract_tables</code>, <code>pymupdf_extractor.py:_read</code>, <code>review/highlight.py:render_highlight</code></td>
+</tr>
+<tr>
+<td>rapidfuzz</td>
+<td>bookmark ↔ heading agreement, title-page repetition, quote verification</td>
+<td><code>pymupdf_extractor.py:_reconcile_outline</code>, <code>agents/context.py:locate_quote</code></td>
+</tr>
+<tr>
+<td>python-slugify</td>
+<td>section ids for unnumbered headings (<code>fm-…</code>, <code>app-…</code>)</td>
+<td><code>pymupdf_extractor.py:_build_sections</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Pluggable backend.</strong> <code>backend/pipeline/extractors/base.py:PdfExtractor</code> defines <code>extract(pdf_path, source, page_images_dir, image_path_prefix, dpi) -&gt; ParsedDocument</code>. <code>extractors/registry.py</code> maps <code>run_config.pdf_backend</code> to a class; only <code>pymupdf</code> is registered. D4 mentions Docling as an optional upgrade, but it is not implemented.</p>
+<p><strong><code>PyMuPdfExtractor.extract</code></strong> (version <code>&quot;3&quot;</code>):</p>
+<ol>
+<li><strong><code>_read</code>.</strong>
+<ul>
+<li><strong>Reading.</strong> Opens the PDF from bytes and builds rows per page (<code>extract_rows</code>).</li>
+<li><strong>Page furniture.</strong> Estimates the body font size (<code>body_font_size</code>). Finds running headers and footers: rows in the top or bottom band repeating on at least max(3, 25%) of pages (<code>find_running_rows</code>). Detects TOC pages from dot leaders or a contents title (<code>is_toc_page</code>). Drops &quot;noise&quot; rows such as redaction stamps, meaning glyphs at least 2.5× body size with at most 8 characters (<code>is_noise</code>).</li>
+<li><strong>Tables and images.</strong> Extracts tables on non-TOC pages and renders <code>page_images/page-NNNN.png</code> at <code>page_image_dpi</code> (default 150).</li>
+</ul>
+</li>
+<li><strong><code>_detect_headings</code>.</strong>
+<ul>
+<li><strong>Numbered headings.</strong> Candidates must be styled (bold, or ≥ body + 1.5 pt) with a plausible title. <code>best_numbered_chain</code> keeps the highest-evidence subsequence forming a valid outline progression, so a bold list item &quot;3. Patients must…&quot; cannot displace section 3.</li>
+<li><strong>Appendices.</strong> Numbered lines after the first appendix heading are treated as appendix content.</li>
+<li><strong>Front matter.</strong> Unnumbered styled headings before section 1 become front matter (page 1 is always the title page). The protocol title repeated above section 1 is ignored, and a heading repeated at the top of the next page is dropped as a running continuation.</li>
+</ul>
+</li>
+<li><strong><code>_reconcile_outline</code>.</strong> Each bookmark is matched to a detected heading (same number within ±1 page and partial ratio ≥ 80, or title ratio ≥ 85), which upgrades its source to <code>text_and_outline</code>. Unmatched bookmarks become headings (<code>outline</code> source), and a warning is added when their row cannot be located.</li>
+<li><strong>Tables.</strong> <code>attach_caption</code>, then <code>soa_score</code>: 0.40 × visit-like header terms, 0.40 × mark ratio (<code>X</code>, <code>✓</code>, <code>•</code>…), 0.05 for ≥ 5 columns, 0.15 when the page mentions a schedule title. <code>group_tables</code> chains tables that continue across pages.</li>
+<li><strong><code>_build_sections</code>.</strong>
+<ul>
+<li><strong>Ordering.</strong> A synthetic <code>title-page</code> section, a synthetic <code>toc</code> section, then one section per heading with a stack-based parent hierarchy.</li>
+<li><strong>Content.</strong> Every content row and table is assigned to the heading above it. Text gets <code>[[PAGE n]]</code> markers and <code>[[TABLE id]]</code> placeholders. <code>page_end</code> is extended over each section's subtree.</li>
+</ul>
+</li>
+<li><strong><code>_finalise_tables</code>.</strong>
+<ul>
+<li><strong>SoA candidates.</strong> A table is a candidate when its group score ≥ 0.5 (<code>SOA_THRESHOLD</code>); a table under a schedule-titled heading with ≥ 4 columns is raised to at least 0.6.</li>
+<li><strong><code>needs_vision</code>.</strong> Set when the table is an SoA candidate, has merged cells (&gt; 5%), is sparse (&gt; 50% empty with &gt; 3 rows), or is a wide landscape table.</li>
+</ul>
+</li>
+<li><strong>Warnings.</strong> Added when no numbered body sections or no SoA table were found.</li>
+</ol>
+<p><strong>Caching and reviewer corrections</strong> (<code>backend/pipeline/ingest.py:parse</code>).</p>
+<ul>
+<li><strong>Reuse.</strong> The parse is reused when <code>parsed_document.json</code> has the same source sha256, backend name, backend version and DPI (<code>_reusable</code>). A crash mid-parse leaves no document file, so the next run parses again.</li>
+<li><strong>Start-page corrections.</strong> <code>segmentation/boundaries.py:finalise_document</code> applies them from <code>section_boundaries.json</code> to the parser's raw output, which is then kept as <code>parsed_document.raw.json</code>. Content is moved by <code>[[PAGE n]]</code> markers without re-reading the PDF.</li>
+<li><strong>Obsolete corrections.</strong> A boundary whose section vanished or was retitled is not applied, and the document's warnings say so.</li>
+</ul>
+<p><span class="oq">Open question</span> How the parser behaves on scanned (image-only) PDFs was not tested in the code or tests reviewed. The code path yields empty rows; whether the UI surfaces that clearly beyond the &quot;no numbered body sections detected&quot; warning was not verified.</p>
+</details>
+<h3 id="4-5-section-mapping-to-ich-m11"><span class="num">4.5</span><span class="htext">Section mapping to ICH M11</span></h3>
+<p class="brief"><span class="brief-label">In brief</span> Each extraction agent needs &quot;the part of the protocol about X&quot;. Because sponsors title and number their sections differently, every protocol section is mapped onto the ICH M11 template (160 template sections, <code>m11_template.yaml</code>). Three layers produce the mapping, and later layers win:</p>
+<ol>
+<li>Title-based matching by code.</li>
+<li>Claude reading each section.</li>
+<li>The reviewer's own corrections.</li>
+</ol>
+<p>Uncertain or disputed mappings are flagged for review, and every reviewer change is audited.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<figure><div class="diagram"><pre class="mermaid">flowchart LR
+  doc[&quot;parsed_document.json&quot;] --&gt; rule[&quot;Layer 1 · title-based&lt;br/&gt;m11._assign&quot;]:::rule
+  rule --&gt; cl[&quot;Layer 2 · Claude&lt;br/&gt;m11._with_claude&quot;]:::llm
+  sugg[(&quot;section_suggestions.json&quot;)] --&gt; cl
+  cl --&gt; rev[&quot;Layer 3 · reviewer&lt;br/&gt;m11._overridden&quot;]:::human
+  ovr[(&quot;section_overrides.json&quot;)] --&gt; rev
+  rev --&gt; map[(&quot;section_mapping.json&quot;)]
+  map --&gt; sf[&quot;sections_for&lt;br/&gt;per agent&quot;]:::rule
+  classDef rule fill:#e3f0ea,stroke:#2d6a4f,color:#16212b
+  classDef llm fill:#ece6f7,stroke:#6a4baf,color:#16212b
+  classDef human fill:#f7ecd9,stroke:#9a5b00,color:#16212b
+</pre></div><figcaption><strong>Figure 6 — Mapping layers.</strong> How <code>m11.map_sections</code> combines the three sources into the mapping every agent reads.</figcaption></figure>
+<p class="howto"><span class="howto-label">How to read it</span> each section passes through the three layers in order. A layer with nothing stored for that section leaves the previous result unchanged. Stored inputs are cylinders.</p>
+<p><strong>Layer 1: title-based</strong> <span class="tag rule">Code</span> (<code>backend/pipeline/segmentation/m11.py:_assign</code>).</p>
+<ul>
+<li><strong>Structural sections.</strong> The TOC is <code>excluded</code>; the title page maps to M11 <code>0</code> (<code>structural</code>, 0.95).</li>
+<li><strong>Scoring</strong> (<code>_Scorer.score</code>, <code>title_similarity</code>).
+<ul>
+<li><strong>Normalisation.</strong> Titles are normalised with sponsor-to-M11 synonyms (study → trial, patient/subject → participant, medication → therapy, compliance → adherence…) and compared by word overlap weighted by rarity across M11 titles and aliases.</li>
+<li><strong>Structure bonuses.</strong> Candidates under the parent's M11 section get +0.08; the same chapter gets +0.03.</li>
+<li><strong>Why not fuzzy ratios.</strong> Character-level fuzzy ratios are deliberately not used (D8).</li>
+</ul>
+</li>
+<li><strong>Rules, in order.</strong>
+<ol>
+<li>An M11-native protocol (≥ 60% of top-level numbered titles agree with M11) maps by number when the title agrees (<code>number_and_title</code>).</li>
+<li>A schedule title, or a section holding an SoA table, maps to <code>1.3</code>.</li>
+<li>The best title or alias match ≥ 0.55 is used, unless a confident parent (≥ 0.8) would be left for another chapter with a score below 0.75.</li>
+<li>An unmatched level-1 appendix maps to <code>12.X</code> (0.72).</li>
+<li>Otherwise the section inherits the parent's mapping at 0.75× confidence, or stays <code>unmapped</code>.</li>
+</ol>
+</li>
+<li><strong>Review flag.</strong> <code>needs_review</code> is set when confidence is below <code>segmentation_review_threshold</code> (default 0.70).</li>
+</ul>
+<p><strong>Layer 2: Claude</strong> <span class="tag llm">LLM</span> (<code>segmentation/suggest.py:suggest_mappings</code>, applied by <code>m11._with_claude</code>).</p>
+<ul>
+<li><strong>Scope.</strong> <code>in_scope</code> selects all sections (default) or only flagged/unmapped ones; the title page and TOC are never sent.</li>
+<li><strong>Prompt.</strong> <code>build_prompt</code> sends the whole M11 outline, an invented example (COUGH-2), and per section: id, number, title, pages, current title-based mapping, parent, up to 12 subsection titles and the first 700 characters of text with markers removed. <code>SYSTEM</code> holds the rules. <code>PROMPT_VERSION = &quot;2&quot;</code>, batches of 30, <code>max_tokens</code> 12000, model <code>run_config.extraction_model</code>.</li>
+<li><strong>Output and validation.</strong> <code>SuggestionsOut</code> → <code>_valid</code> drops M11 numbers not in the template (noted), clamps confidence, and ignores answers for ids not asked about.</li>
+<li><strong>Caching.</strong> Each suggestion stores <code>input_hash</code> over prompt version, model, system prompt, template version and that section's block. Unchanged sections are reused without a call unless <code>force</code>.</li>
+<li><strong>Applying</strong> (<code>_with_claude</code>).
+<ul>
+<li><strong>Agreement.</strong> Raises confidence to the higher of the two.</li>
+<li><strong>Disagreement.</strong> Claude's mapping replaces the title-based one (method <code>claude</code>), which is kept in <code>rule_m11_number/title/method/confidence</code>.</li>
+<li><strong>Flags.</strong> <code>needs_review</code> when Claude's confidence is below the threshold <strong>or</strong> it conflicts with a confident title match.</li>
+<li><strong>Safeguard.</strong> Claude cannot exclude a section that has a confident title match: the title-based mapping stays and the reason is prefixed &quot;Suggests this is not protocol content:&quot;.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Layer 3: reviewer</strong> <span class="tag human">Human</span> (<code>segmentation/overrides.py</code>, <code>m11._overridden</code>).</p>
+<ul>
+<li><strong>Actions.</strong>
+<ul>
+<li>Map to an M11 section (<code>reviewer</code>, confidence 1.0).</li>
+<li>Mark as not protocol content (<code>excluded</code>).</li>
+<li>Add further M11 sections (<code>also</code>).</li>
+<li>Revert (delete the override).</li>
+<li>&quot;Use title-based mapping&quot;, recorded with <code>source: &quot;rule&quot;</code>.</li>
+</ul>
+</li>
+<li><strong>Titles must still match.</strong> Overrides store the section title; an override whose section vanished or was retitled after a re-parse is ignored and listed in <code>ignored_overrides</code>.</li>
+<li><strong>Audit.</strong> Every change appends before and after to <code>section_mapping_audit.jsonl</code> (<code>audit_change</code>).</li>
+</ul>
+<p><strong>Coverage and agent input.</strong></p>
+<ul>
+<li><strong>Coverage.</strong> <code>_coverage</code> reports, per M11 section, <code>found</code> / <code>low_confidence</code> / <code>missing</code>; inherited mappings don't count as coverage.</li>
+<li><strong><code>sections_for</code>.</strong> Gives an agent every non-excluded section whose main or <code>also</code> M11 number is inside the requested subtrees, or equals an <code>exact</code> number. Inherited mappings are included by default.</li>
+</ul>
+<p><strong>Stale descriptions.</strong></p>
+<ul>
+<li><strong><code>suggest.py</code> docstring and <code>SYSTEM</code> prompt.</strong> The module docstring still says suggestions &quot;never change the mapping by themselves&quot;, and <code>SYSTEM</code> says &quot;A human reviewer accepts or rejects every suggestion&quot;. Both describe D36; since D37 the suggestions are applied by default.</li>
+<li><strong>D8.</strong> D8 in <code>docs/decisions.md</code> (&quot;no LLM&quot;) is superseded by D37.</li>
+</ul>
+</details>
+<h3 id="4-6-extraction-layer"><span class="num">4.6</span><span class="htext">Extraction layer</span></h3>
+<p class="brief"><span class="brief-label">In brief</span> Extraction is split into fourteen agents, one per area of the USDM workbook. Each agent sends Claude only the protocol sections mapped to its M11 chapters, a task description and an invented worked example, and receives structured JSON back. The model is asked only for what it read: a value, a short verbatim quote, the section it came from, and a confidence. Everything after that is deterministic code:</p>
+<ul>
+<li>checking the quote exists and finding its page;</li>
+<li>matching CDISC terms;</li>
+<li>generating names;</li>
+<li>linking references between sheets.</li>
+</ul>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<p><strong>Rule-based vs LLM-based.</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Method</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Choose sections for an agent</td>
+<td><span class="tag rule">Code</span></td>
+<td><code>agents/context.py:build_context</code> via <code>sections_for</code></td>
+</tr>
+<tr>
+<td>Read values, quotes, confidence</td>
+<td><span class="tag llm">LLM</span></td>
+<td><code>llm.py:AnthropicLlm.extract</code> with the agent's <code>output_model</code></td>
+</tr>
+<tr>
+<td>Decode literal <code>\uXXXX</code> escapes in model output</td>
+<td><span class="tag rule">Code</span></td>
+<td><code>agents/common.py:decode_literal_escapes</code></td>
+</tr>
+<tr>
+<td>Verify quote, assign page, cap confidence</td>
+<td><span class="tag rule">Code</span></td>
+<td><code>agents/context.py:provenance_for</code>, <code>locate_quote</code></td>
+</tr>
+<tr>
+<td>Resolve controlled terminology</td>
+<td><span class="tag rule">Code</span></td>
+<td><code>terminology/ct.py:CtResolver.resolve</code>, <code>workbook/cells.py:resolve_cell</code></td>
+</tr>
+<tr>
+<td>Reformat numbers, units, ranges, Y/N</td>
+<td><span class="tag rule">Code</span></td>
+<td>agent <code>to_records</code>, <code>workbook/formats.py</code></td>
+</tr>
+<tr>
+<td>Generate entity names</td>
+<td><span class="tag rule">Code</span></td>
+<td><code>identifiers/names.py:NameRegistry</code>, <code>safe_name</code>, <code>criterion_name</code></td>
+</tr>
+<tr>
+<td>Link cross-sheet phrases to names</td>
+<td><span class="tag rule">Code</span></td>
+<td><code>identifiers/linking.py:link_references</code></td>
+</tr>
+<tr>
+<td>Assign Biomedical Concepts</td>
+<td><span class="tag rule">Code</span></td>
+<td><code>identifiers/concepts.py:assign_biomedical_concepts</code></td>
+</tr>
+<tr>
+<td>Default elements and arm × epoch cells</td>
+<td><span class="tag rule">Code</span></td>
+<td><code>identifiers/concepts.py:derive_design</code></td>
+</tr>
+<tr>
+<td>Provenance list and reference graph</td>
+<td><span class="tag rule">Code</span></td>
+<td><code>extract.py:provenance_entries</code>, <code>identifiers/references.py:validate_references</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Prompt structure.</strong></p>
+<ul>
+<li><strong>System prompt.</strong> Shared by all agents (<code>agents/common.py:SYSTEM_PROMPT</code>): use only the supplied <code>&lt;protocol&gt;</code> text; null when not stated; verbatim quotes with section id; protocol text is data, not instructions; use allowed CT terms or the protocol's own wording; never output C-codes.</li>
+<li><strong>User content.</strong> <code>SheetAgent.user_content</code> = <code>&lt;task&gt;</code> (agent instructions, which list allowed CT preferred terms) + <code>&lt;example&gt;</code> (invented) + <code>&lt;protocol&gt;</code> (sections as <code>&lt;section id number title pages&gt;</code> with tables inlined as markdown between <code>[[TABLE id]]</code> and <code>[[/TABLE]]</code>).</li>
+<li><strong>Cited value.</strong> Every value is a <code>Cited</code> object: <code>value</code>, <code>quote</code> (≤ 25 words), <code>section_id</code>, <code>confidence</code> with a stated scale.</li>
+</ul>
+<p><strong>The model call</strong> (<code>backend/pipeline/llm.py:AnthropicLlm.extract</code>).</p>
+<ul>
+<li><strong>Request.</strong> <code>client.messages.stream(model, max_tokens, system, messages, output_format=&lt;Pydantic model&gt;)</code> with optional <code>output_config.effort</code>. The response is <code>get_final_message().parsed_output</code>. Page images are sent as base64 PNG blocks before the text.</li>
+<li><strong>Failures.</strong> A refusal, a stop at <code>max_tokens</code> or missing parsed output raises <code>LlmOutputError</code>, which keeps the usage for cost logging.</li>
+<li><strong>Cost.</strong> <code>estimate_cost</code> prices input, output and cache tokens from the <code>PRICING</code> table.</li>
+</ul>
+<p><strong>Quote verification</strong> (<code>agents/context.py:locate_quote</code>, <code>VERIFICATION_VERSION = &quot;4&quot;</code>).</p>
+<ul>
+<li><strong>Exact match.</strong> On word boundaries in whitespace-normalised, case-folded text, with table cells made searchable.</li>
+<li><strong>Compact match.</strong> Ignoring lost spaces, only for quotes with a digit or ≥ 3 words.</li>
+<li><strong>Fuzzy match.</strong> Partial ratio ≥ 90 for quotes of ≥ 20 characters, starting on a word boundary, and <strong>only if numbers and negations are identical</strong>.</li>
+<li><strong>Where to look.</strong> The cited section is searched first, then the agent's other sections.</li>
+<li><strong>Pages.</strong> The page comes from where the quote was found, never from the model.</li>
+<li><strong>Confidence caps.</strong> No quote: ≤ 0.6 (<code>NO_QUOTE_CAP</code>). Quote not found: ≤ 0.3 (<code>UNVERIFIED_QUOTE_CAP</code>, verified = false).</li>
+</ul>
+<p><strong>Value origins.</strong></p>
+<ul>
+<li><strong><code>extracted</code>.</strong> Read from the protocol.</li>
+<li><strong><code>derived</code>.</strong> Generated by code (confidence 1.0, with a note).</li>
+<li><strong>Judged values.</strong> A value the model chose rather than transcribed. It is stored with origin <code>extracted</code>, inherits the basis field's source and verification, is capped at 0.8 confidence and carries a note (<code>SheetAgent.judged</code>).</li>
+<li><strong><code>human</code>.</strong> Set by a reviewer.</li>
+</ul>
+<p><strong>Resume, reuse and reprocessing</strong> (<code>extract.py:_run_agent</code>).</p>
+<ul>
+<li><strong><code>input_hash</code>.</strong> Covers shared prompt version, sheet, agent prompt version, model, effort, CT version, system prompt, output schema, user content and image hashes.</li>
+<li><strong>Reuse.</strong> Same hash with DONE/SKIPPED stored output means no call (SKIPPED).</li>
+<li><strong>Reprocessing.</strong> If only <code>postprocess_version</code> or the verification version changed, records are rebuilt from the stored <code>model_output</code> for free (<code>reprocessed = true</code>).</li>
+<li><strong>Failure.</strong> A failed call leaves the previous output file untouched but contributes nothing to assembly.</li>
+</ul>
+<p><strong>Assembly</strong> (<code>extract.py:assemble</code>).</p>
+<ul>
+<li><strong>Inputs.</strong> Current outcomes win; agents not run this time contribute their last successful file.</li>
+<li><strong>Order.</strong> <code>link_references</code> → <code>assign_biomedical_concepts</code> → <code>derive_design</code>.</li>
+<li><strong>Outputs.</strong> <code>extraction.json</code>, <code>provenance.json</code> (each non-empty field with review reasons: confidence below <code>confidence_threshold</code> 0.7, unverified, terminology not exact) and <code>reference_validation.json</code>.</li>
+</ul>
+</details>
+<h3 id="4-7-the-agents"><span class="num">4.7</span><span class="htext">The agents</span></h3>
+<p class="brief"><span class="brief-label">In brief</span> There are fifteen model-backed roles:</p>
+<ul>
+<li>the <strong>section mapper</strong>, described in 4.5;</li>
+<li><strong>fourteen extraction agents</strong>, registered in <code>backend/pipeline/agents/registry.py:AGENTS</code> in review order.</li>
+</ul>
+<p>The extraction agents do not wait for one another: they run in parallel and never see each other's output. Where one sheet refers to another (an estimand's endpoint, an amendment's date), code links them afterwards. All use the run's <code>extraction_model</code> (default <code>claude-sonnet-5</code>) and the same retry behaviour.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<figure><div class="diagram"><pre class="mermaid">flowchart TB
+  start[&quot;JobRunner._extract&lt;br/&gt;run_extraction&quot;]
+  subgraph fan[&quot;asyncio.gather · Semaphore concurrency_limit = 5&quot;]
+    direction LR
+    s1[&quot;study&quot;]
+    s2[&quot;identifiers&quot;]
+    s3[&quot;study_design&quot;]
+    s4[&quot;study_design_arms&quot;]
+    s5[&quot;populations&quot;]
+    s6[&quot;eligibility_criteria&quot;]
+    s7[&quot;objectives_endpoints&quot;]
+    s8[&quot;estimands&quot;]
+    s9[&quot;interventions&quot;]
+    s10[&quot;indications&quot;]
+    s11[&quot;amendments&quot;]
+    s12[&quot;abbreviations&quot;]
+    s13[&quot;schedule&lt;br/&gt;+ page images&quot;]
+    s14[&quot;assessments&quot;]
+  end
+  start --&gt; fan
+  fan --&gt; link[&quot;link_references&lt;br/&gt;names for quoted phrases&quot;]
+  link --&gt; bc[&quot;assign_biomedical_concepts&quot;]
+  bc --&gt; design[&quot;derive_design&lt;br/&gt;elements, arm × epoch cells&quot;]
+  design --&gt; out[(&quot;extraction.json · provenance.json&lt;br/&gt;reference_validation.json&quot;)]
+  s8 -.-&gt;|&quot;population, intervention,&lt;br/&gt;endpoint phrases&quot;| link
+  s11 -.-&gt;|&quot;amendment date&quot;| link
+  s13 -.-&gt;|&quot;activities&quot;| bc
+  s14 -.-&gt;|&quot;measurements&quot;| bc
+  s4 -.-&gt;|&quot;arms&quot;| design
+  s13 -.-&gt;|&quot;epochs&quot;| design
+</pre></div><figcaption><strong>Figure 7 — Agent fan-out and fan-in.</strong> Fourteen independent agents, then three deterministic assembly steps.</figcaption></figure>
+<p class="howto"><span class="howto-label">How to read it</span> all agents start together; the semaphore lets at most <code>concurrency_limit</code> call Claude at once, and agents whose inputs are unchanged finish immediately without a call. Solid arrows are execution order. Dashed arrows are <strong>data dependencies</strong> resolved only at assembly, not run-time ordering. Section 6 covers retries, and Figure 8 shows one agent's decision path.</p>
+<figure><div class="diagram"><pre class="mermaid">flowchart TD
+  q[&quot;queued&quot;] --&gt; has{&quot;Sections mapped&lt;br/&gt;to its M11 numbers?&quot;}
+  has --&gt;|&quot;no, fallback also empty&quot;| em{&quot;empty_when_missing?&quot;}
+  em --&gt;|&quot;yes&quot;| empty[&quot;done · empty sheet&quot;]
+  em --&gt;|&quot;no&quot;| f1[&quot;failed · no relevant sections&quot;]
+  has --&gt;|&quot;yes&quot;| hash[&quot;compute input_hash&quot;]
+  hash --&gt; same{&quot;Stored output with&lt;br/&gt;same hash?&quot;}
+  same --&gt;|&quot;yes, same post-processing&quot;| skip[&quot;skipped · reuse records&quot;]
+  same --&gt;|&quot;yes, newer post-processing&quot;| rep[&quot;skipped · reprocessed:&lt;br/&gt;to_records on stored output,&lt;br/&gt;file rewritten&quot;]
+  same --&gt;|&quot;no, or force&quot;| llmcall[&quot;Claude call&lt;br/&gt;SDK retries up to 6&quot;]
+  llmcall --&gt;|&quot;refusal, truncation,&lt;br/&gt;invalid output, API error&quot;| f2[&quot;failed · old file kept,&lt;br/&gt;excluded from assembly&quot;]
+  llmcall --&gt;|&quot;parsed output&quot;| post[&quot;to_records: verify quotes,&lt;br/&gt;resolve CT, name entities&quot;]
+  post --&gt; done[&quot;done · write extraction/sheet.json&quot;]
+</pre></div><figcaption><strong>Figure 8 — One agent's lifecycle.</strong> The reuse and failure decisions in <code>extract.py:_run_agent</code>.</figcaption></figure>
+<p class="howto"><span class="howto-label">How to read it</span> diamonds are decisions in code order. Only the &quot;no, or force&quot; path costs money; reprocessing re-runs quote verification and terminology on the stored model output and keeps the status <code>skipped</code> with <code>reprocessed = true</code>. There is no application-level retry: after the SDK's own retries, a failed agent stays failed until the user runs extraction again (resume re-runs failed agents because no reusable output exists).</p>
+<p><strong>Summary of reading scope.</strong> &quot;Subtree&quot; numbers include everything beneath them. &quot;Own text&quot; numbers include only the chapter's own text. &quot;Fallback&quot; numbers are used when nothing maps to the primary ones.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Agent (<code>sheet</code>)</th>
+<th>Workbook sheet(s)</th>
+<th>M11 subtree · own text · fallback · always</th>
+<th>Empty when missing</th>
+<th>max_tokens</th>
+<th>Prompt / post-process version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>study</code></td>
+<td>study</td>
+<td>0, 1.1, 2.1, 12.3 · 1, 2 · 2 · <code>title-page</code></td>
+<td>no</td>
+<td>16000</td>
+<td>2 / 1</td>
+</tr>
+<tr>
+<td><code>identifiers</code></td>
+<td>studyOrganizations, studyIdentifiers</td>
+<td>0, 1.1 · 1, 11.2.2 · – · <code>title-page</code></td>
+<td>no</td>
+<td>12000</td>
+<td>1 / 1</td>
+</tr>
+<tr>
+<td><code>study_design</code></td>
+<td>studyDesign (key/value)</td>
+<td>1.1.2, 4.1, 4.2, 6.7 · 1, 1.1, 4, 6 · 4 · <code>title-page</code></td>
+<td>no</td>
+<td>12000</td>
+<td>1 / 1</td>
+</tr>
+<tr>
+<td><code>study_design_arms</code></td>
+<td>studyDesignArms</td>
+<td>1.1.2, 1.2, 4.1, 6.1, 6.7 · 1, 4, 6 · 4, 6 · –</td>
+<td>no</td>
+<td>16000</td>
+<td>1 / 1</td>
+</tr>
+<tr>
+<td><code>populations</code></td>
+<td>studyDesignPopulations</td>
+<td>1.1.2, 4.1, 5.1, 5.2, 10.11 · 1, 1.1, 5 · 5 · –</td>
+<td>no</td>
+<td>12000</td>
+<td>1 / 2</td>
+</tr>
+<tr>
+<td><code>eligibility_criteria</code></td>
+<td>studyDesignEligibilityCriteria</td>
+<td>5.2, 5.3 · 5 · 5 · –</td>
+<td>no</td>
+<td>48000</td>
+<td>1 / 1</td>
+</tr>
+<tr>
+<td><code>objectives_endpoints</code></td>
+<td>studyDesignOE</td>
+<td>3, 1.1.1, 10.4, 10.5 · – · 1 · –</td>
+<td>no</td>
+<td>24000</td>
+<td>2 / 1</td>
+</tr>
+<tr>
+<td><code>estimands</code></td>
+<td>studyDesignEstimands</td>
+<td>1.1.1, 3, 4.2.1, 10.1, 10.4, 10.5 · – · – · –</td>
+<td>yes</td>
+<td>16000</td>
+<td>1 / 1</td>
+</tr>
+<tr>
+<td><code>interventions</code></td>
+<td>studyInterventions</td>
+<td>6.1, 6.2, 6.3, 6.9, 1.1.2 · 6, 1.1 · 6 · –</td>
+<td>no</td>
+<td>24000</td>
+<td>2 / 1</td>
+</tr>
+<tr>
+<td><code>indications</code></td>
+<td>studyDesignIndications</td>
+<td>1.1.2, 5.1 · 1, 1.1, 2, 5 · 2 · <code>title-page</code></td>
+<td>no</td>
+<td>6000</td>
+<td>1 / 1</td>
+</tr>
+<tr>
+<td><code>amendments</code></td>
+<td>studyAmendments</td>
+<td>12.3 · – · – · –</td>
+<td>yes</td>
+<td>16000</td>
+<td>1 / 1</td>
+</tr>
+<tr>
+<td><code>abbreviations</code></td>
+<td>abbreviations</td>
+<td>13 · – · – · –</td>
+<td>yes</td>
+<td>32000</td>
+<td>1 / 1</td>
+</tr>
+<tr>
+<td><code>schedule</code></td>
+<td>studyDesignEpochs, studyDesignEncounters, studyDesignTiming, studyDesignActivities, timeline sheets</td>
+<td>1.3 · – · – · –</td>
+<td>yes</td>
+<td>48000</td>
+<td>2 / 3</td>
+</tr>
+<tr>
+<td><code>assessments</code></td>
+<td>feeds BCs on timeline rows</td>
+<td>8, 12.1 · – · – · –</td>
+<td>yes</td>
+<td>32000</td>
+<td>1 / 1</td>
+</tr>
+</tbody>
+</table></div>
+</details>
+<h4 id="4-7-1-section-mapper"><span class="num">4.7.1</span><span class="htext">Section mapper</span></h4>
+<p class="brief"><span class="brief-label">In brief</span> Reads the start of every protocol section and says which ICH M11 section it belongs to, with a confidence and a one-sentence reason a reviewer can check. Its answer becomes the default mapping, but code guards it: it cannot hide a confidently matched section, and disagreements are flagged.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<p>See 4.5, layer 2. Code: <code>backend/pipeline/segmentation/suggest.py:suggest_mappings</code>; output <code>SuggestionsOut</code> (<code>section_id</code>, <code>m11_number</code>, <code>also_m11_numbers</code>, <code>not_protocol_content</code>, <code>confidence</code>, <code>reason</code>); stored as <code>MappingSuggestions</code> in <code>section_suggestions.json</code>; one <code>run.log</code> line per batch with <code>&quot;sheet&quot;: &quot;mapping&quot;</code>. Measured on PALOMA-3 (D37): 146 sections, 49 s, $0.34; re-run 7 s, $0.00.</p>
+</details>
+<h4 id="4-7-2-study"><span class="num">4.7.2</span><span class="htext">study</span></h4>
+<p class="brief"><span class="brief-label">In brief</span> Reads the title page, synopsis, rationale and document history for the study's titles, acronym, sponsor protocol number, protocol version and status, rationale, and governance dates (for example approval or amendment dates).</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<ul>
+<li><strong>Code.</strong> <code>backend/pipeline/agents/study.py:StudyAgent</code>.</li>
+<li><strong>Output.</strong> <code>StudyOut</code>: <code>official_title</code>, <code>brief_title</code>, <code>public_title</code>, <code>scientific_title</code>, <code>acronym</code>, <code>sponsor_protocol_identifier</code>, <code>protocol_version</code>, <code>protocol_status</code> (CT <code>StudyProtocolVersion.protocolStatus</code>), <code>rationale</code>, and <code>governance_dates[]</code> (label, category <code>study_version</code> / <code>protocol_document</code> / <code>amendment</code>, <code>type</code> CT <code>GovernanceDate.type</code>, ISO <code>date</code>).</li>
+<li><strong>After the call.</strong> Governance dates without a date value are dropped with a warning. Date names are generated (<code>identifiers/names.py:governance_date_name</code>). The study <code>name</code> is derived from the study name entered in the app (<code>safe_name(study.name)</code>; the evaluation runner uses &quot;CDISC Pilot&quot; for this reason).</li>
+</ul>
+</details>
+<h4 id="4-7-3-identifiers"><span class="num">4.7.3</span><span class="htext">identifiers</span></h4>
+<p class="brief"><span class="brief-label">In brief</span> Lists the organisations that identify the study (sponsor, registries, regulators) and the identifiers each issued, such as the sponsor protocol number or a ClinicalTrials.gov number.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<ul>
+<li><strong>Code.</strong> <code>agents/identifiers.py:IdentifiersAgent</code>.</li>
+<li><strong>Output.</strong> <code>IdentifiersOut</code>: <code>organizations[]</code> (short key, <code>name</code>, <code>type</code> CT <code>Organization.type</code>, <code>identifier_scheme</code>, <code>identifier</code>, <code>address</code> lines and parts) and <code>identifiers[]</code> (<code>identifier</code>, issuing organisation key).</li>
+<li><strong>Why one agent fills both sheets.</strong> The <code>organization</code> reference is correct by construction.</li>
+<li><strong>Registries.</strong> <code>_REGISTRIES</code> recognises ClinicalTrials.gov (<code>NCT\d{8}</code>), EudraCT, CTIS and ISRCTN, and fills their scheme <code>URL</code> and web address as <strong>derived</strong> values.</li>
+<li><strong>Sponsors.</strong> The sponsor's scheme and identifier (e.g. DUNS) stay empty unless printed, so review blocks until a person supplies them.</li>
+<li><strong>Formatting.</strong> Addresses are reformatted to the importer's pipe form <code>lines|district|city|state|postal code|country code</code>.</li>
+</ul>
+</details>
+<h4 id="4-7-4-study-design"><span class="num">4.7.4</span><span class="htext">study_design</span></h4>
+<p class="brief"><span class="brief-label">In brief</span> Classifies the design: study type, phase, blinding, intervention model, trial intent and sub-types, design characteristics, plus the design description and rationale.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<ul>
+<li><strong>Code.</strong> <code>agents/study_design.py:StudyDesignAgent</code>.</li>
+<li><strong>Output.</strong> <code>StudyDesignOut</code>: <code>description</code>, <code>rationale</code>, <code>study_type</code> (CT <code>StudyDesign.studyType</code>), <code>study_phase</code> (<code>StudyDesign.studyPhase</code>), <code>blinding_schema</code> (<code>InterventionalStudyDesign.blindingSchema</code>), <code>intervention_model</code>, <code>intent_types[]</code>, <code>sub_types[]</code>, <code>characteristics[]</code> (multi-valued CT cells).</li>
+<li><strong>Filled elsewhere.</strong> The <code>mainTimeline</code>/<code>otherTimelines</code> keys and the arm × epoch grid on the same sheet are filled by the writer from the schedule and <code>derive_design</code>.</li>
+</ul>
+</details>
+<h4 id="4-7-5-study-design-arms"><span class="num">4.7.5</span><span class="htext">study_design_arms</span></h4>
+<p class="brief"><span class="brief-label">In brief</span> Lists the study arms (treatment groups) with a description, the arm's role (e.g. investigational or placebo comparator) and where its data come from.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<ul>
+<li><strong>Code.</strong> <code>agents/arms.py:ArmsAgent</code>.</li>
+<li><strong>Output.</strong> <code>ArmsOut.arms[]</code>: <code>label</code>, <code>description</code>, <code>type</code> (CT <code>StudyArm.type</code>), <code>data_origin_type</code> (CT <code>StudyArm.dataOriginType</code>), <code>data_origin_description</code>.</li>
+<li><strong>After the call.</strong> Arm names are derived. D11 records that on the CDISC Pilot the model typed two arms &quot;Investigational Arm&quot; where the reference says &quot;Active Comparator Arm&quot;, a judgement a reviewer must check.</li>
+</ul>
+</details>
+<h4 id="4-7-6-populations"><span class="num">4.7.6</span><span class="htext">populations</span></h4>
+<p class="brief"><span class="brief-label">In brief</span> Reads the planned population: its description, planned enrolment and completion numbers, age range, sex, and whether healthy volunteers are included, plus any separately enrolled cohorts.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<ul>
+<li><strong>Code.</strong> <code>agents/populations.py:PopulationsAgent</code>.</li>
+<li><strong>Output.</strong> <code>PopulationsOut.populations[]</code>: <code>label</code>, <code>description</code>, counts (<code>CountOut.value</code> with optional <code>upper</code> for ranges), <code>age_min</code>, <code>age_max</code> with units, <code>sex[]</code>, <code>healthy_subjects</code>.</li>
+<li><strong>Formatting.</strong> Code writes importer formats: <code>&quot;300&quot;</code>, ranges <code>&quot;280..320&quot;</code>, <code>&quot;18..75 YEARS&quot;</code> with CDISC unit submission values, and Y/N for healthy subjects.</li>
+<li><strong>Planned sex.</strong> &quot;Both&quot; is written as <code>&quot;Female, Male&quot;</code> (post-process v2, fixes rule DDF00188).</li>
+<li><strong>Level.</strong> Main population vs cohort is derived from the model's classification.</li>
+</ul>
+</details>
+<h4 id="4-7-7-eligibility-criteria"><span class="num">4.7.7</span><span class="htext">eligibility_criteria</span></h4>
+<p class="brief"><span class="brief-label">In brief</span> Transcribes every inclusion and exclusion criterion verbatim with its printed number, so the workbook matches the protocol's own list.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<ul>
+<li><strong>Code.</strong> <code>agents/eligibility.py:EligibilityAgent</code>, the largest output budget (48000 tokens).</li>
+<li><strong>Output.</strong> <code>EligibilityOut.criteria[]</code>: <code>category</code> (CT <code>EligibilityCriterion.category</code>), <code>identifier</code> as printed (&quot;3&quot;, &quot;16b&quot;, &quot;E2&quot;, or null), a short <code>label</code>, and <code>text</code> (complete verbatim text; the quote is its first sentence or first 25 words).</li>
+<li><strong>After the call.</strong> Names are generated per category (<code>criterion_name</code>, e.g. IN01, EX23).</li>
+<li><strong>Dialects.</strong> Records can be written as the legacy one-sheet layout (used) or the split v4 sheets.</li>
+</ul>
+</details>
+<h4 id="4-7-8-objectives-endpoints"><span class="num">4.7.8</span><span class="htext">objectives_endpoints</span></h4>
+<p class="brief"><span class="brief-label">In brief</span> Lists objectives (primary, secondary, exploratory) and, under each, its endpoints with level and purpose.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<ul>
+<li><strong>Code.</strong> <code>agents/objectives_endpoints.py:ObjectivesEndpointsAgent</code>.</li>
+<li><strong>Output.</strong> <code>ObjectivesOut.objectives[]</code>: <code>text</code>, <code>level</code> (CT <code>Objective.level</code>), and <code>endpoints[]</code> (<code>text</code>, <code>level</code> CT <code>Endpoint.level</code>, <code>purpose</code>).</li>
+<li><strong>Rows.</strong> One workbook row per endpoint; objective columns are filled on the first row only (two-level sheet).</li>
+<li><strong>Names and labels.</strong> Names <code>OBJn</code> / <code>ENDn</code> are derived; labels are <code>judged</code> (≤ 0.8 confidence).</li>
+<li><strong>Rules to watch.</strong> Usdm4 rules DDF00084 (exactly one primary objective) and DDF00041 (at least one primary endpoint) are marked &quot;fix in review&quot;.</li>
+</ul>
+</details>
+<h4 id="4-7-9-estimands"><span class="num">4.7.9</span><span class="htext">estimands</span></h4>
+<p class="brief"><span class="brief-label">In brief</span> Reads estimands, when the protocol defines them: the population, treatment, endpoint (variable), summary measure and each intercurrent event with its handling strategy. Protocols without estimands produce an empty sheet.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<ul>
+<li><strong>Code.</strong> <code>agents/estimands.py:EstimandsAgent</code>.</li>
+<li><strong>Output.</strong> <code>EstimandsOut.estimands[]</code>: <code>population_description</code>, <code>population</code> phrase, <code>treatment</code> phrase, <code>endpoint</code> phrase, <code>summary_measure</code>, and <code>intercurrent_events[]</code> (<code>description</code>, <code>strategy</code>, verbatim <code>text</code>).</li>
+<li><strong>Names.</strong> <code>EST{i}</code> and <code>ICE{n}</code> are derived.</li>
+<li><strong>Linking.</strong> The population, treatment and endpoint phrases are <strong>linked at assembly</strong> to entity names from other sheets (<code>identifiers/linking.py:link_references</code>: best score ≥ 70 and ≥ 5 ahead of the runner-up). An unlinked phrase stays visible as a dangling reference, which blocks confirmation.</li>
+</ul>
+</details>
+<h4 id="4-7-10-interventions"><span class="num">4.7.10</span><span class="htext">interventions</span></h4>
+<p class="brief"><span class="brief-label">In brief</span> Lists study interventions (drugs, placebo, devices) with their role and type, and for each administration: route, dose, frequency and duration.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<ul>
+<li><strong>Code.</strong> <code>agents/interventions.py:InterventionsAgent</code>.</li>
+<li><strong>Output.</strong> <code>InterventionsOut.interventions[]</code>: <code>label</code>, <code>description</code>, <code>role</code> (CT <code>StudyIntervention.role</code>), <code>type</code> (CT <code>StudyIntervention.type</code>), and <code>administrations[]</code> (<code>label</code>, <code>description</code>, <code>route</code> CT <code>Administration.route</code>, <code>dose_value</code> + unit, <code>frequency</code> CT <code>Administration.frequency</code>, <code>duration_description</code>, <code>duration_value</code> + unit, <code>duration_will_vary_reason</code>).</li>
+<li><strong>Formatting.</strong> Code writes quantities with CDISC units (<code>&quot;125 mg&quot;</code>, <code>&quot;24 WEEKS&quot;</code>) and derives names.</li>
+<li><strong>Duration.</strong> <code>duration_will_vary</code> is judged.</li>
+<li><strong>Not extracted.</strong> <code>studyProducts</code> (administrable products, dose forms) and intervention codes.</li>
+</ul>
+</details>
+<h4 id="4-7-11-indications"><span class="num">4.7.11</span><span class="htext">indications</span></h4>
+<p class="brief"><span class="brief-label">In brief</span> Names the diseases or conditions studied, with a description and whether each is a rare disease.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<ul>
+<li><strong>Code.</strong> <code>agents/indications.py:IndicationsAgent</code>.</li>
+<li><strong>Output.</strong> <code>IndicationsOut.indications[]</code>: <code>label</code>, <code>description</code>.</li>
+<li><strong>After the call.</strong> <code>is_rare_disease</code> is judged; names <code>IND{n}</code> are derived.</li>
+<li><strong>No codes.</strong> No SNOMED CT, ICD-10 or MedDRA codes are assigned: no licensed dictionary is bundled and the model must not invent codes.</li>
+</ul>
+</details>
+<h4 id="4-7-12-amendments"><span class="num">4.7.12</span><span class="htext">amendments</span></h4>
+<p class="brief"><span class="brief-label">In brief</span> Reads the amendment history: each amendment's number, summary, reasons and date. Protocols without amendment history produce an empty sheet.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<ul>
+<li><strong>Code.</strong> <code>agents/amendments.py:AmendmentsAgent</code>.</li>
+<li><strong>Output.</strong> <code>AmendmentsOut.amendments[]</code>: <code>number</code> (digits), <code>summary</code>, primary and <code>secondary_reasons[]</code> (<code>term</code> CT <code>StudyAmendmentReason.code</code>), <code>date</code>.</li>
+<li><strong>Names.</strong> Name and label are derived from the number (<code>Amendment {n}</code>).</li>
+<li><strong>Geographic scope.</strong> Judged.</li>
+<li><strong>Date.</strong> Linked at assembly to a governance date on the study sheet.</li>
+<li><strong>Not extracted.</strong> <code>amendmentImpact</code> and <code>amendmentChanges</code>.</li>
+</ul>
+</details>
+<h4 id="4-7-13-abbreviations"><span class="num">4.7.13</span><span class="htext">abbreviations</span></h4>
+<p class="brief"><span class="brief-label">In brief</span> Copies the protocol's list of abbreviations and their expansions. Protocols without a list produce an empty sheet.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<ul>
+<li><strong>Code.</strong> <code>agents/abbreviations.py:AbbreviationsAgent</code>.</li>
+<li><strong>Output.</strong> <code>AbbreviationsOut.abbreviations[]</code>: abbreviation and <code>expansion</code>.</li>
+<li><strong>After the call.</strong> <code>abbreviated_text</code> is reformatted from the model's value. The evaluation reports this sheet as &quot;not in the reference (not scored)&quot;.</li>
+</ul>
+</details>
+<h4 id="4-7-14-schedule"><span class="num">4.7.14</span><span class="htext">schedule</span></h4>
+<p class="brief"><span class="brief-label">In brief</span> Reads the Schedule of Activities, the grid of visits (columns) and procedures (rows) with X marks. Because these tables are hard to parse, Claude sees the page images as well as the parsed table text. Code then builds everything USDM needs from what Claude read:</p>
+<ul>
+<li>epochs;</li>
+<li>one encounter per visit;</li>
+<li>timelines and timepoints;</li>
+<li>timings relative to an anchor visit;</li>
+<li>activities and marks.</li>
+</ul>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<ul>
+<li><strong>Code.</strong> <code>agents/schedule.py:ScheduleAgent</code>; builder <code>_Builder.build</code>.</li>
+<li><strong>Images.</strong> <code>images()</code> sends up to 12 page PNGs (<code>MAX_PAGE_IMAGES</code>) covering the page ranges of sections mapped to M11 1.3.</li>
+<li><strong>Output.</strong> <code>ScheduleOut</code>: <code>epochs[]</code> (key, label, <code>type</code> CT epoch type), <code>timelines[]</code> (key, label, <code>main</code>, description, <code>entry_condition</code>, <code>visits[]</code> with key, label, epoch key, <code>anchor</code>, <code>offset</code> {value, unit, direction}, <code>window</code> {before, after, unit}, <code>main_visit_key</code>), and <code>activities[]</code> (label, group, <code>visit_keys</code>, <code>marks_confidence</code>).</li>
+<li><strong>Built by code.</strong>
+<ul>
+<li><strong>Names.</strong> Unique per kind; timeline sheets are named <code>main-timeline</code>, <code>timeline-2</code>, and so on.</li>
+<li><strong>Encounters and timepoints.</strong> One encounter per main-timeline visit, one timepoint per column, and each timepoint's default next is the following column, or <code>(Exit)</code> after the last.</li>
+<li><strong>Timings.</strong> The anchor is a <code>Fixed Reference</code> with no window (post-process v3, fixes DDF00025). Other visits with a stated time are Before/After the anchor, start-to-start (<code>S2S</code>), with their windows.</li>
+<li><strong>Missing anchor.</strong> When the model marks no anchor, the first timepoint becomes the anchor and is flagged (DDF00009).</li>
+</ul>
+</li>
+<li><strong>Visible defaults.</strong> Encounter <code>environmental_settings = &quot;Clinic&quot;</code> and <code>contact_modes = &quot;In Person&quot;</code> are derived defaults with the note &quot;change it for telephone, remote or home visits&quot; (<code>_default_cell</code>), because the importer rejects empty values. The module docstring's statement that contact modes and settings are &quot;not invented&quot; predates these defaults.</li>
+<li><strong>Cost.</strong> About a quarter of extraction cost (README).</li>
+</ul>
+</details>
+<h4 id="4-7-15-assessments"><span class="num">4.7.15</span><span class="htext">assessments</span></h4>
+<p class="brief"><span class="brief-label">In brief</span> Reads the assessment chapter and laboratory appendix to learn what each scheduled procedure measures (&quot;vital signs&quot; → blood pressure, pulse). Code uses this to attach CDISC Biomedical Concepts to schedule rows. The model never names a concept itself.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<ul>
+<li><strong>Code.</strong> <code>agents/assessments.py:AssessmentsAgent</code>.</li>
+<li><strong>Output.</strong> <code>AssessmentsOut.assessments[]</code>: <code>name</code>, <code>measurements[]</code>.</li>
+<li><strong>Assembly</strong> (<code>identifiers/concepts.py:assign_biomedical_concepts</code>).
+<ul>
+<li><strong>Matching.</strong> Each schedule activity is matched by name to an assessment (the linking score with a stricter threshold). Each measurement is looked up in the usdm4 BC catalogue (about 1,500 concepts, <code>terminology/bc.py:BcResolver</code>), and only exact name or unique-synonym matches become concepts.</li>
+<li><strong>Unmatched measurements.</strong> Listed in a note for the reviewer.</li>
+<li><strong>No matching assessment.</strong> An activity whose own name is a concept (&quot;Weight&quot;) gets that concept.</li>
+</ul>
+</li>
+</ul>
+</details>
+<h3 id="4-8-human-review-layer"><span class="num">4.8</span><span class="htext">Human review layer</span></h3>
+<p class="brief"><span class="brief-label">In brief</span> The review page is where a person turns the AI draft into data they are willing to sign off. It shows each workbook sheet as a grid, with flagged cells highlighted. For any value it shows the quote, page and a highlighted crop of the original PDF page. Edits are saved as a numbered revision with an audit line recording the old and new value. <strong>Confirm</strong> is possible only when no blocking issue remains; editing after confirming reopens the review.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<p><strong>Working copy</strong> (<code>backend/pipeline/review/service.py:ReviewService</code>).</p>
+<ul>
+<li><strong>Creation.</strong> <code>open()</code> creates <code>reviewed.json</code> as a deep copy of <code>extraction.json</code>, assigning row ids per sheet prefix (<code>arm-3</code>; ids are never reused).</li>
+<li><strong>Operations</strong> (<code>backend/models/review.py</code>).
+<ul>
+<li><code>SetValue</code>: CT fields are re-resolved on the server; the reviewer can pick a C-code.</li>
+<li><code>AddRow</code>, <code>DeleteRow</code>, <code>MoveRow</code>.</li>
+<li><code>AcceptValue</code>: sets <code>reviewer_accepted</code> on a flagged value without changing it.</li>
+</ul>
+</li>
+<li><strong>Saving.</strong> <code>apply(base_revision, operations)</code> works on a copy and increments <code>revision</code> once per save. It appends one <code>AuditEntry</code> per change (actor <code>local-user</code>, action, cell, old, new) to <code>review_audit.jsonl</code>, and a save that changes nothing creates no revision.</li>
+<li><strong>Confirmation.</strong> <code>confirm</code> re-validates and refuses with <code>ReviewBlockedError</code> when blocking issues exist.</li>
+<li><strong>Restart.</strong> <code>restart</code> archives the old document to <code>review_archive/reviewed-r&lt;rev&gt;-&lt;ts&gt;.json</code> and starts again from the latest extraction.</li>
+<li><strong>Staleness.</strong> <code>state()</code> sets <code>stale</code> when <code>extraction.json</code> was regenerated after the review started. The review is <strong>not</strong> updated automatically; the reviewer chooses to restart.</li>
+</ul>
+<p><strong>Validation</strong> (<code>review/validation.py:validate_review</code>).</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Issue kinds</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blocking</td>
+<td><code>missing_required</code>, <code>terminology_not_exact</code>, <code>invalid_format</code>, <code>invalid_structure</code>, <code>duplicate_name</code>, <code>missing_name</code>, <code>dangling_reference</code></td>
+<td>empty required cell; CT phrase only fuzzy-matched; a date the importer can't parse; an estimand endpoint phrase that names no endpoint</td>
+</tr>
+<tr>
+<td>Warning</td>
+<td><code>low_confidence</code>, <code>unverified_source</code></td>
+<td>extracted value below <code>confidence_threshold</code> (0.7) or with an unverified quote, unless a reviewer accepted or edited it</td>
+</tr>
+</tbody>
+</table></div>
+<p>Each issue carries a workbook cell reference such as <code>studyDesignArms!D3</code> (<code>SheetSpec.cell</code>), so the UI can jump to it. Layouts (<code>workbook/layout.py:SHEETS</code>) drive the grid, the validation, the provenance keys and the writer, so what is reviewed is what is written (D18).</p>
+</details>
+<h3 id="4-9-usdm-mapping-layer"><span class="num">4.9</span><span class="htext">USDM mapping layer</span></h3>
+<p class="brief"><span class="brief-label">In brief</span> After confirmation, code (no AI) writes the reviewed data into an Excel workbook laid out exactly as the CDISC-community importer <code>usdm4-excel</code> expects. That importer then builds the USDM v4 JSON. The application never edits the JSON itself, so the output is exactly what the standard tooling makes of the reviewed workbook. Entity <em>names</em> are generated by this application; USDM <em>ids</em> are assigned by the importer.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<p><strong>Stage B: workbook</strong> <span class="tag rule">Code</span> (<code>backend/pipeline/workbook/stage.py:generate_workbook</code> → <code>writer.py:WorkbookWriter</code>).</p>
+<ul>
+<li><strong>Gate.</strong> The review is confirmed and live re-validation finds no blocking issue; otherwise <code>WorkbookNotReadyError</code> → <code>409</code> with reasons and up to 50 issues.</li>
+<li><strong>Dialect.</strong> The usdm4-excel <strong>legacy single-workbook</strong> dialect (D1, <code>docs/usdm_workbook_spec.md</code>):
+<ul>
+<li>ordinary sheets have headers on row 1;</li>
+<li><code>study</code> is a key/value block followed by the governance dates table;</li>
+<li><code>studyDesign</code> is a key/value block followed by the arm × epoch grid of element names;</li>
+<li>one sheet per timeline, with timepoint heading rows in column C and the activity table from row 10.</li>
+</ul>
+</li>
+<li><strong>Cell text</strong> (<code>writer.py:cell_text</code>).
+<ul>
+<li><strong>Controlled terms.</strong> Written as the resolution's <em>preferred term</em> (the importer matches preferred terms); multi-valued cells are comma-separated; &quot;Other=<reason>&quot; is kept.</li>
+<li><strong>Dates.</strong> Written as text <code>yyyy-mm-dd 00:00:00</code>.</li>
+<li><strong>XHTML columns.</strong> Escaped and wrapped in <code>&lt;p&gt;</code>.</li>
+</ul>
+</li>
+<li><strong>Reproducible output.</strong> Document properties and zip entry times are pinned to the confirmation time (<code>_pin_zip_times</code>), so identical content gives an identical sha256.</li>
+<li><strong>Reuse.</strong> A report for the same review revision with an unchanged file skips the write unless <code>force</code>.</li>
+</ul>
+<p><strong>Identifiers and references.</strong></p>
+<ul>
+<li><strong>Names.</strong> Generated by code (<code>identifiers/names.py</code>): readable, ≤ 60 characters, no commas or quotes, unique per kind via <code>NameRegistry</code>, stable across re-runs. The model never produces a name.</li>
+<li><strong>References.</strong> Cross-sheet references are by exact, case-sensitive name. <code>identifiers/references.py:validate_references</code> checks duplicates, missing names and dangling references from the <code>entity</code> and <code>ref</code> column specs.</li>
+<li><strong>USDM ids.</strong> Assigned by <code>usdm4-excel</code> during import. <code>FINDING_NOTES</code> explains DDF00083 as &quot;Identifiers are assigned by the importer, not by this pipeline&quot;. <span class="oq">Open question</span> the importer's id scheme (format and stability across imports) was not traced; the importer has no public source repository (D1).</li>
+</ul>
+<p><strong>Stage C: import</strong> <span class="tag rule">Code</span> (<code>usdm_gen/stage.py:generate_usdm</code>).</p>
+<ul>
+<li><strong>Reuse.</strong> When the stored report's <code>workbook_sha256</code> equals the current workbook and the JSON is unchanged, the stage is skipped unless <code>force</code>.</li>
+<li><strong>Import.</strong> <code>USDM4Excel().from_excel(xlsx)</code> returns a wrapper; <code>wrapper.to_json()</code> is written unmodified to <code>usdm/&lt;slug&gt;.json</code>.</li>
+<li><strong>Import issues.</strong> <code>excel.errors()</code> become <code>import_errors</code> and <code>import_warnings</code>, with sheet, row and column when the importer gives them.</li>
+<li><strong>Report details.</strong> <code>usdm_version</code> and <code>system</code> come from the JSON; <code>entities</code> counts every <code>instanceType</code>.</li>
+<li><strong>No USDM produced.</strong> The report is still written with <code>file = null</code>, and the stage fails.</li>
+<li><strong>Staleness.</strong> <code>GET …/usdm</code> adds <code>stale</code> reasons when the workbook sha or review revision changed after generation.</li>
+</ul>
+</details>
+<h3 id="4-10-validation-layer"><span class="num">4.10</span><span class="htext">Validation layer</span></h3>
+<p class="brief"><span class="brief-label">In brief</span> Validation happens at every step, not only at the end:</p>
+<ul>
+<li><strong>Quotes</strong> are checked against the parsed text as soon as a value is extracted.</li>
+<li><strong>Terminology</strong> must be an exact CDISC match before confirmation.</li>
+<li><strong>The reference graph</strong> between sheets must be clean.</li>
+<li><strong>The finished JSON</strong> is checked by the usdm4 rule library (213 rules), and by CDISC CORE when its cache is available.</li>
+</ul>
+<p>Known rule findings are labelled &quot;expected&quot; (a USDM area not extracted yet) or &quot;fix in review&quot; with the sheet to change.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Checkpoint</th>
+<th>What is checked</th>
+<th>Consequence</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Upload</td>
+<td><code>%PDF-</code> header, size, opens, not encrypted, pages &gt; 0</td>
+<td><code>422</code>, nothing stored</td>
+<td><code>StudyStore._stream_to</code>, <code>_validate_pdf</code></td>
+</tr>
+<tr>
+<td>Model output</td>
+<td>JSON matches the agent's Pydantic schema</td>
+<td>invalid → <code>LlmOutputError</code>, agent failed</td>
+<td><code>AnthropicLlm.extract</code></td>
+</tr>
+<tr>
+<td>Section mapping suggestions</td>
+<td>M11 numbers exist in the template</td>
+<td>invalid numbers dropped with a note</td>
+<td><code>suggest._valid</code></td>
+</tr>
+<tr>
+<td>Quotes</td>
+<td>exact, compact or guarded fuzzy match in the agent's sections</td>
+<td>unverified → confidence ≤ 0.3, warning</td>
+<td><code>context.locate_quote</code></td>
+</tr>
+<tr>
+<td>Terminology</td>
+<td>exact C-code, submission value, preferred term or CT synonym</td>
+<td>fuzzy/unresolved → no code, blocking</td>
+<td><code>CtResolver.resolve</code> (<code>FUZZY_THRESHOLD</code> 80)</td>
+</tr>
+<tr>
+<td>Biomedical Concepts</td>
+<td>exact name or unique synonym</td>
+<td>otherwise surrogate, warning with candidates</td>
+<td><code>BcResolver</code></td>
+</tr>
+<tr>
+<td>Reference graph</td>
+<td>unique names, no missing names, no dangling references</td>
+<td>blocking</td>
+<td><code>references.validate_references</code></td>
+</tr>
+<tr>
+<td>Importer formats and structure</td>
+<td>formats, fixed choices, two-level sheet structure</td>
+<td>blocking</td>
+<td><code>review/validation.py:_field_issues</code>, <code>_row_issues</code></td>
+</tr>
+<tr>
+<td>Workbook gate</td>
+<td>confirmed and no blocking issues</td>
+<td><code>409</code></td>
+<td><code>generate_workbook</code></td>
+</tr>
+<tr>
+<td>Import</td>
+<td>usdm4-excel errors and warnings</td>
+<td>listed on Results page</td>
+<td><code>_import_issues</code></td>
+</tr>
+<tr>
+<td>DDF rules</td>
+<td><code>USDM4().validate</code> (usdm4 rule library)</td>
+<td>findings with <code>kind</code> and <code>note</code></td>
+<td><code>usdm_gen/stage.py:_rules</code>, <code>FINDING_NOTES</code></td>
+</tr>
+<tr>
+<td>CDISC CORE</td>
+<td><code>USDM4().validate_core</code> when <code>core_cache_status().ready</code></td>
+<td>otherwise &quot;not run&quot; with the missing resources</td>
+<td><code>usdm_gen/stage.py:_core</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Rule findings.</strong> <code>FINDING_NOTES</code> classifies 22 rule ids: 9 expected, 13 fix in review.</p>
+<ul>
+<li><strong>Expected.</strong> For example DDF00172/00192/00201 (study roles not extracted), DDF00101 (procedures), DDF00153 (timeline duration), DDF00185 (administrable products), DDF00031 and DDF00083 (importer behaviour), DDF00236 (catalogue synonyms).</li>
+<li><strong>Fix in review.</strong> For example DDF00084 (exactly one primary objective), DDF00097 (planned age range needs both ends), DDF00177/00178 (dose, route, frequency).</li>
+<li><strong>Anything else.</strong> Shown as &quot;check&quot;.</li>
+<li><strong>Report cap.</strong> At most 2000 findings are stored; the counts stay exact.</li>
+<li><strong>Measured.</strong> D29 records CDISC Pilot at 14 findings (9 expected, 5 fix in review) and PALOMA-3 at 27 (21 expected, 6 fix in review), both with 0 import errors, after filling blocking cells with test values.</li>
+</ul>
+</details>
+<h3 id="4-11-persistence-layer"><span class="num">4.11</span><span class="htext">Persistence layer</span></h3>
+<p class="brief"><span class="brief-label">In brief</span> There is no database. Every study is a self-contained folder of files, and every run is a subfolder holding each stage's output as JSON (plus page images, the workbook and the USDM file). Files are written atomically so a reader never sees half a file. Cached results are recognised by content hashes, which is what makes re-runs free when nothing changed.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<p><strong>Layout</strong> (<code>backend/storage/studies.py</code> module docstring, README &quot;Where data lives&quot;). The root is <code>STUDIES_ROOT</code> (default <code>studies/</code> in the repo):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>File</th>
+<th>Written by</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;slug&gt;/study.json</code></td>
+<td><code>StudyStore.create_study</code>, <code>add_source</code></td>
+<td><code>StudyMeta</code>: name, sponsor, protocol id, <code>sources[]</code> with sha256 and page count</td>
+</tr>
+<tr>
+<td><code>&lt;slug&gt;/source/&lt;name&gt;.pdf</code></td>
+<td><code>add_source</code></td>
+<td>original PDF; duplicates by sha256 are ignored, name clashes become <code>name (2).pdf</code></td>
+</tr>
+<tr>
+<td><code>runs/&lt;YYYYMMDDTHHMMSSZ-xxxxxx&gt;/run_config.json</code></td>
+<td><code>create_run</code>, <code>_extract</code> (CT pin)</td>
+<td><code>RunConfig</code></td>
+</tr>
+<tr>
+<td><code>run_state.json</code></td>
+<td><code>StudyStore.update_run</code></td>
+<td><code>RunState</code>: status, stages, agents</td>
+</tr>
+<tr>
+<td><code>page_images/page-NNNN.png</code></td>
+<td>parser</td>
+<td>page renders</td>
+</tr>
+<tr>
+<td><code>parsed_document.json</code> · <code>parsed_document.raw.json</code></td>
+<td><code>ingest.parse</code>, <code>boundaries</code></td>
+<td><code>ParsedDocument</code> with and without reviewer start pages</td>
+</tr>
+<tr>
+<td><code>section_boundaries.json</code> · <code>section_overrides.json</code></td>
+<td>mapping routes</td>
+<td>reviewer corrections (survive re-parsing)</td>
+</tr>
+<tr>
+<td><code>section_suggestions.json</code></td>
+<td><code>suggest_mappings</code></td>
+<td>Claude mapping answers with <code>input_hash</code></td>
+</tr>
+<tr>
+<td><code>section_mapping.json</code> · <code>section_mapping_audit.jsonl</code></td>
+<td><code>ingest.segment</code>, <code>overrides.append_audit</code></td>
+<td><code>SectionMapping</code>; append-only mapping audit</td>
+</tr>
+<tr>
+<td><code>extraction/&lt;sheet&gt;.json</code></td>
+<td><code>_run_agent</code></td>
+<td><code>AgentOutput</code>: run record, raw <code>model_output</code>, records</td>
+</tr>
+<tr>
+<td><code>extraction.json</code> · <code>provenance.json</code> · <code>reference_validation.json</code></td>
+<td><code>assemble</code></td>
+<td>intermediate model and companions</td>
+</tr>
+<tr>
+<td><code>run.log</code></td>
+<td><code>extract._append_run_log</code>, <code>suggest._log</code></td>
+<td>one JSON line per model call: tokens, latency, cost, request id</td>
+</tr>
+<tr>
+<td><code>reviewed.json</code> · <code>review_audit.jsonl</code> · <code>review_archive/</code></td>
+<td><code>ReviewService</code></td>
+<td>review working copy, audit trail, discarded reviews</td>
+</tr>
+<tr>
+<td><code>workbook/&lt;slug&gt;.xlsx</code> · <code>workbook_report.json</code></td>
+<td><code>generate_workbook</code></td>
+<td>Stage B output</td>
+</tr>
+<tr>
+<td><code>usdm/&lt;slug&gt;.json</code> · <code>usdm_report.json</code></td>
+<td><code>generate_usdm</code></td>
+<td>Stage C output</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Write safety</strong> (<code>backend/storage/fs.py</code>).</p>
+<ul>
+<li><strong>Atomic writes.</strong> <code>atomic_write_text</code> writes a sibling temp file, <code>fsync</code>s and <code>os.replace</code>s it.</li>
+<li><strong>Windows.</strong> <code>_replace_with_retry</code> and <code>read_text_with_retry</code> retry about 2.5 s on Windows <code>PermissionError</code> while another handle has the file open.</li>
+<li><strong>Append-only files.</strong> JSONL audit files and <code>run.log</code> are appended, never rewritten.</li>
+<li><strong>Exception.</strong> <code>usdm/&lt;slug&gt;.json</code> is written with <code>Path.write_text</code>, not the atomic helper.</li>
+</ul>
+<p><strong>Concurrency control.</strong></p>
+<ul>
+<li><strong>Run and study metadata.</strong> One in-process <code>threading.Lock</code> per study serialises <code>study.json</code> and <code>run_state.json</code> read-modify-write (<code>StudyStore._locks</code>, <code>update_run</code>).</li>
+<li><strong>Review.</strong> One lock per run folder guards <code>reviewed.json</code> (<code>review/service.py:_locks</code>), plus optimistic revision checks against other tabs.</li>
+<li><strong>Scope.</strong> Locks are per process, so running two backend processes on the same <code>STUDIES_ROOT</code> is not protected.</li>
+</ul>
+<p><strong>Caching keys.</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Cache</th>
+<th>Key</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parse</td>
+<td>source sha256 + backend + backend version + DPI</td>
+<td><code>ingest._reusable</code></td>
+</tr>
+<tr>
+<td>Claude mapping</td>
+<td>per section <code>input_hash</code></td>
+<td><code>suggest.suggest_mappings</code></td>
+</tr>
+<tr>
+<td>Agent output</td>
+<td>per agent <code>input_hash</code>; <code>postprocess_version</code> + <code>VERIFICATION_VERSION</code> for free reprocessing</td>
+<td><code>extract._run_agent</code></td>
+</tr>
+<tr>
+<td>Workbook</td>
+<td>review revision + file sha256</td>
+<td><code>generate_workbook</code></td>
+</tr>
+<tr>
+<td>USDM</td>
+<td>workbook sha256 + JSON sha256</td>
+<td><code>generate_usdm</code></td>
+</tr>
+<tr>
+<td>CT resolver</td>
+<td>process-wide singleton</td>
+<td><code>terminology/ct.py:get_ct_resolver</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>The ER diagrams in section 5 show how these files relate.</p>
+<p><strong>Git.</strong> <code>.gitignore</code> excludes <code>studies/</code>, yet the repository tracks two sample study folders (<code>studies/cdisc-pilot</code>, <code>studies/paloma-3</code>, 279 files, added in commit <code>49d22d6</code> before the ignore rule in <code>11996ea</code>). Real studies should stay out of version control.</p>
+</details>
+<h3 id="4-12-evaluation-harness"><span class="num">4.12</span><span class="htext">Evaluation harness</span></h3>
+<p class="brief"><span class="brief-label">In brief</span> A command-line tool runs the whole extraction on the CDISC Pilot protocol without human review. It scores the resulting workbook, field by field, against the CDISC Pilot reference workbook and saves a dated report. It measures how good the unreviewed draft is, and tracks that over time.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<ul>
+<li><strong>Entry point.</strong> <code>goldstandard/eval.py</code> → <code>backend/pipeline/evaluation/cli.py</code> (options <code>--run-dir</code>, <code>--workbook</code>, <code>--force</code>, <code>--results</code>).</li>
+<li><strong>Runner</strong> (<code>runner.py:run_stage_a</code>).
+<ul>
+<li><strong>Workspace.</strong> Parses and extracts in <code>goldstandard/runs/cdisc-pilot/</code> (gitignored). Claude mapping is applied as in a run, falling back to the title-based mapping on error.</li>
+<li><strong>Unreviewed workbook.</strong> <code>write_unreviewed_workbook</code> writes <code>workbook/unreviewed.xlsx</code>, the only place a workbook is written without a confirmed review.</li>
+<li><strong>No API key.</strong> <code>UnavailableLlm</code> stands in, so cached agents still score.</li>
+</ul>
+</li>
+<li><strong>Scoring</strong> (<code>reader.py:read_workbook</code>, <code>compare.py:evaluate</code>).
+<ul>
+<li><strong>Alignment.</strong> Rows are aligned by content before cells are compared (greedy, or order-preserving for epochs, encounters, timepoints and timings, with <code>MIN_ALIGNMENT</code> 0.45).</li>
+<li><strong>Tiers.</strong> Cells are scored by tier: code, reference, value, text (fuzzy ≥ 0.85) and identifier (reported, not in the headline).</li>
+<li><strong>Counting.</strong> Each item of a multi-valued cell counts as one field.</li>
+</ul>
+</li>
+<li><strong>Reports.</strong> <code>report.py:render_markdown</code> writes <code>goldstandard/results/&lt;UTC&gt;_&lt;commit&gt;[-dirty].json/.md</code>.</li>
+</ul>
+</details>
+<h2 id="5-data-model-and-usdm-field-mapping-reference"><span class="num">5</span><span class="htext">Data model and USDM field mapping reference</span></h2>
+<p class="brief"><span class="brief-label">In brief</span> A value passes through a fixed sequence of data shapes: PDF text → a parsed document of sections → agent output with quotes → records with provenance → the reviewed copy → workbook cells → USDM JSON. The table in this section tells a data manager, for each common protocol element, how it is extracted and where it lands in USDM.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<figure><div class="diagram"><pre class="mermaid">flowchart LR
+  pdf[&quot;Protocol PDF&lt;br/&gt;bytes + sha256&quot;] --&gt; rows[&quot;Rows and spans&lt;br/&gt;text, font size, bold, bbox&quot;]
+  rows --&gt; doc[&quot;ParsedDocument&lt;br/&gt;sections with PAGE markers,&lt;br/&gt;tables as cells + markdown&quot;]
+  doc --&gt; map[&quot;SectionMapping&lt;br/&gt;section → M11 number(s)&quot;]
+  map --&gt; ctx[&quot;Agent context&lt;br/&gt;section blocks for its M11 chapters&quot;]
+  ctx --&gt; cited[&quot;Model output&lt;br/&gt;Cited: value, quote,&lt;br/&gt;section_id, confidence&quot;]
+  cited --&gt; field[&quot;ExtractedField&lt;br/&gt;value + Provenance + Terminology&quot;]
+  field --&gt; review[&quot;ReviewDocument&lt;br/&gt;reviewed.json at revision n&quot;]
+  review --&gt; cell[&quot;Workbook cell&lt;br/&gt;preferred term or formatted text&quot;]
+  cell --&gt; usdm[&quot;USDM v4 JSON&lt;br/&gt;Study → StudyVersion → StudyDesign&quot;]
+</pre></div><figcaption><strong>Figure 9 — Data transformation.</strong> The shape of the data at each hand-off.</figcaption></figure>
+<p class="howto"><span class="howto-label">How to read it</span> each box names the Pydantic model or file format at that point (<code>backend/models/document.py</code>, <code>segmentation.py</code>, <code>agents/common.py:Cited</code>, <code>extraction.py:ExtractedField</code>, <code>review.py:ReviewDocument</code>). The step from <code>Cited</code> to <code>ExtractedField</code> is where quote verification and terminology resolution happen. The step from cell to USDM is performed by <code>usdm4-excel</code>.</p>
+<p><strong>One value, end to end</strong> (illustrative, invented values):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Shape of the value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Protocol text</td>
+<td>&quot;…participants of either sex aged 18 to 75 years…&quot; on page 31, section 5.1</td>
+</tr>
+<tr>
+<td>Model output (<code>Cited</code>)</td>
+<td><code>sex: [{value: &quot;Both&quot;, quote: &quot;participants of either sex&quot;, section_id: &quot;sec-5.1&quot;, confidence: 0.9}]</code></td>
+</tr>
+<tr>
+<td>Record (<code>ExtractedField</code>)</td>
+<td>value <code>&quot;Female, Male&quot;</code>; provenance <code>{origin: extracted, source_page: 31, verified: true, note: &quot;Both written as Female and Male&quot;}</code>; terminology resolved for <code>Female, Male</code></td>
+</tr>
+<tr>
+<td>Review</td>
+<td>accepted unchanged, or edited (<code>origin: human</code>, audit line with old and new)</td>
+</tr>
+<tr>
+<td>Workbook</td>
+<td><code>studyDesignPopulations</code>, column <code>plannedSexOfParticipants</code>: <code>Female, Male</code></td>
+</tr>
+<tr>
+<td>USDM</td>
+<td><code>StudyDesignPopulation.plannedSex</code>: two <code>Code</code> objects</td>
+</tr>
+</tbody>
+</table></div>
+<figure><div class="diagram"><pre class="mermaid">erDiagram
+  STUDY ||--o{ SOURCE_DOCUMENT : &quot;sources&quot;
+  STUDY ||--o{ RUN : &quot;runs folder&quot;
+  SOURCE_DOCUMENT ||--o{ RUN : &quot;source_filename&quot;
+  RUN ||--|| RUN_CONFIG : &quot;run_config.json&quot;
+  RUN ||--|| RUN_STATE : &quot;run_state.json&quot;
+  RUN_STATE ||--o{ AGENT_RUN : &quot;agents&quot;
+  RUN ||--o| PARSED_DOCUMENT : &quot;parsed_document.json&quot;
+  PARSED_DOCUMENT ||--|{ SECTION : &quot;sections&quot;
+  PARSED_DOCUMENT ||--o{ TABLE : &quot;tables&quot;
+  SECTION ||--o{ TABLE : &quot;table_ids&quot;
+  RUN ||--o| SECTION_MAPPING : &quot;section_mapping.json&quot;
+  SECTION_MAPPING ||--|{ SECTION_ASSIGNMENT : &quot;assignments&quot;
+  SECTION ||--|| SECTION_ASSIGNMENT : &quot;section_id&quot;
+  SECTION ||--o| SECTION_OVERRIDE : &quot;overrides&quot;
+  SECTION ||--o| MAPPING_SUGGESTION : &quot;suggestions&quot;
+  STUDY {
+    string slug PK
+    string name
+    string sponsor
+    string protocol_identifier
+  }
+  SOURCE_DOCUMENT {
+    string filename PK
+    string sha256
+    int page_count
+  }
+  RUN {
+    string run_id PK &quot;YYYYMMDDTHHMMSSZ-hex6&quot;
+  }
+  RUN_CONFIG {
+    string extraction_model
+    string mapping_assist
+    int concurrency_limit
+    float confidence_threshold
+    string ct_version
+  }
+  RUN_STATE {
+    string status
+    json stages
+  }
+  AGENT_RUN {
+    string sheet PK
+    string status
+    string input_hash
+    json usage
+  }
+  SECTION {
+    string id PK
+    string number
+    string title
+    string kind
+    string parent_id FK
+    int page_start
+    int page_end
+  }
+  TABLE {
+    string id PK
+    int page
+    float soa_score
+    bool needs_vision
+  }
+  SECTION_ASSIGNMENT {
+    string section_id FK
+    string m11_number
+    float confidence
+    string method
+    bool needs_review
+    bool reviewer_override
+  }
+  SECTION_OVERRIDE {
+    string section_id FK
+    string m11_number
+    bool excluded
+    string doc_title
+  }
+  MAPPING_SUGGESTION {
+    string section_id FK
+    string m11_number
+    float confidence
+    string input_hash
+  }
+</pre></div><figcaption><strong>Figure 10a — Stored entities, part 1: studies, runs, parsing and mapping.</strong></figcaption></figure>
+<figure><div class="diagram"><pre class="mermaid">erDiagram
+  RUN ||--o| EXTRACTION : &quot;extraction.json&quot;
+  EXTRACTION ||--|{ AGENT_OUTPUT : &quot;extraction folder&quot;
+  EXTRACTION ||--o{ EXTRACTED_FIELD : &quot;sheets&quot;
+  EXTRACTED_FIELD ||--o| PROVENANCE : &quot;provenance&quot;
+  EXTRACTED_FIELD ||--o| TERMINOLOGY_RESOLUTION : &quot;terminology&quot;
+  PROVENANCE }o--o| SECTION : &quot;source_section_id&quot;
+  RUN ||--o| REVIEW_DOCUMENT : &quot;reviewed.json&quot;
+  REVIEW_DOCUMENT ||--o{ AUDIT_ENTRY : &quot;review_audit.jsonl&quot;
+  REVIEW_DOCUMENT ||--o{ EXTRACTED_FIELD : &quot;edited copy&quot;
+  REVIEW_DOCUMENT ||--o| WORKBOOK_REPORT : &quot;review_revision&quot;
+  WORKBOOK_REPORT ||--o| USDM_REPORT : &quot;workbook_sha256&quot;
+  EXTRACTION {
+    string source_sha256
+    string ct_version
+    datetime generated_at
+  }
+  AGENT_OUTPUT {
+    json run
+    json model_output
+    json records
+  }
+  EXTRACTED_FIELD {
+    string value
+  }
+  PROVENANCE {
+    string origin
+    int source_page
+    string raw_phrase
+    float confidence
+    bool verified
+    bool reviewer_accepted
+  }
+  TERMINOLOGY_RESOLUTION {
+    string status
+    string codelist
+    string code
+    string preferred_term
+  }
+  REVIEW_DOCUMENT {
+    string status
+    int revision
+    datetime base_extraction_generated_at
+    datetime confirmed_at
+  }
+  AUDIT_ENTRY {
+    datetime ts
+    string actor
+    string action
+    string cell
+  }
+  WORKBOOK_REPORT {
+    string sha256
+    int review_revision
+    string ct_version
+  }
+  USDM_REPORT {
+    string sha256
+    string workbook_sha256
+    json rules
+    json core
+  }
+</pre></div><figcaption><strong>Figure 10b — Stored entities, part 2: extraction, review and outputs.</strong></figcaption></figure>
+<p class="howto"><span class="howto-label">How to read them</span> these are <strong>files and JSON objects, not database tables</strong>. Each entity is a Pydantic model; relationship labels name the file or field that holds the link. Crow's-foot notation: <code>||</code> exactly one, <code>o|</code> zero or one, <code>|{</code> one or more, <code>o{</code> zero or more. Keys marked PK are unique within their parent folder or list; FK fields hold another entity's id. <code>SECTION</code> in 10b is the entity from 10a.</p>
+<p><strong>Field mapping reference.</strong> How to read the columns:</p>
+<ul>
+<li><strong>Method.</strong> <span class="tag llm">LLM</span> means the value is read by Claude with a verified quote, <span class="tag rule">Code</span> means it is derived or reformatted by code, <span class="tag human">Human</span> means a reviewer must supply it.</li>
+<li><strong>Workbook column.</strong> Where the value is written, from <code>backend/pipeline/workbook/layout.py</code>.</li>
+<li><strong>USDM target.</strong> The class and attribute in the <code>usdm4</code> model (<code>usdm4/api/*.py</code>). Attributes marked † are matched by name between workbook column and model; the importer's conversion code was not traced (<strong>OPEN QUESTION</strong>, see section 8).</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Protocol element</th>
+<th>Agent</th>
+<th>Method</th>
+<th>Workbook sheet · column</th>
+<th>USDM target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Official, brief, public, scientific title</td>
+<td>study</td>
+<td><span class="tag llm">LLM</span></td>
+<td>study · officialTitle, briefTitle, publicTitle, scientificTitle</td>
+<td><code>StudyVersion.titles[]</code> → <code>StudyTitle.text</code> / <code>type</code> †</td>
+</tr>
+<tr>
+<td>Acronym</td>
+<td>study</td>
+<td><span class="tag llm">LLM</span></td>
+<td>study · studyAcronym</td>
+<td><code>StudyTitle</code> (acronym type) †</td>
+</tr>
+<tr>
+<td>Protocol version and status</td>
+<td>study</td>
+<td><span class="tag llm">LLM</span> CT</td>
+<td>study · protocolVersion, protocolStatus</td>
+<td><code>StudyDefinitionDocumentVersion.version</code> / <code>status</code> †</td>
+</tr>
+<tr>
+<td>Study rationale</td>
+<td>study</td>
+<td><span class="tag llm">LLM</span></td>
+<td>study · studyRationale</td>
+<td><code>StudyVersion.rationale</code></td>
+</tr>
+<tr>
+<td>Approval and amendment dates</td>
+<td>study</td>
+<td><span class="tag llm">LLM</span> CT + <span class="tag rule">Code</span> names</td>
+<td>study (dates table) · name, type, date</td>
+<td><code>GovernanceDate.type</code>, <code>dateValue</code></td>
+</tr>
+<tr>
+<td>Sponsor, registries and their identifiers</td>
+<td>identifiers</td>
+<td><span class="tag llm">LLM</span> CT; registries <span class="tag rule">Code</span>; sponsor scheme often <span class="tag human">Human</span></td>
+<td>studyOrganizations · identifierScheme, identifier, name, type, organisationAddress; studyIdentifiers · studyIdentifier, organization</td>
+<td><code>Organization.identifierScheme</code>, <code>identifier</code>, <code>type</code>, <code>legalAddress</code>; <code>StudyIdentifier.text</code>, <code>scopeId</code> †</td>
+</tr>
+<tr>
+<td>Study type, phase, blinding, model, intent, sub-types, characteristics</td>
+<td>study_design</td>
+<td><span class="tag llm">LLM</span> CT</td>
+<td>studyDesign · studyType, studyPhase, studyDesignBlindingScheme, interventionModel, trialIntentTypes, trialSubTypes, characteristics</td>
+<td><code>StudyDesign.studyType</code>, <code>studyPhase</code>, <code>characteristics</code>; <code>InterventionalStudyDesign.blindingSchema</code>, <code>intentTypes</code>, <code>subTypes</code>, <code>model</code> (interventionModel) †</td>
+</tr>
+<tr>
+<td>Design description and rationale</td>
+<td>study_design</td>
+<td><span class="tag llm">LLM</span></td>
+<td>studyDesign · studyDesignDescription, studyDesignRationale</td>
+<td><code>StudyDesign.description</code>, <code>rationale</code></td>
+</tr>
+<tr>
+<td>Arms</td>
+<td>study_design_arms</td>
+<td><span class="tag llm">LLM</span> CT + <span class="tag rule">Code</span> names</td>
+<td>studyDesignArms · name, description, label, type, dataOriginType, dataOriginDescription</td>
+<td><code>StudyArm.type</code>, <code>dataOriginType</code>, <code>dataOriginDescription</code></td>
+</tr>
+<tr>
+<td>Planned enrolment, age, sex, healthy volunteers</td>
+<td>populations</td>
+<td><span class="tag llm">LLM</span> + <span class="tag rule">Code</span> formats</td>
+<td>studyDesignPopulations · plannedAge, plannedSexOfParticipants, …</td>
+<td><code>StudyDesignPopulation.plannedAge</code> (Range), <code>plannedSex</code>, <code>plannedEnrollmentNumber</code>, <code>includesHealthySubjects</code> †</td>
+</tr>
+<tr>
+<td>Inclusion and exclusion criteria</td>
+<td>eligibility_criteria</td>
+<td><span class="tag llm">LLM</span> CT + <span class="tag rule">Code</span> names</td>
+<td>studyDesignEligibilityCriteria · category, identifier, name, text</td>
+<td><code>EligibilityCriterion.category</code>, <code>identifier</code>; text in <code>EligibilityCriterionItem</code> †</td>
+</tr>
+<tr>
+<td>Objectives and endpoints</td>
+<td>objectives_endpoints</td>
+<td><span class="tag llm">LLM</span> CT + <span class="tag rule">Code</span> names</td>
+<td>studyDesignOE · objectiveText, endpointText, endpointPurpose, endpointLevel, …</td>
+<td><code>Objective.text</code>, <code>level</code>, <code>endpoints[]</code>; <code>Endpoint.text</code>, <code>purpose</code>, <code>level</code></td>
+</tr>
+<tr>
+<td>Estimands and intercurrent events</td>
+<td>estimands</td>
+<td><span class="tag llm">LLM</span> + <span class="tag rule">Code</span> linking</td>
+<td>studyDesignEstimands · xref, summaryMeasure, endpointXref, intercurrentEvent*</td>
+<td><code>Estimand.populationSummary</code>, <code>variableOfInterestId</code>, <code>intercurrentEvents[]</code> (<code>IntercurrentEvent.strategy</code>) †</td>
+</tr>
+<tr>
+<td>Interventions, route, dose, frequency, duration</td>
+<td>interventions</td>
+<td><span class="tag llm">LLM</span> CT + <span class="tag rule">Code</span> quantities</td>
+<td>studyInterventions · name, role, type, administrationRoute, administrationFrequency, …</td>
+<td><code>StudyIntervention.role</code>, <code>type</code>, <code>administrations[]</code>; <code>Administration.route</code>, <code>dose</code> (Quantity), <code>frequency</code>, <code>duration</code></td>
+</tr>
+<tr>
+<td>Indications</td>
+<td>indications</td>
+<td><span class="tag llm">LLM</span>; rare disease judged</td>
+<td>studyDesignIndications · name, description, isRareDisease</td>
+<td><code>Indication.isRareDisease</code>; <code>codes</code> left empty</td>
+</tr>
+<tr>
+<td>Amendments</td>
+<td>amendments</td>
+<td><span class="tag llm">LLM</span> CT + <span class="tag rule">Code</span> date link</td>
+<td>studyAmendments · number, summary, date, geographicScope, enrollment</td>
+<td><code>StudyAmendment.number</code>, <code>summary</code>, <code>primaryReason</code>, <code>geographicScopes</code> †</td>
+</tr>
+<tr>
+<td>Abbreviations</td>
+<td>abbreviations</td>
+<td><span class="tag llm">LLM</span></td>
+<td>abbreviations · abbreviatedText, expandedText</td>
+<td><code>Abbreviation.abbreviatedText</code>, <code>expandedText</code></td>
+</tr>
+<tr>
+<td>Study periods</td>
+<td>schedule</td>
+<td><span class="tag llm">LLM</span> CT</td>
+<td>studyDesignEpochs · name, label, type</td>
+<td><code>StudyEpoch.type</code></td>
+</tr>
+<tr>
+<td>Visits</td>
+<td>schedule</td>
+<td><span class="tag llm">LLM</span> + <span class="tag rule">Code</span> defaults</td>
+<td>studyDesignEncounters · name, label, type, contactModes, window</td>
+<td><code>Encounter.type</code>, <code>contactModes</code>, <code>environmentalSettings</code></td>
+</tr>
+<tr>
+<td>Visit timing and windows</td>
+<td>schedule</td>
+<td><span class="tag llm">LLM</span> offsets + <span class="tag rule">Code</span> anchor, S2S</td>
+<td>studyDesignTiming · type, from, to, timingValue, toFrom, window</td>
+<td><code>Timing.type</code>, <code>value</code>, <code>relativeToFrom</code>, <code>relativeFromScheduledInstanceId</code>, <code>windowLower</code>/<code>windowUpper</code> †</td>
+</tr>
+<tr>
+<td>Timeline, columns, marks</td>
+<td>schedule</td>
+<td><span class="tag llm">LLM</span> marks + <span class="tag rule">Code</span> structure</td>
+<td>timeline sheets · timepoint rows, activity rows, X marks</td>
+<td><code>ScheduleTimeline</code>, <code>ScheduledActivityInstance.activityIds</code>, <code>encounterId</code>, <code>epochId</code> †</td>
+</tr>
+<tr>
+<td>Activities</td>
+<td>schedule</td>
+<td><span class="tag llm">LLM</span></td>
+<td>studyDesignActivities · name, label</td>
+<td><code>Activity</code></td>
+</tr>
+<tr>
+<td>Biomedical Concepts per activity</td>
+<td>assessments + assembly</td>
+<td><span class="tag llm">LLM</span> measurements + <span class="tag rule">Code</span> exact catalogue match</td>
+<td>timeline sheet · BC/Procedure column</td>
+<td><code>Activity.biomedicalConceptIds</code> / <code>bcSurrogateIds</code> †</td>
+</tr>
+<tr>
+<td>Elements and arm × epoch cells</td>
+<td>assembly</td>
+<td><span class="tag rule">Code</span> documented default</td>
+<td>studyDesignElements; studyDesign grid</td>
+<td><code>StudyElement</code>, <code>StudyCell.armId</code>, <code>epochId</code>, <code>elementIds</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Not produced</strong> (D17, <code>FINDING_NOTES</code>): <code>studyProducts</code> / <code>AdministrableProduct</code>, study roles, sites, procedures, timeline planned duration, amendment impacts and changes, indication and intervention codes, therapeutic areas, narrative content.</p>
+</details>
+<h2 id="6-error-handling-retries-and-failure-modes"><span class="num">6</span><span class="htext">Error handling, retries and failure modes</span></h2>
+<p class="brief"><span class="brief-label">In brief</span> Failures are recorded where they happen and shown on the run page; nothing fails silently.</p>
+<ul>
+<li><strong>Claude API errors.</strong> Retried by the Anthropic SDK up to six times; after that the affected agent is marked failed and its data is left out of the draft.</li>
+<li><strong>Section mapping failures.</strong> A failure in Claude's section mapping never stops parsing; the title-based mapping is used instead.</li>
+<li><strong>Server stops.</strong> A server stop marks the running job as failed.</li>
+<li><strong>Recovery.</strong> Most failures are fixed by clicking the resume button, which re-does only what is missing or changed.</li>
+</ul>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<p><strong>Retries.</strong></p>
+<ul>
+<li><strong>LLM transport.</strong> <code>anthropic.AsyncAnthropic(max_retries=MAX_RETRIES)</code> with <code>MAX_RETRIES = 6</code> (<code>llm.py</code>). The SDK retries connection errors, 408, 409, 429 and 5xx with exponential backoff.</li>
+<li><strong>Timeouts.</strong> No explicit timeout is configured, so SDK defaults apply; calls stream to avoid HTTP timeouts on long outputs.</li>
+<li><strong>Model output problems.</strong> Refusal (<code>stop_reason == &quot;refusal&quot;</code>), truncation (<code>max_tokens</code>) and missing parsed output are not retried; they raise <code>LlmOutputError</code> with usage.</li>
+<li><strong>File replace on Windows.</strong> Nine backoff attempts (<code>fs._REPLACE_DELAYS</code>).</li>
+<li><strong>Application level.</strong> There is no automatic retry of a failed agent, stage or run.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Failure</th>
+<th>Where handled</th>
+<th>Visible effect</th>
+<th>Recovery</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invalid upload</td>
+<td><code>StudyStore.add_source</code></td>
+<td><code>422</code> with reason</td>
+<td>upload a valid PDF</td>
+</tr>
+<tr>
+<td>Parse exception</td>
+<td><code>JobRunner._ingest</code> → <code>_fail</code></td>
+<td>run <code>failed</code>, <code>ingest</code> stage error <code>Type: message</code></td>
+<td>fix input, <strong>Re-run</strong> (<code>POST ingest</code>)</td>
+</tr>
+<tr>
+<td>No numbered headings or no SoA table</td>
+<td><code>PyMuPdfExtractor.extract</code></td>
+<td><code>parsed_document.warnings</code></td>
+<td>map sections manually; move start pages</td>
+</tr>
+<tr>
+<td>No API key during parsing</td>
+<td><code>JobRunner._assist</code></td>
+<td>segment note &quot;title-based mapping only: ANTHROPIC_API_KEY is not configured&quot;</td>
+<td>add key, re-run ingestion</td>
+</tr>
+<tr>
+<td>Claude mapping error (any batch)</td>
+<td><code>_assist</code> catches all exceptions</td>
+<td>note &quot;Claude mapping failed (ExceptionType)&quot;; results of other batches are not saved</td>
+<td>re-run ingestion or <strong>Re-run Claude mapping</strong></td>
+</tr>
+<tr>
+<td>Claude re-mapping from the UI fails</td>
+<td><code>create_mapping_suggestions</code></td>
+<td>uncaught SDK errors propagate as <code>500</code>; <code>SuggestionError</code> → <code>422</code></td>
+<td>retry</td>
+</tr>
+<tr>
+<td>Agent has no mapped sections</td>
+<td><code>_run_agent</code></td>
+<td>agent <code>failed</code> &quot;no protocol sections relevant to this sheet&quot; (or empty sheet when allowed)</td>
+<td>map sections, resume</td>
+</tr>
+<tr>
+<td>Agent API or output error</td>
+<td><code>_run_agent</code></td>
+<td>agent <code>failed</code> with <code>Type: message</code>; usage still logged; stage <code>failed</code>; run still <code>awaiting_review</code> if other sheets produced</td>
+<td>resume extraction</td>
+</tr>
+<tr>
+<td>CT version changed</td>
+<td><code>_extract</code></td>
+<td>run <code>failed</code>: &quot;run is pinned to CDISC CT …&quot;</td>
+<td>start a new run</td>
+</tr>
+<tr>
+<td>Mapping edit while job active</td>
+<td><code>runs._remap</code></td>
+<td><code>409</code></td>
+<td>wait</td>
+</tr>
+<tr>
+<td>Review revision conflict</td>
+<td><code>ReviewService.apply/confirm/restart</code></td>
+<td><code>409</code> with <code>current_revision</code>; UI reloads and keeps queued edits</td>
+<td>save again</td>
+</tr>
+<tr>
+<td>Blocking review issues</td>
+<td><code>confirm</code>, <code>generate_workbook</code></td>
+<td><code>422</code> / <code>409</code> with issue list</td>
+<td>fix cells</td>
+</tr>
+<tr>
+<td>Import produced no USDM</td>
+<td><code>generate_usdm</code></td>
+<td>stage <code>failed</code>, report with <code>file: null</code> and import errors</td>
+<td>fix workbook values in review</td>
+</tr>
+<tr>
+<td>CORE unavailable or failing</td>
+<td><code>_core</code></td>
+<td>&quot;CORE not run&quot; with reason; rule results kept</td>
+<td>build the CORE cache (needs CDISC Library access)</td>
+</tr>
+<tr>
+<td>Server stopped mid-stage</td>
+<td><code>StudyStore.mark_interrupted_runs</code> at startup</td>
+<td>run <code>failed</code>, stage error &quot;interrupted: the server stopped while this stage ran&quot;</td>
+<td>resume</td>
+</tr>
+<tr>
+<td>Corrupt <code>study.json</code> or <code>run_state.json</code></td>
+<td><code>list_studies</code>, <code>list_runs</code></td>
+<td>skipped with a warning log; other studies still listed</td>
+<td>repair the file</td>
+</tr>
+<tr>
+<td>Obsolete reviewer override or boundary after re-parse</td>
+<td><code>map_sections</code>, <code>apply_boundaries</code></td>
+<td>listed in <code>ignored_overrides</code> / document warnings</td>
+<td>redo the correction</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Observability.</strong></p>
+<ul>
+<li><strong>Server logs.</strong> JSON lines on stdout (<code>logging_setup.JsonFormatter</code>) with <code>extra</code> fields as top-level keys; uvicorn loggers are routed through it.</li>
+<li><strong>Secret redaction.</strong> <code>Redactor</code> replaces configured secret values (≥ 8 characters) and anything shaped like <code>sk-ant-…</code> in every record.</li>
+<li><strong>Per-run records.</strong> <code>run.log</code> holds cost and latency per model call, including Anthropic <code>request_id</code>. <code>run_state.json</code> holds stage details and errors, and agent warnings are shown in the Extraction tab.</li>
+<li><strong>Not present.</strong> Metrics, tracing and alerting.</li>
+</ul>
+</details>
+<h2 id="7-configuration-environment-and-deployment"><span class="num">7</span><span class="htext">Configuration, environment and deployment</span></h2>
+<p class="brief"><span class="brief-label">In brief</span> Setup is two terminals on one computer: the Python backend and the Vite frontend. The only required secret is an Anthropic API key in a <code>.env</code> file that is never committed. Per-run behaviour (model, concurrency, confidence threshold, whether Claude maps sections) is stored in each run's <code>run_config.json</code>. There is no login and no production deployment setup.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<p><strong>Environment</strong> (<code>backend/config.py:Settings</code>, loaded from the environment and the repo-root <code>.env</code>).</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ANTHROPIC_API_KEY</code></td>
+<td>none</td>
+<td>enables Claude mapping and extraction; without it parsing still works with title-based mapping, and extraction returns <code>422</code></td>
+</tr>
+<tr>
+<td><code>CDISC_API_KEY</code></td>
+<td>none</td>
+<td>optional; passed to <code>validate_core</code> when the CORE cache exists</td>
+</tr>
+<tr>
+<td><code>STUDIES_ROOT</code></td>
+<td><code>&lt;repo&gt;/studies</code></td>
+<td>data root; relative paths resolve against the repo</td>
+</tr>
+<tr>
+<td><code>MAX_UPLOAD_MB</code></td>
+<td>200</td>
+<td>upload limit</td>
+</tr>
+<tr>
+<td><code>LOG_LEVEL</code></td>
+<td><code>INFO</code></td>
+<td>root log level</td>
+</tr>
+<tr>
+<td><code>API_TARGET</code> (frontend)</td>
+<td><code>http://127.0.0.1:8000</code></td>
+<td>Vite proxy target (<code>frontend/vite.config.ts</code>)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Per-run configuration</strong> (<code>backend/models/run_config.py:RunConfig</code>, written at run creation).</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Used by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pdf_backend</code></td>
+<td><code>pymupdf</code></td>
+<td><code>extractors/registry.get_extractor</code></td>
+</tr>
+<tr>
+<td><code>page_image_dpi</code></td>
+<td>150 (50–300)</td>
+<td>page renders, parse cache key</td>
+</tr>
+<tr>
+<td><code>segmentation_review_threshold</code></td>
+<td>0.70</td>
+<td>mapping review flags</td>
+</tr>
+<tr>
+<td><code>mapping_assist</code></td>
+<td><code>all</code> (<code>flagged</code>, <code>off</code>)</td>
+<td>Claude mapping scope</td>
+</tr>
+<tr>
+<td><code>extraction_model</code></td>
+<td><code>claude-sonnet-5</code></td>
+<td>agents and section mapper</td>
+</tr>
+<tr>
+<td><code>extraction_effort</code></td>
+<td>none (model default)</td>
+<td><code>output_config.effort</code></td>
+</tr>
+<tr>
+<td><code>concurrency_limit</code></td>
+<td>5 (1–32)</td>
+<td>extraction semaphore</td>
+</tr>
+<tr>
+<td><code>confidence_threshold</code></td>
+<td>0.7</td>
+<td>provenance and review warnings</td>
+</tr>
+<tr>
+<td><code>ct_version</code></td>
+<td>pinned at first extraction</td>
+<td>CT consistency check</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>POST /runs</code> accepts only <code>source_filename</code>, <code>pdf_backend</code> and <code>page_image_dpi</code>. The other fields have no UI or API setter; they are changed by editing <code>run_config.json</code> in the run folder. The model price table (<code>llm.py:PRICING</code>) covers <code>claude-fable-5-1</code>, <code>claude-opus-5</code>, <code>claude-sonnet-5</code> and <code>claude-haiku-4-5</code>; other models are logged with cost 0.</p>
+<p><strong>Running</strong> (README &quot;Setting up on a new machine&quot;).</p>
+<div class="code-wrap"><pre class="code" data-lang="bash"><code>uv sync                                   # Python 3.12 (pinned: usdm4 needs &gt;=3.12,&lt;3.13)
+cd frontend &amp;&amp; pnpm install &amp;&amp; cd ..
+cp .env.example .env                      # add ANTHROPIC_API_KEY
+uv run uvicorn backend.main:create_app --factory --reload --port 8000
+cd frontend &amp;&amp; pnpm dev                   # http://localhost:5173
+</code></pre></div>
+<p><strong>Checks.</strong> <code>uv run pytest</code> (24 test modules; model calls use <code>FakeLlm</code>, so tests need no network), <code>uv run ruff check</code>, <code>uv run mypy</code> (strict), <code>pnpm build</code> (strict TypeScript).</p>
+<p><strong>Authentication and access.</strong> None. <code>LOCAL_ACTOR = &quot;local-user&quot;</code> is written to every audit line. CORS admits only the Vite dev origins, but CORS does not restrict non-browser clients; access control relies on the server listening on the loopback interface. Uvicorn binds 127.0.0.1 by default and the README command does not change that.</p>
+<p><strong>Deployment.</strong></p>
+<ul>
+<li><strong>No production path.</strong> The FastAPI app does not serve the built frontend (no <code>StaticFiles</code> mount in <code>backend/main.py</code>), and there is no Dockerfile or process manager configuration. The only documented way to run the UI is the Vite dev server with its <code>/api</code> proxy.</li>
+<li><strong>Backend on another port.</strong> The proxy target is fixed at <code>127.0.0.1:8000</code> unless <code>API_TARGET</code> is set, so a backend started on a different port leaves the page unable to load data.</li>
+</ul>
+<p><strong>Data leaving the machine.</strong></p>
+<ul>
+<li><strong>Anthropic API.</strong> Protocol section text sent to agents; page images of schedule pages; section titles and the first 700 characters of each section for mapping.</li>
+<li><strong>CDISC Library API.</strong> Contacted only if a CORE cache is being built or <code>validate_core</code> needs it.</li>
+<li><strong>Other clouds.</strong> No cloud PDF services are used (D4).</li>
+</ul>
+</details>
+<h2 id="8-known-limitations-and-open-questions"><span class="num">8</span><span class="htext">Known limitations and open questions</span></h2>
+<p class="brief"><span class="brief-label">In brief</span> The unreviewed draft is incomplete by design and several USDM areas are not extracted at all, so human review is essential. The tool is local, single-user and not validated for regulated use. A few behaviours could not be confirmed from the code and are listed as open questions.</p>
+<details class="detail">
+<summary><span class="sum-label">In detail</span><span class="sum-hint">files, functions, logic and edge cases</span></summary>
+<p><strong>Limitations (confirmed in code or decisions).</strong></p>
+<ol>
+<li><strong>Accuracy.</strong> Unreviewed accuracy on the CDISC Pilot is F1 53.3% (precision 64.7%, recall 45.3%). Recall including reference content outside the pipeline's scope is 18.6%. The measurement predates Claude and reviewer mapping.</li>
+<li><strong>Scanned PDFs.</strong> No OCR; image-only protocols produce no text.</li>
+<li><strong>One PDF backend.</strong> Only PyMuPDF is registered; Docling (D4) is not implemented.</li>
+<li><strong>Not extracted.</strong> Administrable products, roles, sites, procedures, timeline durations, amendment impacts and changes, narrative content, coded indications and interventions.</li>
+<li><strong>Generated defaults to check.</strong> Elements and arm × epoch cells are a documented default (D24); encounter setting and contact mode default to Clinic / In Person; a schedule without a marked anchor uses the first timepoint.</li>
+<li><strong>Single process.</strong> In-process locks only; two backend processes on one data root are unsafe. The job pool has two workers for the whole app.</li>
+<li><strong>No auth, no GxP validation.</strong> One implicit user; no e-signature on confirm.</li>
+<li><strong>Polling only.</strong> Progress updates arrive within 1 s while active and within 10 s when idle; long synchronous calls (Claude re-mapping, about 50 s for 146 sections) block that browser request.</li>
+<li><strong>Run settings not editable in the UI.</strong> The model, concurrency, thresholds and mapping scope are set by editing <code>run_config.json</code>.</li>
+<li><strong>Stale text in the code.</strong>
+<ul>
+<li><code>ReviewPage.tsx</code> confirm dialog (&quot;arrive in later phases&quot;).</li>
+<li><code>suggest.py</code> docstring and <code>SYSTEM</code> prompt (describe accept/reject suggestions).</li>
+<li><code>schedule.py</code> docstring (&quot;not invented&quot; versus the Clinic / In Person defaults).</li>
+<li>D8 (&quot;no LLM&quot;).</li>
+</ul>
+</li>
+<li><strong>Unused dependencies.</strong> <code>tenacity</code>, <code>httpx</code>.</li>
+<li><strong>Sample data in git.</strong> <code>studies/cdisc-pilot</code> and <code>studies/paloma-3</code> are tracked although <code>studies/</code> is gitignored.</li>
+</ol>
+<p><strong>Open questions.</strong></p>
+<ol>
+<li><span class="oq">Open question</span> How does <code>usdm4-excel</code> map each workbook column to USDM attributes, and how does it generate ids? The mapping table marks inferred attributes with †; the importer ships without a public source repository (D1).</li>
+<li><span class="oq">Open question</span> What does a user see for a scanned PDF? Only the &quot;no numbered body sections detected&quot; warning was confirmed in code.</li>
+<li><span class="oq">Open question</span> When one Claude mapping batch fails, answers from the batches that succeeded in the same call are discarded (<code>suggest_mappings</code> writes only after <code>asyncio.gather</code> returns). Is that intended, or should partial results be stored?</li>
+<li><span class="oq">Open question</span> Review operations are accepted while an extraction job runs on the same run; the review would then become <code>stale</code> when extraction finishes. Should editing be blocked during extraction?</li>
+<li><span class="oq">Open question</span> <code>usdm/&lt;slug&gt;.json</code> is written non-atomically (<code>Path.write_text</code>) unlike other artefacts. Is that deliberate?</li>
+<li><span class="oq">Open question</span> What is the intended deployment beyond local development (serving <code>frontend/dist</code>, binding, authentication)? Nothing in the repository defines it.</li>
+</ol>
+</details>
+<h2 id="9-glossary"><span class="num">9</span><span class="htext">Glossary</span></h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning in this system</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>USDM</strong></td>
+<td>CDISC Unified Study Definitions Model: a standard, machine-readable representation of a study definition. Version 4 is the target here.</td>
+</tr>
+<tr>
+<td><strong>USDM workbook</strong></td>
+<td>An Excel file whose sheets describe a study in the layout <code>usdm4-excel</code> imports. This system writes the legacy single-workbook dialect.</td>
+</tr>
+<tr>
+<td><strong>usdm4 / usdm4-excel</strong></td>
+<td>Python packages: <code>usdm4</code> holds the USDM model, bundled CDISC terminology, the BC catalogue and the DDF rule library. <code>usdm4-excel</code> converts a workbook to USDM JSON.</td>
+</tr>
+<tr>
+<td><strong>ICH M11</strong></td>
+<td>The ICH harmonised clinical protocol template (CeSHarP). Its numbered sections (e.g. 1.3 Schedule of Activities, 5 Trial Population) are the common map every protocol is sorted onto.</td>
+</tr>
+<tr>
+<td><strong>Protocol section</strong></td>
+<td>A heading and its own text in the PDF, as parsed (<code>Section</code>, ids like <code>sec-5.3</code>, <code>fm-synopsis</code>, <code>app-…</code>).</td>
+</tr>
+<tr>
+<td><strong>Section mapping</strong></td>
+<td>The assignment of each protocol section to one or more M11 sections, with method, confidence and review flag.</td>
+</tr>
+<tr>
+<td><strong>SoA</strong></td>
+<td>Schedule of Activities: the grid of visits and procedures. Parsed tables scoring ≥ 0.5 are SoA candidates.</td>
+</tr>
+<tr>
+<td><strong>Epoch</strong></td>
+<td>A study period such as screening, treatment or follow-up (<code>StudyEpoch</code>).</td>
+</tr>
+<tr>
+<td><strong>Encounter</strong></td>
+<td>A planned visit or contact (<code>Encounter</code>).</td>
+</tr>
+<tr>
+<td><strong>Timeline, timepoint, timing</strong></td>
+<td>A schedule (<code>ScheduleTimeline</code>), one column in it (<code>ScheduledActivityInstance</code>), and the planned time of a timepoint relative to the anchor (<code>Timing</code>).</td>
+</tr>
+<tr>
+<td><strong>Anchor</strong></td>
+<td>The visit that other visit times are measured from (Fixed Reference timing), for example Day 1.</td>
+</tr>
+<tr>
+<td><strong>Arm, element, cell</strong></td>
+<td>A treatment group (<code>StudyArm</code>), a building block of what happens in an epoch (<code>StudyElement</code>), and the element(s) for one arm in one epoch (<code>StudyCell</code>).</td>
+</tr>
+<tr>
+<td><strong>Estimand, intercurrent event</strong></td>
+<td>The precise treatment effect to be estimated, and events after treatment start (e.g. discontinuation) that affect its interpretation, each with a handling strategy.</td>
+</tr>
+<tr>
+<td><strong>CDISC CT</strong></td>
+<td>CDISC Controlled Terminology: codelists of allowed terms, each with a C-code (e.g. <code>C15601</code>), submission value, preferred term and synonyms.</td>
+</tr>
+<tr>
+<td><strong>BC</strong></td>
+<td>Biomedical Concept: a CDISC definition of what is measured (e.g. systolic blood pressure). A <em>surrogate</em> is a name without a definition.</td>
+</tr>
+<tr>
+<td><strong>DDF rules</strong></td>
+<td>The USDM (Digital Data Flow) conformance rules, ids like <code>DDF00084</code>, run by <code>usdm4</code>.</td>
+</tr>
+<tr>
+<td><strong>CDISC CORE</strong></td>
+<td>CDISC's open rules engine; runs only when its cache has been built with CDISC Library access.</td>
+</tr>
+<tr>
+<td><strong>Agent</strong></td>
+<td>One extraction unit: a prompt, an output schema, the M11 sections it reads, and deterministic post-processing (<code>SheetAgent</code>).</td>
+</tr>
+<tr>
+<td><strong>Cited value</strong></td>
+<td>What the model returns per field: value, verbatim quote, section id, confidence.</td>
+</tr>
+<tr>
+<td><strong>Provenance</strong></td>
+<td>Where a value came from: origin, section, page, quote, confidence, verified flag, note, reviewer acceptance.</td>
+</tr>
+<tr>
+<td><strong>Verified</strong></td>
+<td>The quote was found in the protocol text by software; the page comes from that match.</td>
+</tr>
+<tr>
+<td><strong>Extracted / derived / human</strong></td>
+<td>Value origins (<code>ValueOrigin</code>): read by the model with a quote; generated by code; entered by a reviewer. A <em>judged</em> value is an extracted value the model chose rather than transcribed, capped at 0.8 confidence.</td>
+</tr>
+<tr>
+<td><strong>Blocking issue</strong></td>
+<td>A review problem that prevents confirmation: missing required value, non-exact terminology, invalid format or structure, reference problem.</td>
+</tr>
+<tr>
+<td><strong>Run</strong></td>
+<td>One processing of one source PDF with fixed settings, stored in its own timestamped folder.</td>
+</tr>
+<tr>
+<td><strong>Stage</strong></td>
+<td>A step recorded in <code>run_state.json</code>: <code>ingest</code>, <code>segment</code>, <code>extract</code>, <code>workbook</code>, <code>usdm</code>.</td>
+</tr>
+<tr>
+<td><strong>input_hash</strong></td>
+<td>SHA-256 over everything a model call would see; equal hashes mean the stored answer is reused.</td>
+</tr>
+<tr>
+<td><strong>Resume</strong></td>
+<td>Re-running a stage so that only changed or failed work is repeated.</td>
+</tr>
+<tr>
+<td><strong>Stage A / B / C</strong></td>
+<td>Extraction to the intermediate model; confirmed review to workbook; workbook to validated USDM JSON.</td>
+</tr>
+</tbody>
+</table></div>
+
+    </article>
+    <footer class="doc-foot">Generated from the code at commit fb50c70 on 2026-09-14. Source: docs/system-guide.md.</footer>
+  </main>
+</div>
+<script>
+(function () {
+  var details = function () { return Array.prototype.slice.call(document.querySelectorAll("details.detail")); };
+
+  function setAll(open) { details().forEach(function (d) { d.open = open; }); }
+
+  var expand = document.getElementById("expand-all");
+  var collapse = document.getElementById("collapse-all");
+  var printBtn = document.getElementById("print-doc");
+  if (expand) expand.addEventListener("click", function () { setAll(true); });
+  if (collapse) collapse.addEventListener("click", function () { setAll(false); });
+  if (printBtn) printBtn.addEventListener("click", function () { window.print(); });
+
+  // Print shows every "In detail" section, then restores what the reader had open.
+  var remembered = null;
+  window.addEventListener("beforeprint", function () {
+    remembered = details().map(function (d) { return d.open; });
+    setAll(true);
+  });
+  window.addEventListener("afterprint", function () {
+    if (!remembered) return;
+    details().forEach(function (d, i) { d.open = remembered[i]; });
+    remembered = null;
+  });
+
+  // Following a link into a collapsed section opens it.
+  function reveal(hash) {
+    if (!hash || hash.length < 2) return;
+    var target = document.getElementById(decodeURIComponent(hash.slice(1)));
+    if (!target) return;
+    var parent = target.closest("details.detail");
+    while (parent) { parent.open = true; parent = parent.parentElement && parent.parentElement.closest("details.detail"); }
+  }
+  window.addEventListener("hashchange", function () { reveal(location.hash); });
+  reveal(location.hash);
+
+  // Contents: open beside the text on wide screens, collapsible on narrow ones.
+  var toc = document.getElementById("toc");
+  var wide = window.matchMedia ? window.matchMedia("(min-width: 961px)") : null;
+  function syncToc() { if (toc && wide) toc.open = wide.matches; }
+  syncToc();
+  if (wide && wide.addEventListener) wide.addEventListener("change", syncToc);
+  if (toc) {
+    toc.addEventListener("click", function (event) {
+      var link = event.target.closest && event.target.closest("a");
+      if (link && wide && !wide.matches) toc.open = false;
+    });
+    toc.querySelector("summary").addEventListener("click", function (event) {
+      if (wide && wide.matches) event.preventDefault();
+    });
+  }
+
+  // Highlight the section being read.
+  var links = {};
+  Array.prototype.forEach.call(document.querySelectorAll(".toc a"), function (a) {
+    links[a.getAttribute("href").slice(1)] = a;
+  });
+  var headings = Array.prototype.slice.call(document.querySelectorAll(".doc h2[id], .doc h3[id]"));
+  if ("IntersectionObserver" in window && headings.length) {
+    var current = null;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var link = links[entry.target.id];
+        if (!link) return;
+        if (current) current.classList.remove("active");
+        link.classList.add("active");
+        current = link;
+      });
+    }, { rootMargin: "0px 0px -75% 0px" });
+    headings.forEach(function (h) { observer.observe(h); });
+  }
+})();
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+<script>
+(function () {
+  if (!window.mermaid) return;
+  var root = document.documentElement;
+  var dark = root.dataset.theme === "dark" ||
+    (root.dataset.theme !== "light" && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  window.mermaid.initialize({
+    startOnLoad: true,
+    securityLevel: "strict",
+    theme: dark ? "dark" : "neutral",
+    fontFamily: "'Instrument Sans', system-ui, sans-serif",
+    flowchart: { htmlLabels: true, curve: "basis" },
+    sequence: { mirrorActors: false }
+  });
+})();
+</script>
+</body>
+</html>
