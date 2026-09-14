@@ -33,3 +33,6 @@ Thumbs.db
 .idea/
 .vscode/*
 !.vscode/extensions.json
+
+# --- Evaluation workspace (Stage A run on the reference protocol; results/ is tracked) ---
+goldstandard/runs/

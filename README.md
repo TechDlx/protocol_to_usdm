@@ -27,7 +27,7 @@ The workbook format reference is [docs/usdm_workbook_spec.md](docs/usdm_workbook
 | 6 | SoA / timeline agent + SoA grid | done |
 | 7 | Workbook writer + reference validation (Stage B) | done |
 | 8 | USDM generation + validation + Results page (Stage C) | done |
-| 9 | Evaluation harness | next |
+| 9 | Evaluation harness | done |
 
 ---
 
@@ -232,6 +232,27 @@ the CDISC CORE status and entity counts, with downloads for the JSON, the valida
 workbook. CDISC CORE runs only when its cache has been built with CDISC Library access; otherwise
 the page says it was not run.
 
+**Evaluation (Phase 9):** `goldstandard/eval.py` runs Stage A on the CDISC Pilot protocol with
+review disabled, writes the workbook straight from the extraction, and compares it cell by cell
+with the CDISC Pilot reference workbook:
+
+```bash
+python -m uv run python goldstandard/eval.py                     # Stage A (resumable) + score
+python -m uv run python goldstandard/eval.py --run-dir studies/<study>/runs/<run-id>
+python -m uv run python goldstandard/eval.py --workbook some.xlsx # score any workbook as it is
+python -m uv run python goldstandard/eval.py --force             # re-run every agent (paid)
+```
+
+Rows are aligned by content first and entity names compared by what they point at, then each cell
+is scored by tier (C-codes, references, normalised values, fuzzy prose). The report gives
+field-level accuracy, precision and recall overall, per tier and per sheet, sample differences,
+and the reference content outside the pipeline's scope. Each run writes
+`goldstandard/results/<UTC time>_<commit>.json` and `.md` (tracked, so accuracy can be followed
+across commits; the Markdown shows the change since the previous result). The Stage A workspace is
+`goldstandard/runs/` (not committed). The first result, on the unreviewed Pilot extraction:
+accuracy 39.5%, precision 64.7%, recall 45.3% (docs/decisions.md D30–D32 explain the method and
+why the reference is not a perfect answer key).
+
 Extraction is resumable too: an agent whose inputs are unchanged is not sent to the model again.
 When only deterministic post-processing changed (quote verification, terminology, naming), records
 are rebuilt from the stored model output at no cost. Typical cost with `claude-sonnet-5`: about
@@ -267,10 +288,14 @@ backend/
     review/            review working copy, operations, audit trail, validation, source highlight
     workbook/          sheet layouts, cell formats, Stage B writer and gate
     usdm_gen/          Stage C: workbook import to USDM JSON, rule validation, CORE when available
+    evaluation/        reference comparison: workbook reader, alignment, tiered scoring, report
 frontend/              React + Vite + TypeScript
 docs/                  workbook spec + design decisions
 goldstandard/
   cdisc_pilot/         CDISC Pilot (LZZT) protocol PDF + reference workbook + reference USDM JSON
+  eval.py              evaluation harness entry point
+  results/             timestamped evaluation results (tracked)
+  runs/                evaluation Stage A workspace (gitignored)
   sample/              additional protocols for manual testing
 tests/                 unit/, integration/, fixtures/
 ```
